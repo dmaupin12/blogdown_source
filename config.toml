@@ -1,4 +1,4 @@
-baseurl = "https://cxobd-17.netlify.com/"
+baseurl = "https://cxobd-17-git.netlify.com/"
 relativeurls = true
 languageCode = "en-us"
 defaultContentLanguage = "en-us"
