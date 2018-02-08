@@ -1,0 +1,215 @@
+---
+title: Recent Transactions and Current Deals On The Market
+author: David Maupin
+date: '2018-01-31'
+slug: recent-transactions-and-current-deals-on-the-market
+categories:
+  - Mergers and Acquisitions
+  - Current Deals
+tags:
+  - Mergers and Acquisitions
+  - Current Deals
+description: "Mapping recent transactions and current deals on the market. Data sourced from PLS starting in 2017."
+---
+
+
+####**Data Sources and Methodology**
+
+* Data obtained from PLS and filtered to show relevant transactions and current deals on the market.
+* Select active deals or previous M&A activity in the map.
+* Table includes current deals.
+
+####**Select Highlights**
+
+* Recent transactions in the Delaware have clustered near the platform on the Eastern side.
+* In the Northern Delaware, Linn Energy and Caza Petroleum have acreage for sale.
+    + Caza's acreage is scattered throughout the Eastern side, while Linn has a large block located on the Shelf.
+* BHP marketing Southern Delaware acreage primarily located in Reeves County. Well results have been below the industry average.
+    + Majority of wells completed with Cross Link.
+* Fire sale in Culberson County; Three Rivers, Tall City, US Energy and Vermilion (Glasscock County as well) each have their acreage on the market.
+    + Poor well results from multiple operators have discouraged potential buyers.
+* Oxy has listed multiple packages for sale in the Midland Basin.
+    + In Northwest Reagan County, 5,130 net acres is listed for sale. They recently spud 8 wells nearby on the Hawker lease with results pending.
+    + Oxy is also selling 4,967 net acres located in Andrews County, directly offsetting Concho acreage.
+<br>
+<br>
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(fig.align = 'center',echo=F,warning=F,message=F,asis=F)
+```
+
+
+```{r}
+library(geojsonio)
+library(leaflet.extras)
+library(spatialEco)
+library( htmltools )
+library(rgdal)
+library(tidyverse)
+```
+
+
+```{r}
+shp <- geojson_read("Geojson.json",
+  what = "sp")
+
+lilis <- readOGR(".","Lil_One_01_31_18_MA_Shapefile_63589",verbose =F)
+
+lilis@data$NetAcre<-"2,798"
+
+deals_in_play<- readOGR(".","listingGeometryViewDEVPolygon",verbose = F)
+
+
+bhp<- readOGR(".","BHP",verbose = F)
+cxo_leases<- readOGR(".","cxo_leases_2018-01-22",verbose = F)
+
+net_acres<- openxlsx::read.xlsx("Net_Acres.xlsx",sheet=1)
+net_acres<- net_acres%>%select(id,Net.Acres)
+```
+
+
+
+
+```{r}
+shp<- sp.na.omit(shp, col.name = 'X__Acre')
+
+
+shp<- shp[!grepl("Franco-Nevada Corp|Viper Energy Partners LP|WildHorse Resource Development Corp",shp$buyers),]
+shp<- shp[grepl("Unconventional",shp$US_play),]
+
+
+shp@data$X__Acre<- as.numeric(as.character(shp@data$X__Acre))
+shp@data$value___MM_<- as.numeric(as.character(shp@data$value___MM_))
+
+shp<- shp[shp$X__Acre > 1000,]
+
+shp$Net_Acres<- shp$value___MM_*1000000/shp$X__Acre
+
+#tbl<- shp@data
+#tbl<- tbl%>% select(buyers, sellers, id,headline)%>%distinct()
+#write.csv(tbl,"tbl2.csv")
+net_acres$id<- as.character(net_acres$id)
+shp@data$id<- as.character(shp@data$id)
+
+shp@data<- left_join(shp@data,net_acres)
+
+shp$Net.Acres<- paste(prettyNum(shp$Net.Acres,big.mark = ","),sep="")
+shp$PricePerAcre<- paste("$",prettyNum(shp$X__Acre,big.mark = ","),sep="")
+
+lilis$DOLACRE<- paste("$",prettyNum(lilis$DOLACRE,big.mark = ","),sep="")
+```
+
+
+
+```{r}
+deals_in_play<- deals_in_play[!grepl("Minerals|Royalty|Prospects",deals_in_play$DealType),]
+
+labs_deals <- lapply(seq(nrow(deals_in_play@data)), function(i) {
+  paste0("Seller: ", deals_in_play@data[i, "Seller"], '<p>',
+         "Producing Wells/Net Acreage: ", deals_in_play@data[i,"WellsAcrea"], 
+         "Deal Type: ",deals_in_play@data[i,'DealType'],'<p>',
+         "Listing Date: ", deals_in_play@data[i,'listing_Da']) 
+})
+
+
+bhp$Net_Acres<- paste(prettyNum(bhp$Net_Acres,big.mark = ","),sep="")
+bhp$Production<- paste(prettyNum(bhp$Production,big.mark = ","),sep="")
+
+
+
+labs_bhp<- lapply(seq(nrow(bhp@data)), function(i) {
+  paste0("Seller: ",bhp@data[i, "Company"], '<p>',
+         "Producing Wells/Net Acreage: ", bhp@data[i,"Net_Acres"],'<p>',
+         "Current Production: ",bhp@data[i,'Production']) 
+})
+
+
+labs_lilis <- lapply(seq(nrow(lilis@data)), function(i) {
+  paste0("Buyer: ", lilis@data[i, "BUYERS"], '<p>',
+         "Net Acres: ", lilis@data[i, "NetAcre"],'<p>',
+         "$/Acre: ",lilis@data[i, "DOLACRE"],'<p>',
+         "Seller: ",lilis@data[i, "SELLERS"],'<p>',
+         "Transaction Date: ", lilis@data[i,'ANNDATE']) 
+})
+
+
+```
+
+
+
+```{r}
+pal <- colorFactor(c("yellow","blue","green","orange","purple","black","#ace600","#00ffff","#666633"), shp$id)
+
+deal_pal <- colorFactor(c("#ffe6ea","#ff99aa","#ff1a40","#e60073"),deals_in_play$id)
+
+
+labs <- lapply(seq(nrow(shp@data)), function(i) {
+  paste0("Buyer: ", shp@data[i, "buyers"], '<p>',
+         "Net Acres: ", shp@data[i, "Net.Acres"],'<p>',
+         "$/Acre: ",shp@data[i, "PricePerAcre"],'<p>',
+         "Seller: ",shp@data[i, "sellers"],'<p>',
+         "Transaction Date: ", shp@data[i,'date_announced']) 
+})
+
+
+
+leaflet() %>%addTiles(group = "Esri.WorldTopoMap")%>%
+  addProviderTiles(providers$Esri.WorldTopoMap)%>%
+  addPolygons(data=cxo_leases,stroke=F, fillColor = "grey",fillOpacity = .5,color=NA)%>%
+  addPolygons(data=shp, weight = 1, color = "#000000",
+              fillColor=~pal(id),
+              fillOpacity=0.7,label=lapply(labs,HTML),
+              highlightOptions = highlightOptions(
+                color='red', opacity = 1, weight = 1.5, fillOpacity = 1,
+                bringToFront = TRUE, sendToBack = TRUE),
+              group="Transacted Deals") %>%
+  addPolygons(data=lilis, weight = 1, color = "#000000",
+              fillColor="#0033cc",
+              fillOpacity=0.7,label=lapply(labs_lilis,HTML),
+              highlightOptions = highlightOptions(
+                color='red', opacity = 1, weight = 1.5, fillOpacity = 1,
+                bringToFront = TRUE, sendToBack = TRUE),
+              group="Transacted Deals")%>% 
+  addPolygons(data=deals_in_play, weight = 1, color = "#000000",
+              fillColor=~deal_pal(id),
+              fillOpacity=0.7,label=lapply(labs_deals,HTML),
+              highlightOptions = highlightOptions(
+                color='#00ff00', opacity = 1, weight = 1.5, fillOpacity = 1,
+                bringToFront = TRUE, sendToBack = TRUE),
+              group="Deals In Play") %>%
+  addLayersControl(
+    baseGroups=c("Transacted Deals","Deals In Play"),
+    position = "topleft",
+    options = layersControlOptions(collapsed = FALSE)
+  )%>%
+  addPolygons(data=bhp, weight = 1, color = "#000000",
+              fillColor="red",
+              fillOpacity=0.7,label=lapply(labs_bhp,HTML),
+              highlightOptions = highlightOptions(
+                color='#00ff00', opacity = 1, weight = 1, fillOpacity = 1,
+                bringToFront = TRUE, sendToBack = TRUE),
+              group="Deals In Play") %>%
+  addLayersControl(
+    baseGroups=c("Transacted Deals","Deals In Play"),
+    position = "topleft",
+    options = layersControlOptions(collapsed = FALSE)
+  )%>%
+  addFullscreenControl( pseudoFullscreen = T)%>%suspendScroll()%>% addScaleBar(position="topleft")
+
+```
+<br>
+<br>
+
+#####**Deals In Play**
+```{r,echo=F}
+table<-DT::datatable(deals_in_play@data[,c(12,5,11,33,32,14)],class = 'cell-border stripe',filter='top',extensions='Buttons',
+                     options = list(dom = 'Bfrtip',
+                                    buttons= c('csv','pdf'),
+    columnDefs = list(list(className = 'dt-center', targets = 5)),
+     pageLength = 10, lengthMenu = c(10,20,30,40,50)),
+  fillContainer = T)
+widgetframe::frameWidget(table,width='100%')
+```
+<br>
+***Using Google Chrome,** open csv by right clicking and selecting show in folder. Rename file with **EXAMPLE.csv** which can then be saved as an excel document.*

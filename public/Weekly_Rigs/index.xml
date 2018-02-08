@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Weekly_Rigs on Concho Resources</title>
+    <link>/weekly_rigs/</link>
+    <description>Recent content in Weekly_Rigs on Concho Resources</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 30 Jan 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/weekly_rigs/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Weekly Rigs</title>
+      <link>/weekly_rigs/weekly-rigs/</link>
+      <pubDate>Tue, 30 Jan 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/weekly_rigs/weekly-rigs/</guid>
+      <description>Weekly Rig Report sourced from Baker HughesMap identifies week over week change in rig activity by county in New Mexico and TexasThe graph shows the top 10 counties by overall rig count beginning in 2016 
+</description>
+    </item>
+    
+  </channel>
+</rss>

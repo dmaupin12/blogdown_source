@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Peer Analysis on Concho Resources</title>
+    <link>/categories/peer-analysis/</link>
+    <description>Recent content in Peer Analysis on Concho Resources</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 08 Jan 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/categories/peer-analysis/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Mapping Pad Development Activity</title>
+      <link>/2018/01/08/mapping-pad-development-activity/</link>
+      <pubDate>Mon, 08 Jan 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/2018/01/08/mapping-pad-development-activity/</guid>
+      <description>Data Sources and MethodologyData obtained from IHS and filtered to permit dates beginning in 2017.Well cluster counts will identify pads, sections and multi-section development dependent upon well density.2nd map results were filtered by spud date to show activity starting in Q3’17. Map Identifies Developments From Permits, Spuds and Completions Beginning in 2017{&#34;</description>
+    </item>
+    
+  </channel>
+</rss>

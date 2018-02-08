@@ -1,0 +1,77 @@
+---
+title: Permian Basin Peer 2018 Production and Hedging Estimates
+author: David Maupin
+date: '2018-02-01'
+slug: permian-basin-peer-2018-production-and-hedging-estimates
+categories:
+  - oil production
+  - Oil Forecasts
+tags:
+  - oil production oil forecasts
+description: "A look at 2018 daily oil production estimates and associated hedging strategies."
+---
+
+
+####**Methodology and Focus**
+* Sourced data from a combination of investor presentations, quarterly reports and FactSet.
+* Summarize company hedging profiles for Permian Basin operators.
+* Identify which companies are at risk from price inflation or deflation.
+* Determine oil production estimates for 2018.
+<br>
+<br>
+
+####**Highlights**
+
+* Of the companies which produce more than 100 MBbls/d, only **Pioneer** and **Concho** have hedged **more than 50%** of 2018 production.
+* **Parsley** stands out with **~100%** of 2018 oil hedged.
+* On the opposite end of the spectrum, **EOG** and **Centennial** have **no hedges in place** and **Apache** has ~1%.
+* Companies have locked in **~45%** of 2018 estimated oil production at an average price of **$51.**
+<br>
+<br>
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(fig.align = 'center',echo=F,warning=F,message=F,asis=F)
+```
+
+
+```{r}
+library(tidyverse)
+library(openxlsx)
+library(scales)
+```
+
+
+```{r}
+prod_hedge<- read.xlsx("Comp_Metrics.xlsx",sheet=7)
+```
+
+```{r}
+prod_hedge$`2018.Est..Oil.Production`<- as.numeric(prod_hedge$`2018.Est..Oil.Production`)
+prod_hedge$`2018.Hedge.Production`<- as.numeric(prod_hedge$`2018.Hedge.Production`)
+prod_hedge$Est..Average.Hedge.Price<- as.numeric(prod_hedge$Est..Average.Hedge.Price)
+prod_hedge$Percent.Hedge<- as.numeric(prod_hedge$Percent.Hedge)
+
+prod_hedge<- prod_hedge%>% filter(!is.na(Percent.Hedge))
+```
+
+
+
+```{r}
+
+geom.text.size = 2.7
+theme.size = (14/5) * geom.text.size
+
+
+ggplot(prod_hedge, aes(x=reorder(Ticker,-prod_hedge$`2018.Est..Oil.Production`, FUN=sum), `2018.Est..Oil.Production`))+geom_bar(stat='identity',alpha=.5)+
+  xlab("")+ylab("Daily Oil Production")+scale_y_continuous(breaks= c(0,50,100,150,200,250,300,350,400),label=comma)+ggtitle("2018 Daily Oil Production Estimates (MBbls/d) and Hedging Strategies",subtitle = "Colored bars represents hedged volumes")+theme_minimal()+theme(axis.text.x = element_text(angle = 90, hjust = 1,vjust=.2))+
+  geom_bar(aes(x=reorder(Ticker,-prod_hedge$`2018.Est..Oil.Production`, FUN=sum),`2018.Hedge.Production`),stat='identity',fill='#ff6600')+
+ geom_bar(data=subset(prod_hedge, Ticker=="CXO"),aes(x=Ticker,`2018.Hedge.Production`),stat='identity',fill='#33cc33')+
+  geom_text(aes( label = scales::percent(Percent.Hedge),
+                   y= `2018.Hedge.Production` ), stat= "identity", vjust = -.2, size=geom.text.size)
+
+total=prod_hedge%>%filter(Percent.Hedge>0)%>% summarize(industry_hedge= sum(`2018.Hedge.Production`)/sum(`2018.Est..Oil.Production`), average_hedge= mean(Percent.Hedge), average_price= mean(Est..Average.Hedge.Price))
+```
+
+
+

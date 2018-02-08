@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Oil Forecasts on Concho Resources</title>
+    <link>/categories/oil-forecasts/</link>
+    <description>Recent content in Oil Forecasts on Concho Resources</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 01 Feb 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/categories/oil-forecasts/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Permian Basin Peer 2018 Production and Hedging Estimates</title>
+      <link>/2018/02/01/permian-basin-peer-2018-production-and-hedging-estimates/</link>
+      <pubDate>Thu, 01 Feb 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/2018/02/01/permian-basin-peer-2018-production-and-hedging-estimates/</guid>
+      <description>Methodology and FocusSourced data from a combination of investor presentations, quarterly reports and FactSet.Summarize company hedging profiles for Permian Basin operators.Identify which companies are at risk from price inflation or deflation.Determine oil production estimates for 2018. HighlightsOf the companies which produce more than 100 MBbls/d, only Pioneer and Concho have hedged more than 50% of 2018 production.Parsley stands out with ~100% of 2018 oil hedged.</description>
+    </item>
+    
+  </channel>
+</rss>

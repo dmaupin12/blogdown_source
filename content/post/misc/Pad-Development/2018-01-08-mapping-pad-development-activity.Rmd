@@ -1,0 +1,177 @@
+---
+title: Mapping Pad Development Activity 
+author: David Maupin
+date: '2018-01-08'
+slug: mapping-pad-development-activity
+categories:
+  - Maps
+  - Pads
+  - Peer Analysis
+tags:
+  - Maps
+  - Pads
+  - Competior Analysis
+description: "A look at pad drilling and sectional development across the Permian Basin. Project contains a map showing well activity beginning in 2017 and an additional map highlighting activity starting in Q3'17."
+---
+
+####**Data Sources and Methodology**
+
+* Data obtained from IHS and filtered to permit dates beginning in 2017.
+* Well cluster counts will identify pads, sections and multi-section development dependent upon well density.
+* 2^nd^ map results were filtered by spud date to show activity starting in Q3'17.
+<br>
+<br>
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(fig.align = 'center',echo=F,warning=F,message=F,asis=F)
+```
+
+
+```{r,echo=F,warning=F,message=F}
+
+library(tidyverse)
+library(tidyr)
+library(leaflet)
+library(leaflet.extras)
+library(rgdal)
+library(widgetframe)
+library(sf)
+library(crosstalk)
+
+```
+
+
+
+```{r}
+wells<- openxlsx::read.xlsx("wells.xlsx",sheet=1,detectDates=T)
+
+wells$Permit.License.Date<- as.Date(wells$Permit.License.Date)
+wells$Spud.Date<- as.Date(wells$Spud.Date)
+wells$Comp.Date<- as.Date(wells$Comp.Date)
+
+```
+
+```{r}
+wells<- wells%>% group_by(API)%>% mutate(MasterBHLongitude= ifelse(is.na(BH.Longitude),PBHL.Longitude,BH.Longitude),MasterBHLatitude= ifelse(is.na(BH.Latitude),PBHL.Latitude,BH.Latitude))
+
+beg_pt<- wells%>%group_by(API)%>%filter(!is.na(MasterBHLongitude)|!is.na(MasterBHLatitude))%>%ungroup()%>% dplyr::select(Longitude,Latitude)
+
+end_pt<- wells%>%group_by(API)%>%filter(!is.na(MasterBHLongitude)|!is.na(MasterBHLatitude))%>%ungroup()%>%
+  dplyr::select(MasterBHLongitude, MasterBHLatitude)
+
+colnames(beg_pt)[1]<-"long"
+colnames(beg_pt)[2]<-"lat"
+
+colnames(end_pt)[1]<-"long"
+colnames(end_pt)[2]<-"lat"
+
+
+# Create list of simple feature geometries (linestrings)
+l_sf <- vector("list", nrow(beg_pt))
+for (i in seq_along(l_sf)){
+  l_sf[[i]] <- st_linestring(as.matrix(rbind(beg_pt[i, ], end_pt[i,])))
+}
+# Create simple feature geometry list column
+l_sfc <- st_sfc(l_sf, crs = "+proj=longlat +datum=WGS84")
+
+# Convert to `sp` object if needed
+lines_sp <- as(l_sfc, "Spatial")
+```
+
+
+```{r,echo=F,verbose=F, message=F}
+cxo_leases<-readOGR(".","cxo_leases_8.28.17", verbose=F)
+#outline<-readOGR(".","GeologicFeatures_PermianBasin_NAD27", verbose=F)
+```
+
+```{r}
+#pal <- colorFactor(palette = unique(as.character(shared_wells$Color)),domain=shared_wells$Color,levels=shared_wells$Color)
+
+
+
+#add map
+map<-leaflet(l_sfc,width='100%',height = 550,options=leafletOptions(zoomControl=F)) %>%
+  # Base groups
+  addTiles(group = "Esri.WorldTopoMap")%>%
+  addProviderTiles(providers$Esri.WorldTopoMap)%>%
+  addPolygons(data = cxo_leases, fillOpacity = .5,fillColor = 'yellow',stroke=F,group = "Concho Leases")%>%
+  addPolylines(color ='black',opacity = .5,weight=1)%>%
+  addCircleMarkers(data=wells,radius=7,stroke = F,fillOpacity=.6, group = "Well Activity",popup=paste("<b>Company:</b>", wells$Current.Operator, "<br>","<b>API:</b>",wells$API))%>%
+  addCircleMarkers(data=wells,clusterOptions= markerClusterOptions(freezeAtZoom=13, spiderfyDistanceMultiplier=3),radius=10, stroke = F)
+
+map<-map %>% setView(map,lng=-102.79, lat=31.89, zoom=9)%>%
+  # Overlay groups
+  addLayersControl(
+    overlayGroups = c("Well Activity","Concho Leases"),
+    options = layersControlOptions(collapsed = FALSE),position='topleft')
+  
+map<-map%>%addFullscreenControl( pseudoFullscreen = T)%>%suspendScroll()%>% addScaleBar(position="topleft")
+```
+
+
+
+<h4 style="text-align: center;" markdown="1">**Map Identifies Developments From Permits, Spuds and Completions Beginning in 2017**</h4>
+```{r}
+map
+```
+<br>
+<br>
+
+```{r}
+wellsQ3<- wells%>% filter(Spud.Date>"2017-08-31")
+
+
+wellsQ3<- wellsQ3%>% group_by(API)%>% mutate(MasterBHLongitude= ifelse(is.na(BH.Longitude),PBHL.Longitude,BH.Longitude),MasterBHLatitude= ifelse(is.na(BH.Latitude),PBHL.Latitude,BH.Latitude))
+
+beg_ptQ3<- wellsQ3%>%group_by(API)%>%filter(!is.na(MasterBHLongitude)|!is.na(MasterBHLatitude))%>%ungroup()%>% dplyr::select(Longitude,Latitude)
+
+end_ptQ3<- wellsQ3%>%group_by(API)%>%filter(!is.na(MasterBHLongitude)|!is.na(MasterBHLatitude))%>%ungroup()%>%
+  dplyr::select(MasterBHLongitude, MasterBHLatitude)
+
+colnames(beg_ptQ3)[1]<-"long"
+colnames(beg_ptQ3)[2]<-"lat"
+
+colnames(end_ptQ3)[1]<-"long"
+colnames(end_ptQ3)[2]<-"lat"
+
+
+# Create list of simple feature geometries (linestrings)
+l_sf <- vector("list", nrow(beg_ptQ3))
+for (i in seq_along(l_sf)){
+  l_sf[[i]] <- st_linestring(as.matrix(rbind(beg_ptQ3[i, ], end_ptQ3[i,])))
+}
+# Create simple feature geometry list column
+l_sfcQ3 <- st_sfc(l_sf, crs = "+proj=longlat +datum=WGS84")
+
+# Convert to `sp` object if needed
+lines_spQ3 <- as(l_sfc, "Spatial")
+```
+
+
+
+<h4 style="text-align: center;" markdown="1">**Map Identifies Developments From Spuds and Completions Starting in Q3'17**</h4>
+```{r}
+map2<-leaflet(l_sfcQ3,width='100%',height = 550,options=leafletOptions(zoomControl=F)) %>%
+  # Base groups
+  addTiles(group = "Esri.WorldTopoMap")%>%
+  addProviderTiles(providers$Esri.WorldTopoMap)%>%
+  addPolygons(data = cxo_leases, fillOpacity = .5,fillColor = 'yellow',stroke=F,group = "Concho Leases")%>%
+  addPolylines(color ='black',opacity = .5,weight=1)%>%
+  addCircleMarkers(data=wellsQ3,radius=7,stroke = F,fillOpacity=.6, group = "Well Activity",popup=paste("<b>Company:</b>", wellsQ3$Current.Operator, "<br>","<b>API:</b>",wellsQ3$API))%>%
+  addCircleMarkers(data=wellsQ3,clusterOptions= markerClusterOptions(freezeAtZoom=13, spiderfyDistanceMultiplier=3),radius=10, stroke = F)
+
+map2<-map2 %>% setView(map2,lng=-102.79, lat=31.89, zoom=9)%>%
+  # Overlay groups
+  addLayersControl(
+    overlayGroups = c("Well Activity","Concho Leases"),
+    options = layersControlOptions(collapsed = FALSE),position='topleft')
+  
+map2<-map2%>%addFullscreenControl( pseudoFullscreen = T)%>%suspendScroll()%>% addScaleBar(position="topleft")
+
+map2
+```
+<br>
+<br>
+
+
+

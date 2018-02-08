@@ -1,0 +1,335 @@
+---
+title: Permian Well Highlights
+author: David Maupin
+date: '2017-11-09'
+categories:
+  - IR
+  - Maps
+tags:
+  - Peer IR Well Highlights
+slug: permian-well-highlights
+description: "Mapping wells obtained from company investor presentations during the third quarter."
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(fig.align = 'center')
+getwd()
+```
+
+
+####**Third Quarter Well Summary**
+* The following maps show well highlights captured from investor presentations released during the third quarter.
+<br>
+<br>
+```{r,echo=F,warning=F,message=F}
+library(tidyverse)
+library(openxlsx)
+library(tigris)
+library(rgdal)
+library(leaflet.extras)
+library(DT)
+```
+
+```{r,echo=F,warning=F,message=F}
+wellsOrig<- read.xlsx('2017-11-09.xlsx', sheet=1)
+wellsOrig$Value<- as.numeric(gsub(",", "", wellsOrig$Value))
+wellsOrig$Parameter<- as.character(wellsOrig$Parameter)
+wellsOrig$Operator.Alias<- as.character(wellsOrig$Operator.Alias)
+
+colnames(wellsOrig)[20]<- "Company"
+colnames(wellsOrig)[3]<- "Latitude"
+colnames(wellsOrig)[4]<- "Longitude"
+colnames(wellsOrig)[15]<- "Formation"
+##Format Reported Date
+wellsOrig$Reported.Date= as.Date(wellsOrig$Reported.Date, origin='1899-12-30')
+
+
+##Format Zones
+wellsOrig$Zone<-ifelse(grepl("Wolfcamp A", wellsOrig$`Sub-Location`, ignore.case = T), "Wolfcamp A",
+          ifelse(grepl("Wolfcamp B", wellsOrig$`Sub-Location`, ignore.case = T), "Wolfcamp B",
+          ifelse(grepl("Wolfcamp C", wellsOrig$`Sub-Location`, ignore.case = T), "Wolfcamp C",
+          ifelse(grepl("Woodford", wellsOrig$`Sub-Location`, ignore.case = T), "Woodford",       
+          ifelse(grepl("Second Bone Spring", wellsOrig$`Sub-Location`, ignore.case = T), "2nd Bone Spring",
+          ifelse(grepl("First Bone Spring", wellsOrig$`Sub-Location`, ignore.case = T), "1st Bone Spring",
+          ifelse(grepl("Third Bone Spring", wellsOrig$`Sub-Location`, ignore.case = T), "3rd Bone Spring",
+          ifelse(grepl("Lower Spraberry", wellsOrig$`Sub-Location`, ignore.case = T), "Lower Spraberry",
+          ifelse(grepl("Middle Spraberry", wellsOrig$`Sub-Location`, ignore.case = T), "Middle Spraberry",
+          ifelse(grepl("Upper Wolfcamp A", wellsOrig$`Sub-Location`, ignore.case = T), "Upper Wolfcamp A",
+          ifelse(grepl("Lower Wolfcamp A", wellsOrig$`Sub-Location`, ignore.case = T), "Lower Wolfcamp A",
+          ifelse(grepl("Upper Wolfcamp B", wellsOrig$`Sub-Location`, ignore.case = T), "Upper Wolfcamp B",
+          ifelse(grepl("Lower Wolfcamp B", wellsOrig$`Sub-Location`, ignore.case = T), "Lower Wolfcamp B",
+          ifelse(grepl("Upper Wolfcamp ", wellsOrig$`Sub-Location`, ignore.case = T), "Upper Wolfcamp",
+          ifelse(grepl("Lower Wolfcamp ", wellsOrig$`Sub-Location`, ignore.case = T), "Lower Wolfcamp",
+          ifelse(grepl("Upper-Lower Spraberry", wellsOrig$`Sub-Location`, ignore.case = T), "Upper-Lower Spraberry",
+          ifelse(grepl("Wolfcamp C", wellsOrig$`Sub-Location`, ignore.case = T), "Upper Wolfcamp C",
+          ifelse(grepl("Lower Wolfcamp C/XY", wellsOrig$`Sub-Location`, ignore.case = T), "Lower Wolfcamp C/XY",
+          ifelse(grepl("Wolfcamp A XY", wellsOrig$`Sub-Location`, ignore.case = T), "Wolfcamp A-XY",
+          ifelse(grepl("Wolfcamp X/Y", wellsOrig$`Sub-Location`, ignore.case = T), "Wolfcamp X/Y",
+          ifelse(grepl("Wolfcamp XY", wellsOrig$`Sub-Location`, ignore.case = T), "Wolfcamp X/Y",
+          ifelse(grepl("1st Bone Spring", wellsOrig$`Sub-Location`, ignore.case = T), "1st Bone Spring",
+          ifelse(grepl("First Bone Spring", wellsOrig$`Sub-Location`, ignore.case = T), "1st Bone Spring",
+          ifelse(grepl("2nd Bone Spring", wellsOrig$`Sub-Location`, ignore.case = T), "2nd Bone Spring",
+          ifelse(grepl("3rd Bone Spring", wellsOrig$`Sub-Location`, ignore.case = T), "3rd Bone Spring",
+          ifelse(grepl("Wolfcamp D", wellsOrig$`Sub-Location`, ignore.case = T), "Wolfcamp D",
+          ifelse(grepl("Alpine", wellsOrig$`Sub-Location`, ignore.case = T), "Alpine-Woodford",
+          ifelse(grepl("San Andreas", wellsOrig$`Sub-Location`, ignore.case = T), "San Andreas",
+          ifelse(grepl("Upper Wolfcamp,", wellsOrig$`Sub-Location`, ignore.case = T), "Upper Wolfcamp",
+          ifelse(grepl("Middle Wolfcamp,", wellsOrig$`Sub-Location`, ignore.case = T), "Middle Wolfcamp",
+          ifelse(grepl("Avalon,", wellsOrig$`Sub-Location`, ignore.case = T), "Avalon",
+          ifelse(grepl("Bone Spring", wellsOrig$`Sub-Location`, ignore.case = T), "Bone Spring",
+ifelse(grepl("Brushy Canyon,", wellsOrig$`Sub-Location`, ignore.case = T), "Brushy Canyon",
+ifelse(grepl("Leonard,", wellsOrig$`Sub-Location`, ignore.case = T), "Leonard",
+ifelse(grepl("Paddock,", wellsOrig$`Sub-Location`, ignore.case = T), "Paddock",
+       ifelse(grepl("Jo Mill", wellsOrig$`Sub-Location`, ignore.case = T), "Jo Mill",
+        ifelse(grepl("Spraberry,", wellsOrig$`Sub-Location`, ignore.case = T), "Spraberry",
+                ifelse(grepl("Wolfcamp,", wellsOrig$`Sub-Location`, ignore.case = T), "Wolfcamp",
+          "Not Available"))))))))))))))))))))))))))))))))))))))
+
+wellsOrig<- wellsOrig %>% mutate(Formation= replace(Formation,which(is.na(Formation)),"Not Available"))%>%
+  mutate(Zone=ifelse(Zone=="Not Available",Formation,Zone))
+
+##write.xlsx(wells[,c(2,21)],"wells.xlsx")
+```
+
+```{r, echo=F}
+#Reorder zones{}
+wellsOrig$Zone= factor(wellsOrig$Zone, levels=c("Avalon","Brushy Canyon","1st Bone Spring", "2nd Bone Spring", "3rd Bone Spring","Bone Spring","Jo Mill", "Middle Spraberry","Lower Spraberry", "Wolfcamp A", "Wolfcamp B", "Upper Wolfcamp C","Wolfcamp C","Wolfcamp D", "Upper Wolfcamp",  "Middle Wolfcamp", "Lower Wolfcamp","Wolfcamp X/Y","Wolfcamp","Alpine-Woodford","Woodford","Not Available"))
+```
+
+
+```{r,echo=F,warning=F,message=F}
+wellsOrig<- wellsOrig[,c(6,20,3:4,9,10,11,15,22,1)]
+
+#filter well values to boe/bo only
+wells<- wellsOrig %>% filter(Parameter=="IP Rate (30-day Avg)" & Unit %in% c('Bbl/d','BOE/d'))%>%
+  distinct()
+
+#24 hour rate
+wells24<- wellsOrig %>% filter(Parameter=="IP Rate (24 hr peak)")%>% distinct()
+
+
+wellsIP30_24<- wellsOrig %>% filter(Parameter %in% c("IP Rate (30-day Avg)","IP Rate (24 hr peak)")& Unit %in% c('Bbl/d','BOE/d'))
+
+#filter MTDR well
+
+#Manually add well higlight missing from table
+
+#Reported.Date<- (as.Date(c('2017-05-04','2017-05-04','2017-05-04','2017-05-08','2017-05-08','2017-05-08','2017-05-08')))
+#Company<- c('APA','APA','APA','EOG','EOG','EOG','EOG')
+#Latitude<-c(31.1686511,31.15,30.7845466,32.0717284,32.0717428,32.05306827,32.0502739)
+#Longitude<-c(-103.7910722,-103.79,-103.4676693,-103.5373246,-103.539891,-103.5424092,-103.5351028)
+#Parameter<- c('IP Rate (24 hour peak)','IP Rate (24 hour peak)','IP Rate (24 hour peak)','IP Rate (30-day Avg)','IP Rate (30-day Avg)','IP Rate (30-day Avg)','IP Rate (30-day Avg)')
+#Value<- c(2037,1625,1239,3000,3100,3750,2300)
+#Unit<- c("BOE/d","BOE/d","BOE/d",'Bbl/d','Bbl/d','Bbl/d','Bbl/d')
+#Formation<- c('Barnett','Barnett','Barnett','Wolfcamp','Wolfcamp','Wolfcamp','Wolfcamp')
+#Zone<- c('Alpine-Woodford','Alpine-Woodford','Alpine- Middle Woodford','Wolfcamp A','Wolfcamp A','Wolfcamp A','Wolfcamp A')
+#Well.Name<- c('Chinook 101AH','Blackhawk 5H','King Hidalgo 3H','WHIRLING WIND 11 FEDERAL COM #702H','WHIRLING WIND 11 FEDERAL COM #703H','WHIRLING WIND 11 FEDERAL COM #704H','WHIRLING WIND 14 FEDERAL COM #701H')
+
+#missing_wells<-data.frame(Reported.Date,Company,Latitude,Longitude,Parameter,Value,Unit,Formation,Zone, Well.Name)
+
+#missing_wells %>% map_if(is.factor, as.character)%>% as_data_frame-> missing_wells
+
+#wells<- full_join(wells,missing_wells)
+
+all_wells<-wells
+
+WellCount<-wells %>% group_by(Company)%>%summarize(Rank=n())
+```
+
+
+
+```{r,eval=F,echo=F,warning=F,message=F}
+#nm_tx<- counties(c("New Mexico","Texas"))
+```
+
+```{r,echo=F,verbose=F, message=F}
+cxo_leases<-readOGR(".","cxo_leases_8.28.17", verbose=F)
+```
+
+```{r,echo=F, warning=F, message=F}
+#Add color column
+Color<-c("yellow","#ccccff","#66ff66","#ff6600","#990099","#669999","#003300","black","#00ffff","#cc6600","red","orange","blue","purple")
+
+
+Alias<- wells%>%select(Company)%>%distinct()%>% arrange(Company)
+
+
+  
+color_frame<- data.frame(Color,Alias)
+
+wells<-left_join(wells,color_frame)
+
+
+pal <- colorFactor(palette = unique(as.character(wells$Color)),domain=wells$Company,levels=wells$Company,ordered=T)
+```
+
+```{r,echo=F,warning=F,message=F}
+Q3_2017_wells<- wells
+```
+
+
+
+
+
+```{r,echo=F,warning=F,message=F}
+palZone<- colorFactor(palette=c("#66ffff","#ffccff","#ff66ff","#660066","#ff0066","#4dffc3","#ffcc99","#ff7733","#ff0000","#4da6ff","#0066cc","#b3b3b3"), domain= wells$Zone)
+
+
+
+#All wells IP30 adn IP24
+map1<-leaflet(cxo_leases,options=leafletOptions(zoomControl=F),width='100%',height = 550) %>%
+  # Base groups
+  addTiles(group = "Esri.WorldTopoMap")%>%
+  addProviderTiles(providers$Esri.WorldTopoMap)%>%
+  addPolygons(data = cxo_leases, fillOpacity = .5,fillColor = 'yellow',stroke=F,group = "Concho Leases")%>%
+  addCircleMarkers(data=wellsIP30_24, ~Longitude, ~Latitude,stroke = F,color=~palZone(Zone),fillOpacity=.6, group = "3Q17 Wells", 
+                   popup=paste("Company:", wellsIP30_24$Company, "<br>",
+                               "Well Name:", wellsIP30_24$Well.Name,"<br>",
+                               "Rate:",wellsIP30_24$Value," ",wellsIP30_24$Parameter, "<br>",
+                               "Unit:",wellsIP30_24$Unit,"<br>",
+                               "Formation", wellsIP30_24$Zone,"<br>",
+                               "Report Date",wellsIP30_24$Reported.Date))
+  
+map1<-map1 %>% setView(map1,lng=-102.79, lat=31.89, zoom=7)%>%
+  # Overlay groups
+  addLayersControl(
+    overlayGroups = c( "Concho Leases",'3Q17 Wells'),
+    options = layersControlOptions(collapsed = FALSE),position='topleft')%>%
+  addLegend('topright',pal=palZone,values=wellsIP30_24$Zone,title="Formation",opacity=1)
+
+map1<-map1%>% 
+  addFullscreenControl()%>%suspendScroll()
+
+
+
+
+
+map2<-leaflet(cxo_leases,options=leafletOptions(zoomControl=F),width='100%',height = 550) %>%
+  # Base groups
+  addTiles(group = "Esri.WorldTopoMap")%>%
+  addProviderTiles(providers$Esri.WorldTopoMap)%>%
+  addPolygons(data = cxo_leases, fillOpacity = .5,fillColor = 'yellow',stroke=F,group = "Concho Leases")%>%
+  addCircleMarkers(data=Q3_2017_wells, ~Longitude, ~Latitude, ~Value/250,stroke = F,color=~palZone(Zone),fillOpacity=.6, group = "3Q17 Wells", 
+                   popup=paste("Company:", Q3_2017_wells$Company, "<br>",
+                               "Well Name:", Q3_2017_wells$Well.Name,"<br>",
+                               "Rate:",Q3_2017_wells$Value," ",Q3_2017_wells$Parameter, "<br>",
+                               "Unit:",Q3_2017_wells$Unit,"<br>",
+                               "Formation", Q3_2017_wells$Zone,"<br>",
+                               "Report Date",Q3_2017_wells$Reported.Date))
+  
+map2<-map2 %>% setView(map2,lng=-102.79, lat=31.89, zoom=7)%>%
+  # Overlay groups
+  addLayersControl(
+    overlayGroups = c( "Concho Leases",'3Q17 Wells'),
+    options = layersControlOptions(collapsed = FALSE),position='topleft')%>%
+  addLegend('topright',pal=palZone,values=wells$Zone,title="Formation",opacity=1)
+
+map2<-map2%>% 
+  addFullscreenControl()%>%suspendScroll()
+
+
+map3<-leaflet(cxo_leases,options=leafletOptions(zoomControl=F),width='100%',height = 550) %>%
+  # Base groups
+  addTiles(group = "Esri.WorldTopoMap")%>%
+  addProviderTiles(providers$Esri.WorldTopoMap)%>%
+  addPolygons(data = cxo_leases, fillOpacity = .5,fillColor = 'yellow',stroke=F,group = "Concho Leases")%>%
+  addCircleMarkers(data=Q3_2017_wells, ~Longitude, ~Latitude, ~Value/250,stroke = F,color=~pal(Company),fillOpacity=.6, group = "3Q17 Wells", 
+                   popup=paste("Company:", Q3_2017_wells$Company, "<br>",
+                               "Well Name:", Q3_2017_wells$Well.Name,"<br>",
+                               "Rate:",Q3_2017_wells$Value," ",Q3_2017_wells$Parameter, "<br>",
+                               "Unit:",Q3_2017_wells$Unit,"<br>",
+                               "Formation", Q3_2017_wells$Zone,"<br>",
+                               "Report Date",Q3_2017_wells$Reported.Date))
+  
+map3<- map3%>% setView(map3,lng=-102.79, lat=31.89, zoom=7)%>%
+  # Overlay groups
+  addLayersControl(
+    overlayGroups = c("Concho Leases",'3Q17 Wells'),
+    options = layersControlOptions(collapsed = FALSE), position="topleft")%>%
+  addLegend('topright',pal=pal,values=wells$Company,title="Company",opacity=1)%>%
+  addFullscreenControl()%>% suspendScroll()
+
+```
+
+
+```{r,echo=F,warning=F,message=F}
+####24 HOUR RATES ONLY####
+
+Q3_2017_wells_24<- wells24 %>% filter(grepl('IP', Parameter, ignore.case=T))
+```
+
+
+```{r,echo=F, warning=F, message=F}
+pal24Zone<- colorFactor(palette=c("#66ffff","#ffccff","#ff66ff","#660066","#ff0066","#4dffc3","#ffcc99","#ff7733","#ff0000","#4da6ff","#0066cc","#b3b3b3"), domain= wells$Zone)
+
+map4<-leaflet(cxo_leases,options=leafletOptions(zoomControl=F),width='100%',height = 550) %>%
+  # Base groups
+  addTiles(group = "Esri.WorldTopoMap")%>%
+  addProviderTiles(providers$Esri.WorldTopoMap)%>%
+  addPolygons(data = cxo_leases, fillOpacity = .5,fillColor = 'yellow',stroke=F,group = "Concho Leases")%>%
+  addCircleMarkers(data=Q3_2017_wells_24, ~Longitude, ~Latitude, ~Value/250,stroke = F,color=~pal24Zone(Zone),fillOpacity=.6, group = "3Q17 Wells (IP24)", 
+                   popup=paste("Company:", Q3_2017_wells_24$Company, "<br>",
+                               "Well Name:", Q3_2017_wells_24$Well.Name,"<br>",
+                               "Rate:",Q3_2017_wells_24$Value," ",Q3_2017_wells_24$Parameter, "<br>",
+                               "Unit:",Q3_2017_wells_24$Unit,"<br>",
+                               "Formation", Q3_2017_wells_24$Zone,"<br>",
+                               "Report Date",Q3_2017_wells_24$Reported.Date))
+
+
+map4<-map4 %>% setView(map4,lng=-102.79, lat=31.89, zoom=7)%>%
+  # Overlay groups
+  addLayersControl(
+    overlayGroups = c("Concho Leases",'3Q17 Wells (IP24)'),
+    options = layersControlOptions(collapsed = FALSE),position='topleft')%>%
+  addLegend('topright',pal=pal24Zone,values=wells24$Zone,title="Formation",opacity=1)
+
+map4<-map4%>% 
+  addFullscreenControl()%>%suspendScroll()
+```
+<br>
+<h4 style="text-align: center;" markdown="1">**Well Highlights Colored By Zone**</h4>
+```{r, echo=F, fig.width=8.5, fig.height= 6}
+map1
+```
+<br>
+<h4 style="text-align: center;" markdown="1">**Well Highlights Colored By Zone & Sized By 30-DAY IP Rate**</h4>
+```{r, echo=F, fig.width=8.5, fig.height= 6}
+map2
+```
+<br>
+<h4 style="text-align: center;" markdown="1">**Well Highlights Colored By Company & Sized By 30-DAY IP Rate**</h4>
+<div style="text-align:left">
+```{r,echo=F, fig.width=8.5, fig.height= 6}
+map3
+```
+<br>
+<h4 style="text-align: center;" markdown="1">**Well Highlights Colored By Zone & Sized By 24-HOUR IP Rate**</h4>
+<div style="text-align:left">
+```{r,echo=F, fig.width=8.5, fig.height= 6}
+map4
+```
+
+
+<br>
+```{r,echo=F}
+#Prod_table<- wellsOrig%>% filter(Parameter %in% c("IP Rate (30-day Avg)","IP Rate (24 hr peak)") &
+#        Unit %in% c("Bbl/d","BOE/d"))%>% arrange(desc(Reported.Date))
+#Prod_table<- Prod_table[,c(1,2,10,5:7,9)]
+#colnames(Prod_table)[1]<-'Rep.Date'
+#colnames(Prod_table)[3]<-"Well"
+#colnames(Prod_table)[5]<-"Amount"
+#colnames(Prod_table)[7]<-"Formation"
+
+
+#Prod_table<-datatable(Prod_table,class = 'cell-border stripe',filter='top',
+#                     options = list(
+#     columnDefs = list(list(className = 'dt-center', targets = 5)),
+#     pageLength = 10, lengthMenu = c(10,20,30,40,50)),
+#  fillContainer = T)%>%
+#  DT::formatStyle(columns = c(1, 2, 3, 4, 5,6,7), fontSize = '75%')%>%
+#   formatCurrency('Amount',currency = "", interval = 3, mark = ",",digits=0)
+
+#widgetframe::frameWidget(Prod_table,width='100%')
+```
+<br>
+<br>

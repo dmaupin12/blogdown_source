@@ -1,0 +1,110 @@
+---
+title: Oil and Gas Producer Pricing Index
+author: David Maupin
+date: '2018-01-22'
+categories:
+  - PPI
+tags:
+  - Bureau of Labor Statistics
+  - PPI Index
+slug: oil-and-gas-producer-pricing-index
+description: Monthly PPI report for drilling, frac sand and oil field services indexed
+  to January 2016.
+---
+
+```{r,echo=F,warning=F,message=F, asis=F}
+library(tidyquant)
+library(dygraphs)
+library(widgetframe)
+```
+
+####**Producer Pricing Index**
+* **What does it measure?** The Producer Price Index (PPI) program measures the average change over time in the selling prices received by domestic producers for their output. The prices included in the PPI are from the first commercial transaction for many products and some services.
+* **Why is it useful?** 
+    + Commonly used in escalating purchase and sales contracts. 
+    + Indicator of overall price movement at the producer level. May foreshadow subsequent price changes for business and consumers. 
+    + Measure of price movement for particular industries and products.
+    + Comparison of input and output costs.
+    + Comparison of industry-based price data to other industry-oriented economic time series.
+    + Useful in budgeting and forecasting.
+* **Are prices broken out by area?** Prices are not broken out by area (i.e. State, Region, Basin).
+    + PPI indices may be significantly different than basin level pricing trends.
+* **How often is data updated?** The PPI index is updated on a monthly basis.
+<br>
+
+####**Data Source and Sampling Process**
+* Sourced from Bureau of Labor Statistics. 
+* The PPI sample includes over 25,000 establishments providing approximately 100,000 price quotations per month for products specified through a process called disaggregation.
+* Establishments are selected for the PPI survey via systematic sampling of a list of all firms in the industry.
+* Participation by firms is completely voluntary.
+* Industries and products undergo systematic resampling as needed, to account for changing market conditions.
+
+<br>
+<br>
+```{r,echo=F,warning=F,message=F}
+
+#quandl_api_key("xDy7AYiBnZE2XkavXD6y")
+
+#quandl_search(query = "Oil", database_code = "NSE", per_page = 3)
+
+ppi_drilling<- tq_get("PCU21311121311101", get = "economic.data")
+
+ppi_frac_sand<- tq_get("PCU21232221232291", get = "economic.data")
+
+#ppi_extraction<- tq_get("PCU2111112111111", get = "economic.data")
+
+ppi_oil_services_primary<- tq_get("PCU213112213112P", get = "economic.data")
+
+
+
+ppi_drilling<- ppi_drilling%>% filter(date>= "2016-01-01")%>% mutate(price= price/price[date=="2016-01-01"]*100)
+ppi_frac_sand<-ppi_frac_sand%>% filter(date>= "2016-01-01")%>% mutate(price= price/price[date=="2016-01-01"]*100)
+#ppi_extraction<- ppi_extraction%>% filter(date>= "2016-01-01")%>% mutate(price= price/price[date=="2016-01-01"]*100)
+ppi_oil_services_primary<- ppi_oil_services_primary%>% filter(date>= "2016-01-01")%>% mutate(price= price/price[date=="2016-01-01"]*100)
+
+ppi_drilling<- xts(ppi_drilling, order.by = ppi_drilling$date)
+colnames(ppi_drilling)[2]<-"Drilling"
+ppi_frac_sand<- xts(ppi_frac_sand, order.by = ppi_frac_sand$date)
+colnames(ppi_frac_sand)[2]<-"Frac Sand"
+#ppi_extraction<- xts(ppi_extraction, order.by = ppi_extraction$date)
+#colnames(ppi_extraction)[2]<-"Extraction"
+ppi_oil_services_primary<- xts(ppi_oil_services_primary, order.by = ppi_oil_services_primary$date)
+colnames(ppi_oil_services_primary)[2]<-"Oil Services"
+```
+
+```{r,echo=F, warning=F, message=F,fig.height=4,fig.width=6}
+
+chart1<-dygraph(ppi_drilling, main="Drilling Prices Indexed to January 2016", group='index')%>% dyLegend()%>%
+  dyOptions()%>%dyOptions(colors= 'green')%>%
+  dyHighlight(highlightSeriesOpts = list(strokeWidth = 3))%>%
+  dyRangeSelector(fillColor="",strokeColor="")
+#dygraph(ppi_extraction, main="PPI Index", group='index')%>% dyLegend(width=500)%>%
+#  dyOptions()%>%
+#  dyHighlight(highlightSeriesOpts = list(strokeWidth = 3))%>%
+#  dyRangeSelector(fillColor="",strokeColor="")
+chart2<-dygraph(ppi_frac_sand, main="Frac Sand Prices Indexed to January 2016", group='index')%>% dyLegend()%>%
+  dyOptions()%>%dyOptions(colors= 'red')%>%
+  dyHighlight(highlightSeriesOpts = list(strokeWidth = 3))%>%
+  dyRangeSelector(fillColor="",strokeColor="")
+chart3<-dygraph(ppi_oil_services_primary, main="Oil Service Prices Indexed to January 2016", group='index')%>% dyLegend()%>%
+  dyOptions()%>%dyOptions(colors= 'blue')%>%
+  dyHighlight(highlightSeriesOpts = list(strokeWidth = 3))%>%
+  dyRangeSelector(fillColor="",strokeColor="")
+```
+
+```{r,echo=F, warning=F, message=F, fig.align='center'}
+frameWidget(chart1, width='95%')
+```
+<br>
+<br>
+```{r,echo=F, warning=F, message=F, fig.align='center'}
+frameWidget(chart2, width='95%')
+```
+<br>
+<br>
+```{r,echo=F, warning=F, message=F, fig.align='center'}
+frameWidget(chart3, width='95%')
+```
+<br>
+<br>
+

@@ -1,0 +1,229 @@
+---
+title: Weekly Rigs
+author: David Maupin
+date: '2018-02-05'
+tags:
+  - Baker Hughes Weekly Update
+slug: weekly-rigs
+---
+
+
+####**Weekly Rig Report sourced from Baker Hughes**
+* Map identifies week over week change in rig activity by county in New Mexico and Texas
+* The graph shows the top 10 counties by overall rig count beginning in 2016
+<br>
+<br>
+```{r,echo=F,warning=F,message=F}
+library(tidyverse)
+library(tigris)
+library(RColorBrewer)
+library(openxlsx)
+library(stringr)
+library(rgdal)
+library(hrbrthemes)
+library(dygraphs)
+library(xts)
+library(widgetframe)
+```
+
+
+
+```{r,echo=F,warning=F,message=F}
+CountyCode<-(get(data(fips_codes)))
+remove(fips_codes)
+```
+
+```{r,echo=F,warning=F,message=F}
+weekly_rig<- read.csv("weekly_rigs.csv", sep = ",", stringsAsFactors = F)
+tx_nm<- weekly_rig%>% filter(weekly_rig$State.Province %in% c("TEXAS","NEW MEXICO","OKLAHOMA"))%>% select(State.Province,County,Basin,Location,Trajectory,PublishDate,RigCount,Year)
+remove(weekly_rig)
+##Format date
+tx_nm$PublishDate<-format(as.POSIXct(tx_nm$PublishDate,format='%m/%d/%Y'),format="%Y-%m-%d")
+tx_nm$PublishDate<- as.Date(tx_nm$PublishDate)
+tx_nm$Year<- format(tx_nm$PublishDate,'%Y')
+
+tx_nm<- tx_nm%>%ungroup%>% filter(Year>=2016)
+```
+
+```{r,echo=F,warning=F,message=F}
+tx_nm<- tx_nm%>% group_by(State.Province,County)%>% mutate(st_cnt=tolower(paste(State.Province,"_",County, sep="", collapse=NULL)))
+tx_nm<- tx_nm%>% group_by(st_cnt,PublishDate)%>%mutate(rigcnt=sum(RigCount))%>%select(st_cnt,rigcnt,PublishDate,Basin)%>% distinct()
+```
+
+```{r,echo=F,warning=F,message=F}
+CountyCode$county<- str_replace(CountyCode$county,"County","")
+CountyCode<- CountyCode %>% group_by(state_name,county)%>% mutate(st_cnt= tolower(paste(state_name,"_",county,sep="", collapse=NULL)))%>%ungroup()
+
+CountyCode<- CountyCode %>%mutate(region= paste(state_code,county_code))
+
+CountyCode<- CountyCode %>% filter(state %in% c("NM","TX"))
+
+```
+
+```{r,echo=F,warning=F,message=F}
+CountyCode$county<-gsub(" ","",(CountyCode$county))
+CountyCode$region<-gsub(" ","",(CountyCode$region))
+CountyCode$st_cnt<- str_trim(CountyCode$st_cnt,"both")
+tx_nm$st_cnt<-str_trim(tx_nm$st_cnt,"both")
+```
+
+```{r,echo=F,warning=F,message=F}
+tx_nm<- left_join(tx_nm,CountyCode, by="st_cnt")%>% na.omit()
+```
+
+```{r,echo=F,warning=F,message=F}
+RigReport<- tx_nm%>% filter(state_name %in% c("New Mexico","Texas"))
+RigReport<- RigReport%>% ungroup()%>% select(region,rigcnt,PublishDate)
+
+RigReport<- RigReport %>%arrange(PublishDate)%>% mutate(Rank=dense_rank(PublishDate))
+
+
+names(RigReport)=c('region','value','Date','RankDate')
+RigReport= unique(RigReport)
+RigReport= na.omit(RigReport)
+
+RigReport<-RigReport%>%filter(RankDate==max(RankDate)|RankDate==max(RankDate)-1)
+
+RigReport<-RigReport[,c(1,2,3)]%>% spread(Date,value)
+
+names(RigReport)<- c('region','old','new')
+
+RigReport<- RigReport%>%group_by(region)%>% mutate(value= new-old )
+
+RigReport$value= as.factor(RigReport$value)
+RigReport$region= as.numeric(RigReport$region)
+```
+
+
+```{r,echo=F,warning=F,message=F}
+chart<- tx_nm%>% filter(state_name %in% c("New Mexico","Texas"))
+chart<- na.omit(chart)
+chart<- chart%>% ungroup()%>%filter(PublishDate>'2015-12-31') 
+chart<- chart %>%arrange(PublishDate)%>% mutate(DateRank=dense_rank(PublishDate))
+RankChart<- chart%>% group_by(county)%>% mutate(TotalRig= sum(rigcnt))
+RankChart<-unique(RankChart[,c(1,12)])
+RankChart$Rigrank= rank(-RankChart$TotalRig)
+chart<- left_join(chart,RankChart)
+Chart20<- chart%>% filter(chart$Rigrank<=10)%>% ungroup()
+Chart20<-Chart20[,c(3,9,2)]
+```
+
+
+
+```{r,echo=F,warning=F,message=F,results='hide',eval=F}
+#unique(Chart20$county)
+Chart20%>% filter(county=="Eddy")%>% select(PublishDate, rigcnt)->Eddy
+Eddy<- xts(Eddy, order.by = Eddy$PublishDate)
+colnames(Eddy)[2]<-"Eddy"
+Chart20%>% filter(county=="Lea")%>% select(PublishDate, rigcnt)->Lea
+Lea<- xts(Lea, order.by = Lea$PublishDate)
+colnames(Lea)[2]<-"Lea"
+Chart20%>% filter(county=="Howard")%>% select(PublishDate, rigcnt)->Howard
+Howard<- xts(Howard, order.by = Howard$PublishDate)
+colnames(Howard)[2]<-"Howard"
+Chart20%>% filter(county=="Karnes")%>% select(PublishDate, rigcnt)->Karnes
+Karnes<- xts(Karnes, order.by = Karnes$PublishDate)
+colnames(Karnes)[2]<-"Karnes"
+Chart20%>% filter(county=="Loving")%>% select(PublishDate, rigcnt)->Loving
+Loving<- xts(Loving, order.by = Loving$PublishDate)
+colnames(Loving)[2]<-"Loving"
+Chart20%>% filter(county=="Martin")%>% select(PublishDate, rigcnt)->Martin
+Martin<- xts(Martin, order.by = Martin$PublishDate)
+colnames(Martin)[2]<-"Martin"
+Chart20%>% filter(county=="Midland")%>% select(PublishDate, rigcnt)->Midland
+Midland<- xts(Midland, order.by = Midland$PublishDate)
+colnames(Midland)[2]<-"Midland"
+Chart20%>% filter(county=="Reeves")%>% select(PublishDate, rigcnt)->Reeves
+Reeves<- xts(Reeves, order.by = Reeves$PublishDate)
+colnames(Reeves)[2]<-"Reeves"
+Chart20%>% filter(county=="Reagan")%>% select(PublishDate, rigcnt)->Reagan
+Reagan<- xts(Reagan, order.by = Reagan$PublishDate)
+colnames(Reagan)[2]<-"Reagan"
+Chart20%>% filter(county=="Upton")%>% select(PublishDate, rigcnt)->Upton
+Upton<- xts(Upton, order.by = Upton$PublishDate)
+colnames(Upton)[2]<-"Upton"
+```
+
+```{r,echo=F,warning=F,message=F,eval=F}
+##combcounty<- cbind(Eddy,Lea,Howard,Karnes,Loving,Martin,Midland,Reeves,Reagan,Upton)
+
+df_list <- list(Eddy, Lea, Howard,Karnes,Loving,Martin,Midland,Reeves,Reagan,Upton)
+comb<-Reduce(function(x, y) merge(x, y, all=TRUE), df_list, accumulate=FALSE)
+comb<- comb[,c(2,4,6,8,10,12,14,16,18,20)]
+```
+
+```{r,echo=F,warning=F,message=F,results='hide'}
+
+choro= choroplethr::county_choropleth(RigReport[,c(1,4)],state_zoom = c("new mexico","texas"),reference_map = F, title= "Baker Hughes Week Over Week Change")+
+  scale_fill_manual(values=c("-5"="#4d0000","-4"="#b30000","-3"="#ff0000","-2"="#ff4d4d","-1"="#ff9999",
+                             "0"="gray83","1"="#99ff99","2"="#66ff66","3"="#33cc33","4"="#003300", "5"="#001a00","6"='#000000'))
+```
+
+```{r,echo=F,verbose=F, message=F}
+cxo_leases<-readOGR(".","cxo_leases_2018-01-22", verbose=F)
+cxo_leases<-fortify(cxo_leases)
+```
+
+```{r,echo=F, warning=F, message=F}
+choro+geom_polygon(data= cxo_leases,aes(x=long, y= lat,group=group),fill="gold2")
+```
+
+```{r,echo=F, warning=F, message=F,fig.height=4,fig.width=6, fig.align='left',eval=F}
+chart1<-dygraph(comb, main="Top 10 Counties Weekly Rig Count")%>% dyLegend(width=500)%>%
+  dyOptions(colors= RColorBrewer::brewer.pal(10,"Set2"))%>%
+  dyHighlight(highlightSeriesOpts = list(strokeWidth = 3))%>%
+  dyRangeSelector(fillColor="",strokeColor="")
+
+```
+
+```{r,echo=F, warning=F, message=F,eval=F}
+frameWidget(chart1,width = '95%')
+```
+
+
+
+```{r,echo=F, warning=F, message=F}
+Basin<-chart
+Basin<-chart[,c(2,3,4)]
+Basin<- Basin %>% group_by(PublishDate,Basin)%>%summarize(BasinTotal=sum(rigcnt))
+
+Basin%>% filter(Basin=="Permian")%>% select(PublishDate, BasinTotal)->Permian
+Permian<- xts(Permian, order.by = Permian$PublishDate)
+colnames(Permian)[2]<-"Permian Rig Count"
+```
+
+```{r,echo=F, warning=F, message=F,fig.height=4,fig.width=6, fig.align='left',eval=F}
+chart2<-dygraph(Permian, main="Permian Weekly Rig Count")%>% dyLegend(width=500)%>%
+  dyOptions(colors= RColorBrewer::brewer.pal(10,"Set2"))%>%
+  dyHighlight(highlightSeriesOpts = list(strokeWidth = 3))%>%
+  dyRangeSelector(fillColor="",strokeColor="")
+```
+
+```{r,echo=F, warning=F, message=F,eval=F}
+frameWidget(chart2,width = '95%')
+```
+
+```{r, fig.width=8,echo=F,warning=F,message=F}
+plot1<-ggplot(Basin, aes(PublishDate,BasinTotal, group=Basin))+geom_line(color='grey', size=1, alpha=.5)+
+  geom_line(data=subset(Basin,Basin=="Permian"), aes(PublishDate,BasinTotal, group=Basin,label=NULL),size=1,color="orange")+theme_minimal()+
+  ggrepel::geom_text_repel(data=subset(Basin,PublishDate==max(PublishDate)),aes(PublishDate,BasinTotal, group=Basin,label=BasinTotal),min.segment.length = unit(.00001, "lines"))+ggrepel::geom_text_repel(data=subset(Basin,PublishDate=='2017-01-27'),aes(PublishDate,BasinTotal, group=Basin,label=Basin),min.segment.length = unit(.00001, "lines"))+
+  ggtitle('Lower 48 Change in Rig Count By Basin', subtitle = 'Permian Basin Highlighted')+
+  labs(x="Publish Date",y="Rig Count")
+
+  plot1
+```
+<br>
+
+
+```{r, fig.width=8,echo=F,warning=F,message=F}
+plot<-ggplot(chart[,c(3,9,2)], aes(PublishDate,rigcnt, group=county))+geom_line(color='grey', size=1, alpha=.5)+
+  geom_line(data=Chart20, aes(PublishDate,rigcnt, group=county, color=county, label=NULL),size=1)+theme_minimal()+
+  ggrepel::geom_text_repel(data=subset(Chart20,PublishDate==max(PublishDate)),aes(PublishDate,rigcnt, group=county,label=county),min.segment.length = unit(.00001, "lines"))+theme(legend.position="none")+
+  ggtitle('NM and TX Change in Rig Count By County', subtitle = 'Top 10 Counties Highlighted')+
+  labs(x="Publish Date",y="Rig Count")
+
+  plot
+```
+
+<br>
+<br>
