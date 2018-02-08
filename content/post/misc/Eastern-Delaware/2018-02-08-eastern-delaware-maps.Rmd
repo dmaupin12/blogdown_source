@@ -13,13 +13,17 @@ tags:
 ####**Focus**
 
 * Mapped completions beginning in 2015.
-* Includes three maps showing activity by year (2015, 2016 and 2017-2018)
+* Includes three maps showing activity by year (2015, 2016 and 2017-2018).
 * Animation shows trend moving eastward toward Central Basin Platform.
+    + Operators initially targeting Wolfcamp A in Southern Delaware.
+* South of RSPP'a acreage, Mewbourne completed two Wolfcamp C/Ds in 2017.
+* Lilis completed a single Wolfcamp B last year. 
+* Majority of Bone Spring activity concentrated in New Mexio. 
 <br>
 <br>
 
 
-####**2015 Completion Activity**
+####**2015 Activity**
 
 <img style="margin:0px auto;display:block" src="/img/eastern_db/2015.png"/>
 <br>
