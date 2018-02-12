@@ -1,4 +1,4 @@
 # blogdown_source
 Repo to store blogdown site source content
 
-new line from r studio
+This is a line from R studiov2.
