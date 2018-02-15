@@ -91,6 +91,69 @@ description: "Fourth quarter results and conference call highlights."
 <br>
 <br>
 
+####<span style= "color:red":>**Diamondback Energy**</span>
+
+* 2017 production averaged **79.2 Mboe/d** (74% oil), an increase of **84%** from the previous year.
+* Proved reserves totaled **335.4 MMboe** (62% PDP, 70% oil), up **63%** YoY.
+* Guiding production **108-116 Mboe/d**, an increase of **40%** from the midpoint of 2017.
+* CAPEX expected to be **$1.3-$1.5 billion**; infrastructure represents ~11% of total expenditures.
+    + Plan to PoP **170-190** gross wells with an average lateral length of 9,300'.
+* **Initiating dividend of $0.50 starting in the first quarter of 2018.**
+    + Read through: Although the distribution amount is quite small, Diamondback is highlighting its cash generation capability while also separating itself from other peers.
+* Operated **10 rigs** and **4 frac crews** in the fourth quarter. Plan on operating **10-12 rigs** throughout 2018.
+    + Completed **19** Lower Spraberry, **15** Wolfcamp A and **4** Wolfcamp B wells.
+
+<img style="float: right;" src="/img/4q17/fang_limelight.png">
+
+* **Announced ~19,000 net acre exploratory play located in Southeast Ector and Northeast Andrews Counties.**
+    + Initially targeting **Mississippian Barnett,** which they say is analogous to recent successful Mississippian activity in Andrews County.
+    + Appraisal of acreage will begin in 2018.
+    + Private operators, Zarvona and Elevation are active in Andrews County.
+        + Zarvona Energy is led by CEO Kathryn Macaskie (former SVP at Enervest) and backed by Salient.
+        + Elevation Resources is led by Steve Pruett (ex-Concho) and backed by Pine Brook Partners.  
+* Current inventory count across Midland and Delaware Basins is **~3,800 gross locations** at current strip pricing.
+    + In the Midland Basin, reduced spacing in the **Wolfcamp A** and **Wolfcamp B** from 6 to **7 wells/section.**
+
+<img style="margin:0px auto;display:block" src="/img/4q17/fang_locations.png"/>
+
+<br>
+* Corporate model assumes service cost inflation of **~12%** in the Midland Basin and **~17%** in the Delaware Basin.
+
+
+#####**Delaware Basin**
+
+* Running 4 rigs and 2 frac crews and expect to average 4-5 rigs and 2+ frac cres in 2018.
+* Completed it's **first two well pad** targeting the **Wolfcamp A** and **Wolfcamp B** in Reeves County.
+    + **Ayers 24-2WA** (7,829' lateral) achieved a peak 30-day IP rate of 226 Boe/d per 1,000' or **1,769 Boe/d** (82% oil).
+    + **Ayers 24-3WB** (8,801' lateral) achieved a peak 30-day IP rate of 142 Boe/d per 1,000' or **1,250 Boe/d** (81% oil).
+        + 90 day cumulative production is over 95 Mboe.
+    + Did not see any communication between the formations; management believes at this time there is no need to co-develop the zones.
+* 2018 activity will primarily focus on **Wolfcamp A** in Reeves, Ward and Pecos.
+* Plan on additional tests of **Second Bone Spring** in Pecos and **Wolfcamp B** and **Third Bone Spring** in Reeves and Ward.
+<img style="float: right;" src="/img/4q17/fang_depth.png">
+
+* Multiple wells have reached TD in **less than 20 days.**
+    + Utilizing pre-set rig and testing different hole sizes surface depths and intermediate casing points for further improvement.
+* Current completion design using **2,000-2,500 lbs/ft** with tighter stage spacing.
+    + Continue to test different fluid rates, diverting agents and cluster spacing.
+
+<img style="float: right;" src="/img/4q17/fang_log.png">
+
+* Highgrading Wolfcamp landing zones with high resolution **3-D seismic shoot in 2018.**
+    + Targeting three different landing zones in the Wolfcamp which is estimated to hold **53 MMbls/section of OOIP.**
+* Recent **Wolfcamp A** well results are tracking  **1,100 Mboe** (970 Mbo) type curve.
+<img style="margin:0px auto;display:block" src="/img/4q17/fang_tc.png"/>
+
+* **Water cuts** are around **4:1** in Pecos and Reeves Counties.
+
+#####**Midland Basin**
+
+* Running 6 rigs and expect to average 6-8 rigs in 2018.
+* 2018 activity will focus on **Lower Spraberry** in Western Midland Basin and **Wolfcamp A** in Eastern Midland Basin.
+* Current completion design using **1,600-1,800 lbs/ft** and 100% local sand.
+<br>
+<br>
+
 ####**ExxonMobil**
 
 * 2017 production averaged 3,985 Mboe/d, 2% down from 2016.
@@ -108,6 +171,41 @@ description: "Fourth quarter results and conference call highlights."
 * Permian CAPEX estimated to be ~$16.5 million.
 * In process of testing both contiguous acreage positions in Dawson and Andrews Counties.
     + Two wells are currently online and plan on drilling additional two wells in 2018.
+<br>
+<br>
+
+####<span style= "color:red":>**Occidental Petroleum**</span>
+
+* *First off, Oxy receives 2 blue ribbons for both the longest deck (64 slides) and most words crammed into each slide...now on to the commentary.*
+* Permian Resources 2017/2018 operating results and guidance:
+    + Production in the fourth quarter averaged **159 Mboe/d.**
+    + Replaced **365%** of reserves. 
+    + Added **750** locations which breakeven <$50.
+    + 2018 production expected to be **169-173 Mboe/d** with associated CAPEX of **~$1.9 billion.**
+    + Plan on running **11 rigs** in 2018.
+        + 10 rigs in Delaware and 1 rig in Midland.
+    + Service costs expected to increase by **5%** for drilling and **10%-15%** for completions in 2018.
+* Testing 6 new benches in the Delaware Basin which include the **First/Second Bone Spring** and **Avalon** in New Mexico and the **Second/Third Bone Spring** and **Wolfcamp C** in Greater Barilla Draw.
+<img style="float: right;" src="/img/4q17/oxy_sbsg.png">
+
+* Targeting **$8.9 million** (10,000' lateral) **Second Bone Spring** D&C costs in New Mexico, a reduction of **$1 million** from fourth quarter average well costs.
+    + D&C costs assume 3-string casing and 2,000 lbs/ft completion as well as tie-in capital. 
+    + **Corral Fly 02-01 State 23H (9,800' lateral):** drilled first time with 5-1/2" floated casing.
+* Highlighted **Turkey Track** development consisting of 6 sections in New Mexico.
+    + Targeting **Second/Third Bone Spring** development with all-in IRRs above **40%.**
+    + Well costs are **~$7.7 million (10,000' lateral)** drilled in **20 days.**
+    + **Turkey Track 9-10 state 32H** completed in the **Third Bone Spring** has produced over **200 Mboe** in **90 days.**
+    + Placed 5 wells online during the fourth quarter.
+    + Delayed moving rig away from Turkey Track due to Third Bone Spring result.
+    + Focusing on co-development of the Second/Third Bone Spring in 2018.
+
+<img style="margin:0px auto;display:block" src="/img/4q17/oxy_turkey.png"/>
+<br>
+
+* In the Greater Sand Dunes Region, PoP'd the **Patton MDP1 18 Fed23H** which is an **Avalon** appraisal well that had an **IP30** of **1,509 Be/d** (76% oil).
+* Also in the Greater Sand Dunes Region, testing new frac designs and should have results in early 2018.
+* In the Midland Basin, operating expenses in Merchant averaged **~$2.71** in 2017 driven largely by centralized facilities, no water hauling and using gas lift which has limited well failures and downhole costs.
+* Big data analytics *(buzz buzz)* reducing workovers through early detection of problems in artificial lifts and drilling.    
 <br>
 <br>
 
