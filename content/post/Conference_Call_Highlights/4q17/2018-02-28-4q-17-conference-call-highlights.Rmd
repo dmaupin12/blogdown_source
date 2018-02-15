@@ -115,8 +115,8 @@ description: "Fourth quarter results and conference call highlights."
     + In the Midland Basin, reduced spacing in the **Wolfcamp A** and **Wolfcamp B** from 6 to **7 wells/section.**
 
 <img style="margin:0px auto;display:block" src="/img/4q17/fang_locations.png"/>
-
 <br>
+
 * Corporate model assumes service cost inflation of **~12%** in the Midland Basin and **~17%** in the Delaware Basin.
 
 
