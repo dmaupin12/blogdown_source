@@ -74,13 +74,13 @@ description: "Fourth quarter results and conference call highlights."
     + Permian will receive ~70% of capital. 
     + Plan on completing 127 wells total and **84** wells in the Permian.
     + Focus in Permian will continue to be on **Wolfcamp** XL laterals with additional development in the **Avalon** and **Second Bone Spring.**
-    + Testing **14 wells per section** in the **Lower Wolfcamp** in **Culberson** and **18** wells per section in the **Upper Wolfcamp** in **Reeves.**
-* Currently running **10 rigs**in the Permian.
+    + Testing **14** wells per section in the **Lower Wolfcamp** in **Culberson** and **18** wells per section in the **Upper Wolfcamp** in **Reeves.**
+* Currently running **10 rigs** in the Permian.
 * Proppant costs have risen by **~10%** since the third quarter.
     + Countering rising prices by deploying zipper fracs and recycling water.
     + Continue to explore local sand sourcing.
-* Current Wolfcamp 2-mile D&C costs are **~$11-$13 million.**
-* Bone Spring 1-mile D&C costs are **~$7-$8.5 million.**
+* **Wolfcamp 2-mile** D&C costs are **~$11-$13 million.**
+* **Bone Spring 1-mile** D&C costs are **~$7-$8.5 million.**
 * Multiple pilot spacing tests are currently producing or in development
 <img style="float: right;" src="/img/4q17/xec_timtam.png">
 
