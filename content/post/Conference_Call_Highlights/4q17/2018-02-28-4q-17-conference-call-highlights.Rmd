@@ -41,7 +41,7 @@ description: "Fourth quarter results and conference call highlights."
 ###**Upstream Companies**
 <br>
 
-####<span style= "color:red":>**Anadarko**</span>
+####**Anadarko**
 
 * Onshore production averaged **391 Mboe/d**, which was an increase of 9% from 4Q'16.
     + Delaware Basin production increased **54%** to average **77 Mboe/d** (61% oil).
@@ -165,7 +165,7 @@ description: "Fourth quarter results and conference call highlights."
 <br>
 <br>
 
-####**Murphy**
+####**Murphy Oil**
 
 * 2018 production expected to be **~168 Mboe/d** with associated capex of **$1.06 billion.**
 * Permian CAPEX estimated to be ~$16.5 million.
@@ -209,7 +209,7 @@ description: "Fourth quarter results and conference call highlights."
 <br>
 <br>
 
-####<span style= "color:red":>**Pioneer**</span>
+####**Pioneer Natural Resources**
 
 * Divesting Eagle Ford, South Texas, Raton and West Panhandle assets in 2018 to become Permian Basin pure player.
     + Post divestitures, cash operating margins and corporate returns expected to be significantly higher.
