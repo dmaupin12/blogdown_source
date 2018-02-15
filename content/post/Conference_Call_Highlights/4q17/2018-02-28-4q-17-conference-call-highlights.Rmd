@@ -13,9 +13,12 @@ output:
   blogdown::html_page:
     toc: true
     toc_depth: 4
+
 slug: 4q-17-conference-call-highlights
 description: "Fourth quarter results and conference call highlights."
 ---
+
+
 
 ###**Service Companies**
 <br>
@@ -64,6 +67,38 @@ description: "Fourth quarter results and conference call highlights."
 <br>
 <br>
 
+####<span style= "color:red":>**Cimarex Energy**</span>
+
+* 2017 production averaged **190 Mboe/d** (30 % oil). 
+* Guiding CAPEX to **$1.6-$1.7 billion** ($1.3-$1.4 billion D&C) with associated production of **211-221 Mboe/d,** an increase of **~14%** from 2017. 
+    + Permian will receive ~70% of capital. 
+    + Plan on completing 127 wells total and **84** wells in the Permian.
+    + Focus in Permian will continue to be on **Wolfcamp** XL laterals with additional development in the **Avalon** and **Second Bone Spring.**
+    + Testing **14 wells per section** in the **Lower Wolfcamp** in **Culberson** and **18** wells per section in the **Upper Wolfcamp** in **Reeves.**
+* Currently running **10 rigs**in the Permian.
+* Proppant costs have risen by **~10%** since the third quarter.
+    + Countering rising prices by deploying zipper fracs and recycling water.
+    + Continue to explore local sand sourcing.
+* Current Wolfcamp 2-mile D&C costs are **~$11-$13 million.**
+* Bone Spring 1-mile D&C costs are **~$7-$8.5 million.**
+* Multiple pilot spacing tests are currently producing or in development
+<img style="float: right;" src="/img/4q17/xec_timtam.png">
+
+* In Culberson, the **Tim Tam** development project generated **>67% IRR** after taxes.
+    + Wells were wine racked in the Lower Wolfcamp with horizontal spacing of **1,756'** and vertical spacing of **200'.**
+    + Spacing appears to be adequate; **child wells** are outperforming parent wells after one year. 
+* In Red Hills, the **Red Tank Triste Draw** development is testing **20** wells per section in the **Avalon.** 
+<img style="margin:0px auto;display:block" src="/img/4q17/xec_spacing.png"/>
+<br>
+
+* Testing **X-Y Bench** in Culberson. Multiple wells are currently flowing back with published results expected within the next few quarters.
+    + Positive results would push play farther West into State Line area.
+* **Increasing activity in Ward. Gaining more confidence landing laterals in Upper Wolfcamp without detrimental effect to the upper Third Bone Spring wells.** 
+    + Company will drill 4-5 wells across it's acreage in 2018.
+* Possibly moving away from building large scale infrastructure in front of multi-pad developments and shifting back to smaller facilities with a *"build it as you need it"* mentality.
+    + Read through: Front-end loading is negatively affecting project IRRs.
+<br>
+<br>
 
 ####**Chevron**
 
@@ -74,7 +109,7 @@ description: "Fourth quarter results and conference call highlights."
 * Multiple deals expected to close in 2018.
 * Using technology to better assess seismic attributes to control drill bits and improve precision of lateral landing.
 * Increased number of stages and lowered perforated intervals.
-* Around two-thirds of capital spend in the Permian is protected with contracts. 
+* Around two-thirds of capital spend in the Permian is protected with contracts.
 <br>
 <br>
 
@@ -91,7 +126,7 @@ description: "Fourth quarter results and conference call highlights."
 <br>
 <br>
 
-####<span style= "color:red":>**Diamondback Energy**</span>
+####**Diamondback Energy**
 
 * 2017 production averaged **79.2 Mboe/d** (74% oil), an increase of **84%** from the previous year.
 * Proved reserves totaled **335.4 MMboe** (62% PDP, 70% oil), up **63%** YoY.
@@ -112,7 +147,7 @@ description: "Fourth quarter results and conference call highlights."
         + Zarvona Energy is led by CEO Kathryn Macaskie (former SVP at Enervest) and backed by Salient.
         + Elevation Resources is led by Steve Pruett (ex-Concho) and backed by Pine Brook Partners.  
 * Current inventory count across Midland and Delaware Basins is **~3,800 gross locations** at current strip pricing.
-    + In the Midland Basin, reduced spacing in the **Wolfcamp A** and **Wolfcamp B** from 6 to **7 wells/section.**
+    + In the Midland Basin, reduced spacing in the **Wolfcamp A** and **Wolfcamp B** from 6 to **7 wells per section.**
 
 <img style="margin:0px auto;display:block" src="/img/4q17/fang_locations.png"/>
 <br>
@@ -140,7 +175,7 @@ description: "Fourth quarter results and conference call highlights."
 <img style="float: right;" src="/img/4q17/fang_log.png">
 
 * Highgrading Wolfcamp landing zones with high resolution **3-D seismic shoot in 2018.**
-    + Targeting three different landing zones in the Wolfcamp which is estimated to hold **53 MMbls/section of OOIP.**
+    + Targeting three different landing zones in the Wolfcamp which is estimated to hold **53 MMbls per section of OOIP.**
 * Recent **Wolfcamp A** well results are tracking  **1,100 Mboe** (970 Mbo) type curve.
 <img style="margin:0px auto;display:block" src="/img/4q17/fang_tc.png"/>
 
@@ -165,6 +200,24 @@ description: "Fourth quarter results and conference call highlights."
 <br>
 <br>
 
+####<span style= "color:red":>**Laredo Petroleum**</span>
+
+* 2017 production averaged **58 Mboe/d**, up 17% from 2016. 
+* Increased reserves by 36%.
+* Reiterated 2018 growth guidance of **~10%** versus last year.
+* Announced a **$200 million** share repurchase program. Funds will be sourced from cash on hand of ~$46 million and its revolving credit facility.
+    + Management stated, *"At current stock prices, we believe having the ability to repurchase 10% of our outstanding shares represents a highly accretive use of capital."*
+    + Read through: Laredo is a small cap company with growth rates similar to that of a mid-major. Distributing capital through share buybacks make sense given the company profile.
+* Currently running **3 rigs** and **1 frac crew.**
+    + Adding another crew in the second quarter.
+    + Plan on completing 60-65 net wells targeting the Upper and Middle Wolfcamp with an average latera length of ~10,400'. 
+* Expect to achieve well cost savings of **~$600k** per well compared to 2017 D&C costs.
+    + Decrease attributed to **longer stage lengths,** local sand and other completion design changes.
+* Results of spacing tests in 2017 suggest the possibility for up to **32** wells per section in the **Upper and Middle Wolfcamp.**
+    + ~60% of wells in 2018 will be drilled using this spacing assumption.
+    
+<img style="margin:0px auto;display:block" src="/img/4q17/lpi_spacing.png"/> 
+
 ####**Murphy Oil**
 
 * 2018 production expected to be **~168 Mboe/d** with associated capex of **$1.06 billion.**
@@ -174,7 +227,7 @@ description: "Fourth quarter results and conference call highlights."
 <br>
 <br>
 
-####<span style= "color:red":>**Occidental Petroleum**</span>
+####**Occidental Petroleum**
 
 * *First off, Oxy receives 2 blue ribbons for both the longest deck (64 slides) and most words crammed into each slide...now on to the commentary.*
 * Permian Resources 2017/2018 operating results and guidance:

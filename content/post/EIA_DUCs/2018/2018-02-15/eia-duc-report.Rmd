@@ -17,7 +17,7 @@ slug: eia-duc-report
 ####**Permian Monthly Highlights**
 * Permian Basin ended December with **~2,880 wells waiting on completion.** 
 * The DUC to completion ratio is stabilizing at ~7:1. 
-
+blo
 ```{r, echo=F, warning=F, message=F}
 library(tidyverse)
 library(openxlsx)
