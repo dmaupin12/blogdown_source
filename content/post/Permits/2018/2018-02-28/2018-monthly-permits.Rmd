@@ -1,0 +1,285 @@
+---
+title: Monthly Permits
+author: David Maupin
+date: '2018-02-28'
+categories:
+  - Operator Activity
+tags:
+  - Permits
+slug: monthly-permits
+description: Permitting activity highlighting top 20 operators and cluster mapping
+  to identify pads.
+---
+
+####**Overview of Permitting Activity**
+
+* **Live link** to DrillingInfo which is updated daily
+* Currently only shows horizontal permits
+* Wells contains following permitting attributes: Company, Well Name, Well Type, Approval Date, Formation and Permit Depth
+* 2^nd^ map attempts to identify **permitted well pads** using clustering
+    + *Note: Well counts do not include previously drilled or permitted wells at this time*
+* **Top 20** operators are colored in map and chart
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(fig.align = 'center')
+```
+
+```{r,echo=F,warning=F,message=F}
+
+library(httr)
+library(jsonlite)
+library(tidyverse)
+library(tidyr)
+library(urltools)
+library(leaflet)
+library(leaflet.extras)
+library(rgdal)
+library(widgetframe)
+```
+
+
+```{r,echo=F,warning=F,message=F}
+'X-API-KEY'<- '5f0bdabc4da1310049f78006fdb4ad6b'
+
+URL<-'https://di-api.drillinginfo.com/v1/direct-access/permits?state_province=New%20Mexico&format=json'
+
+
+#Be sure to Update Month
+URL<-url_parse(URL)
+URL$parameter= 'state_province=New%20Mexico&min_approved_date=2018-02-01&pagesize=100000'
+
+URL<-url_compose(URL)
+
+
+req<- GET(URL,add_headers('X-API-KEY'= '5f0bdabc4da1310049f78006fdb4ad6b'))
+```
+
+```{r,echo=F,warning=F,message=F}
+nm_permits<-content(req)
+nm_permits<-as.data.frame(do.call(rbind, nm_permits))
+nm_permits<-lapply(nm_permits, function(x) ifelse (x == "NULL", NA, x))
+nm_permits<-t(as.data.frame(do.call(rbind, nm_permits)))
+nm_permits<-as.data.frame(nm_permits)
+nm_permits<-nm_permits %>% bind_rows(nm_permits) %>%    # make larger sample data
+  mutate_if(is.list, simplify_all) %>%    # flatten each list element internally 
+  unnest()    # expand
+
+
+nm_permits<- nm_permits%>% select(api_10,lease_name,well_number,county_parish, well_type,approved_date,
+                                  permit_status,field,formation,permitted_depth,permit_depth_uom,
+                                  state_province,
+                                  township,section,range,drill_type,surface_latitude,surface_longitude,
+                                  operator_alias,true_vertical_depth,permit_depth_uom,ofs_region)
+
+nm_permits %>% mutate_if(is.logical , as.character) -> nm_permits
+
+```
+
+```{r,echo=F,warning=F,message=F}
+#Texas
+URL<-'https://di-api.drillinginfo.com/v1/direct-access/permits?state_province=Texas&format=json&page=1&pagesize=10000'
+
+#Be sure to Update Month
+URL<-url_parse(URL)
+URL$parameter= 'state_province=Texas&min_approved_date=2018-02-01&pagesize=100000'
+
+URL<-url_compose(URL)
+
+
+req<- GET(URL,add_headers('X-API-KEY'= '5f0bdabc4da1310049f78006fdb4ad6b'))
+```
+
+```{r,echo=F,warning=F,message=F}
+tx_permits<-content(req)
+tx_permits<-as.data.frame(do.call(rbind, tx_permits))
+tx_permits<-lapply(tx_permits, function(x) ifelse (x == "NULL", NA, x))
+tx_permits<-t(as.data.frame(do.call(rbind, tx_permits)))
+tx_permits<-as.data.frame(tx_permits)
+tx_permits<-tx_permits %>% bind_rows(tx_permits) %>%    # make larger sample data
+  mutate_if(is.list, simplify_all) %>%    # flatten each list element internally 
+  unnest()    # expand
+
+tx_permits<- tx_permits%>% select(api_10,lease_name,well_number,county_parish, well_type,approved_date,
+                                  permit_status,field,formation,permitted_depth,permit_depth_uom,
+                                  expired_date,state_province,approved_date ,
+                                  township,section,range,drill_type,surface_latitude,surface_longitude,
+                                  operator_alias,true_vertical_depth,permit_depth_uom,ofs_region)
+
+tx_permits %>% mutate_if(is.logical , as.character) -> tx_permits
+
+tx_permits$true_vertical_depth<- as.integer(tx_permits$true_vertical_depth)
+
+
+
+tx_nm_permits<- full_join(nm_permits,tx_permits)
+```
+
+
+```{r,echo=F,warning=F,message=F}
+alias<-read.csv('Operator_Alias.csv',sep=",",header=T,stringsAsFactors = F)
+
+tx_nm_permits<- left_join(tx_nm_permits,alias, by='operator_alias')
+```
+
+```{r,echo=F,warning=F,message=F}
+Top20<- tx_nm_permits%>%distinct()%>% filter(ofs_region=="PERMIAN BASIN"& drill_type=="H")%>%group_by(operator_alias)%>% summarise(Count= sum(n()))%>%top_n(20,Count)
+Top20<- unique(left_join(Top20,tx_nm_permits[,c(23,19)]))
+
+#Add color column
+Color<-c('#e6e600','#00ccff','#ff9999','#cc0066','#00264d','#ff0000','#003300',"#e60000",'#99ffff',"#cc9966",'#ff9966','#0d0d0d',"#cc33ff",'#ff5500',"#ccffee","#ff9900","#0000e6",'#660066','#33ffd6','#0099ff','#a6a6a6','#0000ff','#ff00ff','#ff0066','#ffd699','#ffffb3'," dark blue",'#66ff99','#a64dff',"#ffccff",'#000066',"#e65c00",'#339966',"#0099cc",
+"#800000","#00ffcc","#660066","#ffa31a","red","blue","purple","light green","dark blue","#ccffcc","#3333cc","#b35900","#e6ffff","#bf4040","#666699","#ad33ff","#ffb3cc")
+
+
+Alias<- c("APA","APC","BHP","CDEV","CPE","CVX","CXO","DVN","ECA","EGN","ENDEAVOR","EOG",'EPE',"FANG",'FDL',"MEWBOURNE","MTDR","FELIX","JAG","LPI","Other","OXY","PE","PERMIAN DEEP","PXD","RDSA","REN","RKI","RSPP","ROSEHILL","SURGE","XEC","XTO","MRO","QEP","SM","SABLE PERMIAN","SEM OPERATING","COP","CRZO","ONEENERGY","HEADINGTON","AXAS","SABALO","THREE RIVERS III","TRACKER","SUMMIT","HUNT",'CROWNQUEST','LEGACY','PDCE')
+
+color_frame<- data.frame(Color,Alias)
+color_frame$Alias<- as.character(color_frame$Alias)
+Top20<-left_join(Top20,color_frame,by="Alias")
+tx_nm_permits<- left_join(tx_nm_permits,Top20[,c(2,3,4)], by= 'Alias')
+tx_nm_permits<- tx_nm_permits%>% mutate(Count= if_else(Count>0,'true','false'))
+tx_nm_permits<-tx_nm_permits%>% mutate(Top20= ifelse(Count=='true',Alias,'Other'))%>% mutate(Top20=replace(Top20, which(is.na(Top20)),"Other"))%>% distinct()%>% filter(drill_type=="H",ofs_region=='PERMIAN BASIN')
+
+tx_nm_permits$approved_date<- as.Date(tx_nm_permits$approved_date)
+
+tx_nm_permits$Color<- as.character(tx_nm_permits$Color)
+tx_nm_permits<- tx_nm_permits %>% mutate(Color=replace(Color, which(is.na(Color)),"#b3b3b3"))
+tx_nm_permits$Color<- as.factor(tx_nm_permits$Color)
+
+##Remove NA after checking
+
+tx_nm_permits<- tx_nm_permits%>% filter(!is.na(operator_alias))
+```
+
+```{r,echo=F,verbose=F, message=F}
+cxo_leases<-readOGR(".","cxo_leases_2018-01-22", verbose=F)
+```
+
+```{r,echo=F, warning=F, message=F}
+
+tx_nm_permits<- within(tx_nm_permits, Color<- reorder(Color,Top20))
+
+pal <- colorFactor(palette = unique(as.character(tx_nm_permits$Color)),domain=tx_nm_permits$Top20,levels=tx_nm_permits$Top20,ordered=T)
+
+
+
+#Find previous 5 days perm_itting activity
+last5days<-tx_nm_permits%>%select(approved_date)%>%distinct()%>% top_n(5,wt=approved_date)
+min_date<- min(last5days$approved_date)
+
+tx_nm_permits$min_date<- min_date
+
+#filter permits by min_date
+prev_5_days_perm<- tx_nm_permits%>% group_by(api_10)%>% filter(approved_date>=min_date)
+
+map1<-leaflet(cxo_leases,width="100%",height = 550,options=leafletOptions(zoomControl=F)) %>%
+  # Base groups
+  addTiles(group = "Esri.WorldTopoMap")%>%
+  addProviderTiles(providers$Esri.WorldTopoMap)%>%
+  addPolygons(data = cxo_leases, fillOpacity = .5,fillColor = 'yellow',stroke=F,group = "Concho Leases")%>%
+  addCircleMarkers(data=tx_nm_permits,~surface_longitude,radius=10, ~surface_latitude, stroke = F,color=~pal(Top20),fillOpacity=.6, group = "Permitting Activity", 
+  popup=paste("Company:", tx_nm_permits$operator_alias, "<br>",
+              "Well Name:", tx_nm_permits$lease_name," ",tx_nm_permits$well_number," ",tx_nm_permits$drill_type,"<br>",
+              "Well Type:", tx_nm_permits$well_type,"<br>",
+              "Approved Date:",tx_nm_permits$approved_date,"<br>",
+              "Formation", tx_nm_permits$formation,"<br>",
+              "Permit Depth", tx_nm_permits$permitted_depth,"<br>"))%>%
+  addCircleMarkers(data=prev_5_days_perm,~surface_longitude,radius=10, ~surface_latitude, stroke = F,color=~pal(Top20),fillOpacity=.6, group = "Last 5 Days Permits", 
+  popup=paste("Company:", prev_5_days_perm$operator_alias, "<br>",
+              "Well Name:", prev_5_days_perm$lease_name," ",prev_5_days_perm$well_number," ",prev_5_days_perm$drill_type,"<br>",
+              "Well Type:", prev_5_days_perm$well_type,"<br>",
+              "Approved Date:",prev_5_days_perm$approved_date,"<br>",
+              "Formation", prev_5_days_perm$formation,"<br>",
+              "Permit Depth", prev_5_days_perm$permitted_depth,"<br>"))
+
+map2<-leaflet(cxo_leases,width='100%',height = 550,options=leafletOptions(zoomControl=F)) %>%
+  # Base groups
+  addTiles(group = "Esri.WorldTopoMap")%>%
+  addProviderTiles(providers$Esri.WorldTopoMap)%>%
+  addPolygons(data = cxo_leases, fillOpacity = .5,fillColor = 'yellow',stroke=F,group = "Concho Leases")%>%
+  addCircleMarkers(data=tx_nm_permits,~surface_longitude,radius=5, ~surface_latitude, stroke = F,color=~pal(Top20),fillOpacity=.6, group = "Permitting Activity", 
+  popup=paste("Company:", tx_nm_permits$operator_alias, "<br>",
+              "Well Name:", tx_nm_permits$lease_name," ",tx_nm_permits$well_number," ",tx_nm_permits$drill_type,"<br>",
+              "Well Type:", tx_nm_permits$well_type,"<br>",
+              "Approved Date:",tx_nm_permits$approved_date,"<br>",
+              "Formation", tx_nm_permits$formation,"<br>",
+              "Permit Depth", tx_nm_permits$permitted_depth,"<br>"))%>%
+  addCircleMarkers(data=tx_nm_permits,clusterOptions= markerClusterOptions(freezeAtZoom=13, spiderfyDistanceMultiplier=3),~surface_longitude,radius=10, ~surface_latitude, stroke = F,color=~pal(Top20),fillOpacity=.6, group = "Permitting Activity", 
+  popup=paste("Company:", tx_nm_permits$operator_alias, "<br>",
+              "Well Name:", tx_nm_permits$lease_name," ",tx_nm_permits$well_number," ",tx_nm_permits$drill_type,"<br>",
+              "Well Type:", tx_nm_permits$well_type,"<br>",
+              "Approved Date:",tx_nm_permits$approved_date,"<br>",
+              "Formation", tx_nm_permits$formation,"<br>",
+              "Permit Depth", tx_nm_permits$permitted_depth,"<br>"))
+
+```
+
+```{r,echo=F, warning=F, message=F} 
+map1<-map1 %>% setView(map1,lng=-102.79, lat=31.89, zoom=7)%>%
+  # Overlay groups
+  addLayersControl(
+    overlayGroups = c("Last 5 Days Permits","Permitting Activity","Concho Leases"),
+    options = layersControlOptions(collapsed = FALSE),position='topleft')%>%
+  addLegend('topright',pal=pal,values=tx_nm_permits$Top20,title="Company",opacity=1)
+
+map1<-map1%>% hideGroup("Permitting Activity")%>%
+  addFullscreenControl( )%>%suspendScroll()%>% addScaleBar(position="topleft")
+
+
+map2<-map2 %>% setView(map2,lng=-102.79, lat=31.89, zoom=7)%>%
+  # Overlay groups
+  addLayersControl(
+    overlayGroups = c("Permitting Activity","Concho Leases"),
+    options = layersControlOptions(collapsed = FALSE),position='topleft')%>%
+  addLegend('topright',pal=pal,values=tx_nm_permits$Top20,title="Company",opacity=1)
+
+map2<-map2%>%addFullscreenControl( pseudoFullscreen = T)%>%suspendScroll()%>% addScaleBar(position="topleft")
+```
+
+
+
+<h4 style="text-align: center;" markdown="1">**February Permitting Activity**</h4>
+```{r, echo=F}
+map1
+```
+<br>
+<br>
+
+####**Recommended Workflow**
+
+1. Use mouse to scroll in or click on circle with numbers  
+    i. Continue to scroll or zoom in until numbers are lower than 10 
+2. Selected permits will appear when clicked or touched (mobile or ipad device)
+    i. Circles on bottom right are more accessible than cirlcles positioned above (working on a solution)
+    
+<h4 style="text-align: center;" markdown="1">**Identifying Well Pads Using Cluster Mapping**</h4>
+```{r, echo=F}
+map2  
+```
+*Zoom in to view clusters*
+<br>
+
+```{r,warning=F, echo=F,fig.width=8.5, fig.height= 6}
+tx_nm_permits%>%filter(!Top20=='Other')->Top20f
+col<- as.character(Top20f$Color)
+names(col) <- as.character(Top20f$Top20)
+
+Top20f$Top20<-factor(as.factor(Top20f$Top20), levels=rev(levels(as.factor(Top20f$Top20))))
+
+ggplot(Top20f, aes(x=Top20,fill=Top20))+geom_bar()+scale_fill_manual(values=col)+coord_flip()+hrbrthemes::theme_ipsum()+theme(legend.position = 'none')+ggtitle('Top 20 Operators Permitting Activity in February', subtitle = 'Sourced from DrillingInfo')
+
+```
+<br>
+*Open csv by right clicking and selecting show in folder. Rename file with **EXAMPLE.csv** which can then be saved as an excel document.*
+```{r,echo=F}
+table<-DT::datatable(tx_nm_permits[,c(1:4,23,9,6)],class = 'cell-border stripe',filter='top',extensions='Buttons',
+                     options = list(dom = 'Bfrtip',
+                                    buttons= c('csv','pdf'),
+    columnDefs = list(list(className = 'dt-center', targets = 5)),
+     pageLength = 10, lengthMenu = c(10,20,30,40,50)),
+  fillContainer = T)
+widgetframe::frameWidget(table,width='100%')
+
+```
+<br>
+
