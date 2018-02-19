@@ -18,9 +18,10 @@ tags:
 * The map below identifies offsetting permit/spud activity.
     + Majority of activity is vertical development, with the most active operator, Oxy, North of their acreage.
     + Adventure Operating has completed 2 horizontal wells on their acreage in 2016 and 2017 targeting the **San Andreas** formation.
-        + **Edwards 31 8HA** was completed with a **4,866'** lateral and frac'd with **655 lbs/ft** of proppant IP'd at **88 Bbl/d** and 22 Mcf/d.
-            + The well has produced over **75 Mbo** in 15 months.
-        + **Edwards 31 1HA** was completed with a **5,390'** lateral and frac'd with **343 lbs/ft** of proppant IP'd at **107 Bbl/d** and 65 Mcf/d.
+        + **Edwards 31 8HA** was completed with a **4,866'** lateral and frac'd with **655 lbs/ft** of proppant.
+            + The well IP'd at **88 Bbl/d** and 22 Mcf/d and has produced  **~57 Mbo** in 15 months.
+        + **Edwards 31 1HA** was completed with a **5,390'** lateral and frac'd with **343 lbs/ft** of proppant.
+            + The well IP'd at **107 Bbl/d** and 65 Mcf/d and has produced **~14 Mbo** in 5 months.
 * In Crane County, there is a single active horizontal permit.
         
 ####**Diamondback Acreage Map**
