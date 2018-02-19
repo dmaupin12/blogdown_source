@@ -41,6 +41,21 @@ description: "Fourth quarter results and conference call highlights."
 <br>
 <br>
 
+####<span style= "color:red":>**Helmerich and Payne**</span>
+
+* Average spot pricing still in the **high-teens,** while leading edge **Super-Spec** FlexRig pricing is in the **low-to-mid $20s.**
+    + **Super-Spec** rigs include AC drive with 1,500 hp drawworks, 750,000# hookload ratings, 7,500 psi mud circulating systems and multiple well pad drilling systems. 
+<img style="float: right;" src="/img/4q17/hp_superspec.png">
+
+* Industry is transitioning to Super-Spec rigs as the market share has increased from ~34% to **~40%** in 7 months.  
+* Company has **102 rigs** contracted in the Permian. Represents ~50% of total company contracts.
+* As of January 2018, over **70%** of total horizontal activity is utilizing **AC Drive** rigs.
+* Highlighted MOTIVE and MagVAR capabilities:
+    + MOTIVE: Bit guidance system which has been used on more than 350 horizontal wells to date. Allows for more accurate well placement, smoother wellbores, more efficient drilling with consistently lower well costs.
+        + Eagle Ford case study: 2 sets of 4 wells (one guided by MOTIVE and one without), with nearly identical lithologies, well paths etc. MOTIVE provided **30% lower effective drilling cost** with nearly **twice the accuracy** and **zero non-productive time.**
+<br>
+<br>
+
 ###**Upstream Companies**
 <br>
 
