@@ -1,16 +1,22 @@
 ---
 title: Weekly Rigs
 author: David Maupin
-date: '2018-02-12'
+date: '2018-02-19'
 tags:
   - Baker Hughes Weekly Update
 slug: weekly-rigs
 ---
 
 
-####**Weekly Rig Report sourced from Baker Hughes**
-* Map identifies week over week change in rig activity by county in New Mexico and Texas
-* The graph shows the top 10 counties by overall rig count beginning in 2016
+####**Weekly rig report sourced from Baker Hughes**
+* Map identifies week over week change in rig activity by county in New Mexico and Texas.
+* The graph shows the top 10 counties by overall rig count beginning in 2016.
+
+####**Quote of the week**
+
+* ***It is hard to fail, but it is worse never to have tried to succeed.***
+    + ***Theodore Roosevelt***
+
 <br>
 <br>
 ```{r,echo=F,warning=F,message=F}

@@ -18,7 +18,17 @@
   </url>
   
   <url>
+    <loc>/2018/02/21/recent-transactions-and-current-deals-on-the-market/</loc>
+    <lastmod>2018-02-21T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/2018/02/19/limelight-a-closer-look-at-diamondback-s-new-position/</loc>
+    <lastmod>2018-02-19T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/2018/02/19/weekly-rigs/</loc>
     <lastmod>2018-02-19T00:00:00+00:00</lastmod>
   </url>
   
@@ -33,11 +43,6 @@
   </url>
   
   <url>
-    <loc>/2018/02/12/weekly-rigs/</loc>
-    <lastmod>2018-02-12T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>/2018/02/09/eastern-delaware-maps/</loc>
     <lastmod>2018-02-09T00:00:00+00:00</lastmod>
   </url>
@@ -49,6 +54,11 @@
   
   <url>
     <loc>/2018/01/31/monthly-permits/</loc>
+    <lastmod>2018-01-31T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/2018/01/31/recent-transactions-and-current-deals-on-the-market/</loc>
     <lastmod>2018-01-31T00:00:00+00:00</lastmod>
   </url>
   
@@ -96,7 +106,7 @@
   
   <url>
     <loc>/tags/baker-hughes-weekly-update/</loc>
-    <lastmod>2018-02-12T00:00:00+00:00</lastmod>
+    <lastmod>2018-02-19T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -143,14 +153,14 @@
   </url>
   
   <url>
-    <loc>/categories/current-deals/</loc>
-    <lastmod>2018-01-31T00:00:00+00:00</lastmod>
+    <loc>/tags/current-deals/</loc>
+    <lastmod>2018-02-21T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/tags/current-deals/</loc>
-    <lastmod>2018-01-31T00:00:00+00:00</lastmod>
+    <loc>/categories/current-deals/</loc>
+    <lastmod>2018-02-21T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -173,20 +183,14 @@
   </url>
   
   <url>
-    <loc>/categories/ir/</loc>
-    <lastmod>2018-02-28T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>/tags/ir/</loc>
     <lastmod>2018-02-28T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/categories/maps/</loc>
-    <lastmod>2018-02-09T00:00:00+00:00</lastmod>
+    <loc>/categories/ir/</loc>
+    <lastmod>2018-02-28T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -197,14 +201,20 @@
   </url>
   
   <url>
-    <loc>/categories/mergers-and-acquisitions/</loc>
-    <lastmod>2018-01-31T00:00:00+00:00</lastmod>
+    <loc>/categories/maps/</loc>
+    <lastmod>2018-02-09T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>/tags/mergers-and-acquisitions/</loc>
-    <lastmod>2018-01-31T00:00:00+00:00</lastmod>
+    <lastmod>2018-02-21T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/categories/mergers-and-acquisitions/</loc>
+    <lastmod>2018-02-21T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -233,13 +243,13 @@
   </url>
   
   <url>
-    <loc>/categories/pads/</loc>
+    <loc>/tags/pads/</loc>
     <lastmod>2018-01-08T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/tags/pads/</loc>
+    <loc>/categories/pads/</loc>
     <lastmod>2018-01-08T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
