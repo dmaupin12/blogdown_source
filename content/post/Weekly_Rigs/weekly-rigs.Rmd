@@ -166,7 +166,7 @@ choro= choroplethr::county_choropleth(RigReport[,c(1,4)],state_zoom = c("new mex
 ```
 
 ```{r,echo=F,verbose=F, message=F}
-cxo_leases<-readOGR(".","cxo_leases_2018-01-22", verbose=F)
+cxo_leases<-readOGR(".","cxo_leases_2.21.18", verbose=F)
 cxo_leases<-fortify(cxo_leases)
 ```
 

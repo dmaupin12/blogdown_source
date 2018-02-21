@@ -26,6 +26,10 @@ description: "Mapping recent transactions and current deals on the market. Data 
     + The total price paid is currently unknown.
 * Rumored buyer is **Admiral Permian** (ex Reliance) which received an equity line of **$600 million** from Pinebrook in March of 2017.
 * Announcement was somewhat surprising as well results in the area have been underwhelming.
+* Bloomberg reported that Shell is potentially interested in acquiring BHP's Delaware Basin assets.
+    + *"BHP has good assets that overlap our own acreage in the Permian, and may be interesting for us."*
+    
+
 <br>
 <br>
 
@@ -57,7 +61,7 @@ deals_in_play<- readOGR(".","listingGeometryViewDEVPolygon",verbose = F)
 
 
 bhp<- readOGR(".","BHP",verbose = F)
-cxo_leases<- readOGR(".","cxo_leases_2018-01-22",verbose = F)
+cxo_leases<- readOGR(".","cxo_leases_2.21.18",verbose = F)
 
 net_acres<- openxlsx::read.xlsx("Net_Acres.xlsx",sheet=1)
 net_acres<- net_acres%>%select(id,Net.Acres)
@@ -100,6 +104,12 @@ lilis$DOLACRE<- paste("$",prettyNum(lilis$DOLACRE,big.mark = ","),sep="")
 ```{r}
 deals_in_play<- deals_in_play[!grepl("Minerals|Royalty|Prospects",deals_in_play$DealType),]
 
+three_riv= deals_in_play[grepl("Three Rivers",deals_in_play$Seller),]
+deals_in_play= deals_in_play[!grepl("Three Rivers",deals_in_play$Seller),]
+
+
+
+
 labs_deals <- lapply(seq(nrow(deals_in_play@data)), function(i) {
   paste0("Seller: ", deals_in_play@data[i, "Seller"], '<p>',
          "Producing Wells/Net Acreage: ", deals_in_play@data[i,"WellsAcrea"], 
@@ -134,7 +144,7 @@ labs_lilis <- lapply(seq(nrow(lilis@data)), function(i) {
 
 ```{r}
   
-three_riv= deals_in_play[grepl("Three Rivers",deals_in_play$Seller),]
+
 
 three_riv$Buyer= "Admiral Permian"
 
@@ -149,8 +159,8 @@ labs_three_riv <- lapply(seq(nrow(three_riv@data)), function(i) {
 
 
 
-deals_in_play= deals_in_play[!grepl("Three Rivers",deals_in_play$Seller),]
 
+x= shp@data
 
 ```
 
