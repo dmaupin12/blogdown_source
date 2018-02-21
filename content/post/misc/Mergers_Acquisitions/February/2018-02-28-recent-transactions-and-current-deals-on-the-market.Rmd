@@ -61,7 +61,7 @@ deals_in_play<- readOGR(".","listingGeometryViewDEVPolygon",verbose = F)
 
 
 bhp<- readOGR(".","BHP",verbose = F)
-cxo_leases<- readOGR(".","cxo_leases_2.21.18",verbose = F)
+cxo_leases<-readOGR(".","cxo_leases_2.21.18", verbose=F)
 
 net_acres<- openxlsx::read.xlsx("Net_Acres.xlsx",sheet=1)
 net_acres<- net_acres%>%select(id,Net.Acres)
