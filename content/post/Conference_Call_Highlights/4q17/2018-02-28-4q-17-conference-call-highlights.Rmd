@@ -111,7 +111,7 @@ description: "Fourth quarter results and conference call highlights."
 * **Increasing activity in Ward. Gaining more confidence landing laterals in Upper Wolfcamp without detrimental effect to the upper Third Bone Spring wells.** 
     + Company will drill 4-5 wells across it's acreage in 2018.
 * Possibly moving away from building large scale infrastructure in front of multi-pad developments and shifting back to smaller facilities with a *"build it as you need it"* mentality.
-    + Read through: Front-end loading is negatively affecting project IRRs.
+    + *Read through: Front-end loading is negatively affecting project IRRs.*
 <br>
 <br>
 
@@ -177,7 +177,7 @@ description: "Fourth quarter results and conference call highlights."
 <br>
 
 * Similar to last quarter's report, the company highlighted its **permitting strategy,** which has led to expedited approval for future drilling activity.
-    + 7 of its 10 MDPs have been submitted to regulatory agencies. MPDs are designed to accommodate **~1,600 drilling permits.**
+    + 7 of its 10 MDPs have been submitted to regulatory agencies. MDPs are designed to accommodate **~1,600 drilling permits.**
     + 4 MDPs have been approved.
     + Management provided commentary on the permitting process stating, *"the overall plan is so that we can get permits not just on subsurface, but surface right-of-way, takeaway, battery, et cetera. So what we can do is cover the NEPA, the surface area all at one time. In doing this, it helps the BLM to be able to do more permits in a timely manner. So we work very closely with them, have a very good relationship. Once you have that approved, it then works on to the APD. Upon approval, the commitment from the BLM by statute is 30 days as after we get those approved."*
 * Current acreage in the Delaware is **~300,000 acres**, and about 90% is located in New Mexico.
@@ -195,7 +195,7 @@ description: "Fourth quarter results and conference call highlights."
 * CAPEX expected to be **$1.3-$1.5 billion**; infrastructure represents ~11% of total expenditures.
     + Plan to PoP **170-190** gross wells with an average lateral length of 9,300'.
 * **Initiating dividend of $0.50 starting in the first quarter of 2018.**
-    + Read through: Although the distribution amount is quite small, Diamondback is highlighting its cash generation capability while also separating itself from other peers.
+    + *Read through: Although the distribution amount is quite small, Diamondback is highlighting its cash generation capability while also separating itself from other peers.*
 * Operated **10 rigs** and **4 frac crews** in the fourth quarter. Plan on operating **10-12 rigs** throughout 2018.
     + Completed **19** Lower Spraberry, **15** Wolfcamp A and **4** Wolfcamp B wells.
 
@@ -321,7 +321,7 @@ IP30(Boe/d)|985|950|825|800
 <br>
 
 * Initiating a **$400 million share repurchase program** funded from cash on hand.
-    + Read through: Continues industry trend of rewarding shareholders while also showing confidence in underlying business model.
+    + *Read through: Continues industry trend of rewarding shareholders while also showing confidence in underlying business model.*
 <br>
 <br>
 
@@ -345,7 +345,7 @@ IP30(Boe/d)|985|950|825|800
 * Reiterated 2018 growth guidance of **~10%** versus last year.
 * Announced a **$200 million** share repurchase program. Funds will be sourced from cash on hand of ~$46 million and its revolving credit facility.
     + Management stated, *"At current stock prices, we believe having the ability to repurchase 10% of our outstanding shares represents a highly accretive use of capital."*
-    + Read through: Laredo is a small cap company with growth rates similar to that of a mid-major. Distributing capital through share buybacks make sense given the company profile.
+    + *Read through: Laredo is a small cap company with growth rates similar to that of a mid-major. Distributing capital through share buybacks make sense given the company profile.*
 * Currently running **3 rigs** and **1 frac crew.**
     + Adding another crew in the second quarter.
     + Plan on completing 60-65 net wells targeting the Upper and Middle Wolfcamp with an average latera length of ~10,400'. 
