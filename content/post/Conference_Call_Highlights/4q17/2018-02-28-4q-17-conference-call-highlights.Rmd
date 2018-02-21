@@ -141,6 +141,52 @@ description: "Fourth quarter results and conference call highlights."
 <br>
 <br>
 
+
+####<span style= "color:red":>**Devon Energy**</span>
+
+* Delaware Basin production averaged **60 Mboe/d** in the fourth quarter, up 5% from the previous quarter.
+* Proved reserves increased **60%** from the previous year.
+* Updated 3-year outlook:
+    + Achieve **>15%** corporate-level rates of return.
+    + Deliver **$2.5 billion** in cumulative free cash flow through 2020 at $60 WTI.
+    + Potentially monetizing **>$5 billion** in non-core assets.
+    + Self-funding capital at $50 WTI.
+    + Excess cash after funding capital program will go towards the reduction of debt up to **$1.5 billion** and distributions to shareholders in the form of dividends equal to a **5%-10%** payout ratio.
+* Guiding Delaware production growth **>35%** with associated capital of $725 million or ~32% of the total 2018 budget of **$2.2-$2.4 billion.**
+    + Expect to PoP >100 wells.
+* Instituted new management incentives highlighted by **CROCE (20% target)** and **Return on Capital Program (15% target)**
+    + CROCE= Cash Flow From Ops. + After tax Interest Expense + EnLink Distributions **/** Avg. Book Equity + Avg. Net Debt
+    + ROCP= IRR on capital investment over 2 year period after burdening for G&A and corporate costs
+* Drilling activity will be focused on the Leonard Shale, Bone Spring and Wolfcamp near the state-line area.
+* **Anaconda** project, which is the company's first **multi-zone development** in the Delaware, had an average **IP30** of **~1,600 Boe/d** (65% oil) from **10 wells.**
+    + Realized cost savings of **~1 million per well** compared to traditional pad developments.
+    + Bone Spring development has been completed; will continue to develop the Leonard as the zones are not *"dependent or sharing the same pressure regime."*
+* 6 additional developments are scheduled in 2018, which equates to **~70%** of in-basin capital.
+    + **Boomslang:** 11 well pattern across 3 intervals in the Leonard and Bone Spring.
+    + **Seawolf:** 12 well pattern across 4 Wolfcamp intervals.
+    + **Lusitano:** 6 well pattern across multiple intervals in the Leonard, Bone Spring and Wolfcamp.
+    + **Medusa:** 13 well pattern across 3 intervals in the Leonard, Bone Spring.
+    + **Fighting Okara:** 12 well pattern across 6 intervals in the Leonard and Wolfcamp.
+    + **Snapping:** 6 well pattern across 2 intervals in the Leonard.
+
+<img style="margin:0px auto;display:block" src="/img/4q17/dvn_land.png"/>
+<br>
+
+* In the Rattlesnake Area (Loving/Lea border), the **Seawolf** project is testing **28 wells per section** from a 12 well pattern consisting of a single **Third Bone Spring,**  4 **Wolfcamp XY,** 5 **Wolfcamp A Upper** and a single **Middle** and **Lower Wolfcamp A**.
+<img style="margin:0px auto;display:block" src="/img/4q17/dvn_seawolf.png"/>
+<br>
+
+* Similar to last quarter's report, the company highlighted its **permitting strategy,** which has led to expedited approval for future drilling activity.
+    + 7 of its 10 MDPs have been submitted to regulatory agencies. MPDs are designed to accommodate **~1,600 drilling permits.**
+    + 4 MDPs have been approved.
+    + Management provided commentary on the permitting process stating, *"the overall plan is so that we can get permits not just on subsurface, but surface right-of-way, takeaway, battery, et cetera. So what we can do is cover the NEPA, the surface area all at one time. In doing this, it helps the BLM to be able to do more permits in a timely manner. So we work very closely with them, have a very good relationship. Once you have that approved, it then works on to the APD. Upon approval, the commitment from the BLM by statute is 30 days as after we get those approved."*
+* Current acreage in the Delaware is **~300,000 acres**, and about 90% is located in New Mexico.
+* Do not foresee allocating capital to **Ward County** acreage at this time.
+    + *Read through: Acreage is not seen as a core asset to the company; potential candidate for disposition in the future.*
+<br>
+<br>
+
+
 ####**Diamondback Energy**
 
 * 2017 production averaged **79.2 Mboe/d** (74% oil), an increase of **84%** from the previous year.
@@ -204,7 +250,7 @@ description: "Fourth quarter results and conference call highlights."
 <br>
 <br>
 
-####<span style= "color:red":>**Energen**</span>
+####**Energen**
 
 * Oil production averaged **76.1 Mboe/d** (61% oil), an increase of 39% from the previous year.
 * Reserves ended the year at **444 MMBoe**, an increase of 40%.
@@ -335,7 +381,7 @@ IP30(Boe/d)|985|950|825|800
 <br>
 <br>
 
-####<span style= "color:red":>**Noble Energy**</span>
+####**Noble Energy**
 
 * Delaware production averaged **38 Mboe/d** in the fourth quarter, up 40% from the previous quarter.
     + 21 wells were PoP'd during the quarter.
