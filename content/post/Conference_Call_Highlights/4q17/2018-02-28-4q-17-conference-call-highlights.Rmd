@@ -41,7 +41,7 @@ description: "Fourth quarter results and conference call highlights."
 <br>
 <br>
 
-####<span style= "color:red":>**Helmerich and Payne**</span>
+####**Helmerich and Payne**
 
 * Average spot pricing still in the **high-teens,** while leading edge **Super-Spec** FlexRig pricing is in the **low-to-mid $20s.**
     + **Super-Spec** rigs include AC drive with 1,500 hp drawworks, 750,000# hookload ratings, 7,500 psi mud circulating systems and multiple well pad drilling systems. 
@@ -82,7 +82,7 @@ description: "Fourth quarter results and conference call highlights."
 <br>
 <br>
 
-####<span style= "color:red":>**Cimarex Energy**</span>
+####**Cimarex Energy**
 
 * 2017 production averaged **190 Mboe/d** (30 % oil). 
 * Guiding CAPEX to **$1.6-$1.7 billion** ($1.3-$1.4 billion D&C) with associated production of **211-221 Mboe/d,** an increase of **~14%** from 2017. 
@@ -204,7 +204,52 @@ description: "Fourth quarter results and conference call highlights."
 <br>
 <br>
 
-####<span style= "color:red":>**Encana Corporation**</span>
+####<span style= "color:red":>**Energen**</span>
+
+* Oil production averaged **76.1 Mboe/d** (61% oil), an increase of 39% from the previous year.
+* Reserves ended the year at **444 MMBoe**, an increase of 40%.
+* Net inventory totaled **4,023 locations**, Midland Basin accounted for ~60% of total.
+* 2018 Capital budget is **$1.1-$1.3 billion.**
+    + **81%** will be spent on D&C activities spudding 130 gross (120 net) and completing 123 gross (113 net) horizontal wells. 
+    + Primary target in the Delaware Basin will be **Wolfcamp A/B** and the **Jo Mill, Middle/Lower Spraberry** and **Wolfcamp A/B** in the Midland Basin.
+* 2018 production is expected to grow by **25%**.
+    + Guiding 3-year CAGR to exceed 28% per year.
+    + Batch style completions leading to back-end weighted production.
+        + *Many operators are guiding to **platform style** growth rates as companies shift from exploration to development.*  
+* Company plans on running **9 rigs** and **4.5 frac crews**  in 2018.
+* Moving towards multi-zone pad development; **64%** of fourth quarter completions utilized development strategy.
+* **Gen 3 completions** driving outperformance in the Delaware Basin.
+    + Ryder Scott increased Wolfcamp A/B type curve from 1.75 MMboe to **2.2 MMboe** for a 10,000' lateral.
+* Northern Midland Basin type curve update was a mixed bag.     
+    + Wolfcamp A/B type curve remained **flat** at **1.2 MMboe.**
+        + In Howard County, the **Gaskins 103 H Wolfcamp A** which was PoP'd in Q3'17 has produced over **>300 Mboe** in **180 days.**
+    + Lower Spraberry type curve was **reduced** from 1.2 MMboe to **1.15 MMboe.**
+    + Middle Spraberry/Jo Mill type curve **increased** from 1.2 MMBoe to **1.3 MMBoe.**
+        + New flowback profile reflects increased cleanup time which is similar our internal models.
+
+<img style="margin:0px auto;display:block" src="/img/4q17/egn_frac.png"/>
+<br>
+
+* Updated net acreage totals.
+
+Basin|Gross Acres|Net Acres
+-----|-----------|---------
+**Delaware**|93,897|63,313
+**Midland**|118,922|95,105
+**Platform**|116,334|82,578
+
+<img style="margin:0px auto;display:block" src="/img/4q17/egn_land.png"/>
+<br>
+
+* Ward County activity will be limited to a few wells, mainly due to acreage being HBP'd. 
+* **Provided updated on Howard County litigation time table.**
+    + If Energen wins the litigation at the court of appeals, it's likely to be pushed to the Supreme Court of Texas which could take more than a year to determine the outcome.
+* Decided to take platform assets off the table after bids were not sufficient.
+* Company has hedged **65%** (13.5 MMbo) of its 2018 estimated oil production at an average call price of $60.04.
+<br>
+<br>
+
+####**Encana Corporation**
 
 * Permian fourth quarter production averaged **82.6 Mboe/d**, ahead of company guidance of 75 Mboe/d.
     + Production is expected to grow by **30%** from 2017 with associated capital of **$750-$800 million** (50% of total CAPEX).
@@ -247,7 +292,7 @@ IP30(Boe/d)|985|950|825|800
 <br>
 <br>
 
-####<span style= "color:red":>**Laredo Petroleum**</span>
+####**Laredo Petroleum**
 
 * 2017 production averaged **58 Mboe/d**, up 17% from 2016. 
 * Increased reserves by 36%.
@@ -267,7 +312,7 @@ IP30(Boe/d)|985|950|825|800
 <br>
 <br>
 
-####<span style= "color:red":>**Marathon Oil**</span>
+####**Marathon Oil**
 
 <img style="float: right;" src="/img/4q17/mro_land.png">
 
@@ -287,6 +332,33 @@ IP30(Boe/d)|985|950|825|800
 * Permian CAPEX estimated to be ~$16.5 million.
 * In process of testing both contiguous acreage positions in Dawson and Andrews Counties.
     + Two wells are currently online and plan on drilling additional two wells in 2018.
+<br>
+<br>
+
+####<span style= "color:red":>**Noble Energy**</span>
+
+* Delaware production averaged **38 Mboe/d** in the fourth quarter, up 40% from the previous quarter.
+    + 21 wells were PoP'd during the quarter.
+* Authorized **$750 million** share repurchase program through 2020.
+    + Combined with current dividend, company will return ~$1.3 billion to shareholders over period.
+* Guiding 3-year CAGR of **20%** from 2017 with associated CAPEX of **$2.8 billion** annually (80% allocated to U.S. onshore).
+    + Company expects to generate **$1.5 billion** in free cash flow through 2020 at $50 WTI.
+    + Delaware production is expected to grow to **140 Mboe/d.**
+* Company plans on running **6 rigs** in 2018. 
+* **Increased type curves by ~20%-25%** in the **Third Bone Spring** and **Wolfcamp A Upper** based on recent results.
+<img style="float: right;" src="/img/4q17/nbl_land.png">
+
+* Announced results of **Calamity Jane 7 well pad** which consisted of 2 **Third Bone Spring**, 3 **Wolfcamp A Upper** and 2 **Wolfcamp Lower** wells.
+    + Third Bone Spring wells were horizontally spaced at **~1,320'** and vertically spaced at **~130'** above the Upper Wolfcamp wells.
+        + Wells had an average **IP30** of **2,600 Boe/d** or ~350 Boe/d/1000'.
+    + Wolfcamp A Upper and Lower wells were horizontally spaced at **~880'** and vertically spaced at **~100'.** 
+        + Wells had an average **IP30** of **2,000 Boe/d** or ~315 Boe/d/1000'.
+    + Early time data shows **no communication** between wells.
+    + Micro seismic indicating highly effective containment within Third Bone Spring and Wolfcamp A.
+* Going forward majority of development will be focused multi-horizon co-development spanning 2 sections.
+    + **Company claims laterals are now landing within 15' target interval.** 
+* Completed single **Wolfcamp C** late in the fourth quarter, however no results were released.
+* With over 120,000 acres in the Southern Delaware, company does not foresee spending additional large-scale capital on M&A in the basin.
 <br>
 <br>
 
@@ -397,3 +469,8 @@ Formation|Lateral Length|Well Cost ($MM)|EUR (MMBOE)
 * Management would consider reducing growth in Permian if necessary.
     + Reading through the lines, Shell might be open to asset divestitures in it's unconventional assets given upcoming major project decisions at Vito in GoM, LNG Canada and its other long term assets.
  
+
+
+
+
+
