@@ -73,7 +73,7 @@ net_acres<- net_acres%>%select(id,Net.Acres)
 ```{r}
 shp<- sp.na.omit(shp, col.name = 'X__Acre')
 
-
+###asdf
 shp<- shp[!grepl("Franco-Nevada Corp|Viper Energy Partners LP|WildHorse Resource Development Corp",shp$buyers),]
 shp<- shp[grepl("Unconventional",shp$US_play),]
 
@@ -105,7 +105,10 @@ lilis$DOLACRE<- paste("$",prettyNum(lilis$DOLACRE,big.mark = ","),sep="")
 deals_in_play<- deals_in_play[!grepl("Minerals|Royalty|Prospects",deals_in_play$DealType),]
 
 three_riv= deals_in_play[grepl("Three Rivers",deals_in_play$Seller),]
-deals_in_play= deals_in_play[!grepl("Three Rivers",deals_in_play$Seller),]
+
+concho_sale= deals_in_play[grepl("Concho",deals_in_play$Seller),]
+deals_in_play= deals_in_play[!grepl("Three Rivers|Concho",deals_in_play$Seller),]
+
 
 
 
@@ -156,12 +159,23 @@ labs_three_riv <- lapply(seq(nrow(three_riv@data)), function(i) {
          "Listing Date: ", three_riv@data[i,'listing_Da']) 
 })
 
+concho_sale$Buyer= "Multiple"
 
+labs_three_riv <- lapply(seq(nrow(three_riv@data)), function(i) {
+  paste0("Seller: ", three_riv@data[i, "Seller"], '<p>',
+         "Buyer: ", three_riv@data[i, "Buyer"], '<p>',
+         "Producing Wells/Net Acreage: ", three_riv@data[i,"WellsAcrea"], 
+         "Deal Type: ",three_riv@data[i,'DealType'],'<p>',
+         "Listing Date: ", three_riv@data[i,'listing_Da']) 
+})
 
-
-
-x= shp@data
-
+labs_concho <- lapply(seq(nrow(concho_sale@data)), function(i) {
+  paste0("Seller: ", concho_sale@data[i, "Seller"], '<p>',
+         "Buyer: ", concho_sale@data[i, "Buyer"], '<p>',
+         "Producing Wells/Net Acreage: ", concho_sale@data[i,"WellsAcrea"], 
+         "Deal Type: ",concho_sale@data[i,'DealType'],'<p>',
+         "Listing Date: ", concho_sale@data[i,'listing_Da']) 
+})
 ```
 
 
@@ -206,6 +220,13 @@ leaflet() %>%addTiles(group = "Esri.WorldTopoMap")%>%
                 color='#00ff00', opacity = 1, weight = 1.5, fillOpacity = 1,
                 bringToFront = TRUE, sendToBack = TRUE),
               group="Transacted Deals") %>%
+  addPolygons(data=concho_sale, weight = 1, color = "#000000",
+              fillColor=c("orange","black","pink"),
+              fillOpacity=0.7,label=lapply(labs_concho,HTML),
+              highlightOptions = highlightOptions(
+                color='#00ff00', opacity = 1, weight = 1.5, fillOpacity = 1,
+                bringToFront = TRUE, sendToBack = TRUE),
+              group="Transacted Deals") %>%
   addPolygons(data=deals_in_play, weight = 1, color = "#000000",
               fillColor=~deal_pal(id),
               fillOpacity=0.7,label=lapply(labs_deals,HTML),
@@ -231,6 +252,8 @@ leaflet() %>%addTiles(group = "Esri.WorldTopoMap")%>%
     options = layersControlOptions(collapsed = FALSE)
   )%>%
   addFullscreenControl( pseudoFullscreen = T)%>%suspendScroll()%>% addScaleBar(position="topleft")
+
+#update
 
 ```
 <br>
