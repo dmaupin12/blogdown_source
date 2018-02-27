@@ -59,7 +59,7 @@ description: "Fourth quarter results and conference call highlights."
 ###**Upstream Companies**
 <br>
 
-####**Anadarko**
+####**Anadarko Petroleum**
 
 * Onshore production averaged **391 Mboe/d**, which was an increase of 9% from 4Q'16.
     + Delaware Basin production increased **54%** to average **77 Mboe/d** (61% oil).
@@ -79,6 +79,118 @@ description: "Fourth quarter results and conference call highlights."
 
 * Spent **$400 million** in *"other onshore assets"* outside of the company's core acreage. No additional details were provided on where capital was deployed.
 * Hedged **~50%** of 2018 production.
+<br>
+<br>
+
+####<span style= "color:red":>**Apache Resources**</span>
+
+* During the fourth quarter in the Permian, operated 16 rigs and D&C'd 57 gross operated wells.
+    + Production averaged 177 Mboe/d
+* Going all in on Alpine High, divested Canadian assets and multiple small divestitures in the Midland and Delaware Basins during 2017.
+    + Eagle Ford acreage is on the market.
+    + Oklahoma assets probable divestiture candidates as well given minimal capital allocated to region.
+    + **Outside of Alpine High, Permian production is expected to be relatively flat through 2020.**
+    + *Read through: Given the significant amount of capital deployed to Alpine High, certain Permian assets could be acquired (assuming their attractive) at reasonble prices.*  
+* 2018 CAPEX is **~$3.0 billion,** 40% will be spent in Alpine High.
+    + Capital program anticipates **~10%** service cost inflation.
+    + 85-95 wells will be drilled in Alpine High split 50% between development and delineation.
+    + 55-60 wells will be drilled in Midland and 45-50 wells in the Delaware Basins.
+* Plan on running **13-15 rigs** and **4-6 frac crews** in the Permian. 
+    + 6-7 rigs in Alpine High.
+    + 4-5 rigs in Midland Basin.
+    + 3 rigs elsewhere in the Delaware Basin.
+* Reiterated 3-year production CAGR in Alpine High of over **150%.**
+    + Investing **~$1 billion** in midstream buildout.
+    + In 2020, expect to produce ***960-1,080 MMcfe/d.**
+* Well results outside of Alpine High include **3 pads** in the **Midland Basin**, **7 wells** in **Dixieland** and **5 wells** on the **New Mexico Shelf.**
+<img style="margin:0px auto;display:block" src="/img/4q17/apa_wells.png"/>
+<br>
+
+* Management answered multiple questions during the call regarding the trade discount at Waha. They expect a combination of the **Kinder Gulf Coast Express Pipeline** (2019 completion date) and macro-economic factors related to Mexico and the West Coast should alleviate a significant portion of the discount. 
+* Established additional management target ratios in annual compensation plan which include a CROIC target of **18%** and ROCE at *"sustainable double-digits"* 
+<br>
+<br>
+
+####<span style= "color:red":>**Carrizo Oil and Gas**</span>
+
+* Fourth quarter production averaged ~15 Mboe/d, up **115%** YoY.
+* Allocating **$290 million** of D&C to the Delaware Basin representing 37% of the total company budget.
+* Plan on running **3-4 rigs** in the Delaware.
+* Projecting double-digit service cost inflation.
+* Management looking for buyers of their legacy assets located on the border of Culberson and Reeves.
+* Continued delineating the **Wolfcamp A/B** on its Phantom acreage in Reeves County.
+    + **Wolfcamp B** wells had higher than expected flowing pressures.
+    + Wells have also produced at a higher water-oil-ratio (~7.5:1) than expected which has caused unexpected production constraints due to available water takeaway capacity.
+* Wolfcamp A/B results table:
+
+Well| Formation| Lateral| IP30 (Boe/d)| Oil Cut
+----|----------|--------|-------------|--------
+**Christian 2 1T**| WFMPA| 7,287|1,646| *50%*
+**State CVX Unit A1314 1H**| WFMPB|6,448| 1,491| *55%*
+**McDermott St. Unit 1720**| WFMPA|9,396| 1,855| *50%*
+**Woodson A36 1**| WFMPB|7,287| 9,968| *57%*
+**Dorothy Unit 38 #1**| WFMPB|8,640| 1,595| *65%*
+**Zeman-State A 4042 10H**| WFMPA|7,654| 2,201| *55%*
+<br>
+
+* At $55 oil **Wolfcamp A** and **Wolfcamp B** wells expected to generate EURs and IRRs of **1,648 Mboe (51% oil)-75% IRR** and **1,461 Mboe (44% oil)-49% IRR** respectively.     
+<br>
+<br>
+
+####<span style= "color:red":>**Centennial Resource Development**</span>
+
+* Proved reserves ended the year at 186 MMboe (54% oil), a **125%** increase from 2016.
+* Guiding 2018 production to average **55.0-63.5 Mboe/d** with associated CAPEX **$885-$1.05 billion.**
+* Exited the year running **7 rigs** with no additional rigs expected in 2018.
+<img style="float: right;" src="/img/4q17/cdev_land.png">
+
+* Announced acquisition of Lea County acreage from **OneEnergy** in tandem with divestiture of non-operated assets in Reeves County.    
+    + Acquired **4,000 acres** in Lea County from OneEnergy Partners for **~$95 million,** or **~$24,100 per acre** unadjusted for any PDP.
+        + Acquisition increases Lea County acreage by ~30%.
+    + Divested **8,600 net acres** with an average working interest of ~32%, accounting for production of ~250 Boe/d @ $35k, the transaction works out to **~$15,000 per acre.**   
+        + *Although the buyer was not mentioned, Noble Energy appears to be the most prospective as the assets sold were within/offsetting Noble acreage.*
+* D&C costs for a 4,500' lateral are **~$7-$8 million,** 6,700' laterals are **~$9-$10 million** and 9,500' laterals are **~$10-$12 million.**
+    + Company plans on averaging ~7,500' laterals with XL laterals accounting for ~75% of operated completions. 
+* Company released multiple well results during the quarter. In the Southern Delaware, the company highlighted multiple **Wolfcamp As** as well as a **Third Bone Spring Sand** and **Third Bone Spring Carbonate**, the latter two receiving plenty of hype from the market. In Lea County, the company highlighted 2 **Second Bone Springs**  and an **Avalon.**
+* Wolfcamp A results table:
+
+Well| Formation| Lateral| IP30 (Bo/d)| Clusters/Stage| Proppant/Ft
+----|---------|-------|-----------|--------------|-----------
+**Big House A 4 57-60 1H**| U. WFMPA| 7,040| 1,409| 18| 2,750 
+**Big House B 4 57-60 2H**| U. WFMPA| 7,040| 1,447| 17| 2,220
+**Blackstone West 1H**| U. WFMPA| 4,120| 1,409| 18| 2,490
+**Blackstone West 2H**| U. WFMPA| 4,110| 1,081| 15| 2,500
+**Sundown 1H**| **L. WFMPA**| 4,150| 1,130| 12| **1,130**
+
+<img style="margin:0px auto;display:block" src="/img/4q17/cdev_wfmpa.png"/> 
+<br>
+
+* **Weaver State C T34H Third Bone Spring Sand** had a peak oil rate of 1,620 Bo/d (75% oil).
+    + The well has only been online for 15 days and has produced **~15 Mbo.**
+    + First Third Bone Spring completed with "latest completion technology."
+    + Initial results indicate IRR over 100%.
+    + Plan to D&C additional test later in 2018 and if successful, will initiate a full-scale development program.
+    + Believe Third Bone Spring could be co-developed with the Wolfcamp A across a significant portion of acreage (~75% in Reeves County).
+* **Big House C-3H Third Bone Spring Carbonate** has produced >20 Mbo from a 4,150' lateral in 90 days.
+    + Formation covers 67% of Southern Delaware acreage.
+    + Single-well economics at current lateral length are not competitive in current portfolio.
+    + Plan on drilling additional test in the fourth quarter of this year.
+* In New Mexico, Centennial appears to be experimenting with higher density fracs in the Second Bone Spring and Avalon based on fourth quarter well highlights.
+    + Most completions are using ~2,500 lbs/ft of proppant with 100% slickwater.
+* Lea County results table:
+
+Well| Formation| Lateral| IP30 (Bo/d)| Clusters/Stage| Proppant/Ft
+----|---------|-------|-----------|--------------|-----------
+**Romeo 1H**| SBSG| 4,200| 1,105| 15| **3,000** 
+**Pirage State 101H**| **Avalon**| 883| 1,447| 18| **2,810**
+**Tour Bus 23 State 503H**| SBSG| 706| 1,409| 18| **3,030**
+**Tour Bus 23 State 504H**| SBSG| 989| 1,081| 18| **2,990**
+
+<img style="margin:0px auto;display:block" src="/img/4q17/cdev_lea.png"/> 
+<br>
+
+* Plan on using around **50%** of in-basin sand. 
+* Bullish on future oil prices, company has no hedges currently in place.
 <br>
 <br>
 
@@ -142,7 +254,7 @@ description: "Fourth quarter results and conference call highlights."
 <br>
 
 
-####<span style= "color:red":>**Devon Energy**</span>
+####**Devon Energy**
 
 * Delaware Basin production averaged **60 Mboe/d** in the fourth quarter, up 5% from the previous quarter.
 * Proved reserves increased **60%** from the previous year.
@@ -372,6 +484,36 @@ IP30(Boe/d)|985|950|825|800
 <br>
 <br>
 
+####<span style= "color:red":>**Matador Resources**</span>
+
+
+* Proved reserves increased **44%** to total **153 MMboe.**
+* Guiding 2018 production to **16.5-17.3 Mboe/d**, an increase of **~19%** YoY, with a capital budget of **$600-$660 million.**
+* Plan on running **6 rigs** and
+* Acquired **6,900** acres during the fourth quarter. Permian acreage now totals 114,000 net acres.
+    + In 2017, company acquired ~25,100 net acres at an average price of $7,000-$8,000.
+    + *Read through: Based on NMOCD filings, Matador is the **most active company utilizing forced pooling** which has allowed the company to gain operatorship through trades and acquisitions of non-operated positions at discounted prices.*
+* Announced multiple well results PoP'd during the quarter.
+
+Well| Formation| IP24 (Boe/d)| Oil Cut
+----|----------|-----|------|--------
+**Stebbins 19 #123H**| SBSG| 1,012| *90%*
+**Stebbins 19 #1234**| SBSG| 845| *90%*
+**Charlie Sweeney #204H**|L. WFMP A|1,188| *75%*
+**Tom Matthews #223H**| **WFMP B-BLAIR**| 2,273| *31%*
+**Toot #221H**| L.WFMP A**| 1,692| *81%*
+**Florence #202H**| WFMP A| 1,700| *81%*
+<br>
+
+* Testing multiple wells in the **Break Sand interval,** which is a sand within the Third Bone Spring Carbonate on its Rustler Breaks area.
+    + Zone was originally produced vertically.
+    + Participated in two non-op wells which delivered an average **IP24** of **~2,140 Boe/d**
+* Service costs expected to rise **~10%** throughout the year.
+* Entered into JV agreement with Plains All American (through San Mateo, a 51% midstream JV) to gather and transport crude in a ~400,000 acre joint development area located in Eddy County.
+* Hedged **~55%** of oil production in 2018.
+<br>
+<br>
+
 ####**Murphy Oil**
 
 * 2018 production expected to be **~168 Mboe/d** with associated capex of **$1.06 billion.**
@@ -440,6 +582,33 @@ IP30(Boe/d)|985|950|825|800
 * Also in the Greater Sand Dunes Region, testing new frac designs and should have results in early 2018.
 * In the Midland Basin, operating expenses in Merchant averaged **~$2.71** in 2017 driven largely by centralized facilities, no water hauling and using gas lift which has limited well failures and downhole costs.
 * Big data analytics *(buzz buzz)* reducing workovers through early detection of problems in artificial lifts and drilling.    
+<br>
+<br>
+
+####<span style= "color:red":>**Parsley Energy**</span>
+
+* Production during the fourth quarter averaged **80.3 Mboe/d**, up 12% from the previous quarter and **78% YoY.**
+    + PoP'd 41 wells during the quarter.
+    + Running **16 rigs** and **5 frac crews.** 
+* Reserves totaled **416 MMboe,** which represents a 87% increase from 2016. 
+* Guiding 2018 production to increase by **28%** to an average daily rate of **98-108 Mboe/d** (65-70 Mbo/d) with an associated capital budget of **$1.35-$1.55 billion.** 
+    + PoP ~40 wells per quarter utilizing 2-well and 3-well pads with an average lateral length of ~9,500'.
+* After conducting down spacing tests to ~330' horizontally and even tighter spacing vertically, **reverting back to 660' horizontal spacing.**
+* **Decreasing number of wells per pad** in order to reduce cycle times.
+    + Encountered significant delays on an 8-well pad completed during the quarter.
+    + Smaller pads allow company to take advantage of oil price backwardation.
+* Increased core Upton county acreage via trades during the quarter.
+<img style="margin:0px auto;display:block" src="/img/4q17/pe_land.png"/>
+<br>
+
+* In Martin County, the **Strain Ranch 12-1** 3-well pad targeting the **Lower Spraberry** and  **Wolfcamp A/B** with 1.5 mile laterals achieved an averaged **IP30** of **~1313 Boe/d** (80% oil).
+* Well costs expected to be **$8.4-$8.8 million** in the Midland Basin and **$11.5-$12.0 million** in the Delaware Basin.
+    + Plan includes **~5-10%** cost inflation.
+* Plan on drilling 10 **Wolfcamp C** wells in 2H of year.
+    + Recently completed a few step-out wells expanding the zone North and to the Southeast.
+* Development inventory totaled **7,330 gross** (5,060 net).
+    + Delaware Basin inventory accounted for 590 gross (550 net) locations.
+* **Over 94% of oil production hedged in 2018.** 
 <br>
 <br>
 
@@ -514,9 +683,62 @@ Formation|Lateral Length|Well Cost ($MM)|EUR (MMBOE)
     + Previously announced the Whale deep discovery (60% WI) which encountered more than 1,400' of net oil bearing pay.
 * Management would consider reducing growth in Permian if necessary.
     + Reading through the lines, Shell might be open to asset divestitures in it's unconventional assets given upcoming major project decisions at Vito in GoM, LNG Canada and its other long term assets.
- 
+<br>
+<br>
 
+####<span style= "color:red":>**SM Energy**</span>
 
+* Proved reserves in the Midland Basin totaled **159.9 MMboe,** an increase of **3-fold** from 2016.
+    + Production averaged ~30,000 Boe/d in 2017.
+* Announced 2-year strategy aligning growth within cash flow.
+    + Focus on high-margin Permian production weighted towards RockStar acquisitions in Howard County.
+* Management briefly discussed aforementioned **Halff East** divestiture, but provided no additional color.
+* Guiding 2018 total company capital spend of **~$1.27 billion** weighted in 1H of the year as the rig and frac crew count in the Midland Basin is expected to be reduced from 9 and 5, to 7 and 3, respectively, at year-end.    
+    + Midland Basin will receive **~86%** of total D&C budget.
+    + Plan includes cost inflation **~10%-15%** over 2017 average costs.
+* Expect to drill ~130 net wells and complete ~100 net wells in the Midland Basin.
+    + Production should average **~52,054 Boe/d,** an increase of **~72%.**
+* Company plans to save more than **$400,000** per well using **regional sand.**
+    + Regional sand accounted for **~20%** of the total at YE2017 but will increase to **~80%** by YE2018. 
+* Announced results in **Howard County** from 5 **Wolfcamp A**, 3 **Wolfcamp B** and 8 **Lower Spraberry** wells. 
+    + **Sundown Wolfcamp B and Lower Spraberry** pad utilized  **125' stage spacing** with **82-84 stages.**
+    + Recent **Wolfcamp A** and **Lower Spraberry Iceman** wells were horizontally spaced at **500'-660'** spacing and **420'** spacing respectively.    
 
+<img style="margin:0px auto;display:block" src="/img/4q17/sm_wells.png"/> 
+<br>
 
+* Howard County well results are tracking above **1 MMboe** type curve in the **Wolfcamp A/B** and **Lower Spraberry.**
+* Hedged **~75%** of oil production based on 2018 guidance.
+<br>
+<br>
 
+####<span style= "color:red":>**WPX Energy**</span>
+
+<img style="float: right;" src="/img/4q17/wpx_land.png">
+
+* 2018 total company CAPEX is **$1.16-$1.31 billion.**
+* Delaware Basin production averaged 58.7 Mboe/d, up **134%** YoY.
+    + PoP'd 24 wells during the quarter, 18 were completed in the **Wolfcamp A,** 5 in the **Wolfcamp XY** and a single **Wolfcamp D.** 
+* Subsequent to fourth quarter close, signed agreement to divest its holdings in the San Juan Basin for **$700 million.**
+* Company is open to potentially divesting non-operated acreage located on the Shelf in New Mexico. 
+* Current completion design utilizing 40/70 and 100 mesh; newer designs are using primarily 100 mesh.
+* Management stated spacing around **State Line** area, where they are most active, remains at **8 wells per section.**    
+<img style="float: right;" src="/img/4q17/wpx_lindsay.png">
+
+* Near the border of Loving, Lea and Eddy Counties, completed a 7-well pad in the Wolfcamp A (6 wells) and Wolfcamp XY (1 well) with **1.5 mile laterals.**
+    + **Lindsay 10-3A1H XY** had a peak **IP24** rate of **3,634 Boe/d** and **90 day** cumulative production totaling **~242 Mboe** (55% oil).
+    + Wolfcamp A had a cumulative **90 day** average of **210 Mboe** (55% oil).
+* Along the State Line, developing the **Wolfcamp Upper/Lower** and **XY** in tandem to reduce child wells.
+    + Second and Third Bone Spring will be targeted after Wolfcamp A.
+        + Drilling 3-well pad North of State Line area in southern Rustler Breaks which will target the XY and Third Bone Spring.
+    + Company is not worried about communication between the Wolfcamp and Bone Spring.
+* On the western side of its State Line acreage, PoP'd a **Wolfcamp D 2-miler.**
+    + **CBR 6-7 Wolfcamp D** achieved a peak **IP24** rate of 3,639 Boe/d and **90 day** cumulative production of **203 Mboe** (34% oil).
+    + *Read through: While the Wolfcamp D produces a tremendous amount of gas, the associated oil production of ~700-1,200 Bbls/d can produce very attractive returns.* 
+* In Central Reeves, developing the **Wolfcamp A** and **Wolfcamp B** together to reduce interaction between the formations.     
+* Wolfcamp A 1-mile laterals are expected to cost **~$7 million,** while 2-mile laterals are **~$10 million.**
+    + XL laterals expected to deliver ~1.8-2.0X EUR with only a 40% increase in D&C cost.
+    + Choking XL laterals back to allow *"proper drainage to the toe"* of the wellbore.
+* Plan on drilling multiple wells on acreage located in **South Central Reeves** this year.
+<br>
+<br>
