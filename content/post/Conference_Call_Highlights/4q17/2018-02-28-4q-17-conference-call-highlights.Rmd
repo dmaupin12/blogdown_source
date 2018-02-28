@@ -226,7 +226,7 @@ map1<-leaflet(width='100%',height = 550) %>%
   addPolygons(data = cdev_leases2, fillOpacity = .5,fillColor = 'red',stroke=F,group = "Divestiture")%>%
   addPolygons(data = cdev_legacy, fillOpacity = .5,fillColor = 'grey',stroke=F,group = "Legacy")%>%
   addPolygons(data = concho_leases, fillOpacity = .5,fillColor = 'yellow',stroke=F,group = "Concho Acreage")%>%
-  addCircleMarkers(data=cdev_wells, ~Longitude, ~Latitude,radius=5,stroke = F,color=~c('orange','black','green','purple','gold','dark blue'),fillOpacity=1, group = "Well Highlights", 
+  addCircleMarkers(data=cdev_wells, ~Longitude, ~Latitude,radius=6,stroke = F,color=~c('orange','black','green','purple','gold','dark blue'),fillOpacity=1, group = "Well Highlights", 
                    popup=paste("Well Name:", cdev_wells$Well.Name,"<br>",
                                "IP/30 Bo/d:",cdev_wells$`IP30.Bo/d`,"<br>",
                                "Formation", cdev_wells$Formation))

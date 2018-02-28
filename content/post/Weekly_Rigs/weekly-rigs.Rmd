@@ -1,7 +1,7 @@
 ---
 title: Weekly Rigs
 author: David Maupin
-date: '2018-02-19'
+date: '2018-02-26'
 tags:
   - Baker Hughes Weekly Update
 slug: weekly-rigs
@@ -94,6 +94,9 @@ RigReport<-RigReport[,c(1,2,3)]%>% spread(Date,value)
 
 names(RigReport)<- c('region','old','new')
 
+
+RigReport<- RigReport%>%ungroup()%>% mutate(new= replace(new, which(is.na(new)),0), old= replace(old, which(is.na(old)),0))
+
 RigReport<- RigReport%>%group_by(region)%>% mutate(value= new-old )
 
 RigReport$value= as.factor(RigReport$value)
@@ -159,6 +162,12 @@ comb<- comb[,c(2,4,6,8,10,12,14,16,18,20)]
 ```
 
 ```{r,echo=F,warning=F,message=F,results='hide'}
+
+RigReport<- RigReport%>% group_by(region)%>% mutate(value= ifelse(region=='48003',4,new-old))
+
+RigReport$value= as.factor(RigReport$value)
+RigReport$region= as.numeric(RigReport$region)
+
 
 choro= choroplethr::county_choropleth(RigReport[,c(1,4)],state_zoom = c("new mexico","texas"),reference_map = F, title= "Baker Hughes Week Over Week Change")+
   scale_fill_manual(values=c("-5"="#4d0000","-4"="#b30000","-3"="#ff0000","-2"="#ff4d4d","-1"="#ff9999",
