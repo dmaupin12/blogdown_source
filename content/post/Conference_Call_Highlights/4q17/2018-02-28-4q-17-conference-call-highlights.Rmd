@@ -148,7 +148,7 @@ Well| Formation| Lateral| IP30 (Boe/d)| Oil Cut
     + Acquired **4,000 acres** in Lea County from OneEnergy Partners for **~$95 million,** or **~$24,100 per acre** unadjusted for any PDP.
         + Acquisition increases Lea County acreage by ~30%.
     + Divested **8,600 net acres** with an average working interest of ~32%, accounting for production of ~250 Boe/d @ $35k, the transaction works out to **~$15,000 per acre.**   
-        + *Although the buyer was not mentioned, Noble Energy appears to be the most prospective as the assets sold were within/offsetting Noble acreage.*
+        + **Buyer was Luxe Energy.**
 * D&C costs for a 4,500' lateral are **~$7-$8 million,** 6,700' laterals are **~$9-$10 million** and 9,500' laterals are **~$10-$12 million.**
     + Company plans on averaging ~7,500' laterals with XL laterals accounting for ~75% of operated completions. 
 * Company released multiple well results during the quarter. In the Southern Delaware, the company highlighted multiple **Wolfcamp As** as well as a **Third Bone Spring Sand** and **Third Bone Spring Carbonate**, the latter two receiving plenty of hype from the market. In Lea County, the company highlighted 2 **Second Bone Springs**  and an **Avalon.**
@@ -182,15 +182,62 @@ Well| Formation| Lateral| IP30 (Bo/d)| Clusters/Stage| Proppant/Ft
 Well| Formation| Lateral| IP30 (Bo/d)| Clusters/Stage| Proppant/Ft
 ----|---------|-------|-----------|--------------|-----------
 **Romeo 1H**| SBSG| 4,200| 1,105| 15| **3,000** 
-**Pirage State 101H**| **Avalon**| 883| 1,447| 18| **2,810**
-**Tour Bus 23 State 503H**| SBSG| 706| 1,409| 18| **3,030**
-**Tour Bus 23 State 504H**| SBSG| 989| 1,081| 18| **2,990**
+**Pirage State 101H**| **Avalon**| 4,190| 883| 18| **2,810**
+**Tour Bus 23 State 503H**| SBSG|4,120| 706| 18| **3,030**
+**Tour Bus 23 State 504H**| SBSG|3,960| 989| 18| **2,990**
 
 <img style="margin:0px auto;display:block" src="/img/4q17/cdev_lea.png"/> 
 <br>
 
 * Plan on using around **50%** of in-basin sand. 
 * Bullish on future oil prices, company has no hedges currently in place.
+* **Map below includes recent well results and transacted acreage.**
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo=F,warning=F,message=F,asis=F)
+```
+
+```{r}
+library(tidyselect)
+library(rgdal)
+library(leaflet.extras)
+library(openxlsx)
+```
+
+
+```{r}
+#cxo_leases<- readOGR(".","cxo_leases_2018-01-22", verbose=F)
+cdev_leases<- readOGR(".","Cen_One_02_26_18_MA_Shapefile_63635", verbose=F)
+cdev_leases2<- readOGR(".","Und_Cen_02_26_18_MA_Shapefile_63636", verbose=F)
+cdev_legacy<- readOGR(".","cdev_legacy", verbose=F)
+concho_leases<- readOGR(".","cxo_leases_2.21.18", verbose=F)
+```
+
+```{r}
+cdev_wells<- read.xlsx("cdev.xlsx",sheet=1)
+```
+
+```{r}
+map1<-leaflet(width='100%',height = 550) %>%
+  # Base groups
+  addTiles(group = "Esri.WorldTopoMap")%>%
+  addProviderTiles(providers$Esri.WorldTopoMap)%>%
+  addPolygons(data = cdev_leases, fillOpacity = .5,fillColor = 'blue',stroke=F,group = "Acquisition")%>%
+  addPolygons(data = cdev_leases2, fillOpacity = .5,fillColor = 'red',stroke=F,group = "Divestiture")%>%
+  addPolygons(data = cdev_legacy, fillOpacity = .5,fillColor = 'grey',stroke=F,group = "Legacy")%>%
+  addPolygons(data = concho_leases, fillOpacity = .5,fillColor = 'yellow',stroke=F,group = "Concho Acreage")%>%
+  addCircleMarkers(data=cdev_wells, ~Longitude, ~Latitude,radius=5,stroke = F,color=~c('orange','black','green','purple','gold','dark blue'),fillOpacity=1, group = "Well Highlights", 
+                   popup=paste("Well Name:", cdev_wells$Well.Name,"<br>",
+                               "IP/30 Bo/d:",cdev_wells$`IP30.Bo/d`,"<br>",
+                               "Formation", cdev_wells$Formation))
+ setView(map1,lng=-103.57, lat=31.47, zoom=8)%>%
+  # Overlay groups
+  addLayersControl(
+    overlayGroups = c("Concho Acreage","Acquisition",'Divestiture','Legacy','Well Highlights'),
+    options = layersControlOptions(collapsed = FALSE),position='topleft')%>%
+  addFullscreenControl()
+
+```
 <br>
 <br>
 
