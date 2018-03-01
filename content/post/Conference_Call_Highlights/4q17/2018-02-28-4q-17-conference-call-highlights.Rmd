@@ -111,9 +111,34 @@ description: "Fourth quarter results and conference call highlights."
 <br>
 <br>
 
+####<span style= "color:red":>**Callon Petroleum**</span>
+
+<img style="float: right;" src="/img/4q17/cpe_land.png">
+
+* Fourth quarter production averaged **26.5 Mboe/d**, up **50% YoY.**
+    + Over 50% fo the wells PoP'd during the fourth quarter were in their Wildhorse area in Howard County. Area will be a significant growth driver in 2018 with projected D&C capital in excess of 30% of the total being deployed there.
+* Proved reserves totaled **137 MMBoe.**
+* Currently running **5 rigs** (2 Delaware, 3 Midland) and **2 frac crews.**
+* Drilling inventory totaled **1,400** "delineated and operated" locations.
+* 2018 CAPEX budget is **$500-$540 million** split **60%/40%** between the Midland and Delaware Basins.
+    + Highlighted infrastructure and equipment investment which continues to lower OPEX.
+* PoP'd first **Wolfcamp C** in tandem with 2 **Wolfcamp B** wells in Reagan County.
+    + Wolfcamp C well continues to produce under natural flowing pressure with recent rates in excess of 1,000 Boe/d (85%-90% oil).
+        + Anticipate on drilling 4 additional wells in 2018.
+* In the Delaware Basin, the **Saratoga 7LA** came online and has produced an average 1,015 Boe/d (83% oil) over its first 56 days of production.
+    + Pulled back on proppant intensity compared to prior design.
+* Drilling single **Second Bone Spring** on Ward County acreage later this year.
+* Ward County **water oil ratios** in the **Upper Wolfcamp** range from **3:1-6:1.**
+* Not developing any multi-pad wells in 2018 in the Delaware.
+* Expect to source up to **50%** of frac water volumes from recycled barrels.
+* Budgeting **10%** increase in service costs.
+* Hedged **~65%** of 2018 oil production.
+<br>
+<br>
+
 ####<span style= "color:red":>**Carrizo Oil and Gas**</span>
 
-* Fourth quarter production averaged ~15 Mboe/d, up **115%** YoY.
+* Fourth quarter production averaged **~15 Mboe/d**, up **115%** YoY.
 * Allocating **$290 million** of D&C to the Delaware Basin representing 37% of the total company budget.
 * Plan on running **3-4 rigs** in the Delaware.
 * Projecting double-digit service cost inflation.
@@ -484,7 +509,45 @@ IP30(Boe/d)|985|950|825|800
 <br>
 <br>
 
+####<span style= "color:red":>**EOG Resources**</span>
 
+* 2018 Guidance highlighted by double-digit ROCE and Premium Wells.
+    + Company claims premium wells generate **greater than 100% IRR** at $60 oil.
+    + Replace premium inventory 2x faster than drilling.
+    + Targeting 16%-20% oil growth.
+    + Generate positive free cash flow at $50 oil.
+    + Will not issue debt or equity to fund CAPEX or the dividend (approved a **10%** dividend increase).
+* Running on average **19 rigs** and **7 frac crews** throughout the year primarily targeting the **Wolfcamp** Formation.
+    + Complete **~205 Wolfcamp** wells, a **76% increase** from 2017.
+    + Complete **~5 Second Bone Spring** wells, a ***decrease of ~81%*** from 2017.
+    + Complete **~15 Leonard Shale** wells, a ***decrease of ~25%*** from 2017.
+    + Complete **~5 First Bone Spring** wells, a ***decrease of ~44%*** from 2017.
+* Plan includes **lower Delaware Basin well costs (~7.4 million)** in the **Wolfcamp** driven by unbundling services and more wells on multi-pads.
+    + Secured ~60% of costs in 2018.
+        + **85%** of 2018 rigs are rate-protected.
+        + **80%** of casing and tubing locked in.
+        + **60%** of frac crews are contracted.
+    + Self-sourcing **~25%** of completed well costs.    
+<img style="margin:0px auto;display:block" src="/img/4q17/eog_costs.png"/>
+<br>
+
+* **Premium inventory** in the Delaware totaled **4,690** locations comprised of 1,700 **Wolfcamp,** 540 **First Bone Spring,** 1,350 **Second Bone Spring** and 1,100 **Leonard.**
+
+* Fourth quarter well highlights.
+
+Well| Formation| Lateral| IP30 (Boe/d)| IP30 (Bo/d)
+----|----------|--------|-------------|------------
+**Calm Breeze 2 Fed Com #701-704H (Avg.)**| Wolfcamp| 7,100| 2,605| 3,655
+**Righteous 6 State Com #301H**| FBSG| 7,100| 1,305| 1,715
+<br>
+
+* **Wolfcamp Oil Upper and Middle** EUR is **~1,330 Mboe** with a D&C cost of **$7.4 million** for a 7,000' lateral.
+* **Wolfcamp Combo (Reeves County)** EUR is **~1,550 Mboe** with a D&C cost of **$7.5 million** for a 8,300' lateral.
+* **First Bone Spring** EUR is **~1,185 Mboe** with a D&C cost of **$7.3 million** for a 7,000' lateral.
+* **Second Bone Spring** EUR is **~950 Mboe** with a D&C cost of **$7.3 million** for a 7,000' lateral.
+* **Leonard Shale** EUR is **~1,175 Mboe** with a D&C cost of **$6.3 million** for a 6,800' lateral.
+<br>
+<br>
 
 ####**ExxonMobil**
 
@@ -594,6 +657,22 @@ Well| Formation| IP24 (Boe/d)| Oil Cut
     + **Company claims laterals are now landing within 15' target interval.** 
 * Completed single **Wolfcamp C** late in the fourth quarter, however no results were released.
 * With over 120,000 acres in the Southern Delaware, company does not foresee spending additional large-scale capital on M&A in the basin.
+<br>
+<br>
+
+####<span style= "color:red":>**Oasis Petroleum**</span>
+
+* Guiding Delaware production to exit 2018 at **~5** Mboe/d.
+    + Expect to drill **16-20** wells and complete **6-8** wells in 2018 with a CAPEX budget of **$115-125 million.**
+    + The Delaware budget represents only **~10%** of the company total ($1,090-$1,170). 
+* Currently running **1 rig** and adding an additional in 2H.
+* Core inventory totaled **601** locations allocated to the **Upper and Lower Wolfcamp A, Wolfcamp B and Wolfcamp C** based on **6 wells per section** in each landing zone.
+<img style="margin:0px auto;display:block" src="/img/4q17/oas_inventory.png"/> 
+<br>
+
+* **Forge** Wolfcamp wells are **"outperforming  1.2 MMboe industry type curve"** and are still **naturally flowing after 18 months of production.**
+* Excited about Bone Spring potential, conducted 2 tests which have recently been on flowback.
+* Hedged **~60%** of 2018 production.
 <br>
 <br>
 
@@ -719,6 +798,100 @@ Formation|Lateral Length|Well Cost ($MM)|EUR (MMBOE)
 <br>
 <br>
 
+####<span style= "color:red":>**RSP Permian**</span>
+
+* Fourth quarter production averaged **62.4 Mboe/d**, up **74%** YoY.
+* Year end proved reserves totaled **376 MMboe**, an increase of 59%.
+* Drilled 95 gross and completed 70 horizontal wells in 2017 consisting of 21 **Wolfcamp A**, 16 **Wolfcamp B**, 13 **Lower Spraberry** and 1 **Middle Spraberry** in Midland and 12 **Wolfcamp A,** 2 **Wolfcamp B,** 2 **Wolfcamp XY,** 2 **Third Bone Spring** and one **Second Bone Spring** in the Delaware.
+* Plan on running **8 rigs (3±1 Midland, 4±1 Delaware)** and **3 frac crews** and complete 110 gross horizontal wells.  
+* Guiding 2018 production to **70-78 Mboe/d,** up **30%-41%** with associated capital of **$815-895 million** which includes infrastructure capital of $90-$110 million.
+    + Midland Basin will receive **~53%** of capital with the remaining portion allocated to the Delaware.
+    + **Expect to generate positive cash flow by the fourth quarter at $50 oil.**
+        + *Market viewed guidance as extremely positive; **stock is currently up 7.4%.***
+* 201-2020 production is expected to have a CAGR of **~30%** and deliver *"substantial free cash flow"* at $50 oil.
+    + Management defining *substantial* as operating cash flow above D&C capital.
+* Budgeting **10%-15%** of service cost inflation however, **D&C costs will remain flat.**
+    + Delaware Basin D&C costs per lateral foot are **~$1,014,** a decrease of ~2%.
+    + Midland Basin D&C costs per lateral foot are **~$831,** roughly flat YoY. 
+        + Savings attributed to lower sand/water costs and transitioning to multi-pad development in the Delaware Basin.
+        
+<img style="margin:0px auto;display:block" src="/img/4q17/rspp_costs.png"/>
+<br>
+
+* Company has hedged **~60%** of estimated 2018 production.
+
+#####**Delaware Basin Update**
+
+* Company estimates that they have **2,380 locations** on their 45,200 net acre position (6,000 net royalty acres) using base case spacing.
+
+Formation| West/Central Wells/Sec.| East Wells/Sec.
+---------|------------------------|----------------
+**Avalon**| 8| 6
+**FBSG**| 3| 0
+**SBSG**| 8| 0
+**TBSG**| 3| 0
+**WFMP XY**| 6| 0
+**WFMP A**| 6| 6
+**WFMP B**| 6| 6
+**WFMP C**| 6| 6
+**WFMP D**| 6| 6
+<br>
+
+* Early production from latest completion design (8+ clusters/stage, >1,800 lbs/ft) showing step-change in results in the **Third Bone Spring** an positive results in **Wolfcamp A/XY.**
+    + RSPP believes the Third Bone Spring and Wolfcamp A/XY should be co-developed,** similar to the Wolfcamp A/B and Lower Spraberry in Midland Basin.
+    + Current strip pricing would yield over **100% IRR** for latest Wolfcamp results.
+    + **Third Bone Spring** has been the biggest surprise. Plan on drilling more wells in the **Rudd Draw area** with a dedicated rig developing three aforementioned zones simultaneously. 
+<img style="margin:0px auto;display:block" src="/img/4q17/rspp_wfmp_tbsg.png"/>
+<br>
+
+* **First major G&G project performed on the Brunson D Three-well pad.**
+    + Targeted **Wolfcamp A** (2 wells) and **Wolfcamp B.**
+    + Awaiting micro-seismic and tracer survey data.
+    + Choke design was *"more aggressive"* which should help pull production forward.
+
+Well| Formation| Lateral| IP24 (Boe/d)| Oil Cut
+----|----------|--------|-------------|--------
+**Brunson D 1201H**|WFMP B| 6,800| 2,460| *73%*
+**Brunson D 1203H**|WFMP A| 7,500| 3,342| *67%*
+**Brunson D 1204H**|WFMP A| 8,500| 1,498| *71%*
+<br>
+
+* **Testing 5^1/2^ inch casing on multiple wells,** while D&C costs are higher, increased casing size allows for more intense completions and increased fluid takeaway capacity.
+* Seismic is being processed on Eastern portion of acreage, however management stated, *" the Central Basin platform did not affect the thickness of the Wolfcamp A or B, however we do see more carbonate in the material."*
+  + Optimistic about area given the solid results from the carbonate rich Wolfcamp A in the Midland Basin.
+
+#####**Midland Basin Update**
+
+* **Midland Basin production increased over 30% YoY and was cash flow positive at $49 oil.** 
+* Base case inventory at year-end totaled 1,600 net locations across 46,700 net acres.
+
+Formation| Ector Wells/Sec.| Mid./Mar./Andrews Wells/Sec.| Glasscock wells/Sec.
+---------|-----------------|-----------------------------|---------------------
+**Clearfork**| 0| 5| 0
+**Middle Spraberry**| 10| 8| 0
+**Jo Mill**| 0| 4| 0
+**Lower Spraberry**| 10| 12| 10
+**Wolfcamp A**| 5| 8| 9
+**Wolfcamp B**| 0| **4**| 8
+**Wolfcamp C**| 0| 0| 0-5
+**Wolfcamp D**| 0| 5| 5
+<br>
+
+* Base case spacing assumes minimum distance of ~450' between wells. ***"When you start getting below 400' in total distance, you're probably going to have some EUR degradation."***
+* Note RSPP's spacing assumption in the **Wolfcamp B** in Midland, Martin and Andrews Counties, markedly lower than other operator assumptions.
+* Development of **Wolfcamp A** and **Wolfcamp B** is optimal.  
+* Highlighted **Spanish Trail 3-10** and **MASK/MCC** sections where full development of the Wolfcamp A (8 wells/section) and Wolfcamp B (4 wells/section) is underway.
+
+<img style="margin:0px auto;display:block" src="/img/4q17/rspp_midlandwfmpa.png"/> 
+<br>
+
+* Large scale **Middle Spraberry** project will begin in the second quarter.
+    + Completing 5-well pad with 11,000' laterals in **Spanish Trail.**
+    + First completion utilizing modern frac design outperforming both Middle and Lower Spraberry type curves.
+    + The **Spanish Trail 4826MS** had an IP30 of 1,140 Boe/d (163 Boe/d/1000').
+<br>
+<br>
+
 ####**Shell**
 
 * Sticking to capital range between **$25-$30 billion.** through 2020.
@@ -789,3 +962,4 @@ Formation|Lateral Length|Well Cost ($MM)|EUR (MMBOE)
 * Plan on drilling multiple wells on acreage located in **South Central Reeves** this year.
 <br>
 <br>
+
