@@ -566,7 +566,7 @@ Well| Formation| Lateral| IP30 (Boe/d)| IP30 (Bo/d)
 * **Operating costs were $41.08/Boe, up over 100% from the previous quarter.**
     + Significant non-recurring charges included rig stacking charges ($1 million) and increased contract labor related to infrastructure assets ($1 million).
     + *Read through: This quarter, it seems many small companies have experienced significant increases in service costs far exceeding companies with economies of scale. As demand continues to rise, look for Wall Street to pay close attention to profit margins.*
-* Guiding 2018 CAPEX to **~$315-$360 million** and end the year producing **~23 Mboe/d.**
+* Guiding 2018 CAPEX to be between **~$315-$360 million** and year-end production of **~23 Mboe/d.**
 <img style="float: right;" src="/img/4q17/hk_land.png">
 
 * Currently running **3 rigs** and **1 frac crew.**
