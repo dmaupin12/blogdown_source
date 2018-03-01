@@ -575,13 +575,13 @@ Well| Formation| Lateral| IP30 (Boe/d)| IP30 (Bo/d)
     + **500'-1,500'** deeper than horizontal Wolfcamp targets.
     + Could drill vertically or horizontally.
     + Plan on drilling test sometime this year.
-* Assuming 10,000' laterals, Wolfcamp EURs in **Monument Draw** (Eastern Ward) are **~1.9 MMboe** (~80% oil), in **West Quito Draw** (Western Ward) EURs are **~2.2 MMBoe** (50% oil) and in **Hackberry Draw** (Pecos) EURs are **~1.5 MMboe.**
-    + Pecos County **IP rates have been less than expected,** however **decline rates are shallower** than modeled.
-        + Placing jet pumps and ESPs earlier than other areas due to **high water cuts.** 
-        
+
 <img style="margin:0px auto;display:block" src="/img/4q17/hk_sand.png"/> 
 <br>
 
+* Assuming 10,000' laterals, Wolfcamp EURs in **Monument Draw** (Eastern Ward) are **~1.9 MMboe** (~80% oil), in **West Quito Draw** (Western Ward) EURs are **~2.2 MMBoe** (50% oil) and in **Hackberry Draw** (Pecos) EURs are **~1.5 MMboe.**
+    + Pecos County **IP rates have been less than expected,** however **decline rates are shallower** than modeled.
+        + Placing jet pumps and ESPs earlier than other areas due to **high water cuts.** 
 * Fourth quarter drilling results displayed in table below.
 
 Well| Formation| Lateral| IP24 (Boe/d)| Oil Cut| Area
