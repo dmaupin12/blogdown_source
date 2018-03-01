@@ -101,7 +101,7 @@ description: "Fourth quarter results and conference call highlights."
     + 3 rigs elsewhere in the Delaware Basin.
 * Reiterated 3-year production CAGR in Alpine High of over **150%.**
     + Investing **~$1 billion** in midstream buildout.
-    + In 2020, expect to produce ***960-1,080 MMcfe/d.**
+    + In 2020, expect to produce **960-1,080 MMcfe/d.**
 * Well results outside of Alpine High include **3 pads** in the **Midland Basin**, **7 wells** in **Dixieland** and **5 wells** on the **New Mexico Shelf.**
 <img style="margin:0px auto;display:block" src="/img/4q17/apa_wells.png"/>
 <br>
@@ -611,7 +611,7 @@ Well| Formation| IP24 (Boe/d)| Oil Cut
 **Stebbins 19 #1234**| SBSG| 845| *90%*
 **Charlie Sweeney #204H**|L. WFMP A|1,188| *75%*
 **Tom Matthews #223H**| **WFMP B-BLAIR**| 2,273| *31%*
-**Toot #221H**| L.WFMP A**| 1,692| *81%*
+**Toot #221H**| **L.WFMP A**| 1,692| *81%*
 **Florence #202H**| WFMP A| 1,700| *81%*
 <br>
 
