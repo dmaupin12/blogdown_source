@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>/2018/03/05/weekly-rigs/</loc>
+    <lastmod>2018-03-05T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/2018/02/28/4q-17-conference-call-highlights/</loc>
     <lastmod>2018-02-28T00:00:00+00:00</lastmod>
   </url>
@@ -10,11 +15,6 @@
   <url>
     <loc>/2018/02/28/monthly-permits/</loc>
     <lastmod>2018-02-28T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/2018/02/26/weekly-rigs/</loc>
-    <lastmod>2018-02-26T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -106,7 +106,7 @@
   
   <url>
     <loc>/tags/baker-hughes-weekly-update/</loc>
-    <lastmod>2018-02-26T00:00:00+00:00</lastmod>
+    <lastmod>2018-03-05T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -136,7 +136,7 @@
   
   <url>
     <loc>/</loc>
-    <lastmod>2018-02-28T00:00:00+00:00</lastmod>
+    <lastmod>2018-03-05T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -274,7 +274,7 @@
   
   <url>
     <loc>/post/</loc>
-    <lastmod>2018-02-28T00:00:00+00:00</lastmod>
+    <lastmod>2018-03-05T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
