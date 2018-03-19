@@ -1,7 +1,7 @@
 ---
 title: Weekly Rigs
 author: David Maupin
-date: '2018-03-12'
+date: '2018-03-19'
 tags:
   - Baker Hughes Weekly Update
 slug: weekly-rigs
@@ -14,8 +14,8 @@ slug: weekly-rigs
 
 ####**Quote of the week**
 
-* ***Don't count the days, make the days count.***
-    + ***Muhammad Ali***
+* ***Do what you can, with what you have, where you are.***
+    + ***Teddy Roosevelt***
 
 <br>
 <br>

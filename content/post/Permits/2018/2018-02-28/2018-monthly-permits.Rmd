@@ -1,7 +1,7 @@
 ---
 title: Monthly Permits
 author: David Maupin
-date: '2018-02-28'
+date: '2018-03-31'
 categories:
   - Operator Activity
 tags:
@@ -47,7 +47,7 @@ URL<-'https://di-api.drillinginfo.com/v1/direct-access/permits?state_province=Ne
 
 #Be sure to Update Month
 URL<-url_parse(URL)
-URL$parameter= 'state_province=New%20Mexico&min_approved_date=2018-02-01&pagesize=100000'
+URL$parameter= 'state_province=New%20Mexico&min_approved_date=2018-03-01&pagesize=100000'
 
 URL<-url_compose(URL)
 
@@ -82,7 +82,7 @@ URL<-'https://di-api.drillinginfo.com/v1/direct-access/permits?state_province=Te
 
 #Be sure to Update Month
 URL<-url_parse(URL)
-URL$parameter= 'state_province=Texas&min_approved_date=2018-02-01&pagesize=100000'
+URL$parameter= 'state_province=Texas&min_approved_date=2018-03-01&pagesize=100000'
 
 URL<-url_compose(URL)
 
@@ -238,7 +238,7 @@ map2<-map2%>%addFullscreenControl( pseudoFullscreen = T)%>%suspendScroll()%>% ad
 
 
 
-<h4 style="text-align: center;" markdown="1">**February Permitting Activity**</h4>
+<h4 style="text-align: center;" markdown="1">**March Permitting Activity**</h4>
 ```{r, echo=F}
 map1
 ```
@@ -266,7 +266,7 @@ names(col) <- as.character(Top20f$Top20)
 
 Top20f$Top20<-factor(as.factor(Top20f$Top20), levels=rev(levels(as.factor(Top20f$Top20))))
 
-ggplot(Top20f, aes(x=Top20,fill=Top20))+geom_bar()+scale_fill_manual(values=col)+coord_flip()+hrbrthemes::theme_ipsum()+theme(legend.position = 'none')+ggtitle('Top 20 Operators Permitting Activity in February', subtitle = 'Sourced from DrillingInfo')
+ggplot(Top20f, aes(x=Top20,fill=Top20))+geom_bar()+scale_fill_manual(values=col)+coord_flip()+hrbrthemes::theme_ipsum()+theme(legend.position = 'none')+ggtitle('Top 20 Operators Permitting Activity in March', subtitle = 'Sourced from DrillingInfo')
 
 ```
 <br>

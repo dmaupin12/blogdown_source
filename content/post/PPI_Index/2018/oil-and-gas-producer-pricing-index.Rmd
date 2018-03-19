@@ -1,7 +1,7 @@
 ---
 title: Oil and Gas Producer Pricing Index
 author: David Maupin
-date: '2018-02-15'
+date: '2018-03-19'
 categories:
   - PPI
 tags:
@@ -74,7 +74,7 @@ colnames(ppi_oil_services_primary)[2]<-"Oil Services"
 
 ```{r,echo=F, warning=F, message=F,fig.height=4,fig.width=6}
 
-chart1<-dygraph(ppi_drilling, main="Drilling Prices Indexed to February 2016", group='index')%>% dyLegend()%>%
+chart1<-dygraph(ppi_drilling, main="Drilling Prices Indexed to January 2016", group='index')%>% dyLegend()%>%
   dyOptions()%>%dyOptions(colors= 'green')%>%
   dyHighlight(highlightSeriesOpts = list(strokeWidth = 3))%>%
   dyRangeSelector(fillColor="",strokeColor="")
@@ -82,11 +82,11 @@ chart1<-dygraph(ppi_drilling, main="Drilling Prices Indexed to February 2016", g
 #  dyOptions()%>%
 #  dyHighlight(highlightSeriesOpts = list(strokeWidth = 3))%>%
 #  dyRangeSelector(fillColor="",strokeColor="")
-chart2<-dygraph(ppi_frac_sand, main="Frac Sand Prices Indexed to February 2016", group='index')%>% dyLegend()%>%
+chart2<-dygraph(ppi_frac_sand, main="Frac Sand Prices Indexed to January 2016", group='index')%>% dyLegend()%>%
   dyOptions()%>%dyOptions(colors= 'red')%>%
   dyHighlight(highlightSeriesOpts = list(strokeWidth = 3))%>%
   dyRangeSelector(fillColor="",strokeColor="")
-chart3<-dygraph(ppi_oil_services_primary, main="Oil Service Prices Indexed to February 2016", group='index')%>% dyLegend()%>%
+chart3<-dygraph(ppi_oil_services_primary, main="Oil Service Prices Indexed to January 2016", group='index')%>% dyLegend()%>%
   dyOptions()%>%dyOptions(colors= 'blue')%>%
   dyHighlight(highlightSeriesOpts = list(strokeWidth = 3))%>%
   dyRangeSelector(fillColor="",strokeColor="")
