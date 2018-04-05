@@ -128,10 +128,10 @@ Top20<- unique(left_join(Top20,tx_nm_permits[,c(23,19)]))
 
 #Add color column
 Color<-c('#e6e600','#00ccff','#ff9999','#cc0066','#00264d','#ff0000','#003300',"#e60000",'#99ffff',"#cc9966",'#ff9966','#0d0d0d',"#cc33ff",'#ff5500',"#ccffee","#ff9900","#0000e6",'#660066','#33ffd6','#0099ff','#a6a6a6','#0000ff','#ff00ff','#ff0066','#ffd699','#ffffb3'," dark blue",'#66ff99','#a64dff',"#ffccff",'#000066',"#e65c00",'#339966',"#0099cc",
-"#800000","#00ffcc","#660066","#ffa31a","red","blue","purple","light green","dark blue","#ccffcc","#3333cc","#b35900","#e6ffff","#bf4040","#666699","#ad33ff","#ffb3cc","green","purple")
+"#800000","#00ffcc","#660066","#ffa31a","red","blue","purple","light green","dark blue","#ccffcc","#3333cc","#b35900","#e6ffff","#bf4040","#666699","#ad33ff","#ffb3cc","green","purple","#ffb833")
 
 
-Alias<- c("APA","APC","BHP","CDEV","CPE","CVX","CXO","DVN","ECA","EGN","ENDEAVOR","EOG",'EPE',"FANG",'FDL',"MEWBOURNE","MTDR","FELIX","JAG","LPI","Other","OXY","PE","PERMIAN DEEP","PXD","RDSA","REN","RKI","RSPP","ROSEHILL","SURGE","XEC","XTO","MRO","QEP","SM","SABLE PERMIAN","SEM OPERATING","COP","CRZO","ONEENERGY","HEADINGTON","AXAS","SABALO","THREE RIVERS III","TRACKER","SUMMIT","HUNT",'CROWNQUEST','LEGACY','PDCE',"ASCENT","GUIDON")
+Alias<- c("APA","APC","BHP","CDEV","CPE","CVX","CXO","DVN","ECA","EGN","ENDEAVOR","EOG",'EPE',"FANG",'FDL',"MEWBOURNE","MTDR","FELIX","JAG","LPI","Other","OXY","PE","PERMIAN DEEP","PXD","RDSA","REN","RKI","RSPP","ROSEHILL","SURGE","XEC","XTO","MRO","QEP","SM","SABLE PERMIAN","SEM OPERATING","COP","CRZO","ONEENERGY","HEADINGTON","AXAS","SABALO","THREE RIVERS III","TRACKER","SUMMIT","HUNT",'CROWNQUEST','LEGACY','PDCE',"ASCENT","GUIDON","HK")
 
 color_frame<- data.frame(Color,Alias)
 color_frame$Alias<- as.character(color_frame$Alias)

@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>/2018/04/05/recent-transactions-and-current-deals-on-the-market/</loc>
+    <lastmod>2018-04-05T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/2018/03/31/monthly-permits/</loc>
     <lastmod>2018-03-31T00:00:00+00:00</lastmod>
   </url>
@@ -98,6 +103,10 @@
   </url>
   
   <url>
+    <loc>/1/01/01/</loc>
+  </url>
+  
+  <url>
     <loc>/tags/3q17/</loc>
     <lastmod>2017-11-10T00:00:00+00:00</lastmod>
     <priority>0</priority>
@@ -135,13 +144,13 @@
   
   <url>
     <loc>/tags/competior-analysis/</loc>
-    <lastmod>2018-02-19T00:00:00+00:00</lastmod>
+    <lastmod>2018-04-05T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>/</loc>
-    <lastmod>2018-03-31T00:00:00+00:00</lastmod>
+    <lastmod>2018-04-05T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -248,6 +257,18 @@
   </url>
   
   <url>
+    <loc>/tags/pad-development/</loc>
+    <lastmod>2018-04-05T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/categories/pad-development/</loc>
+    <lastmod>2018-04-05T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>/tags/pads/</loc>
     <lastmod>2018-01-08T00:00:00+00:00</lastmod>
     <priority>0</priority>
@@ -261,7 +282,7 @@
   
   <url>
     <loc>/categories/peer-analysis/</loc>
-    <lastmod>2018-02-19T00:00:00+00:00</lastmod>
+    <lastmod>2018-04-05T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -279,7 +300,7 @@
   
   <url>
     <loc>/post/</loc>
-    <lastmod>2018-03-31T00:00:00+00:00</lastmod>
+    <lastmod>2018-04-05T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
