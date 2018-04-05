@@ -8,7 +8,7 @@ categories:
 tags:
   - Pad Development
   - Competior Analysis
-slug: recent-transactions-and-current-deals-on-the-market
+slug: parent-child-wells
 description: "Analyzing child well performance in the Northern Delaware Basin."
 ---
 
