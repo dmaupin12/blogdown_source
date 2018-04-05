@@ -17,7 +17,7 @@ description: "Analyzing child well performance in the Northern Delaware Basin."
 * Calculated horizontal distance to nearest wellbore using the midpoint of the lateral.
 * **Child wells** were identified using three parameters:
     * **Distance Parameter:** Horizontal distance less than or equal to 1,000'.
-    * **Timing Parameter:** Completion date greater than 6 months.
+    * **Timing Parameter:** Completion date greater than six months.
     * **Formation Parameter:** Landing zone of parent well must be in the same zone as child well.
         * Note: Also identified child wells regardless of formation to account for communication between zones (i.e. First & Second Bone Spring  Parent/Child wells).
 * Analysis was limited to New Mexico to limit errors in production.         
@@ -31,7 +31,11 @@ description: "Analyzing child well performance in the Northern Delaware Basin."
 * Although the sample size is small, **Second Bone Spring** and **Wolfcamp A** child well performance appears to be linearly correlated to horizontal distance from the parent well. 
 * Charts summarize cumulative oil per thousand feet over time.
 * Map highlights child/parent wells and wells completed in a different zone which might have drainage issues due to communication.
-* If you would like a copy of the data which identifies child wells across the Permian feel free to contact me. 
+* If you would like a copy of the data which identifies child wells across the Permian Basin, feel free to contact me. 
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(fig.align = 'center',echo=F,warning=F,message=F,asis=F)
+```
 
 
 ```{r,echo=F, message=F,warning=F,verbose=F}
@@ -119,17 +123,17 @@ WFMPA<- lease_select%>% group_by(Lease, Formation,Child_Parent,Period)%>%mutate(
 ggplot(data=subset(SBSG,Period%in% c(6,12)), aes(Lease,Child_ParentAvg,color=Child_Parent))+
   geom_bar(data=subset(SBSG,Period%in% c(3,6,9,12)& Child_Parent=='PARENT'), aes(Lease,Child_ParentAvg),fill='grey',color=NA,stat='identity')+
 geom_point(data=subset(SBSG,Period%in% c(3,6,9,12)& Child_Parent!='PARENT' & Child_Parent!='CHILD NEAR PARENT DIFF. FORMATION'))+facet_grid(Formation~Period,scales='free_y')+scale_y_continuous(labels=comma)+scale_color_manual(values=c('orange'))+theme_minimal()+theme(axis.title.x=element_blank(),
-        axis.text.x=element_blank(),axis.ticks.x=element_blank())+ggtitle('Second Bone Spring Parent/Child Well Monthly Cum. Oil Per Thousand Feet', subtitle= 'Each bar represents average production by lease')+ylab("Cumulative Oil Per Thousand Feet")+guides(color=guide_legend(title="PARENT/CHILD"))+theme(legend.position = 'bottom')
+        axis.text.x=element_blank(),axis.ticks.x=element_blank())+ggtitle('Second Bone Spring Parent/Child Well Monthly Cum. Oil Per Thousand Feet', subtitle= 'Each bar represents the parent average production by lease')+ylab("Cumulative Oil Per Thousand Feet")+guides(color=guide_legend(title="PARENT/CHILD"))+theme(legend.position = 'bottom')
 
 ggplot(data=subset(AVALON,Period%in% c(6,12)), aes(Lease,Child_ParentAvg,color=Child_Parent))+
   geom_bar(data=subset(AVALON,Period%in% c(3,6,9,12)& Child_Parent=='PARENT'), aes(Lease,Child_ParentAvg),fill='grey',color=NA,stat='identity')+
 geom_point(data=subset(AVALON,Period%in% c(3,6,9,12)& Child_Parent!='PARENT'& Child_Parent!='CHILD NEAR PARENT DIFF. FORMATION'))+facet_grid(Formation~Period,scales='free_y')+scale_y_continuous(labels=comma)+scale_color_manual(values=c('orange'))+theme_minimal()+theme(axis.title.x=element_blank(),
-        axis.text.x=element_blank(),axis.ticks.x=element_blank())+ggtitle('Avalon Parent/Child Well Monthly Cum. Oil Per Thousand Feet', subtitle= 'Each bar represents average production by lease')+ylab("Cumulative Oil Per Thousand Feet")+guides(color=guide_legend(title="PARENT/CHILD"))+theme(legend.position = 'bottom')
+        axis.text.x=element_blank(),axis.ticks.x=element_blank())+ggtitle('Avalon Parent/Child Well Monthly Cum. Oil Per Thousand Feet', subtitle= 'Each bar represents the parent average production by lease')+ylab("Cumulative Oil Per Thousand Feet")+guides(color=guide_legend(title="PARENT/CHILD"))+theme(legend.position = 'bottom')
 
 ggplot(data=subset(WFMPA,Period%in% c(6,12)), aes(Lease,Child_ParentAvg,color=Child_Parent))+
   geom_bar(data=subset(WFMPA,Period%in% c(3,6,9,12)& Child_Parent=='PARENT'), aes(Lease,Child_ParentAvg),fill='grey',color=NA,stat='identity')+
 geom_point(data=subset(WFMPA,Period%in% c(3,6,9,12)& Child_Parent!='PARENT'& Child_Parent!='CHILD NEAR PARENT DIFF. FORMATION'))+facet_grid(Formation~Period,scales='free_y')+scale_y_continuous(labels=comma)+scale_color_manual(values=c('orange'))+theme_minimal()+theme(axis.title.x=element_blank(),
-        axis.text.x=element_blank(),axis.ticks.x=element_blank())+ggtitle('Wolfcmap A Parent/Child Well Monthly Cum. Oil Per Thousand Feet', subtitle= 'Each bar represents average production by lease')+ylab("Cumulative Oil Per Thousand Feet")+guides(color=guide_legend(title="PARENT/CHILD"))+theme(legend.position = 'bottom')
+        axis.text.x=element_blank(),axis.ticks.x=element_blank())+ggtitle('Wolfcmap A Parent/Child Well Monthly Cum. Oil Per Thousand Feet', subtitle= 'Each bar represents the parent average production by lease')+ylab("Cumulative Oil Per Thousand Feet")+guides(color=guide_legend(title="PARENT/CHILD"))+theme(legend.position = 'bottom')
 
 ```
 
@@ -156,7 +160,7 @@ parent_sdf<- SharedData$new(parent,~Lease,group="Lease")
 ####**Filters, Chart and Map**
 
 * Use the filters to toggle by Company, Lease and Formation. Select **Yes** to reset the data under the reset filter.
-* Example Case: Type Thor into the lease filter to show EOG's completions on it's Thor Lease.
+* Example Case: Type **Thor** into the lease filter to show EOG's completions on it's Thor Lease.
 
 ```{r,echo=F}
 bscols(list(
@@ -173,8 +177,11 @@ bscols(plot_ly(width='100%')%>%add_lines(data=parent_sdf,x=~Period,y=~CumLiquid_
             )%>%
         add_lines(data=child_child_sdf,x=~Period,y=~CumLiquid_Thou_Ft,line = list(color = 'orange'),
       text= ~paste("Well: ",Lease," ",Well.Number,'<br>Formation: ',Formation)
-            )%>% layout(showlegend = FALSE),
-      plot_mapbox(width='100%') %>%  add_markers(data=parent_sdf, x = ~Longitude, y = ~Latitude,color=I("grey"),marker = list(size = 10),showlegend=FALSE) %>%
+            )%>% layout(showlegend = FALSE)
+      
+)
+
+bscols(plot_mapbox(width='100%') %>%  add_markers(data=parent_sdf, x = ~Longitude, y = ~Latitude,color=I("grey"),marker = list(size = 10),showlegend=FALSE) %>%
     add_markers(data=child_nearest_sdf, x = ~Longitude, y = ~Latitude,color=I("blue"),marker = list(size = 11),showlegend=FALSE) %>%
     add_markers(data=child_child_sdf, x = ~Longitude, y = ~Latitude,color=I("orange"),marker = list(size = 12),showlegend=FALSE) %>%
     layout(data=all_sdf,
@@ -183,8 +190,7 @@ bscols(plot_ly(width='100%')%>%add_lines(data=parent_sdf,x=~Period,y=~CumLiquid_
       center = list(lon = ~mean(Longitude), lat = ~mean(Latitude))
     )
   ) %>%
-  highlight(on=c('plotly_selected'),off=c('plotly_deselect'))
-)
+  highlight(on=c('plotly_selected'),off=c('plotly_deselect')))
 ```
 
 
