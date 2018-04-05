@@ -133,7 +133,7 @@ geom_point(data=subset(AVALON,Period%in% c(3,6,9,12)& Child_Parent!='PARENT'& Ch
 ggplot(data=subset(WFMPA,Period%in% c(6,12)), aes(Lease,Child_ParentAvg,color=Child_Parent))+
   geom_bar(data=subset(WFMPA,Period%in% c(3,6,9,12)& Child_Parent=='PARENT'), aes(Lease,Child_ParentAvg),fill='grey',color=NA,stat='identity')+
 geom_point(data=subset(WFMPA,Period%in% c(3,6,9,12)& Child_Parent!='PARENT'& Child_Parent!='CHILD NEAR PARENT DIFF. FORMATION'))+facet_grid(Formation~Period,scales='free_y')+scale_y_continuous(labels=comma)+scale_color_manual(values=c('orange'))+theme_minimal()+theme(axis.title.x=element_blank(),
-        axis.text.x=element_blank(),axis.ticks.x=element_blank())+ggtitle('Wolfcmap A Parent/Child Well Monthly Cum. Oil Per Thousand Feet', subtitle= 'Each bar represents the parent average production by lease')+ylab("Cumulative Oil Per Thousand Feet")+guides(color=guide_legend(title="PARENT/CHILD"))+theme(legend.position = 'bottom')
+        axis.text.x=element_blank(),axis.ticks.x=element_blank())+ggtitle('Wolfcamp A Parent/Child Well Monthly Cum. Oil Per Thousand Feet', subtitle= 'Each bar represents the parent average production by lease')+ylab("Cumulative Oil Per Thousand Feet")+guides(color=guide_legend(title="PARENT/CHILD"))+theme(legend.position = 'bottom')
 
 ```
 
