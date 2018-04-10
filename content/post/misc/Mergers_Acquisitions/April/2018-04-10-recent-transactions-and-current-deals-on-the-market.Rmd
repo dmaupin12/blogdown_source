@@ -1,0 +1,222 @@
+---
+title: Recent Transactions and Current Deals On The Market
+author: David Maupin
+date: '2018-04-10'
+slug: recent-transactions-and-current-deals-on-the-market
+categories:
+  - Mergers and Acquisitions
+  - Current Deals
+tags:
+  - Mergers and Acquisitions
+  - Current Deals
+description: "Mapping recent transactions and current deals on the market. Data sourced from PLS starting in 2017."
+runtime: shiny
+---
+
+
+####**Data Sources and Methodology**
+
+* Data obtained from PLS and filtered to show relevant transactions and current deals on the market.
+* Select active deals or previous M&A activity in the map.
+* Table includes current deals.
+
+####**Select Highlights**
+
+* **Three Rivers Operating III** (Riverstone backed) recently divested it's ~60,000 acre position in Culberson County.
+    + Riverstone stated they received a ROI of ~2.2 from its initial investment of ~$94 million which represents total proceeds of ~$205 million.
+    + The total price paid is currently unknown.
+* Rumored buyer is **Admiral Permian** (ex Reliance) which received an equity line of **$600 million** from Pinebrook in March of 2017.
+* Announcement was somewhat surprising as well results in the area have been underwhelming.
+* Bloomberg reported that Shell is potentially interested in acquiring BHP's Delaware Basin assets.
+    + *"BHP has good assets that overlap our own acreage in the Permian, and may be interesting for us."*
+    
+
+<br>
+<br>
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(fig.align = 'center',echo=F,warning=F,message=F,asis=F)
+```
+
+
+```{r}
+library(geojsonio)
+library(leaflet.extras)
+library(spatialEco)
+library( htmltools )
+library(rgdal)
+library(tidyverse)
+library(shiny)
+library(shinythemes)
+
+```
+
+
+```{r}
+sold <- geojson_read("Sold_Deals.json",
+  what = "sp")
+
+net_acres<- openxlsx::read.xlsx("Net_Acres.xlsx",sheet=1)
+net_acres<- net_acres%>%select(id,Net.Acres)
+```
+
+
+
+
+```{r}
+sold<- sp.na.omit(sold, col.name = 'X__Acre')
+
+
+sold@data$X__Acre<- as.numeric(as.character(sold@data$X__Acre))
+sold@data$value___MM_<- as.numeric(as.character(sold@data$value___MM_))
+
+sold<- sold[sold$X__Acre > 1000,]
+
+sold$Net_Acres<- sold$value___MM_*1000000/sold$X__Acre
+
+#tbl<- sold@data
+#tbl<- tbl%>% select(buyers, sellers, id,headline)%>%distinct()
+#write.csv(tbl,"tbl2.csv")
+net_acres$id<- as.character(net_acres$id)
+sold@data$id<- as.character(sold@data$id)
+
+sold@data<- left_join(sold@data,net_acres)
+
+sold$Net.Acres<- paste(prettyNum(sold$Net.Acres,big.mark = ","),sep="")
+sold$PricePerAcre<- paste("$",prettyNum(sold$X__Acre,big.mark = ","),sep="")
+```
+
+
+
+
+
+
+```{r,eval=F}
+pal <- colorFactor(c("yellow","blue","green","orange","purple","black","#ace600","#00ffff","#666633"), sold$id)
+
+deal_pal <- colorFactor(c("#ffe6ea","#ff99aa","#ff1a40","#e60073"),deals_in_play$id)
+
+
+labs <- lapply(seq(nrow(sold@data)), function(i) {
+  paste0("Buyer: ", sold@data[i, "buyers"], '<p>',
+         "Net Acres: ", sold@data[i, "Net.Acres"],'<p>',
+         "$/Acre: ",sold@data[i, "PricePerAcre"],'<p>',
+         "Seller: ",sold@data[i, "sellers"],'<p>',
+         "Transaction Date: ", sold@data[i,'date_announced']) 
+})
+
+
+
+leaflet() %>%addTiles(group = "Esri.WorldTopoMap")%>%
+  addProviderTiles(providers$Esri.WorldTopoMap)%>%
+  addPolygons(data=sold, weight = 1, color = "#000000",
+              fillColor=~pal(id),
+              fillOpacity=0.7,label=lapply(labs,HTML),
+              highlightOptions = highlightOptions(
+                color='red', opacity = 1, weight = 1.5, fillOpacity = 1,
+                bringToFront = TRUE, sendToBack = TRUE),
+              group="Transacted Deals") 
+  addLayersControl(
+    baseGroups=c("Transacted Deals","Deals In Play"),
+    position = "topleft",
+    options = layersControlOptions(collapsed = FALSE)
+  )%>%
+  addFullscreenControl( pseudoFullscreen = T)%>%suspendScroll()%>% addScaleBar(position="topleft")
+
+#update
+
+```
+<br>
+<br>
+
+#####**Deals In Play**
+```{r,echo=F,eval=F}
+table<-DT::datatable(deals_in_play@data[,c(12,5,11,33,32,14)],class = 'cell-border stripe',filter='top',extensions='Buttons',
+                     options = list(dom = 'Bfrtip',
+                                    buttons= c('csv','pdf'),
+    columnDefs = list(list(className = 'dt-center', targets = 5)),
+     pageLength = 10, lengthMenu = c(10,20,30,40,50)),
+  fillContainer = T)
+widgetframe::frameWidget(table,width='100%')
+```
+<br>
+***Using Google Chrome,** open csv by right clicking and selecting show in folder. Rename file with **EXAMPLE.csv** which can then be saved as an excel document.*
+
+```{r}
+sold$date_announced<- as.Date(sold$date_announced)
+sold$Year<- format(sold$date_announced,'%Y')
+
+```
+
+
+
+
+```{r}
+
+
+# UI
+ui <- shinyUI(fluidPage(theme = shinytheme("united"),
+                        titlePanel(HTML("<h1><center><font size=14> Mergers, Acquisitions and Divestitures: 2016-Current</font></center></h1>")), 
+                        sidebarLayout(
+                          sidebarPanel(
+                            selectizeInput(
+                              "SellerInput", 'sellers', choices = unique(sold$sellers), multiple = T,
+                              options = list(
+                                placeholder = 'Select acquirer from below')
+                            )
+                            ,
+                            selectizeInput(
+                              "yearInput", 'Year', choices = unique(sold$Year), multiple = T,
+                              options = list(
+                                placeholder = 'Select year of acquisition')
+                            )),
+                          mainPanel(leafletOutput(outputId = 'map', height = 
+                                                    800) 
+                          ))
+                        ))
+
+
+# SERVER
+server <- shinyServer(function(input, output, session) {
+ 
+  updateSelectizeInput(session, "Acquirer", choices = sold$sellers,
+                       server = TRUE)
+  # selected State
+  selectedState <- reactive({
+    sold[sold$sellers == input$SellerInput, ] 
+  })
+  # selected year
+  selectedYear <- reactive({switch(input$yearInput, 
+                                   "2016"=sold[sold$Year==2016,], 
+                                   "2017"=sold[sold$Year==2017,], 
+                                   "2018"=sold[sold$Year==2018,])
+                          })
+  pal2 <- colorNumeric(palette = "Greens", domain=NULL)
+  
+  output$map <- renderLeaflet({
+    leaflet(sold) %>% 
+      addProviderTiles(providers$Stamen.TonerLite) %>% 
+      setView(lng = -98.583, lat = 39.833, zoom = 4) %>%
+      addPolygons(data = sold)
+    
+  })
+  
+ observeEvent(input$SellerInput, {
+    
+    leafletProxy("map", data = selectedState()) %>%
+      clearGroup(c("st.ate")) %>%
+      addPolygons(group ="st.ate",fillColor = "orange",
+                  color = "#BDBDC3",
+                  fillOpacity = 0.8,
+                  weight = 5)
+  })
+  
+})
+
+
+
+# Run app! 
+shinyApp(ui = ui, server = server)
+```
+
