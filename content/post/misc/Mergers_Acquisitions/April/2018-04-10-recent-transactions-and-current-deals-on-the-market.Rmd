@@ -10,7 +10,6 @@ tags:
   - Mergers and Acquisitions
   - Current Deals
 description: "Mapping recent transactions and current deals on the market. Data sourced from PLS starting in 2017."
-runtime: shiny
 ---
 
 
@@ -45,11 +44,16 @@ library(geojsonio)
 library(leaflet.extras)
 library(spatialEco)
 library( htmltools )
-library(rgdal)
 library(tidyverse)
-library(shiny)
-library(shinythemes)
+library(sf)
+library(crosstalk)
+library(plotly)
+library(listviewer)
+```
 
+
+```{r}
+Sys.setenv('MAPBOX_TOKEN' = 'pk.eyJ1IjoiZG1hdXBpbmNlaCIsImEiOiJjamZtbWhqdHMwdTQzMzNvZGdpc2x4bzlxIn0.eIDdIjeaDK-x7Q8uZgdJGg')
 ```
 
 
@@ -59,8 +63,11 @@ sold <- geojson_read("Sold_Deals.json",
 
 net_acres<- openxlsx::read.xlsx("Net_Acres.xlsx",sheet=1)
 net_acres<- net_acres%>%select(id,Net.Acres)
-```
 
+
+sold$date_announced<- as.Date(sold$date_announced)
+sold$Year<- format(sold$date_announced,'%Y')
+```
 
 
 
@@ -85,10 +92,27 @@ sold@data<- left_join(sold@data,net_acres)
 
 sold$Net.Acres<- paste(prettyNum(sold$Net.Acres,big.mark = ","),sep="")
 sold$PricePerAcre<- paste("$",prettyNum(sold$X__Acre,big.mark = ","),sep="")
+
+
 ```
 
 
 
+```{r}
+sold<- st_as_sf(sold)
+sold<- sold%>% select(buyers,sellers,Net_Acres, geometry,Year,value___MM_,X__Acre,hexColor)
+```
+
+```{r}
+deals_on_mkt <- geojson_read("Deals_On_Market.json",
+  what = "sp")
+
+deals_on_mkt<- st_as_sf(deals_on_mkt)
+
+
+
+
+```
 
 
 
@@ -105,8 +129,6 @@ labs <- lapply(seq(nrow(sold@data)), function(i) {
          "Seller: ",sold@data[i, "sellers"],'<p>',
          "Transaction Date: ", sold@data[i,'date_announced']) 
 })
-
-
 
 leaflet() %>%addTiles(group = "Esri.WorldTopoMap")%>%
   addProviderTiles(providers$Esri.WorldTopoMap)%>%
@@ -130,93 +152,30 @@ leaflet() %>%addTiles(group = "Esri.WorldTopoMap")%>%
 <br>
 <br>
 
-#####**Deals In Play**
-```{r,echo=F,eval=F}
-table<-DT::datatable(deals_in_play@data[,c(12,5,11,33,32,14)],class = 'cell-border stripe',filter='top',extensions='Buttons',
-                     options = list(dom = 'Bfrtip',
-                                    buttons= c('csv','pdf'),
-    columnDefs = list(list(className = 'dt-center', targets = 5)),
-     pageLength = 10, lengthMenu = c(10,20,30,40,50)),
-  fillContainer = T)
-widgetframe::frameWidget(table,width='100%')
+```{r}
+sold<- st_as_sf(sold)
+sold$Reset_Filter<- 'RESET'
+sold$colors= rep_len(c('#FF355E','red','blue','purple','#FF6037','#FF9933','#FFFF66','#CCFF00','#AAF0D1','#FF6EFF','#FF00CC'),length.out=200)
 ```
-<br>
-***Using Google Chrome,** open csv by right clicking and selecting show in folder. Rename file with **EXAMPLE.csv** which can then be saved as an excel document.*
 
 ```{r}
-sold$date_announced<- as.Date(sold$date_announced)
-sold$Year<- format(sold$date_announced,'%Y')
+sd_sold<- SharedData$new(sold)
+
+
+bscols(widths=c(3,NA),list(filter_select('buyers','Acquirer',sd_sold,~buyers),
+       filter_select("Reset Filter","Reset Filter",sd_sold,~ifelse(Reset_Filter=="RESET","YES","NO"))),
+  plot_mapbox() %>%
+    add_sf(data=sd_sold,fillcolor=~colors,stroke=NA,hoverinfo = 'text',
+        text = ~paste('</br> Acquirer: ', buyers,
+                '</br> Seller: ', sellers,
+                '</br> Price Per Acre: ', X__Acre,
+                '</br> Total Price (MM): ', value___MM_,
+                '</br> Year of Acquisition ', Year))%>%
+    layout(showlegend=FALSE,
+    mapbox = list(zoom=7,style = "light")))
+
 
 ```
 
 
-
-
-```{r}
-
-
-# UI
-ui <- shinyUI(fluidPage(theme = shinytheme("united"),
-                        titlePanel(HTML("<h1><center><font size=14> Mergers, Acquisitions and Divestitures: 2016-Current</font></center></h1>")), 
-                        sidebarLayout(
-                          sidebarPanel(
-                            selectizeInput(
-                              "SellerInput", 'sellers', choices = unique(sold$sellers), multiple = T,
-                              options = list(
-                                placeholder = 'Select acquirer from below')
-                            )
-                            ,
-                            selectizeInput(
-                              "yearInput", 'Year', choices = unique(sold$Year), multiple = T,
-                              options = list(
-                                placeholder = 'Select year of acquisition')
-                            )),
-                          mainPanel(leafletOutput(outputId = 'map', height = 
-                                                    800) 
-                          ))
-                        ))
-
-
-# SERVER
-server <- shinyServer(function(input, output, session) {
- 
-  updateSelectizeInput(session, "Acquirer", choices = sold$sellers,
-                       server = TRUE)
-  # selected State
-  selectedState <- reactive({
-    sold[sold$sellers == input$SellerInput, ] 
-  })
-  # selected year
-  selectedYear <- reactive({switch(input$yearInput, 
-                                   "2016"=sold[sold$Year==2016,], 
-                                   "2017"=sold[sold$Year==2017,], 
-                                   "2018"=sold[sold$Year==2018,])
-                          })
-  pal2 <- colorNumeric(palette = "Greens", domain=NULL)
-  
-  output$map <- renderLeaflet({
-    leaflet(sold) %>% 
-      addProviderTiles(providers$Stamen.TonerLite) %>% 
-      setView(lng = -98.583, lat = 39.833, zoom = 4) %>%
-      addPolygons(data = sold)
-    
-  })
-  
- observeEvent(input$SellerInput, {
-    
-    leafletProxy("map", data = selectedState()) %>%
-      clearGroup(c("st.ate")) %>%
-      addPolygons(group ="st.ate",fillColor = "orange",
-                  color = "#BDBDC3",
-                  fillOpacity = 0.8,
-                  weight = 5)
-  })
-  
-})
-
-
-
-# Run app! 
-shinyApp(ui = ui, server = server)
-```
 
