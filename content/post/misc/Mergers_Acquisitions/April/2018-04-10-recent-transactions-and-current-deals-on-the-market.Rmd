@@ -19,16 +19,6 @@ description: "Mapping recent transactions and current deals on the market. Data 
 * Select active deals or previous M&A activity in the map.
 * Table includes current deals.
 
-####**Select Highlights**
-
-* **Three Rivers Operating III** (Riverstone backed) recently divested it's ~60,000 acre position in Culberson County.
-    + Riverstone stated they received a ROI of ~2.2 from its initial investment of ~$94 million which represents total proceeds of ~$205 million.
-    + The total price paid is currently unknown.
-* Rumored buyer is **Admiral Permian** (ex Reliance) which received an equity line of **$600 million** from Pinebrook in March of 2017.
-* Announcement was somewhat surprising as well results in the area have been underwhelming.
-* Bloomberg reported that Shell is potentially interested in acquiring BHP's Delaware Basin assets.
-    + *"BHP has good assets that overlap our own acreage in the Permian, and may be interesting for us."*
-    
 
 <br>
 <br>
@@ -100,7 +90,7 @@ sold$PricePerAcre<- paste("$",prettyNum(sold$X__Acre,big.mark = ","),sep="")
 
 ```{r}
 sold<- st_as_sf(sold)
-sold<- sold%>% select(buyers,sellers,Net_Acres, geometry,Year,value___MM_,X__Acre,hexColor)
+sold<- sold%>% select(buyers,sellers,Net_Acres, geometry,Year,value___MM_,X__Acre,date_announced)
 ```
 
 ```{r}
@@ -155,7 +145,29 @@ leaflet() %>%addTiles(group = "Esri.WorldTopoMap")%>%
 ```{r}
 sold<- st_as_sf(sold)
 sold$Reset_Filter<- 'RESET'
-sold$colors= rep_len(c('#FF355E','red','blue','purple','#FF6037','#FF9933','#FFFF66','#CCFF00','#AAF0D1','#FF6EFF','#FF00CC'),length.out=200)
+
+makeTransparent = function(..., alpha=0.5) {
+
+  if(alpha<0 | alpha>1) stop("alpha must be between 0 and 1")
+
+  alpha = floor(255*alpha)  
+  newColor = col2rgb(col=unlist(list(...)), alpha=FALSE)
+
+  .makeTransparent = function(col, alpha) {
+    rgb(red=col[1], green=col[2], blue=col[3], alpha=alpha, maxColorValue=255)
+  }
+
+  newColor = apply(newColor, 2, .makeTransparent, alpha=alpha)
+
+  return(newColor)
+
+}
+
+colors<-c('#FF355E','red','blue','purple','#FF6037','#FF9933','#FFFF66','#CCFF00','#AAF0D1','#FF6EFF','#FF00CC')
+
+#colors<- makeTransparent(colors, alpha=.65)
+
+sold$colors= rep_len(colors,length.out=200)
 ```
 
 ```{r}
@@ -163,8 +175,9 @@ sd_sold<- SharedData$new(sold)
 
 
 bscols(widths=c(3,NA),list(filter_select('buyers','Acquirer',sd_sold,~buyers),
+        filter_slider('date_announced','Date Announced',sd_sold,~date_announced),                   
        filter_select("Reset Filter","Reset Filter",sd_sold,~ifelse(Reset_Filter=="RESET","YES","NO"))),
-  plot_mapbox() %>%
+  plot_mapbox(alpha=.65) %>%
     add_sf(data=sd_sold,fillcolor=~colors,stroke=NA,hoverinfo = 'text',
         text = ~paste('</br> Acquirer: ', buyers,
                 '</br> Seller: ', sellers,
@@ -173,7 +186,6 @@ bscols(widths=c(3,NA),list(filter_select('buyers','Acquirer',sd_sold,~buyers),
                 '</br> Year of Acquisition ', Year))%>%
     layout(showlegend=FALSE,
     mapbox = list(zoom=7,style = "light")))
-
 
 ```
 

@@ -6,10 +6,19 @@
     <description>Recent content in Peer Analysis on Concho Resources</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 05 Apr 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 12 Apr 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/categories/peer-analysis/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Outside The Yellow: A Review of Leasing Activity Over the Last 12 Months</title>
+      <link>/2018/04/12/outside-the-yellow-a-review-of-leasing-activity-over-the-last-12-months/</link>
+      <pubDate>Thu, 12 Apr 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/2018/04/12/outside-the-yellow-a-review-of-leasing-activity-over-the-last-12-months/</guid>
+      <description>Data Sources and MethodologyDownloaded all lease activity for the prior twelve months using DrillingInfo.Joined leases level data to sections for mapping purposes.Identied trends in company leasing activity.Based on the previous twelve month time period in the Permian Basin, there are ~150,000 more records in the database compared to the DI landtrac system and is about a month ahead on filings.</description>
+    </item>
     
     <item>
       <title>A Review of Parent/Child Well Development in New Mexico</title>

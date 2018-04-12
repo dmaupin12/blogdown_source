@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Leasing Activity on Concho Resources</title>
+    <link>/tags/leasing-activity/</link>
+    <description>Recent content in Leasing Activity on Concho Resources</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 12 Apr 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/leasing-activity/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Outside The Yellow: A Review of Leasing Activity Over the Last 12 Months</title>
+      <link>/2018/04/12/outside-the-yellow-a-review-of-leasing-activity-over-the-last-12-months/</link>
+      <pubDate>Thu, 12 Apr 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/2018/04/12/outside-the-yellow-a-review-of-leasing-activity-over-the-last-12-months/</guid>
+      <description>Data Sources and MethodologyDownloaded all lease activity for the prior twelve months using DrillingInfo.Joined leases level data to sections for mapping purposes.Identied trends in company leasing activity.Based on the previous twelve month time period in the Permian Basin, there are ~150,000 more records in the database compared to the DI landtrac system and is about a month ahead on filings.</description>
+    </item>
+    
+  </channel>
+</rss>
