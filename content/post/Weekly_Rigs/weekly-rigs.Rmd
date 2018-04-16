@@ -1,7 +1,7 @@
 ---
 title: Weekly Rigs
 author: David Maupin
-date: '2018-03-26'
+date: '2018-04-16'
 tags:
   - Baker Hughes Weekly Update
 slug: weekly-rigs
@@ -14,8 +14,8 @@ slug: weekly-rigs
 
 ####**Quote of the week**
 
-* ***Do what you can, with what you have, where you are.***
-    + ***Teddy Roosevelt***
+* *Success is not final; failure is not fatal: It is the courage to continue that counts.*
+    + *Winston Churchill*
 
 <br>
 <br>
@@ -166,8 +166,7 @@ comb<- comb[,c(2,4,6,8,10,12,14,16,18,20)]
 RigReport$value= as.factor(RigReport$value)
 RigReport$region= as.numeric(RigReport$region)
 
-
-choro= choroplethr::county_choropleth(RigReport[,c(1,4)],state_zoom = c("new mexico","texas"),reference_map = F, title= "Baker Hughes Week Over Week Change")+
+choro<- choroplethr::county_choropleth(RigReport[,c(1,4)],state_zoom = c("new mexico","texas"),reference_map = F, title= "Baker Hughes Week Over Week Change")+
   scale_fill_manual(values=c("-5"="#4d0000","-4"="#b30000","-3"="#ff0000","-2"="#ff4d4d","-1"="#ff9999",
                              "0"="gray83","1"="#99ff99","2"="#66ff66","3"="#33cc33","4"="#003300", "5"="#001a00","6"='#000000',"7"='#000000'))
 ```
