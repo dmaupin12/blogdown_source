@@ -14,26 +14,28 @@ tags:
 
 ####**Data Sources and Methodology**
 
-* Downloaded all lease activity for the prior twelve months using DrillingInfo.
-* Joined leases level data to sections for mapping purposes.
-* Identied trends in company leasing activity.
-* Based on the previous twelve month time period in the Permian Basin, there are **~150,000** more records in the database compared to the DI landtrac system and is about a month ahead on filings.
+* Compiled all lease level activity for the prior twelve months using DrillingInfo.
+* Analyzed leases documents, memos of leases, extensions and lease amendments in order to identify trends in company leasing activity.
+ 
 
 ####**Highlights**
 
-* **Continental Resources** is expanding its New Mexico *stealth* play into the Northern Midland Basin.
-    + Beginning in the 2H of 2017, the company began acquiring leases in **Andrews, Dawson and Gaines** Counties.
-    + Continental recently permitted two horizontal wells in New Mexico.
-* **Devon Energy** has filed multiple leases in **Brewster County** near Apache's Alpine High play during 3Q'17.
-    + In 2017, the company drilled a single vertical wildcat on its acreage and there has been no activity since then. 
+* **Continental Resources** is expanding its position in the Northern Midland Basin which they began acquiring in late 2016.
+    + Activity in the fourth quarter and first quarter of 2018 has been concentrated in **Southeast Gaines County,** where the bulk of their acreage is **offsetting Murphy's in Gaines County.**
+    + The company has also recently permitted two horizontal wells on its Northern Delaware position in New Mexico.
 * After selling out to Parsley, **Double Eagle** is back at it with leases filed in the Southern Delaware, Central Basin Platform and Midland Basin.
     + A scatter shot of leases have been filed in the **San Andreas** play around Seminole and also in the Eastern Midland Basin in **Scurry County.**
-
-
-* Use the map to filter by company and time period. The reset filter will add all polygons back on the map.    
+        + The company's Scurry County acreage is offsetting private operator King Operating.
+    + In the fourth quarter, Double Eagle began acquiring leases in **Northeast Martin County** under **DE Midland III.**
+* Multiple operators filed leases around **North Harpoon** during the first quarter of 2018.
+    + **Double Eagle** filed a lease within North Harpoon on 160 acres.
+* **Devon Energy** had multiple lease filings in **Brewster County** near Apache's Alpine High play during the third quarter.
+    + In 2017, the company drilled a single vertical wildcat on its acreage however, there has been no activity since then. 
+* Use the map to filter by date, company and instrument type.    
 <br>
 <br>
 
+####**Twelve Month Activity Map**
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(fig.align = 'center',echo=F,warning=F,message=F,asis=F)
 ```
@@ -66,16 +68,24 @@ cxo_leases<- readOGR(".",'cxo_leases_2.21.18',verbose=F)
 
 
 ```{r}
-Color<-rep_len(c('#00ccff','#ff9999','#cc0066','#00264d','#ff0000','#003300',"#e60000",'#99ffff',"#cc9966",'#ff9966','#0d0d0d',"#cc33ff",'#ff5500',"#ccffee","#ff9900","#0000e6",'#660066','#33ffd6','#0099ff','#a6a6a6','#0000ff','#ff00ff','#ff0066','#ffd699','#ffffb3'," dark blue",'#66ff99','#a64dff',"#ffccff",'#000066',"#e65c00",'#339966',"#0099cc",
-"#800000","#00ffcc","#660066","#ffa31a","red","blue","purple","light green","dark blue","#ccffcc","#3333cc","#b35900","black","#bf4040","#666699","#ad33ff","#ffb3cc","green","purple","#ffb833"),length.out=769)
+Color<-rep_len(c('#00ccff','#ff9999','#cc0066','#00264d','#ff0000','#003300',"#e60000",'#99ffff',"#cc9966",'#ff9966','#0d0d0d',"#cc33ff",'#ff5500',"#ccffee","#ff9900","#0000e6",'#660066','#33ffd6','#0099ff','#a6a6a6','#0000ff','#ff00ff','#ff0066','#ffd699','#ffffb3'," dark blue",'#66ff99','#a64dff',"maroon",'#000066',"#e65c00",'#339966',"#0099cc",
+"#800000","#00ffcc","#660066","#ffa31a","red","blue","purple","light green","dark blue","#ccffcc","#3333cc","#b35900","black","#bf4040","#666699","#ad33ff","#ffb3cc","green","purple","#ffb833"),length.out=766)
 
+
+leases<-st_as_sf(leases)
+
+leases<- leases%>% mutate(Alias= replace(Alias, which(grepl("ROSETTA",Alias)),"NOBLE"),Alias)
+leases<- leases%>% mutate(Alias= replace(Alias, which(grepl("DE MGMT|DE MIDLAND III",Alias)),"DOUBLE EAGLE"),Alias)
 
 Alias<- unique(leases$Alias)
 color_frame<- data.frame(Color,Alias)
 
-leases<-st_as_sf(leases)
-leases$Ar__Ac_<- as.character(leases$Ar__Ac_)
 leases<-left_join(leases,color_frame, by="Alias")
+
+leases$Ar__Ac_<- round(as.numeric(leases$Ar__Ac_),0)
+leases$Ar__Ac_<- as.character(leases$Ar__Ac_)
+leases$Rcrd_Dt<- zoo::as.Date(as.character(leases$Rcrd_Dt))
+
 
 
 leases<- as(leases,"Spatial")
@@ -92,7 +102,8 @@ leases@data$YearQtr<- as.character(leases@data$YearQtr)
 
 ```{r}
 labs <- lapply(seq(nrow(leases@data)), function(i) {
-  paste0("Lesee: ", leases@data[i, "Alias"], '<p>',
+  paste0("Lessee: ", leases@data[i, "Alias"], '<p>',
+         "Instrument Type: ", leases@data[i, "Instr_T"],'<p>',
          "Acquisition Quarter: ", leases@data[i, "YearQtr"],'<p>',
          "Gross Acres: ",leases@data[i, "Ar__Ac_"],'<p>',
          "Transaction Date: ", leases@data[i,'Rcrd_Dt']) 
@@ -111,10 +122,11 @@ leases_sd_df <- SharedData$new(leases@data, group = leases_sd$groupName())
 
 
 ```{r}
-
-bscols(widths=c(3,NA),list(filter_select('Alias','Lesee',leases_sd_df,~Alias),
-        filter_select('YearQtr','Instrument Date By Quarter',leases_sd_df,~YearQtr),
-        filter_select('Instr_T','Instrument Type',leases_sd_df,~Instr_T)),
+bscols(widths=c(3,NA),list(filter_slider("Rcrd_Dt","Record Date",leases_sd_df,~Rcrd_Dt),
+        filter_select('Alias','Lessee',leases_sd_df,~Alias),
+        filter_select('YearQtr','Date By Quarter',leases_sd_df,~YearQtr),
+        filter_select('Instr_T','Instrument Type',leases_sd_df,~Instr_T)
+        ),
       leaflet(leases_sd,width="100%",height = 550) %>%
   # Base groups
   addTiles(group = "Esri.WorldTopoMap")%>%
@@ -125,4 +137,5 @@ bscols(widths=c(3,NA),list(filter_select('Alias','Lesee',leases_sd_df,~Alias),
 
 
 ```
-
+<br>
+<br>
