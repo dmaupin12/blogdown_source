@@ -21,13 +21,15 @@ tags:
 
 ####**Highlights**
 
-* **Continental Resources** expanding its New Mexico *stealth* play into the Northern Midland Basin.
+* **Continental Resources** is expanding its New Mexico *stealth* play into the Northern Midland Basin.
     + Beginning in the 2H of 2017, the company began acquiring leases in **Andrews, Dawson and Gaines** Counties.
-    + Continental recently permitted wells in New Mexico.
+    + Continental recently permitted two horizontal wells in New Mexico.
 * **Devon Energy** has filed multiple leases in **Brewster County** near Apache's Alpine High play during 3Q'17.
-    + In 2017, the company had a rig running in the area, but has seen relatively no activity since then.
+    + In 2017, the company drilled a single vertical wildcat on its acreage and there has been no activity since then. 
 * After selling out to Parsley, **Double Eagle** is back at it with leases filed in the Southern Delaware, Central Basin Platform and Midland Basin.
     + A scatter shot of leases have been filed in the **San Andreas** play around Seminole and also in the Eastern Midland Basin in **Scurry County.**
+
+
 * Use the map to filter by company and time period. The reset filter will add all polygons back on the map.    
 <br>
 <br>
@@ -50,50 +52,77 @@ library(tidyverse)
 library(plotly)
 library(rgdal)
 library(crosstalk)
+library(leaflet)
+library(htmltools)
 ```
 
-```{r}
-leases<- readOGR(".",'lease_master_dissolve',verbose=F)
+```{r,echo=F,warning=F,message=F,verbose=F}
+leases<- readOGR(".",'lease_master2',verbose=F)
 cxo_leases<- readOGR(".",'cxo_leases_2.21.18',verbose=F)
+#counties <- readOGR(".","counties",verbose = F)
+```
+
+
+
+
+```{r}
+Color<-rep_len(c('#00ccff','#ff9999','#cc0066','#00264d','#ff0000','#003300',"#e60000",'#99ffff',"#cc9966",'#ff9966','#0d0d0d',"#cc33ff",'#ff5500',"#ccffee","#ff9900","#0000e6",'#660066','#33ffd6','#0099ff','#a6a6a6','#0000ff','#ff00ff','#ff0066','#ffd699','#ffffb3'," dark blue",'#66ff99','#a64dff',"#ffccff",'#000066',"#e65c00",'#339966',"#0099cc",
+"#800000","#00ffcc","#660066","#ffa31a","red","blue","purple","light green","dark blue","#ccffcc","#3333cc","#b35900","black","#bf4040","#666699","#ad33ff","#ffb3cc","green","purple","#ffb833"),length.out=769)
+
+
+Alias<- unique(leases$Alias)
+color_frame<- data.frame(Color,Alias)
 
 leases<-st_as_sf(leases)
-cxo_leases<- st_as_sf(cxo_leases)
-```
-
-```{r}
-colors<-c('#FF355E','red','blue','purple','#FF6037','#FF9933','#FFFF66','#CCFF00','#AAF0D1','#FF6EFF','#FF00CC')
-
-#colors<- makeTransparent(colors, alpha=.65)
-colors= rep_len(colors,length.out=769)
-Alias= unique(leases$Alias)
-
-color_frame<- data.frame(colors,Alias)
+leases$Ar__Ac_<- as.character(leases$Ar__Ac_)
+leases<-left_join(leases,color_frame, by="Alias")
 
 
-leases<- left_join(leases,color_frame)
+leases<- as(leases,"Spatial")
+
+
+#pal <- colorFactor(palette = unique(as.character(tx_nm_permits$Color)),domain=tx_nm_permits$Top20,levels=tx_nm_permi#ts$Top20,ordered=T)
+
 
 leases$Reset_Filter='RESET'
 
-colnames(leases)[4]<-'Acres'
+
+leases@data$YearQtr<- as.character(leases@data$YearQtr)
+```
+
+```{r}
+labs <- lapply(seq(nrow(leases@data)), function(i) {
+  paste0("Lesee: ", leases@data[i, "Alias"], '<p>',
+         "Acquisition Quarter: ", leases@data[i, "YearQtr"],'<p>',
+         "Gross Acres: ",leases@data[i, "Ar__Ac_"],'<p>',
+         "Transaction Date: ", leases@data[i,'Rcrd_Dt']) 
+})
 
 ```
 
 
 ```{r}
 leases_sd<- SharedData$new(leases)
+ 
+#Added this to allow sharedDate to work ()
+
+leases_sd_df <- SharedData$new(leases@data, group = leases_sd$groupName())
+```
 
 
-bscols(widths=c(3,NA),list(filter_select('Alias','Lesee',leases_sd,~Alias),
-        filter_select('YearQtr','YearQtr',leases_sd,~YearQtr),                   
-       filter_select("Reset Filter","Reset Filter",leases_sd,~ifelse(Reset_Filter=="RESET","YES","NO"))),
-  plot_mapbox(alpha=.65) %>%
-    add_sf(data=cxo_leases,fillcolor='grey',stroke=NA)%>%
-    add_sf(data=leases_sd,fillcolor=~colors,stroke=NA,hoverinfo = 'text',
-        text = ~paste('</br> Lesee: ', Alias,
-                      '</br> Gross Acres: ', Acres,
-                      '</br> Date: ', YearQtr))%>%
-    layout(showlegend=FALSE,
-    mapbox = list(zoom=8,style = "light")))
+```{r}
+
+bscols(widths=c(3,NA),list(filter_select('Alias','Lesee',leases_sd_df,~Alias),
+        filter_select('YearQtr','Instrument Date By Quarter',leases_sd_df,~YearQtr),
+        filter_select('Instr_T','Instrument Type',leases_sd_df,~Instr_T)),
+      leaflet(leases_sd,width="100%",height = 550) %>%
+  # Base groups
+  addTiles(group = "Esri.WorldTopoMap")%>%
+  addProviderTiles(providers$Esri.WorldTopoMap)%>%
+  addPolygons(data=cxo_leases,fillColor='yellow',fillOpacity = .4,stroke=NA)%>%
+  addPolygons(data=leases_sd,fillColor = ~Color,fillOpacity = .75,stroke=NA,label=lapply(labs,HTML))%>% setView(lng=-102.79, lat=31.89,zoom=7)
+)
+
 
 ```
 
