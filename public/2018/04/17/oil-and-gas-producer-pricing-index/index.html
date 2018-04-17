@@ -1,0 +1,581 @@
+
+
+  
+    
+  
+
+
+  
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="Hugo 0.30.2 with theme Tranquilpeak 0.4.3-BETA">
+    <title>Oil and Gas Producer Pricing Index</title>
+    <meta name="author" content="">
+    <meta name="keywords" content="">
+
+    <link rel="icon" href="favicon.png">
+    
+
+    
+    <meta name="description" content="Monthly PPI report for drilling, frac sand and oil field services indexed to January 2016.">
+    <meta property="og:description" content="Monthly PPI report for drilling, frac sand and oil field services indexed to January 2016.">
+    <meta property="og:type" content="blog">
+    <meta property="og:title" content="Oil and Gas Producer Pricing Index">
+    <meta property="og:url" content="/2018/04/17/oil-and-gas-producer-pricing-index/">
+    <meta property="og:site_name" content="Concho Resources">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Concho Resources">
+    <meta name="twitter:description" content="Monthly PPI report for drilling, frac sand and oil field services indexed to January 2016.">
+    
+    
+
+    
+    
+
+    
+
+    
+    
+    
+
+    
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/jquery.fancybox.min.css" integrity="sha256-vuXZ9LGmmwtjqFX1F+EKin1ThZMub58gKULUyf0qECk=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.css" integrity="sha256-SEa4XYAHihTcEP1f5gARTB2K26Uk8PsndQYHQC1f4jU=" crossorigin="anonymous" />
+    
+    
+    <link rel="stylesheet" href="../../../../css/style-jsjn0006wyhpyzivf6yceb31gvpjatbcs3qzjvlumobfnugccvobqwxnnaj8.min.css" />
+    
+    
+
+    
+      
+    
+    
+  </head>
+
+  <body>
+    <div id="blog">
+      <header id="header" data-behavior="4">
+  <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+  <div class="header-title">
+    <a class="header-title-link" href="../../../../">Concho Resources</a>
+  </div>
+  
+</header>
+
+      <nav id="sidebar" data-behavior="4">
+  <div class="sidebar-container">
+    
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="../../../../">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-home"></i>
+      
+      <span class="sidebar-button-desc">Home</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="../../../../categories">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-bookmark"></i>
+      
+      <span class="sidebar-button-desc">Categories</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="../../../../tags">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
+      
+      <span class="sidebar-button-desc">Tags</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+
+    </ul>
+  </div>
+</nav>
+
+      
+
+      <div id="main" data-behavior="4"
+        class="
+               hasCoverMetaIn
+               ">
+        <article class="post" itemscope itemType="http://schema.org/BlogPosting">
+          
+          
+            <div class="post-header main-content-wrap text-left">
+  
+    <h1 class="post-title" itemprop="headline">
+      Oil and Gas Producer Pricing Index
+    </h1>
+  
+  
+  <div class="postShorten-meta post-meta">
+    
+      <time itemprop="datePublished" datetime="2018-04-17T00:00:00Z">
+        
+  April 17, 2018
+
+      </time>
+    
+    
+  
+  
+    <span>in</span>
+    
+      <a class="category-link" href="../../../../categories/ppi">PPI</a>
+    
+  
+
+  </div>
+
+</div>
+          
+          <div class="post-content markdown" itemprop="articleBody">
+            <div class="main-content-wrap">
+              <script src="../../../../rmarkdown-libs/htmlwidgets/htmlwidgets.js"></script>
+<script src="../../../../rmarkdown-libs/pymjs/pym.v1.js"></script>
+<script src="../../../../rmarkdown-libs/widgetframe-binding/widgetframe.js"></script>
+
+
+<div id="producer-pricing-index" class="section level4">
+<h4><strong>Producer Pricing Index</strong></h4>
+<ul>
+<li><strong>What does it measure?</strong> The Producer Price Index (PPI) program measures the average change over time in the selling prices received by domestic producers for their output. The prices included in the PPI are from the first commercial transaction for many products and some services.</li>
+<li><strong>Why is it useful?</strong>
+<ul>
+<li>Commonly used in escalating purchase and sales contracts.</li>
+<li>Indicator of overall price movement at the producer level. May foreshadow subsequent price changes for business and consumers.</li>
+<li>Measure of price movement for particular industries and products.</li>
+<li>Comparison of input and output costs.</li>
+<li>Comparison of industry-based price data to other industry-oriented economic time series.</li>
+<li>Useful in budgeting and forecasting.</li>
+</ul></li>
+<li><strong>Are prices broken out by area?</strong> Prices are not broken out by area (i.e. State, Region, Basin).
+<ul>
+<li>PPI indices may be significantly different than basin level pricing trends.</li>
+</ul></li>
+<li><strong>How often is data updated?</strong> The PPI index is updated on a monthly basis. <br></li>
+</ul>
+</div>
+<div id="data-source-and-sampling-process" class="section level4">
+<h4><strong>Data Source and Sampling Process</strong></h4>
+<ul>
+<li>Sourced from Bureau of Labor Statistics.</li>
+<li>The PPI sample includes over 25,000 establishments providing approximately 100,000 price quotations per month for products specified through a process called disaggregation.</li>
+<li>Establishments are selected for the PPI survey via systematic sampling of a list of all firms in the industry.</li>
+<li>Participation by firms is completely voluntary.</li>
+<li>Industries and products undergo systematic resampling as needed, to account for changing market conditions.</li>
+</ul>
+<p><br> <br></p>
+<p><div id="htmlwidget-1" style="width:95%;height:480px;" class="widgetframe html-widget"></div>
+<script type="application/json" data-for="htmlwidget-1">{"x":{"url":"/post/PPI_Index/2018/oil-and-gas-producer-pricing-index_files/figure-html//widgets/widget_unnamed-chunk-4.html","options":{"xdomain":"*","allowfullscreen":false,"lazyload":false}},"evals":[],"jsHooks":[]}</script> <br> <br> <div id="htmlwidget-2" style="width:95%;height:480px;" class="widgetframe html-widget"></div>
+<script type="application/json" data-for="htmlwidget-2">{"x":{"url":"/post/PPI_Index/2018/oil-and-gas-producer-pricing-index_files/figure-html//widgets/widget_unnamed-chunk-5.html","options":{"xdomain":"*","allowfullscreen":false,"lazyload":false}},"evals":[],"jsHooks":[]}</script> <br> <br> <div id="htmlwidget-3" style="width:95%;height:480px;" class="widgetframe html-widget"></div>
+<script type="application/json" data-for="htmlwidget-3">{"x":{"url":"/post/PPI_Index/2018/oil-and-gas-producer-pricing-index_files/figure-html//widgets/widget_unnamed-chunk-6.html","options":{"xdomain":"*","allowfullscreen":false,"lazyload":false}},"evals":[],"jsHooks":[]}</script> <br> <br></p>
+</div>
+
+              
+            </div>
+          </div>
+          <div id="post-footer" class="post-footer main-content-wrap">
+            
+              
+                
+                
+                  <div class="post-footer-tags">
+                    <span class="text-color-light text-small">TAGGED IN</span><br/>
+                    
+  <a class="tag tag--primary tag--small" href="../../../../tags/bureau-of-labor-statistics/">Bureau of Labor Statistics</a>
+
+  <a class="tag tag--primary tag--small" href="../../../../tags/ppi-index/">PPI Index</a>
+
+                  </div>
+                
+              
+            
+            
+  <div class="post-actions-wrap">
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="../../../../2018/04/17/eia-duc-report/" data-tooltip="EIA DUC Report">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="../../../../2018/04/16/weekly-rigs/" data-tooltip="Weekly Rigs">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+        
+      
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+
+            
+              
+            
+          </div>
+        </article>
+        <footer id="footer" class="main-content-wrap">
+  <span class="copyrights">
+    &copy; 2018 Concho Resources. All Rights Reserved
+  </span>
+</footer>
+
+      </div>
+      <div id="bottom-bar" class="post-bottom-bar" data-behavior="4">
+        
+  <div class="post-actions-wrap">
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="../../../../2018/04/17/eia-duc-report/" data-tooltip="EIA DUC Report">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="../../../../2018/04/16/weekly-rigs/" data-tooltip="Weekly Rigs">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+        
+      
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+
+      </div>
+      <div id="share-options-bar" class="share-options-bar" data-behavior="4">
+  <i id="btn-close-shareoptions" class="fa fa-close"></i>
+  <ul class="share-options">
+    
+  </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
+    </div>
+    
+    <div id="about">
+  <div id="about-card">
+    <div id="about-btn-close">
+      <i class="fa fa-remove"></i>
+    </div>
+    
+    <h4 id="about-card-name"></h4>
+    
+    
+    
+  </div>
+</div>
+
+    <div id="algolia-search-modal" class="modal-container">
+  <div class="modal">
+    <div class="modal-header">
+      <span class="close-button"><i class="fa fa-close"></i></span>
+      <a href="https://algolia.com" target="_blank" rel="noopener" class="searchby-algolia text-color-light link-unstyled">
+        <span class="searchby-algolia-text text-color-light text-small">by</span>
+        <img class="searchby-algolia-logo" src="https://www.algolia.com/static_assets/images/press/downloads/algolia-light.svg">
+      </a>
+      <i class="search-icon fa fa-search"></i>
+      <form id="algolia-search-form">
+        <input type="text" id="algolia-search-input" name="search"
+          class="form-control input--large search-input" placeholder="Search" />
+      </form>
+    </div>
+    <div class="modal-body">
+      <div class="no-result text-color-light text-center">no post found</div>
+      <div class="results">
+        
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="../../../../2018/04/30/monthly-permits/">
+                <h3 class="media-heading">Monthly Permits</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Apr 4, 2018
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">Overview of Permitting ActivityLive link to DrillingInfo which is updated dailyCurrently only shows horizontal permitsWells contains following permitting attributes: Company, Well Name, Well Type, Approval Date, Formation and Permit Depth2nd map attempts to identify permitted well pads using clusteringNote: Well counts do not include previously drilled or permitted wells at this timeTop 20 operators are colored in map and chartApril Permitting Activity{"</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="../../../../2018/04/17/eia-duc-report/">
+                <h3 class="media-heading">EIA DUC Report</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Apr 4, 2018
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">Overview of EIA DUC Inventory ReportA drilled but uncompleted well (DUC) is a new well after the end of the drilling process, but its first completion process has not been concluded.EIA uses 20 days to estimate days to TD. This likely overestimates DUC inventory in basins where PAD drilling is predominant.Report tracks monthly changes in DUC inventory beginning in 2014.Permian Monthly HighlightsPermian Basin ended February with ~3,044 wells waiting on completion.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="../../../../2018/04/17/oil-and-gas-producer-pricing-index/">
+                <h3 class="media-heading">Oil and Gas Producer Pricing Index</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Apr 4, 2018
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">Producer Pricing IndexWhat does it measure? The Producer Price Index (PPI) program measures the average change over time in the selling prices received by domestic producers for their output. The prices included in the PPI are from the first commercial transaction for many products and some services.Why is it useful?Commonly used in escalating purchase and sales contracts.Indicator of overall price movement at the producer level.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="../../../../2018/04/16/weekly-rigs/">
+                <h3 class="media-heading">Weekly Rigs</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Apr 4, 2018
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">Weekly rig report sourced from Baker HughesMap identifies week over week change in rig activity by county in New Mexico and Texas.The graph shows the top 10 counties by overall rig count beginning in 2016.Quote of the weekSuccess is not final; failure is not fatal: It is the courage to continue that counts.Winston Churchill
+
+</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="../../../../2018/04/12/outside-the-yellow-a-review-of-leasing-activity-over-the-last-12-months/">
+                <h3 class="media-heading">Outside The Yellow: A Review of Leasing Activity Over the Last 12 Months</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Apr 4, 2018
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">Data Sources and MethodologyCompiled all lease level activity for the prior twelve months using DrillingInfo.Analyzed leases documents, memos of leases, extensions and lease amendments in order to identify trends in company leasing activity.HighlightsContinental Resources is expanding its position in the Northern Midland Basin which they began acquiring in late 2016.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="../../../../2018/04/05/parent-child-wells/">
+                <h3 class="media-heading">A Review of Parent/Child Well Development in New Mexico</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Apr 4, 2018
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">MethodologyCalculated horizontal distance to nearest wellbore using the midpoint of the lateral.Child wells were identified using three parameters:Distance Parameter: Horizontal distance less than or equal to 1,000’.Timing Parameter: Completion date greater than six months.Formation Parameter: Landing zone of parent well must be in the same zone as child well.Note: Also identified child wells regardless of formation to account for communication between zones (i.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="../../../../2018/03/31/monthly-permits/">
+                <h3 class="media-heading">Monthly Permits</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Mar 3, 2018
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">Overview of Permitting ActivityLive link to DrillingInfo which is updated dailyCurrently only shows horizontal permitsWells contains following permitting attributes: Company, Well Name, Well Type, Approval Date, Formation and Permit Depth2nd map attempts to identify permitted well pads using clusteringNote: Well counts do not include previously drilled or permitted wells at this timeTop 20 operators are colored in map and chartMarch Permitting Activity{"</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="../../../../2018/03/19/eia-duc-report/">
+                <h3 class="media-heading">EIA DUC Report</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Mar 3, 2018
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">Overview of EIA DUC Inventory ReportA drilled but uncompleted well (DUC) is a new well after the end of the drilling process, but its first completion process has not been concluded.EIA uses 20 days to estimate days to TD. This likely overestimates DUC inventory in basins where PAD drilling is predominant.Report tracks monthly changes in DUC inventory beginning in 2014.Permian Monthly HighlightsPermian Basin ended February with ~2,937 wells waiting on completion.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="../../../../2018/02/28/4q-17-conference-call-highlights/">
+                <h3 class="media-heading">4Q&#39;17 Conference Call Highlights</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Feb 2, 2018
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">Service CompaniesHalliburtonHelmerich and PayneUpstream CompaniesAnadarko PetroleumApache ResourcesCallon PetroleumCarrizo Oil and GasCentennial Resource DevelopmentCimarex EnergyChevronConocoPhillipsDevon EnergyDiamondback EnergyEnergenEncana CorporationEOG ResourcesExxonMobilHalcón ResourcesLaredo PetroleumMarathon OilMatador ResourcesMurphy OilNoble EnergyOasis PetroleumOccidental PetroleumParsley EnergyPioneer Natural ResourcesRSP PermianShellSM EnergyQEP ResourcesWPX EnergyService Companies</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="../../../../2018/02/21/recent-transactions-and-current-deals-on-the-market/">
+                <h3 class="media-heading">Recent Transactions and Current Deals On The Market</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Feb 2, 2018
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">Data Sources and MethodologyData obtained from PLS and filtered to show relevant transactions and current deals on the market.Select active deals or previous M&amp;A activity in the map.Table includes current deals.Select HighlightsThree Rivers Operating III (Riverstone backed) recently divested it’s ~60,000 acre position in Culberson County.Riverstone stated they received a ROI of ~2.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+      </div>
+    </div>
+    <div class="modal-footer">
+      <p class="results-count text-medium"
+         data-message-zero="no post found"
+         data-message-one="1 post found"
+         data-message-other="{n} posts found">
+         24 posts found
+      </p>
+    </div>
+  </div>
+</div>
+    
+  
+    
+    <div id="cover" style="background-image:url('/images/cover.jpg');"></div>
+  
+
+
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.7/js/jquery.fancybox.min.js" integrity="sha256-GEAnjcTqVP+vBp3SSc8bEDQqvWAZMiHyUSIorrWwH50=" crossorigin="anonymous"></script>
+
+
+<script src="../../../../js/script-qi9wbxp2ya2j6p7wx1i6tgavftewndznf4v0hy2gvivk1rxgc3lm7njqb6bz.min.js"></script>
+
+
+
+
+  
+    
+  
+
+
+
+    
+  </body>
+</html>
+

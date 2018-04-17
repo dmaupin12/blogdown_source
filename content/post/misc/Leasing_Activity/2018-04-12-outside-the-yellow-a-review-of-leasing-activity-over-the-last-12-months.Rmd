@@ -24,7 +24,7 @@ tags:
     + Activity in the fourth quarter and first quarter of 2018 has been concentrated in **Southeast Gaines County,** where the bulk of their acreage is **offsetting Murphy's in Dawson County.**
     + The company has also recently permitted two horizontal wells on its Northern Delaware position in New Mexico.
 * After selling out to Parsley, **Double Eagle** is back at it with leases filed in the Southern Delaware, Central Basin Platform and Midland Basin.
-    + A scatter shot of leases have been filed in the **San Andreas** play around Seminole and also in the Eastern Midland Basin in **Scurry County.**
+    + A scatter shot of leases have been filed in the **San Andres** play around Seminole and also in the Eastern Midland Basin in **Scurry County.**
         + The company's Scurry County acreage is offsetting private operator King Operating.
     + In the fourth quarter, Double Eagle began acquiring leases in **Northeast Martin County** under **DE Midland III.**
 * Multiple operators filed leases around **North Harpoon** during the first quarter of 2018.
@@ -65,6 +65,9 @@ cxo_leases<- readOGR(".",'cxo_leases_2.21.18',verbose=F)
 ```
 
 
+```{r}
+df<- openxlsx::read.xlsx("LeasingActivity_4-17_4-18.xlsx",sheet=1)
+```
 
 
 ```{r}

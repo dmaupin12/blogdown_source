@@ -3,6 +3,21 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>/2018/04/30/monthly-permits/</loc>
+    <lastmod>2018-04-30T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/2018/04/17/eia-duc-report/</loc>
+    <lastmod>2018-04-17T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/2018/04/17/oil-and-gas-producer-pricing-index/</loc>
+    <lastmod>2018-04-17T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/2018/04/16/weekly-rigs/</loc>
     <lastmod>2018-04-16T00:00:00+00:00</lastmod>
   </url>
@@ -24,11 +39,6 @@
   
   <url>
     <loc>/2018/03/19/eia-duc-report/</loc>
-    <lastmod>2018-03-19T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/2018/03/19/oil-and-gas-producer-pricing-index/</loc>
     <lastmod>2018-03-19T00:00:00+00:00</lastmod>
   </url>
   
@@ -131,7 +141,7 @@
   
   <url>
     <loc>/tags/bureau-of-labor-statistics/</loc>
-    <lastmod>2018-03-19T00:00:00+00:00</lastmod>
+    <lastmod>2018-04-17T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -155,7 +165,7 @@
   
   <url>
     <loc>/</loc>
-    <lastmod>2018-04-16T00:00:00+00:00</lastmod>
+    <lastmod>2018-04-30T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -185,19 +195,19 @@
   
   <url>
     <loc>/categories/drilled-and-completed/</loc>
-    <lastmod>2018-03-19T00:00:00+00:00</lastmod>
+    <lastmod>2018-04-17T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>/categories/ducs/</loc>
-    <lastmod>2018-03-19T00:00:00+00:00</lastmod>
+    <lastmod>2018-04-17T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>/tags/eia-duc-report/</loc>
-    <lastmod>2018-03-19T00:00:00+00:00</lastmod>
+    <lastmod>2018-04-17T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -269,7 +279,7 @@
   
   <url>
     <loc>/categories/operator-activity/</loc>
-    <lastmod>2018-03-31T00:00:00+00:00</lastmod>
+    <lastmod>2018-04-30T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -311,25 +321,25 @@
   
   <url>
     <loc>/tags/permits/</loc>
-    <lastmod>2018-03-31T00:00:00+00:00</lastmod>
+    <lastmod>2018-04-30T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>/post/</loc>
-    <lastmod>2018-04-16T00:00:00+00:00</lastmod>
+    <lastmod>2018-04-30T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>/categories/ppi/</loc>
-    <lastmod>2018-03-19T00:00:00+00:00</lastmod>
+    <lastmod>2018-04-17T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>/tags/ppi-index/</loc>
-    <lastmod>2018-03-19T00:00:00+00:00</lastmod>
+    <lastmod>2018-04-17T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
