@@ -15,9 +15,9 @@ slug: eia-duc-report
 * Report tracks monthly changes in DUC inventory beginning in 2014.
 
 ####**Permian Monthly Highlights**
-* Permian Basin ended February with **~3,044 wells waiting on completion.** This marks the first time inventory has reachec over 3,000 wells.  
+* Permian Basin ended February with **~3,044 wells waiting on completion.** This marks the first time inventory has reached over 3,000 wells.  
 
-blo
+
 ```{r, echo=F, warning=F, message=F}
 library(tidyverse)
 library(openxlsx)
