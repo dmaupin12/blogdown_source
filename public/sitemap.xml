@@ -8,6 +8,11 @@
   </url>
   
   <url>
+    <loc>/2018/04/18/2017-reserves-2019-estimates/</loc>
+    <lastmod>2018-04-18T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/2018/04/17/eia-duc-report/</loc>
     <lastmod>2018-04-17T00:00:00+00:00</lastmod>
   </url>
@@ -134,6 +139,18 @@
   </url>
   
   <url>
+    <loc>/tags/annual-report/</loc>
+    <lastmod>2018-04-18T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/categories/annual-report/</loc>
+    <lastmod>2018-04-18T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>/tags/baker-hughes-weekly-update/</loc>
     <lastmod>2018-04-16T00:00:00+00:00</lastmod>
     <priority>0</priority>
@@ -153,7 +170,7 @@
   
   <url>
     <loc>/categories/</loc>
-    <lastmod>2018-02-01T00:00:00+00:00</lastmod>
+    <lastmod>2018-04-18T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -208,6 +225,18 @@
   <url>
     <loc>/tags/eia-duc-report/</loc>
     <lastmod>2018-04-17T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/estimates/</loc>
+    <lastmod>2018-04-18T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/categories/estimates/</loc>
+    <lastmod>2018-04-18T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   

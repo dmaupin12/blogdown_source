@@ -1,0 +1,126 @@
+---
+title: 2017 Reserves And An Update On Market Expectations Through 2019
+author: David Maupin
+date: '2018-04-18'
+categories:
+  - Annual Report
+  - Estimates
+tags:
+  - Annual Report
+  - Estimates
+slug: 2017-reserves-2019-estimates
+output: html_document
+---
+
+
+#### **Methodology**
+
+* Analyzed thirty companies with significant operations in the Permian Basin.
+* Calculated expected oil growth rates from the market through 2019.
+* Sourced data from FactSet.
+<br>
+<br>
+
+#### **Highlights**
+
+* Year-end proved reserves for **Concho** totaled **~841 MMboe** which put the company in the top 10 in total reserves.
+    + Proved oil reserves made up **~60%** of the total.
+    + Undeveloped reserves totaled **~253 MMboe**, or 30% of the total.
+* In contrast to the peer group, **Pioneer** only shows **8%** of undeveloped reserves.
+    + Likely not a read-through to inventory, however it's interesting to see the difference in PUD strategy.
+* Before accounting for the RSP acquisition, Concho's mean estimate for year-end 2019 daily oil rate is 192 Mbo/d, a **47%** increase from year-end 2017 rates.      
+    + **Post acquisition and without accounting for operational efficiencies,** the street expects the combined entity will produce **270 Mbo/d**, or **55%** more than year-end 2017 rates. 
+* The only company expected to grow oil production faster than Concho by 2019 is **Diamondback.**
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(fig.align = 'center',echo=F,warning=F,message=F,asis=F)
+```
+
+```{r}
+library(tidyverse)
+library(openxlsx)
+library(scales)
+library(forcats)
+library(lubridate)
+library(quantmod)
+```
+
+```{r}
+oil_est<- read.xlsx("Comp_Metrics.xlsx",sheet=8)
+
+reserves<- read.xlsx("Comp_Metrics.xlsx",sheet=4)
+
+oil_est<- oil_est%>% gather(Date,Oil_Estimate,c(3:11))
+oil_est$Date<- as.Date(as.numeric(oil_est$Date),format="%Y-%m-%d",origin="1899-12-30")
+oil_est$Oil_Estimate<- round(as.numeric(oil_est$Oil_Estimate),0)
+
+cxo_rsp<- oil_est%>% filter(Ticker %in% c('CXO','RSPP'))
+
+cxo_rsp<- cxo_rsp%>%group_by(Date)%>% mutate(Oil_Estimate=sum(Oil_Estimate),Ticker='CXO_RSPP',Company.Name='Post Acquisition')%>%select(Ticker,Date,Company.Name,Oil_Estimate)%>%distinct()
+
+oil_est<- full_join(oil_est,cxo_rsp)
+
+oil_est<-oil_est%>%group_by(Ticker)%>%arrange(Date)%>% mutate(Perc_Diff= ifelse(Date=="2017-12-31",0,Oil_Estimate/lag(Oil_Estimate)-1))%>%ungroup()%>%filter(!Ticker %in% c('USEG','COP'))
+oil_est$Perc_Diff<-round(oil_est$Perc_Diff*100,0)
+
+
+rank<- oil_est%>%ungroup()%>%filter(Date=="2018-09-30")%>%mutate(Rank_Prod= row_number(dense_rank(-Oil_Estimate)))%>% mutate(Bin=ntile(Rank_Prod,3))
+
+oil_est<- left_join(oil_est,rank[,c(1,6,7)])
+```
+
+
+
+```{r}
+reserves$Ticker<-factor(reserves$Ticker)
+reserves$Ticker <-  fct_reorder(reserves$Ticker,-reserves$Total.Proved.Reserves)
+
+reserves<- reserves%>% filter(!Ticker %in% c('COP','USEG'))
+
+reserves$`%.Undeveloped`<- round(reserves$`%.Undeveloped`*100,0)
+
+reserves<- reserves%>% mutate(PercOil= (`Oil.Developed.Proved.Reserves.(MMbo)`+ `Oil.Undeveloped.Proved.Reserves.(MMboe)`)/Total.Proved.Reserves)
+
+ggplot()+geom_bar(data=reserves, aes(Ticker,reserves$Total.Proved.Reserves),stat='identity',position='dodge')+geom_bar(data=reserves, aes(Ticker,reserves$Total.Proved.Undeveloped.Reserves),fill='orange',stat='identity',position='dodge')+ geom_text(data=reserves, aes(Ticker,reserves$Total.Proved.Undeveloped.Reserves,label=reserves$`%.Undeveloped`),fontface='bold',size=3,color='white',position = position_stack(vjust = 0.6))+ theme_minimal()+
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))+ylab('Total Proved Reserves')+xlab("")+scale_y_continuous(breaks=c(0,500,1000,1500,2000,2500),labels=comma)+ggtitle('2017 Total Proved Developed and Undeveloped Reserves',subtitle = 'Orange bar represents undeveloped reserves and numbers indicate % of total.' )+labs(caption='Data obtained from FactSet')
+
+
+
+ggplot()+geom_point(data=reserves,aes(fct_reorder(reserves$Ticker,-reserves$PercOil),reserves$PercOil),size=3)+ 
+  geom_segment(data=reserves,aes(x=Ticker,xend=Ticker,y=0,yend=PercOil),size=1)+
+  geom_point(data=subset(reserves,Ticker=='CXO'),aes(Ticker,PercOil),size=3,color='red')+
+  theme_minimal()+theme(axis.text.x = element_text(angle = 45, hjust = 1))+scale_y_continuous(labels=percent)+
+  xlab("")+ylab("Percent Oil")+ggtitle("Total Proved Oil Reserves Percentage",subtitle= "Oil comprised 60% Concho's 2017 total proved reserves")+labs(caption='Data obtained from FactSet')
+
+
+
+```
+
+
+
+
+
+
+```{r}
+oil_est$Ticker<-factor(oil_est$Ticker)
+oil_est$Ticker <-  fct_reorder(oil_est$Ticker,oil_est$Rank_Prod)
+oil_est$MnthYr<- as.yearmon(oil_est$Date)
+oil_est$MnthYr<- factor(oil_est$MnthYr)
+oil_est$MnthY <-  fct_reorder(oil_est$MnthYr,oil_est$Date)
+
+oil_est<- oil_est%>%group_by(Ticker)%>% mutate(Cum_Change= Oil_Estimate/first(Oil_Estimate)-1)
+
+
+
+ggplot(data=subset(oil_est,Bin%in% c(1)&Ticker !='CXO_RSPP'|Ticker=='RSPP'),aes(Ticker,Oil_Estimate,fill=MnthY))+geom_bar(stat='identity',position='dodge')+xlab("")+ylab("Oil Estimate (Mbbl/d)")+theme_minimal()+theme(legend.position = c(0.8, .8))+theme(axis.text.x = element_text(angle = 45, hjust = 1))+guides(fill=guide_legend(title='',nrow=3))+scale_fill_brewer(palette='Blues')+geom_bar(data=subset(oil_est,Bin%in%c(1,2)&Ticker=='CXO'),aes(Ticker,Oil_Estimate,fill=MnthY),color='orange',stat='identity',position='dodge',show.legend = F)+ggtitle("Mean Oil Forecasts Through December 2019",subtitle = 'The mean estimate for Concho in 2019 is 192 Mbo/d before the RSP acquisition.')+labs(caption='Data obtained from FactSet')
+
+
+ggplot(data=subset(oil_est,Bin%in% c(1)& Ticker!='CXO'),aes(Ticker,Oil_Estimate,fill=MnthY))+geom_bar(stat='identity',position='dodge')+xlab("")+ylab("Post Concho RSP Acquisition:Oil Estimate (Mbbl/d)")+theme_minimal()+theme(legend.position = c(0.8, .8))+theme(axis.text.x = element_text(angle = 45, hjust = 1))+guides(fill=guide_legend(title='',nrow=3))+scale_fill_brewer(palette='Oranges')+geom_bar(data=subset(oil_est,Bin%in%c(1,2)&Ticker=='CXO_RSPP'),aes(Ticker,Oil_Estimate,fill=MnthY),color='blue',stat='identity',position='dodge',show.legend = F)+ggtitle("Mean Oil Forecasts Through December 2019",subtitle = 'Post Acquisition, Concho is expected to produce 270 Mbo/d by 2019, which includes no efficiency gains.')+labs(caption='Data obtained from FactSet')
+
+
+ggplot()+geom_line(data=subset(oil_est,Bin%in% c(1)& !Ticker%in%c('CXO','CXO_RSPP') & Perc_Diff > -.05),aes(MnthYr,Cum_Change,color=Ticker,group=Ticker),alpha=.75,size=1)+
+geom_line(data=subset(oil_est,Bin%in% c(1)& Ticker=='CXO_RSPP' & Perc_Diff > -.05),aes(MnthYr,Cum_Change,group=Ticker,color=Ticker),size=1.5)+
+xlab("")+ ylab("Percentage Change")+ theme_minimal()+theme(legend.position = 'bottom') +guides(color=guide_legend(title='',nrow=1))+ scale_color_manual(values=c('#33ccff',"dark green",'red','#0033cc','black','grey','purple','maroon','orange','brown','red')) +ggtitle("Cumulative Growth % Indexed to Year End 2017",subtitle = "Concho growth rate is post acquisition, without operating efficiencies.")+labs(caption='Data obtained from FactSet')+scale_y_continuous(labels=percent)
+
+
+```

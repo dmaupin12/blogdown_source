@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Estimates on Concho Resources</title>
+    <link>/tags/estimates/</link>
+    <description>Recent content in Estimates on Concho Resources</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 18 Apr 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/estimates/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>2017 Reserves And An Update On Market Expectations Through 2019</title>
+      <link>/2018/04/18/2017-reserves-2019-estimates/</link>
+      <pubDate>Wed, 18 Apr 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/2018/04/18/2017-reserves-2019-estimates/</guid>
+      <description>MethodologyAnalyzed thirty companies with significant operations in the Permian Basin.Calculated expected oil growth rates from the market through 2019.Sourced data from FactSet. HighlightsYear-end proved reserves for Concho totaled ~841 MMboe which put the company in the top 10 in total reserves.Proved oil reserves made up ~60% of the total.Undeveloped reserves totaled ~253 MMboe, or 30% of the total.In contrast to the peer group, Pioneer only shows 8% of undeveloped reserves.</description>
+    </item>
+    
+  </channel>
+</rss>
