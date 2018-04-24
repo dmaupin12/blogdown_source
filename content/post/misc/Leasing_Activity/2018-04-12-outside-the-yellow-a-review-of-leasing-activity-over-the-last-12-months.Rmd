@@ -56,6 +56,9 @@ library(rgdal)
 library(crosstalk)
 library(leaflet)
 library(htmltools)
+
+#devtools::install_github("dmurdoch/leaflet@crosstalk4",force=T)
+
 ```
 
 ```{r,echo=F,warning=F,message=F,verbose=F}

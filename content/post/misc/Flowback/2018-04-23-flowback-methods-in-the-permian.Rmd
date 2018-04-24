@@ -13,18 +13,23 @@ tags:
 
 ####**Methodology**
 
-* Analyze completion filings obtained from NMOCD to gain a better understanding of flowback strategies by our peers.
-* Operators included in the dataset are Concho, Centennial, Devon, EOG, Matador, Mewbourne and Oxy.
+* Analyze completion filings obtained from NMOCD and data from IHS to gain a better understanding of flowback strategies by our peers.
 * Completion data is from 2017-Current.
 
 
 ####**Highlights**
 
-* Many of our peers are flowing up casing…not just EOG.
-* Choke size appears to be highly coorelated to fluid volumes.
-* Althougth Mewboune’s wells are flowing up casing, they are choking their wells back considerably. Range of sizes are from 12/64"-30/64".
-* Also, Oxy’s Cedar Canyon has produced over 800K barrels of fluid in just two months (Jan-Feb 2018), I had to triple check that figure.
-*   
+* Many companies in the Northern Delaware are flowing up **4^1/2^ - 5^1/2^** casing.
+    + On the Texas side of the NMTX border, **RSP** is also utilizing **4^1/2^** casing during flowback.
+    + Further South, **Resolute** and **Carrizo** are using the same method as RSP.
+* **EOG** and **Oxy** are leading edge with many wells initially flowing over **10,000 Bbls/d.**
+    +Oxy's **Cedar Canyon 27-28** had an IP of over **18,000 Bbbl/d.** The well has produced over **800,000 bbls** in just two months (Jan-Feb 2018).
+* Companies are using chokes to limit produced volumes up casing.
+* **Mewbourne** appears to prefer total fluid volumes  below **5,000 Bbls/d.** 
+    + Every well except for one is flowing up 4^1/2^ casing. 
+    + Choke sizes range of sizes are from 12/64-41/64.
+* Near Toyah, **PDC Energy** flowed multiple wells up **5^1/2^** casing with the highest well achieving **9,000 Bbls/d.**
+* In the Midland Basin, Laredo, Exxon and Apache had mutltiple wells flowing up casing, although prefered method is still flowing up tubing.
 
 
 ```{r setup, include=FALSE}
@@ -52,7 +57,7 @@ permian<- read.xlsx("Permian_Flowing_Master.xlsx",sheet=1)
 ```
 
 ```{r}
-permian_size<- permian%>% group_by(UWI)%>% mutate(Size_Rank= rank(as.numeric(Size)))%>%filter(Size_Rank==1)
+permian_size<- permian%>% group_by(UWI)%>% mutate(Size_Rank= rank(as.numeric(Size)))%>%filter(Size_Rank==1& Pump_Method!='UNDESIGNATED')
 
 
 permian_size<- permian_size%>% mutate(Flow.Gas.Value= replace(Flow.Gas.Value,which(is.na(Flow.Gas.Value)),0))%>%  mutate(Flow.Oil.Value= replace(Flow.Oil.Value,which(is.na(Flow.Oil.Value)),0))%>% mutate(Flow.Condensate.Value= replace(Flow.Condensate.Value,which(is.na(Flow.Condensate.Value)),0))%>%mutate(Flow.Water.Value= replace(Flow.Water.Value,which(is.na(Flow.Water.Value)),0))
@@ -60,8 +65,7 @@ permian_size<- permian_size%>% mutate(Flow.Gas.Value= replace(Flow.Gas.Value,whi
 permian_size$Comp_Date<- as.Date(permian_size$Comp_Date,origin = "1899-12-30")
 permian_size$Size<- as.numeric(permian_size$Size)
 
-permian_size<- permian_size%>% filter(Size< 8 & !is.na(Choke_Size))
-
+permian_size<- permian_size%>% filter(Size< 7)
 
 ```
 
@@ -70,7 +74,7 @@ permian_size<- permian_size%>% filter(Size< 8 & !is.na(Choke_Size))
 ```{r}
 delaware<- permian_size%>% group_by(UWI)%>% filter(Latitude>32.000367 & Longitude < -103.064750)%>%ungroup()
 
-delaware<- delaware%>% group_by(Alias)%>% mutate(WellCnt= max(dense_rank(UWI)))%>% filter(WellCnt>5)
+delaware<- delaware%>% group_by(Alias)%>% mutate(WellCnt= max(dense_rank(UWI)))%>% filter(WellCnt>10)
 
 ```
 
@@ -82,10 +86,10 @@ ggplot(data= subset(delaware,!is.na(Size)),aes(Alias,fill=as.character(Size)))+g
 
 
 ```{r}
-ggplot(data=subset(delaware, !is.na(Size)), aes(Choke_Size,Total.Volume,size=as.character(Size),color=Alias))+geom_point(alpha=.65)+ theme_minimal()+theme(axis.text.x = element_text(angle = 90, hjust = 1))+scale_color_brewer(palette='Set3',name= "")+scale_size_discrete(breaks=c(2.375,2.875,3.5,4.5,5,5.5),labels=c("2 3/8","2 7/8","3 1/2","4 1/2","5","5 1/2"),name="Casing\nTubing Size")+guides(size=guide_legend(ncol=3))+ 
+ggplot(data=subset(delaware, !is.na(Size)& !is.na(Choke_Size)), aes(Choke_Size,Total.Volume,size=as.character(Size),color=Alias))+geom_point(alpha=.65)+ theme_minimal()+theme(axis.text.x = element_text(angle = 90, hjust = 1))+scale_color_brewer(palette='Set3',name= "")+scale_size_discrete(breaks=c(2.375,2.875,3.5,4.5,5,5.5),labels=c("2 3/8","2 7/8","3 1/2","4 1/2","5","5 1/2"),name="Casing\nTubing Size")+guides(size=guide_legend(ncol=3))+ 
   geom_point(data=subset(delaware, Alias=="MEW" & !is.na(Size)), aes(Choke_Size,Total.Volume,size=as.character(Size)),color='black',pch=21)+
   geom_smooth(method=lm,na.rm=T,aes(group=1),se=F,color='red',show.legend = F)+
-  guides(colour = guide_legend(override.aes = list(size=5)))+ggtitle("Choke Size Versus Total Initial Volume",subtitle= "Mewbourne appears to be using choke size to control fluid volumes.")+labs(caption="Data sourced from NMOCD Well Filings (C-104 & C-105) and IHS.")+theme(legend.position = 'bottom')+scale_y_continuous(labels=comma)+
+  guides(colour = guide_legend(override.aes = list(size=5)))+ggtitle("Choke Size Versus Total Initial Volume",subtitle= "EOG and OXY flowback methods appear more aggressive \nin contrast to Mewbourne which maintains intial volumes below 5,000 Bbls/d")+labs(caption="Data sourced from NMOCD Well Filings (C-104 & C-105) and IHS.")+theme(legend.position = 'bottom')+scale_y_continuous(labels=comma)+
   theme(legend.title.align = 0.5)+ylab("Total Volume (Bbls)")+xlab("Choke Size")
 ```
 
@@ -150,8 +154,9 @@ options(persistent=T)
 
 browsable(tags$div(
   style = "display: flex; flex-wrap: wrap",
-  tagList(
-    tags$div(filter_select("Company","Alias",sd,~Alias), style = "width: 25%; padding: 1em; float:left"),
+  tagList(list(
+    tags$div(filter_select("Alias","Company/Ticker",sd,~Alias), style = "width: 25%; padding: 1em; float:left"),
+    tags$div(filter_select("Casing Type","Casing Type",sd,~Type), style = "width: 25%; padding: 1em; float:left")),
     tags$div(p1, style = "width: 75%; padding: 1em; float:right"),
     tags$div(filter_select("Reset Filter","Reset Filter",sd,~ifelse(Reset_Filter=="RESET","YES","NO")), style = "width: 25%; padding: 1em; float:left"),
     tags$div(p2, style = "width: 100%; padding: 1em;clear:both"))
