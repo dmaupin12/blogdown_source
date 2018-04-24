@@ -1,0 +1,81 @@
+---
+title: 1Q'18 Conference Call Highlights
+author: David Maupin
+date: '2018-04-24'
+categories:
+  - Conference Call Highlights
+  - IR
+tags:
+  - 1Q'18
+  - Conference Calls
+output:
+  css: custom.css
+  blogdown::html_page:
+    toc: true
+    toc_depth: 4
+slug: 1q-18-conference-call-highlights
+description: "First quarter results and conference call highlights."
+---
+
+
+###**Service Companies**
+<br>
+
+####**Baker Hughes**
+
+* See global oil demand rising at a steady pace driven by improved GDP outlook in the United States and Europe.
+    + Prices should be relatively range bound in 2018.
+    + Offshore markets remain below historic activity levels.
+* Drilled a **20,000' foot horizontal** in the Marcellus Basin in just **8 days.**
+* **Annual Report Highlights:** In 2017, the **TerrAdapt bit** was introduced to the industry as the first adaptive drill bit that adjusts to downhole conditions autonomously to enable smoother, faster drilling and extended tool life.
+<br>
+<br>
+
+####**Halliburton**
+
+* Total company revenue was **$5.7 billion**, representing a **3% decrease** from 4Q'17.
+* Although revenue was impacted by delays in sand delivery due to weather related rail interruptions, North American revenue was up **~$3.5 billion**, or **3.4%** from the previous quarter. 
+* 2018 CAPEX spend is expected to be **~$2 billion.**
+* Pressure pumping market remains tight; company achieved a new record for stages per frac fleet in March.
+* Although incremental horsepower has hit the market, undersupply is expected to persist due to degradation of existing equipment. ***"About 50% of announced horsepower does not translate into new crews. This means that about half the new build equipment is being used to replace or add to crews already in the field."***
+    + Market undersupply is ~1-1.5 million horsepower per day. Do not foresee any major increases in supply due to attrition of equipment. 
+* Halliburton views **trucking, labor and rail** as three significant areas of supply chain tightness.
+* North America's role in the global supply has shifted from a swing producer to baseload supplier to meet growing global demand.
+    + Many customers have redeployed capital from international non-OPEC opportunities to North America (CVX, XOM, APC, APA etc.).
+* Company is close to achieving normalized margins, defined as **~20%,** which hasn't happened since 2014. 
+* Technology Update:
+    + **CoreVault** - First and only wireline rotary sidewall coring system that captures and preserves both reservoir rock and fluid samples. Operator in the Permian confirmed a **six-fold increase in recorded pressure** as compared to previous tools deployed in the field.
+* International market pricing continues to shift down, but see inflection point in 2019 from increases in bidding activity.
+* Other events: Halliburton wrote down all of its remaining assets ($312 million) in Venezuela due to ongoing political and economic challenges. 
+* **Annual Report Highlights:** See substantial growth in the North American market with increased commodity prices, a surge in unconventional activity and a continuation of the Completions and Production pricing recovery that began in 2017. Company expects production segement to grow largely through the recent acquistion of Summit ESP in 2017, which made Halliburton the second largest ESP provider in North America. 
+<br>
+<br>
+
+####**US Silica**
+
+* Oil and Gas revenue totaled **$312.9 million,** up **2%** from the fourth quarter.
+* **67% of sand was sold in basin** compared to 62% sold in basin last quarter.
+* 2018 CAPEX is expected to be between **$300-$350 million.**
+* Guiding second quarter sand volumes to increase by **10%-15%** and spot pricing to increase at **mid-single digit rates.**
+* First rail line at the **Crane County facility** started up during the quarter. The current run rate is ~500 tons per year or about **50%** of permitted capacity.
+    + Production rate should ramp up to **1 million tons per year** in the second quarter.
+* **Lamesa facility** is behind originally planned start-up timeline.
+    + On track to produce wet tons in June, with drying commencing in the third quarter, and ramping to full capacity of **2.6 million tons per year** by the end of 2018.
+* Company believes Permian Basin local sand production will come online much slower than many predict, and further, that demand will grow much faster than our industry can bring on capacity.
+    + **Market should remain tight through 2019.**
+    + ***We're completely sold out of sand. We're literally selling everything we can make.***
+* Noted supply could be hampered by flooding on the Mississippi, where barges have been unable to haul freight downstream.
+    + *Read through: The is the first time I've seen supply constraint issues mentioned due to delays in barge shipments; Yet another hiccup that exacerbates an already tight supply/demand market.*
+* Continue  to see strong demand for Northern White and regional local sand. 
+    + Permian receives **~45%-50%** of sand.
+* **Large customer in the Permian is switching back to Northern White due to the quality of the regional sand.**
+<br>
+<br>
+
+
+
+
+
+
+
+

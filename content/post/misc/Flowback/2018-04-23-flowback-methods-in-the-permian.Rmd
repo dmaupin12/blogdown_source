@@ -34,6 +34,8 @@ knitr::opts_chunk$set(fig.align = 'center',echo=F,warning=F,message=F,asis=F)
 
 
 
+
+
 ```{r}
 library(openxlsx)
 library(tidyverse)
@@ -42,194 +44,6 @@ library(crosstalk)
 library(plotly)
 library(leaflet)
 library(htmltools)
-```
-
-
-```{r,eval=F}
-wells<- read.xlsx("Flowback.xlsx",sheet=1)
-
-wells$Casing.Pressure<- as.numeric(wells$Casing.Pressure)
-
-wells<- wells%>% mutate(Volume= Oil.Rate + Gas.Rate)
-wells$Date<- as.Date(wells$Date,origin="1899-12-30")
-
-
-production_2017<- read.xlsx("2017_PROD.xlsx",sheet=1)
-production_2017$Production.Date<- as.Date(production_2017$Production.Date,origin="1899-12-30")
-
-production_2018<- read.csv("prod_2018.csv",sep=",")
-production_2018$Prod_Date<- as.Date(production_2018$Prod_Date)
-
-colnames(production_2017)[2]<-"Prod_Date"
-colnames(production_2017)[3]<-"Oil"
-colnames(production_2017)[4]<-"Gas"
-colnames(production_2017)[5]<-"Water"
-
-production_2018$Oil<- as.numeric(production_2018$Oil)
-production_2018$Gas<- as.numeric(production_2018$Gas)
-production_2018$Water<- as.numeric(production_2018$Water)
-production_2018$API<- as.character(production_2018$API)
-
-comb_production<- full_join(production_2017,production_2018[,c(2,4,5,6,7)])
-
-comb_production<- comb_production%>% group_by(API)%>% mutate(Period=dense_rank(Prod_Date))%>% mutate(CumVolume=cumsum(Oil)+cumsum(Water)) 
-
-
-comb_production<- left_join(comb_production,wells)
-
-
-```
-
-```{r,eval=F}
-ggplot(wells,aes(Company,fill=as.character(Casing_Tubing_Size)))+geom_bar()+theme_minimal()+ scale_fill_brewer(palette='Set2',labels=c("2 7/8","4 1/2","5 1/2"),name= "Casing/Tubing Size\n Used in Flowback")+ theme(legend.position = 'bottom')+ggtitle("Highlighting Flowback Strategies in the Northern Delaware Basin",subtitle = 'Concho and Devon flow up 2 7/8" tubing while Centennial, EOG, Mewbourne\n and Matador prefer flowing up 4 1/2" and 5 1/2" casing.')+ylab("Well Count")+labs(caption="Data sourced from NMOCD Well Filings (C-104 & C-105).")+xlab("")
-```
-
-
-```{r,eval=F}
-ggplot(data=subset(wells,!Company %in% c('CXO')& !is.na(Casing_Tubing_Size)), aes(Choke.Size,Volume,size=as.character(Casing_Tubing_Size),color=Company))+geom_point()+ theme_minimal()+theme(axis.text.x = element_text(angle = 45, hjust = 1))+scale_color_brewer(palette='Set2',name= "Company")+scale_size_discrete(breaks=c(2.875,4.5,5.5),labels=c("2 7/8","4 1/2","5 1/2"),name="Casing/Tubing Size\n Used in Flowback")+
-  guides(colour = guide_legend(override.aes = list(size=5)))+ggtitle("Choke Size Versus Total Initial Volume",subtitle= "Mewbourne appears to be using choke size to control fluid volumes.")+labs(caption="Data sourced from NMOCD Well Filings (C-104 & C-105).")+theme(legend.position = 'bottom')+scale_y_continuous(labels=comma)
-
-
-
-
-ggplot(data=subset(comb_production,!is.na(Casing_Tubing_Size) & Period=="2"), aes(Choke.Size,CumVolume,size=as.character(Casing_Tubing_Size),color=Company))+geom_point()+ theme_minimal()+theme(axis.text.x = element_text(angle = 45, hjust = 1))+scale_color_brewer(palette='Set2',name= "Company")+scale_size_discrete(breaks=c(2.875,4.5,5.5),labels=c("2 7/8","4 1/2","5 1/2"),name="Casing/Tubing Size\n Used in Flowback")+
-  guides(colour = guide_legend(override.aes = list(size=5)))+ggtitle("Two Month Cumulative Volume By Choke Size",subtitle= "Occidental's Cedar Canyon 27 28 Fed #044H has produced over 876K Barrels of Fluid in just two months.")+labs(caption="Data sourced from NMOCD Well Filings (C-104 & C-105).")+theme(legend.position = 'bottom')+scale_y_continuous(labels=comma)
-
-```
-
-```{r,eval=F}
-ggplot(comb_production,aes(Period,CumVolume,group=API,color=as.character(Casing_Tubing_Size)))+geom_line()+scale_y_continuous(labels = comma)+facet_wrap(~Company)+scale_color_discrete(labels=c("2 7/8","4 1/2","5 1/2"),name="Casing/Tubing Size") + theme_minimal() +
-theme(legend.position = c(0.8, 0.1))+ggtitle("Cumulative Volume Colored By Casing/Tubing Size",subtitle="No clear relationship between ")
-```
-
-
-
-```{r,eval=F}
-
-left = function (string,char){ substr(string,1,char) }
-right = function (string, char){ substr(string,nchar(string)-(char-1),nchar(string)) }
-```
-
-```{r,eval=F}
-URL<-"https://wwwapps.emnrd.state.nm.us/ocd/ocdpermitting/Data/WellDetails.aspx?api=30-025-41647"
-```
-
-```{r,eval=F}
-x= wells$API
-master=as.data.frame(x)
-
-```
-
-```{r,eval=F}
-#####Function
-
-production_2017= function(x){
-  parameter= paste("api=",left(x,2),"-",right(left(x,5),3),"-",right(x,5),sep="")
-  URL<-url_parse(URL)
-  URL$parameter= parameter
-  URL<-paste(URL$scheme,"://",URL$server,URL$path,"?",URL$parameter,sep="")
-  URL<- GET(URL,config(ssl_verifypeer = FALSE))
-  html<-content(URL)
-  data<-html %>%
-    html_nodes(xpath='//*[@class="prod_for_2017"]')%>%html_text()
-  data<-as.tibble(data) 
-  data<- data%>% mutate(API=x)
-  }
-
-
-
-
-
-production_2018= function(x){
-  parameter= paste("api=",left(x,2),"-",right(left(x,5),3),"-",right(x,5),sep="")
-  URL<-url_parse(URL)
-  URL$parameter= parameter
-  URL<-paste(URL$scheme,"://",URL$server,URL$path,"?",URL$parameter,sep="")
-  URL<- GET(URL,config(ssl_verifypeer = FALSE))
-  html<-content(URL)
-  data<-html %>%
-    html_nodes(xpath='//*[@class="prod_for_2018"]')%>%html_text()
-  data<-as.tibble(data)%>% filter(grepl("Jan|Feb",data))
-  data<- data%>% mutate(API=x)
-  }
-
-
-
-```
-
-```{r,eval=F}
-####Set URL to different api for loading purposes
-URL<-"https://wwwapps.emnrd.state.nm.us/ocd/ocdpermitting/Data/WellDetails.aspx?api=30-025-41645"
-
-
-x30= master[1:2,]
-x31_60= master[31:62,]
-```
-
-```{r,eval=F}
-#####ProdList1
-x=x30
-x=as.character(x30)
-
-
-#####2018
-
-prod_table = lapply(
-  x,
-  function(x) 
-  {
-    y <- production_2017(x)
-    Sys.sleep(3)
-    y
-  }
-)
-
-
-  
-
-prod_list1_2018<-as.data.frame(do.call(rbind, prod_table))
-prod_list1_2018<-cSplit(prod_list1_2018, 'value', sep=", ", type.convert=FALSE)
-prod_list1_2018<- prod_list1_2018[,1:5]
-colnames(prod_list1_2018)<- c("API","Month","Oil","Gas","Water")
-
-```
-
-```{r,eval=F}
-x=x31_60
-x=as.character(x31_60)
-
-
-#####2018
-
-prod_table = lapply(
-  x,
-  function(x) 
-  {
-    y <- production_2018(x)
-    Sys.sleep(3)
-    y
-  }
-)
-
-prod_list2_2018<-as.data.frame(do.call(rbind, prod_table))
-prod_list2_2018<-cSplit(prod_list2_2018, 'value', sep=", ", type.convert=FALSE)
-prod_list2_2018<- prod_list2_2018[,1:5]
-colnames(prod_list2_2018)<- c("API","Month","Oil","Gas","Water")
-```
-
-```{r,eval=F}
-
-production_2018<- full_join(prod_list1_2018,prod_list2_2018)
-production_2018<- production_2018%>% mutate(Prod_Date= ifelse(Month=="Jan","2018-01-01","2018-02-01"))
-production_2018$Prod_Date<- as.Date(production_2018$Prod_Date)
-
-write.csv(production_2018,"prod_2018.csv")
-
-production_2017<- read.xlsx("2017_PROD.xlsx",sheet=1)
-production_2017$Production.Date<- as.Date(production_2017$Production.Date,origin="1899-12-30")
-
-
-
 ```
 
 
@@ -251,9 +65,32 @@ permian_size<- permian_size%>% filter(Size< 8 & !is.na(Choke_Size))
 
 ```
 
-```{r,eval=F}
-p1<-ggplot(data=subset(sd,sd$Alias%in% c('EOG','CXO',"MTDR","DVN","OXY","CDEV","NBL","MRO","FANG")& sd$Size<8 & !is.na(sd$Choke_Size)),aes(Choke_Size,Total.Volume,size=as.character(Size)))+ geom_point(aes(color=Type))+theme_minimal()+theme(axis.text.x = element_text(angle = 90, hjust = 1))+scale_size_discrete(name="Casing/Tubing Size")+theme(legend.position='bottom')
+
+
+```{r}
+delaware<- permian_size%>% group_by(UWI)%>% filter(Latitude>32.000367 & Longitude < -103.064750)%>%ungroup()
+
+delaware<- delaware%>% group_by(Alias)%>% mutate(WellCnt= max(dense_rank(UWI)))%>% filter(WellCnt>5)
+
 ```
+
+
+```{r}
+ggplot(data= subset(delaware,!is.na(Size)),aes(Alias,fill=as.character(Size)))+geom_bar()+theme_minimal()+ scale_fill_brewer(palette='Set2',labels=c("2 3/8","2 7/8","3 1/2","4 1/2","5","5 1/2"),name= "Casing/Tubing Size")+ theme(legend.position = 'bottom')+ggtitle("Flowback Methods in the Northern Delaware (NM)",subtitle = 'Majority of EOG, Mewbourne, Matador and Oxy wells flow up casing.')+ylab("Well Count")+labs(caption="Data sourced from NMOCD Well Filings (C-104 & C-105) and IHS")+xlab("")+
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+```
+
+
+```{r}
+ggplot(data=subset(delaware, !is.na(Size)), aes(Choke_Size,Total.Volume,size=as.character(Size),color=Alias))+geom_point(alpha=.65)+ theme_minimal()+theme(axis.text.x = element_text(angle = 90, hjust = 1))+scale_color_brewer(palette='Set3',name= "")+scale_size_discrete(breaks=c(2.375,2.875,3.5,4.5,5,5.5),labels=c("2 3/8","2 7/8","3 1/2","4 1/2","5","5 1/2"),name="Casing\nTubing Size")+guides(size=guide_legend(ncol=3))+ 
+  geom_point(data=subset(delaware, Alias=="MEW" & !is.na(Size)), aes(Choke_Size,Total.Volume,size=as.character(Size)),color='black',pch=21)+
+  geom_smooth(method=lm,na.rm=T,aes(group=1),se=F,color='red',show.legend = F)+
+  guides(colour = guide_legend(override.aes = list(size=5)))+ggtitle("Choke Size Versus Total Initial Volume",subtitle= "Mewbourne appears to be using choke size to control fluid volumes.")+labs(caption="Data sourced from NMOCD Well Filings (C-104 & C-105) and IHS.")+theme(legend.position = 'bottom')+scale_y_continuous(labels=comma)+
+  theme(legend.title.align = 0.5)+ylab("Total Volume (Bbls)")+xlab("Choke Size")
+```
+
+
+
 
 
 ```{r}
@@ -261,13 +98,23 @@ colnames(permian_size)[15]='lat'
 colnames(permian_size)[16]='lng'
 
 
-permian_size$color <- factor(permian_size$Type, labels = c('#ff9966', "#1a75ff","#00ff00"))
+#pal <- c('#ff9966', "#1a75ff","#00ff00")
+#Type<- unique(permian_size$Type)
+
+#colors<- data.frame(pal,Type)
+#colors$type<- as.character(colors$Type)
+#permian_size<- left_join(permian_size,colors)
+
+
+permian_size$Reset_Filter<-"RESET"
 
 sd<-SharedData$new(permian_size)
 
 
 
 factpal <- colorFactor(c('#ff9966', "#1a75ff","#00ff00"), domain=permian_size$Type)
+
+
 ```
 
 ```{r}
@@ -279,24 +126,17 @@ labs <- lapply(seq(nrow(permian_size)), function(i) {
 
 p1<-leaflet(sd)%>% addTiles(group = "Esri.WorldTopoMap")%>%
   addProviderTiles(providers$Esri.WorldTopoMap)%>%
-  addCircleMarkers(fillColor =~factpal(Type) ,stroke=NA,radius=5,opacity=.75,label=lapply(labs,HTML))%>%
+  addCircleMarkers(fillColor =~factpal(Type) ,stroke=NA,radius=6,fillOpacity =.75,label=lapply(labs,HTML))%>%
    addLegend('topright',pal=factpal,values=permian_size$Type,title="DRILLING STRING",opacity=1)
 
 
-
-
-
-
-p2<-plot_ly(sd,x=~Choke_Size,y=~Total.Volume,size=~Size,color=~Type)%>% add_markers(marker=list(sizeref=6, sizemode="Size"),color=~factpal(Type),text=~paste("Casing/Tubing Size: ",Size,"<br>",
+p2<-plot_ly(sd,x=~Choke_Size,y=~Total.Volume,size=~Size,color=~Type)%>% add_markers(color=~Type,colors=c('#ff9966', "#1a75ff","#00ff00"),marker=list(sizeref=6, sizemode="Size"),text=~paste("Casing/Tubing Size: ",Size,"<br>",
+                            "Type: ",Type,"<br>",
                              "Company: ", Alias,"<br>",
                              "Lease Name: ",Lease))%>%
          layout(showlegend=F)%>%
   layout(dragmode = "select", margin = list(b = 70)) 
 
-
-permian_size<-permian_size
-  
-  
 p3<-plot_ly(sd,x = ~Alias,
   type = "histogram",
   color=~Type)%>% layout(title='Well Count by Flowing Method Type')
@@ -312,7 +152,8 @@ browsable(tags$div(
   style = "display: flex; flex-wrap: wrap",
   tagList(
     tags$div(filter_select("Company","Alias",sd,~Alias), style = "width: 25%; padding: 1em; float:left"),
-    tags$div(p1, style = "width: 75%; padding: 1em; float:left"),
+    tags$div(p1, style = "width: 75%; padding: 1em; float:right"),
+    tags$div(filter_select("Reset Filter","Reset Filter",sd,~ifelse(Reset_Filter=="RESET","YES","NO")), style = "width: 25%; padding: 1em; float:left"),
     tags$div(p2, style = "width: 100%; padding: 1em;clear:both"))
 )
 )
