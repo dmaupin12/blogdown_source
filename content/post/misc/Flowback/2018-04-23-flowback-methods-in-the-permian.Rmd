@@ -28,7 +28,7 @@ tags:
 * **Mewbourne** appears to prefer total fluid volumes  below **5,000 Bbls/d.** 
     + Every well except for one is flowing up 4^1/2^ casing. 
     + Choke sizes range of sizes are from 12/64-41/64.
-* Near Toyah, **PDC Energy** flowed multiple wells up **5^1/2^** casing with the highest well achieving **9,000 Bbls/d.**
+* Near North Harpoon, **PDC Energy** flowed multiple wells up **5^1/2^** casing with the highest well achieving **9,000 Bbls/d.**
 * In the Midland Basin, Laredo, Exxon and Apache had mutltiple wells flowing up casing, although prefered method is still flowing up tubing.
 
 
