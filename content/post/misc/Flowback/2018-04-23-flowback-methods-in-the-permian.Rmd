@@ -128,8 +128,11 @@ labs <- lapply(seq(nrow(permian_size)), function(i) {
          "Well Name: ", permian_size[i, "Lease"],permian_size[i, "Well_Number"],'<p>',
          "Total Fluid (Bbls): ",permian_size[i, "Total.Volume"])})
 
+cxo_leases<-rgdal::readOGR(".","cxo_leases_2.21.18", verbose=F)
+
 p1<-leaflet(sd)%>% addTiles(group = "Esri.WorldTopoMap")%>%
   addProviderTiles(providers$Esri.WorldTopoMap)%>%
+  addPolygons(data = cxo_leases, fillOpacity = .5,fillColor = 'yellow',stroke=F)%>%
   addCircleMarkers(fillColor =~factpal(Type) ,stroke=NA,radius=6,fillOpacity =.75,label=lapply(labs,HTML))%>%
    addLegend('topright',pal=factpal,values=permian_size$Type,title="DRILLING STRING",opacity=1)
 
