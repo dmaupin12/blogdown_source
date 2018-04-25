@@ -89,7 +89,7 @@ ggplot(data= subset(delaware,!is.na(Size)),aes(Alias,fill=as.character(Size)))+g
 ggplot(data=subset(delaware, !is.na(Size)& !is.na(Choke_Size)), aes(Choke_Size,Total.Volume,size=as.character(Size),color=Alias))+geom_point(alpha=.65)+ theme_minimal()+theme(axis.text.x = element_text(angle = 90, hjust = 1))+scale_color_brewer(palette='Set3',name= "")+scale_size_discrete(breaks=c(2.375,2.875,3.5,4.5,5,5.5),labels=c("2 3/8","2 7/8","3 1/2","4 1/2","5","5 1/2"),name="Casing\nTubing Size")+guides(size=guide_legend(ncol=3))+ 
   geom_point(data=subset(delaware, Alias=="MEW" & !is.na(Size)), aes(Choke_Size,Total.Volume,size=as.character(Size)),color='black',pch=21)+
   geom_smooth(method=lm,na.rm=T,aes(group=1),se=F,color='red',show.legend = F)+
-  guides(colour = guide_legend(override.aes = list(size=5)))+ggtitle("Choke Size Versus Total Initial Volume",subtitle= "EOG and OXY flowback methods appear more aggressive \nin contrast to Mewbourne which maintains intial volumes below 5,000 Bbls/d")+labs(caption="Data sourced from NMOCD Well Filings (C-104 & C-105) and IHS.")+theme(legend.position = 'bottom')+scale_y_continuous(labels=comma)+
+  guides(colour = guide_legend(override.aes = list(size=5)))+ggtitle("Choke Size Versus Total Initial Volume",subtitle= "EOG and OXY flowback methods appear more aggressive \nin contrast to Mewbourne which maintains intial volumes below 5,000 Bbls/d.")+labs(caption="Data sourced from NMOCD Well Filings (C-104 & C-105) and IHS.")+theme(legend.position = 'bottom')+scale_y_continuous(labels=comma)+
   theme(legend.title.align = 0.5)+ylab("Total Volume (Bbls)")+xlab("Choke Size")
 ```
 
@@ -134,7 +134,7 @@ p1<-leaflet(sd)%>% addTiles(group = "Esri.WorldTopoMap")%>%
    addLegend('topright',pal=factpal,values=permian_size$Type,title="DRILLING STRING",opacity=1)
 
 
-p2<-plot_ly(sd,x=~Choke_Size,y=~Total.Volume,size=~Size,color=~Type)%>% add_markers(color=~Type,colors=c('#ff9966', "#1a75ff","#00ff00"),marker=list(sizeref=6, sizemode="Size"),text=~paste("Casing/Tubing Size: ",Size,"<br>",
+p2<-plot_ly(sd,x=~Choke_Size,y=~Total.Volume,size=~Size,color=~Type,width='100%')%>% add_markers(color=~Type,colors=c('#ff9966', "#1a75ff","#00ff00"),marker=list(sizeref=6, sizemode="Size"),text=~paste("Casing/Tubing Size: ",Size,"<br>",
                             "Type: ",Type,"<br>",
                              "Company: ", Alias,"<br>",
                              "Lease Name: ",Lease))%>%
@@ -149,21 +149,27 @@ p3<-plot_ly(sd,x = ~Alias,
 
 ```
 
-```{r}
+```{r,eval=F}
 options(persistent=T)
 
-browsable(tags$div(
+browsable(bscols(widths=c(3,NA),tags$div(
   style = "display: flex; flex-wrap: wrap",
-  tagList(list(
-    tags$div(filter_select("Alias","Company/Ticker",sd,~Alias), style = "width: 25%; padding: 1em; float:left"),
-    tags$div(filter_select("Casing Type","Casing Type",sd,~Type), style = "width: 25%; padding: 1em; float:left")),
+  tagList(tags$div(filter_select("Alias","Company/Ticker",sd,~Alias), style = "width: 25%; padding: 1em; float:left"),
+    tags$div(filter_select("Casing Type","Casing Type",sd,~Type), style = "width: 25%; padding: 1em; float:left"),
+    tags$div(filter_select("Reset Filter","Reset Filter",sd,~ifelse(Reset_Filter=="RESET","YES","NO")), style = "width: 25%; padding: 1em; float:left")),
     tags$div(p1, style = "width: 75%; padding: 1em; float:right"),
-    tags$div(filter_select("Reset Filter","Reset Filter",sd,~ifelse(Reset_Filter=="RESET","YES","NO")), style = "width: 25%; padding: 1em; float:left"),
     tags$div(p2, style = "width: 100%; padding: 1em;clear:both"))
 )
 )
 
 
+```
+```{r}
+bscols(widths= c(3,NA),list(filter_select("Alias","Company/Ticker",sd,~Alias),
+    filter_select("Casing Type","Casing Type",sd,~Type),
+    filter_select("Reset Filter","Reset Filter",sd,~ifelse(Reset_Filter=="RESET","YES","NO"))),
+    p1)
+p2
 ```
 
 
