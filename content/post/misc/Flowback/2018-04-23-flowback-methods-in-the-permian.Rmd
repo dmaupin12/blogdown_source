@@ -23,7 +23,7 @@ tags:
     + On the Texas side of the NMTX border, **RSP** is also utilizing **4^1/2^** casing during flowback.
     + Further South, **Resolute** and **Carrizo** are using the same method as RSP.
 * **EOG** and **Oxy** are leading edge with many wells initially flowing over **10,000 Bbls/d.**
-    +Oxy's **Cedar Canyon 27-28** had an IP of over **18,000 Bbbl/d.** The well has produced over **800,000 bbls** in just two months (Jan-Feb 2018).
+    + Oxy's **Cedar Canyon 27-28** had an IP of over **18,000 Bbbl/d.** The well has produced over **800,000 bbls** in just two months (Jan-Feb 2018).
 * Companies are using chokes to limit produced volumes up casing.
 * **Mewbourne** appears to prefer total fluid volumes  below **5,000 Bbls/d.** 
     + Every well except for one is flowing up 4^1/2^ casing. 
