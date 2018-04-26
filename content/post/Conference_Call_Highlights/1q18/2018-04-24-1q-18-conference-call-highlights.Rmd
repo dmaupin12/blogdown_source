@@ -97,6 +97,8 @@ knitr::opts_chunk$set(fig.align = 'center',echo=F,warning=F,message=F,asis=F)
 * Permian Basin production averaged **30.9 Mboe/d,** up **~10%** sequentially.
 * Guiding 2018 production to average between **38.1-40.5 Mboe/d,** an increase of **~75%** from the 2017 average.     
     + Increased guidance slightly from February announcement due to efficiency gains in drill times and a step-change in number of frac stages completed each month.
+* Expect to PoP **104 wells** with associated D&C Capex of **$725-$775 million, or ~$7.2 million per well** which is in line with current AFE expectations.  
+* Plan on running **4^1/2^ rigs** and **2 frac crews** throughout the year.
 * Placed **31** net wells online compared to the original plan of 18 net wells.
     + Wells were completed on two separate projects, the **Peeler Pad (9 wells)** had an average lateral length of **8,277'** and the **Act Pad (22 wells targeting  5 horizons)** which was designed to test **44 wells per section** had an average lateral length of **9,351'.**
 * Company stated a few **Dean** wells were completed in what was originally thought to be a frac barrier.
@@ -192,8 +194,6 @@ widgetframe::frameWidget(ACT_plot,width="100%")
 ```
 <br>
 
-* Expect to PoP **104 wells** with associated D&C Capex of **$725-$775 million, or ~$7.2 million per well** which is in line with current AFE expectations.  
-* Plan on running **4^1/2^ rigs** and **2 frac crews** throughout the year.
 * **Shifting to gas lift from ESPs.**
     + Gas lifts are expected to save **~$300k per well.** 
 * Highlighted water infrastructure at Mustang Springs which includes 20 water wells and 3 frac ponds (2 supply/1 recycled) and other pipe infrastructure covering 6 miles.
