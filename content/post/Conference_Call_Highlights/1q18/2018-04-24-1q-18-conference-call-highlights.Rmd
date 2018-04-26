@@ -122,6 +122,8 @@ qep<- lateral%>% select(UWI_10,Well.Name)%>%group_by(Well.Name)%>%distinct(UWI_1
 ```
 <h4 style="text-align: center;" markdown="1">**QEP Act and Peeler Projects**</h4>
 ```{r,echo=F,message=F,warning=F,verbose=F}
+qep_laterals<-rgdal::readOGR(".","qep_laterals", verbose=F)
+
 qep_map<- lateral%>% select(UWI_10,  Surface_longitude,Surface_Latitude,year,Lease)%>% distinct(UWI_10,.keep_all=T)
 
 
@@ -130,7 +132,7 @@ pal= colorFactor(c("red","blue"), qep_map$Lease)
 leaflet(qep_map)%>%
 addTiles(group = "Esri.WorldTopoMap")%>%
   addProviderTiles(providers$Esri.WorldTopoMap)%>%
-  addCircleMarkers(data=lateral,lng=~LongitudeVector,lat=~LatitudeVector,color = 'black', fillOpacity = 1, radius=.1)%>%
+  addPolylines(data=qep_laterals,weight=1,color='black')%>%
   addCircleMarkers(lng=~Surface_longitude, lat=~Surface_Latitude,color=~pal(Lease),stroke=F,fillOpacity=1,
                    popup=paste("Formation:", qep_map$Formation, "<br>",
                                "Lease:", qep_map$Lease, "<br>"))%>%
