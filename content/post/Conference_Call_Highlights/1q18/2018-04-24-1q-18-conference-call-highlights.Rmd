@@ -95,11 +95,12 @@ knitr::opts_chunk$set(fig.align = 'center',echo=F,warning=F,message=F,asis=F)
 <img style="float: right;" src="/img/1q18/qep_acreage.png">
 
 * Permian Basin production averaged **30.9 Mboe/d,** up **~10%** sequentially.
-* Guiding 2018 production to average between **13.9-14.8 MMboe,** an increase of **~75%** from the 2017 average.     + Increased guidance slightly from fourth quarter due to efficiency gains in drill times and a step-change in number of frac stages completed each month.
+* Guiding 2018 production to average between **38.1-40.5 Mboe/d,** an increase of **~75%** from the 2017 average.     
+    + Increased guidance slightly from February announcement due to efficiency gains in drill times and a step-change in number of frac stages completed each month.
 * Placed **31** net wells online compared to the original plan of 18 net wells.
     + Wells were completed on two separate projects, the **Peeler Pad (9 wells)** had an average lateral length of **8,277'** and the **Act Pad (22 wells targeting  5 horizons)** which was designed to test **44 wells per section** had an average lateral length of **9,351'.**
 * Company stated a few **Dean** wells were completed in what was originally thought to be a frac barrier.
-    + Recent observations from tests revealed that the **Spraberry Shale** and **Upper Wolfcamp** both appear to be **influenced the the Dean.**
+    + Recent observations from tests revealed that the **Spraberry Shale** and **Upper Wolfcamp** both appear to be **influenced by the the Dean.**
 * **The two projects each cover a half section,** which can be seen from the map below. 
 * The Charts illustrate lateral diagrams for both projects.
     + *Note: Charts shows laterals obtained from IHS surveys.*
@@ -198,9 +199,9 @@ widgetframe::frameWidget(ACT_plot,width="100%")
     + Gas lifts are expected to save **~$300k per well.** 
 * Highlighted water infrastructure at Mustang Springs which includes 20 water wells and 3 frac ponds (2 supply/1 recycled) and other pipe infrastructure covering 6 miles.
     + Recycled ~40,000 Bbls/d in the first quarter and expect to recycle ~100,000 Bbls/d by the end of the third quarter.
+* Around **one-third** of wells are being frac'd with local proppant and plan on using 100% locally sourced sand as soon as possible.
 * Repurchased and retired **5,621,540 shares** at a weighted average price of $9.37, for $52.8 million.
     + After reporting, the stock is currently trading at **$11.75,** down **~5%** from yesterday's close.
-* Around **one-third** of wells are being frac'd with local proppant.
 <br>
 <br>
 
