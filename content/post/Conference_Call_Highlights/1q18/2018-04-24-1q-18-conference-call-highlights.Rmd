@@ -17,6 +17,9 @@ slug: 1q-18-conference-call-highlights
 description: "First quarter results and conference call highlights."
 ---
 
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(fig.align = 'center',echo=F,warning=F,message=F,asis=F)
+```
 
 ###**Service Companies**
 <br>
@@ -89,11 +92,10 @@ description: "First quarter results and conference call highlights."
 <br>
 
 ####<span style= "color:red":>**QEP Resources**</span>
-#<img style="float: right;" src="/img/1q18/qep_acreage.png">
+<img style="float: right;" src="/img/1q18/qep_acreage.png">
 
 * Permian Basin production averaged **30.9 Mboe/d,** up **~10%** sequentially.
-* Guiding 2018 production to average between **13.9-14.8 MMboe,** an increase of **~75%** from the 2017 average. 
-    + Increased guidance slightly from fourth quarter due to efficiency gains in drill times and a step-change in number of frac stages completed each month.
+* Guiding 2018 production to average between **13.9-14.8 MMboe,** an increase of **~75%** from the 2017 average.     + Increased guidance slightly from fourth quarter due to efficiency gains in drill times and a step-change in number of frac stages completed each month.
 * Placed **31** net wells online compared to the original plan of 18 net wells.
     + Wells were completed on two separate projects, the **Peeler Pad (9 wells)** had an average lateral length of **8,277'** and the **Act Pad (22 wells targeting  5 horizons)** which was designed to test **44 wells per section** had an average lateral length of **9,351'.**
 * Company stated a few **Dean** wells were completed in what was originally thought to be a frac barrier.
@@ -121,8 +123,6 @@ qep_map<- lateral%>% select(UWI_10,  Surface_longitude,Surface_Latitude,year,Lea
 
 
 pal= colorFactor(c("red","blue"), qep_map$Lease)
-
-unique(qep_map$Lease)
 
 leaflet(qep_map)%>%
 addTiles(group = "Esri.WorldTopoMap")%>%
@@ -160,8 +160,10 @@ layout(
   )
 
 widgetframe::frameWidget(PEELER_plot,width="100%") 
+```
+<br>
 
-
+```{r}
 ACT<- lateral %>% filter(grepl("ACT", Well.Name))%>%group_by(UWI)
 
 
@@ -190,7 +192,7 @@ widgetframe::frameWidget(ACT_plot,width="100%")
 ```
 <br>
 
-*Expect to PoP **104 wells** with associated D&C Capex of **$725-$775 million, or ~$7.2 million per well** which is in line with current AFE expectations.  
+* Expect to PoP **104 wells** with associated D&C Capex of **$725-$775 million, or ~$7.2 million per well** which is in line with current AFE expectations.  
 * Plan on running **4^1/2^ rigs** and **2 frac crews** throughout the year.
 * **Shifting to gas lift from ESPs.**
     + Gas lifts are expected to save **~$300k per well.** 

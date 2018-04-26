@@ -192,7 +192,6 @@
 <li><a href="#upstream-companies"><strong>Upstream Companies</strong></a><ul>
 <li><a href="#qep-resources"><span style="color:red" :=""><strong>QEP Resources</strong></span></a></li>
 </ul></li>
-<li><a href="#section"><img style="float: right;" src="../../../../img/1q18/qep_acreage.png"></a></li>
 </ul>
 </div>
 
@@ -294,16 +293,10 @@
 <p><br></p>
 <div id="qep-resources" class="section level4">
 <h4><span style="color:red" :=""><strong>QEP Resources</strong></span></h4>
-</div>
-</div>
-<div id="section" class="section level1">
-<h1><img style="float: right;" src="../../../../img/1q18/qep_acreage.png"></h1>
+<p><img style="float: right;" src="../../../../img/1q18/qep_acreage.png"></p>
 <ul>
 <li>Permian Basin production averaged <strong>30.9 Mboe/d,</strong> up <strong>~10%</strong> sequentially.</li>
-<li>Guiding 2018 production to average between <strong>13.9-14.8 MMboe,</strong> an increase of <strong>~75%</strong> from the 2017 average.
-<ul>
-<li>Increased guidance slightly from fourth quarter due to efficiency gains in drill times and a step-change in number of frac stages completed each month.</li>
-</ul></li>
+<li>Guiding 2018 production to average between <strong>13.9-14.8 MMboe,</strong> an increase of <strong>~75%</strong> from the 2017 average. + Increased guidance slightly from fourth quarter due to efficiency gains in drill times and a step-change in number of frac stages completed each month.</li>
 <li>Placed <strong>31</strong> net wells online compared to the original plan of 18 net wells.
 <ul>
 <li>Wells were completed on two separate projects, the <strong>Peeler Pad (9 wells)</strong> had an average lateral length of <strong>8,277’</strong> and the <strong>Act Pad (22 wells targeting 5 horizons)</strong> which was designed to test <strong>44 wells per section</strong> had an average lateral length of <strong>9,351’.</strong></li>
@@ -318,20 +311,34 @@
 <li><em>Note: Charts shows laterals obtained from IHS surveys.</em></li>
 </ul></li>
 </ul>
-<pre class="r"><code>lateral&lt;- read.csv(&quot;qep_lateral.csv&quot;, sep=&quot;,&quot;)</code></pre>
-<pre class="r"><code>qep&lt;- lateral%&gt;% select(UWI_10,Well.Name)%&gt;%group_by(Well.Name)%&gt;%distinct(UWI_10)%&gt;% mutate(Count_Lease= n())</code></pre>
 <h4 style="text-align: center;">
 <strong>QEP Act and Peeler Projects</strong>
 </h4>
-<pre><code>## [1] ACT    PEELER
-## Levels: ACT PEELER</code></pre>
 <div id="htmlwidget-1" style="width:672px;height:480px;" class="leaflet html-widget"></div>
 <script type="application/json" data-for="htmlwidget-1">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}},"fullscreenControl":{"position":"topleft","pseudoFullscreen":false}},"calls":[{"method":"addTiles","args":["https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,"Esri.WorldTopoMap",{"minZoom":0,"maxZoom":18,"maxNativeZoom":null,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"continuousWorld":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":null,"unloadInvisibleTiles":null,"updateWhenIdle":null,"detectRetina":false,"reuseTiles":false,"attribution":"&copy; <a href=\"http://openstreetmap.org\">OpenStreetMap<\/a> contributors, <a href=\"http://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA<\/a>"}]},{"method":"addProviderTiles","args":["Esri.WorldTopoMap",null,null,{"errorTileUrl":"","noWrap":false,"zIndex":null,"unloadInvisibleTiles":null,"updateWhenIdle":null,"detectRetina":false,"reuseTiles":false}]},{"method":"addCircleMarkers","args":[[32.355086667,32.355019444,32.355380556,32.355610556,32.355809722,32.355743056,32.35515,32.35545,32.35627,32.35604,32.35568,32.35597,32.35617,32.35633,32.35656,32.3564,32.3562,32.35669,32.35663,32.35676,32.35459,32.35465,32.35478,32.35472,32.35422,32.35436,32.35429,32.35377,32.35354,32.3536,32.35318,32.35304,32.35311],[-101.953964722,-101.953944444,-101.95275,-101.951380833,-101.951444722,-101.951423333,-101.954,-101.9528,-101.9488,-101.9502,-101.9514,-101.9502,-101.9502,-101.9489,-101.9476,-101.9489,-101.9488,-101.9477,-101.9476,-101.9477,-101.9562,-101.9562,-101.9563,-101.9562,-101.9574,-101.9574,-101.9574,-101.96,-101.9614,-101.9614,-101.9626,-101.9625,-101.9625],10,null,null,{"lineCap":null,"lineJoin":null,"clickable":true,"pointerEvents":null,"className":"","stroke":false,"color":["#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF"],"weight":5,"opacity":0.5,"fill":true,"fillColor":["#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF"],"fillOpacity":1,"dashArray":null},null,null,["Formation:  <br> Lease: ACT <br>","Formation:  <br> Lease: ACT <br>","Formation:  <br> Lease: ACT <br>","Formation:  <br> Lease: ACT <br>","Formation:  <br> Lease: ACT <br>","Formation:  <br> Lease: ACT <br>","Formation:  <br> Lease: ACT <br>","Formation:  <br> Lease: ACT <br>","Formation:  <br> Lease: ACT <br>","Formation:  <br> Lease: ACT <br>","Formation:  <br> Lease: ACT <br>","Formation:  <br> Lease: ACT <br>","Formation:  <br> Lease: ACT <br>","Formation:  <br> Lease: ACT <br>","Formation:  <br> Lease: ACT <br>","Formation:  <br> Lease: ACT <br>","Formation:  <br> Lease: ACT <br>","Formation:  <br> Lease: ACT <br>","Formation:  <br> Lease: ACT <br>","Formation:  <br> Lease: ACT <br>","Formation:  <br> Lease: PEELER <br>","Formation:  <br> Lease: PEELER <br>","Formation:  <br> Lease: PEELER <br>","Formation:  <br> Lease: PEELER <br>","Formation:  <br> Lease: PEELER <br>","Formation:  <br> Lease: PEELER <br>","Formation:  <br> Lease: PEELER <br>","Formation:  <br> Lease: PEELER <br>","Formation:  <br> Lease: PEELER <br>","Formation:  <br> Lease: PEELER <br>","Formation:  <br> Lease: PEELER <br>","Formation:  <br> Lease: PEELER <br>","Formation:  <br> Lease: PEELER <br>"],null,null,null,null]},{"method":"addLegend","args":[{"colors":["#FF0000","#0000FF"],"labels":["ACT","PEELER"],"na_color":null,"na_label":"NA","opacity":1,"position":"bottomright","type":"factor","title":"Lease","extra":null,"layerId":null,"className":"info legend","group":null}]}],"limits":{"lat":[32.35304,32.35676],"lng":[-101.9626,-101.9476]}},"evals":[],"jsHooks":[]}</script>
 <p><div id="htmlwidget-2" style="width:100%;height:480px;" class="widgetframe html-widget"></div>
-<script type="application/json" data-for="htmlwidget-2">{"x":{"url":"/post/Conference_Call_Highlights/1q18/2018-04-24-1q-18-conference-call-highlights_files/figure-html//widgets/widget_unnamed-chunk-5.html","options":{"xdomain":"*","allowfullscreen":false,"lazyload":false}},"evals":[],"jsHooks":[]}</script><div id="htmlwidget-3" style="width:100%;height:480px;" class="widgetframe html-widget"></div>
-<script type="application/json" data-for="htmlwidget-3">{"x":{"url":"/post/Conference_Call_Highlights/1q18/2018-04-24-1q-18-conference-call-highlights_files/figure-html//widgets/widget_unnamed-chunk-5.html","options":{"xdomain":"*","allowfullscreen":false,"lazyload":false}},"evals":[],"jsHooks":[]}</script> <br></p>
-<p><em>Expect to PoP <strong>104 wells</strong> with associated D&amp;C Capex of <strong>$725-$775 million, or ~$7.2 million per well</strong> which is in line with current AFE expectations.<br />
-</em> Plan on running <strong>4<sup>1/2</sup> rigs</strong> and <strong>2 frac crews</strong> throughout the year. * <strong>Shifting to gas lift from ESPs.</strong> + Gas lifts are expected to save <strong>~$300k per well.</strong> * Highlighted water infrastructure at Mustang Springs which includes 20 water wells and 3 frac ponds (2 supply/1 recycled) and other pipe infrastructure covering 6 miles. + Recycled ~40,000 Bbls/d in the first quarter and expect to recycle ~100,000 Bbls/d by the end of the third quarter. * Repurchased and retired <strong>5,621,540 shares</strong> at a weighted average price of $9.37, for $52.8 million. + After reporting, the stock is currently trading at <strong>$11.75,</strong> down <strong>~5%</strong> from yesterday’s close. * Around <strong>one-third</strong> of wells are being frac’d with local proppant. <br> <br></p>
+<script type="application/json" data-for="htmlwidget-2">{"x":{"url":"/post/Conference_Call_Highlights/1q18/2018-04-24-1q-18-conference-call-highlights_files/figure-html//widgets/widget_unnamed-chunk-5.html","options":{"xdomain":"*","allowfullscreen":false,"lazyload":false}},"evals":[],"jsHooks":[]}</script> <br></p>
+<p><div id="htmlwidget-3" style="width:100%;height:480px;" class="widgetframe html-widget"></div>
+<script type="application/json" data-for="htmlwidget-3">{"x":{"url":"/post/Conference_Call_Highlights/1q18/2018-04-24-1q-18-conference-call-highlights_files/figure-html//widgets/widget_unnamed-chunk-6.html","options":{"xdomain":"*","allowfullscreen":false,"lazyload":false}},"evals":[],"jsHooks":[]}</script> <br></p>
+<ul>
+<li>Expect to PoP <strong>104 wells</strong> with associated D&amp;C Capex of <strong>$725-$775 million, or ~$7.2 million per well</strong> which is in line with current AFE expectations.<br />
+</li>
+<li>Plan on running <strong>4<sup>1/2</sup> rigs</strong> and <strong>2 frac crews</strong> throughout the year.</li>
+<li><strong>Shifting to gas lift from ESPs.</strong>
+<ul>
+<li>Gas lifts are expected to save <strong>~$300k per well.</strong></li>
+</ul></li>
+<li>Highlighted water infrastructure at Mustang Springs which includes 20 water wells and 3 frac ponds (2 supply/1 recycled) and other pipe infrastructure covering 6 miles.
+<ul>
+<li>Recycled ~40,000 Bbls/d in the first quarter and expect to recycle ~100,000 Bbls/d by the end of the third quarter.</li>
+</ul></li>
+<li>Repurchased and retired <strong>5,621,540 shares</strong> at a weighted average price of $9.37, for $52.8 million.
+<ul>
+<li>After reporting, the stock is currently trading at <strong>$11.75,</strong> down <strong>~5%</strong> from yesterday’s close.</li>
+</ul></li>
+<li>Around <strong>one-third</strong> of wells are being frac’d with local proppant. <br> <br></li>
+</ul>
+</div>
 </div>
 
               
@@ -526,7 +533,7 @@
                   Apr 4, 2018
                 </span>
               </span>
-              <div class="media-content hide-xs font-merryweather">Service CompaniesBaker HughesHalliburtonSuperior Energy ServicesUS SilicaUpstream CompaniesQEP ResourcesService Companies
+              <div class="media-content hide-xs font-merryweather">Service CompaniesBaker HughesHalliburtonSuperior Energy ServicesUS SilicaUpstream CompaniesQEP ResourcesService Companies
 Baker HughesSee global oil demand rising at a steady pace driven by improved GDP outlook in the United States and Europe.Prices should be relatively range bound in 2018.Offshore markets remain below historic activity levels.</div>
             </div>
             <div style="clear:both;"></div>
