@@ -100,7 +100,7 @@ knitr::opts_chunk$set(fig.align = 'center',echo=F,warning=F,message=F,asis=F)
 * Placed **31** net wells online compared to the original plan of 18 net wells.
     + Wells were completed on two separate projects, the **Peeler Pad (9 wells)** had an average lateral length of **8,277'** and the **Act Pad (22 wells targeting  5 horizons)** which was designed to test **44 wells per section** had an average lateral length of **9,351'.**
 * Company stated a few **Dean** wells were completed in what was originally thought to be a frac barrier.
-    + Recent observations from tests revealed that the **Spraberry Shale** and **Upper Wolfcamp** both appear to be **influenced by the the Dean.**
+    + Recent observations from tests revealed that the **Spraberry Shale** and **Upper Wolfcamp** both appear to be **influenced by the Dean.**
 * **The two projects each cover a half section,** which can be seen from the map below. 
 * The Charts illustrate lateral diagrams for both projects.
     + *Note: Charts shows laterals obtained from IHS surveys.*
@@ -128,6 +128,7 @@ pal= colorFactor(c("red","blue"), qep_map$Lease)
 leaflet(qep_map)%>%
 addTiles(group = "Esri.WorldTopoMap")%>%
   addProviderTiles(providers$Esri.WorldTopoMap)%>%
+  addCircleMarkers(data=lateral,lng=~LongitudeVector,lat=~LatitudeVector,color = 'black', fillOpacity = 1, radius=.1)%>%
   addCircleMarkers(lng=~Surface_longitude, lat=~Surface_Latitude,color=~pal(Lease),stroke=F,fillOpacity=1,
                    popup=paste("Formation:", qep_map$Formation, "<br>",
                                "Lease:", qep_map$Lease, "<br>"))%>%
@@ -135,8 +136,6 @@ addTiles(group = "Esri.WorldTopoMap")%>%
     title = "Lease",
     opacity = 1
   )%>%leaflet.extras::addFullscreenControl()
-
-
 ```
 
 
