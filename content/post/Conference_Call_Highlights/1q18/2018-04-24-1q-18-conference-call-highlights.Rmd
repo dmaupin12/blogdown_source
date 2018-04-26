@@ -165,8 +165,9 @@ layout(
 
 widgetframe::frameWidget(PEELER_plot,width="100%") 
 ```
-<br>
+
 * QEP appears to be testing communication between the **Dean** and **Wolfcmap A** on the **Peeler pad**.
+
 <br> 
 ```{r}
 ACT<- lateral %>% filter(grepl("ACT", Well.Name))%>%group_by(UWI)
