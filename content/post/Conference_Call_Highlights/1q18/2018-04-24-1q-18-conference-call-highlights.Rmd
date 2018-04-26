@@ -204,7 +204,6 @@ widgetframe::frameWidget(ACT_plot,width="100%")
 * Repurchased and retired **5,621,540 shares** at a weighted average price of $9.37, for $52.8 million.
     + After reporting, the stock is currently trading at **$11.75,** down **~5%** from yesterday's close.
 <br>
-<br>
 
 
 
