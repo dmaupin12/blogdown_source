@@ -91,6 +91,27 @@ knitr::opts_chunk$set(fig.align = 'center',echo=F,warning=F,message=F,asis=F)
 ###**Upstream Companies**
 <br>
 
+####**Chevron**
+
+* Permian unconventional production averaged **252 Mboe/d,** up **23%** from the fourth quarter.
+* Currently running 17 rigs.
+* Estimate **2022 Permian unconventional** production will increase to **~650 Mboe/d.**
+* **Macro forecast for oil and LNGs look bullish for companies with supply ramps in the coming years.** 
+    + Demand growth and production declines will lead to **supply gap by 2020** and by 2040, a gap of ~42 MMb/d.
+    + LNG Supply and demand curve shows **mid-term market oversupply and a gap developing next decade.**
+    
+
+![](/img/1q18/cvx_oil.png) ![](/img/1q18/cvx_lng.png)
+<br>
+<br>
+
+####**ExxonMobil**
+
+* Unconventional production up **18%** YoY.
+* Currently running **27 rigs** in the Permian.
+
+
+
 ####<span style= "color:red":>**QEP Resources**</span>
 <img style="float: right;" src="/img/1q18/qep_acreage.png">
 
