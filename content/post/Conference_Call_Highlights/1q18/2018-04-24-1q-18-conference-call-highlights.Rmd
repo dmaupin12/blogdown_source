@@ -104,6 +104,8 @@ knitr::opts_chunk$set(fig.align = 'center',echo=F,warning=F,message=F,asis=F)
 <img style="float: left;" src="/img/1q18/cvx_oil.png"><img style="float: left;" src="/img/1q18/cvx_lng.png">
 <br>
 <br>
+<br>
+<br>
 
 ####<span style= "color:red":>**ExxonMobil**</span>
 
