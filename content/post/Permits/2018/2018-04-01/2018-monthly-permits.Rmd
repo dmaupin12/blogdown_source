@@ -245,13 +245,9 @@ map1
 <br>
 <br>
 
-####**Recommended Workflow**
 
-1. Use mouse to scroll in or click on circle with numbers  
-    i. Continue to scroll or zoom in until numbers are lower than 10 
-2. Selected permits will appear when clicked or touched (mobile or ipad device)
-    i. Circles on bottom right are more accessible than cirlcles positioned above (working on a solution)
-    
+* Numbered circles identify wells within 1 mile of each other.
+
 <h4 style="text-align: center;" markdown="1">**Identifying Well Pads Using Cluster Mapping**</h4>
 ```{r, echo=F}
 map2  
