@@ -91,28 +91,32 @@ knitr::opts_chunk$set(fig.align = 'center',echo=F,warning=F,message=F,asis=F)
 ###**Upstream Companies**
 <br>
 
-####**Chevron**
+####<span style= "color:red":>**Chevron**</span>
 
 * Permian unconventional production averaged **252 Mboe/d,** up **23%** from the fourth quarter.
-* Currently running 17 rigs.
+* Currently running **17 rigs.**
+* Around **2/3^rds^** of capital costs are protected in the Permian.    
 * Estimate **2022 Permian unconventional** production will increase to **~650 Mboe/d.**
 * **Macro forecast for oil and LNGs look bullish for companies with supply ramps in the coming years.** 
-    + Demand growth and production declines will lead to **supply gap by 2020** and by 2040, a gap of ~42 MMb/d.
+    + Demand growth and production declines will lead to **supply gap by 2020** and by 2040, a gap of ~42 MMbo/d.
     + LNG Supply and demand curve shows **mid-term market oversupply and a gap developing next decade.**
-    
 
-![](/img/1q18/cvx_oil.png) ![](/img/1q18/cvx_lng.png)
+<img style="float: left;" src="/img/1q18/cvx_oil.png"><img style="float: left;" src="/img/1q18/cvx_lng.png">
 <br>
 <br>
 
-####**ExxonMobil**
+####<span style= "color:red":>**ExxonMobil**</span>
 
 * Unconventional production up **18%** YoY.
 * Currently running **27 rigs** in the Permian.
+* Did not disclose any new information regarding recently drilled extended laterals (~15,000').
+    + *"We're being very careful what information we disclose on this because we do think there is a competitive advantage here."*
+* Oil Demand expected to be very similar to 2017.    
+* Company is not facing any pipeline constraints and clearing all Permian barrels out of the basin.
+* Exxon apparently heard investor's complaints about CEO, Darren Woods, not attending the conference calls. Going forward, members of its managment team, including their CEO, will be participating.
 
 
-
-####<span style= "color:red":>**QEP Resources**</span>
+####**QEP Resources**
 <img style="float: right;" src="/img/1q18/qep_acreage.png">
 
 * Permian Basin production averaged **30.9 Mboe/d,** up **~10%** sequentially.
