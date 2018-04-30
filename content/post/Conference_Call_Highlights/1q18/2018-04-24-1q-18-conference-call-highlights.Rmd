@@ -101,14 +101,7 @@ knitr::opts_chunk$set(fig.align = 'center',echo=F,warning=F,message=F,asis=F)
     + Demand growth and production declines will lead to **supply gap by 2020** and by 2040, a gap of ~42 MMbo/d.
     + LNG Supply and demand curve shows **mid-term market oversupply and a gap developing next decade.**
 
-<img style="float: left;" src="/img/1q18/cvx_oil.png"><img style="float: left;" src="/img/1q18/cvx_lng.png">
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
+<img style="float: left;" src="/img/1q18/cvx_oil.png"><img style="float: right;" src="/img/1q18/cvx_lng.png">
 <br>
 
 
