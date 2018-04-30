@@ -1,0 +1,147 @@
+---
+title: EIA Short Term Energy Outook Forecasts
+author: David Maupin
+date: '2018-04-30'
+slug: eia-short-term-energy-outook-forecasts
+categories:
+  - eia
+  - Oil Forecasts
+tags:
+  - eia
+  - oil production oil forecasts
+---
+
+####**Methodology**
+
+* Obtain historical data from EIA starting in the fourth quarter of 2017.
+* Highlight forecasts to show monthly change.
+
+
+####**Highlights**
+
+* Noted increased production revisions to EIA forecasts from January to April.
+    + Previous forecasts have been below actual output.
+* Latest forecast estimates oil production will reach **~11.5 MMBo/D** by April 2019.
+    + Production ramp expected to begin around the start of the fourth quarter 2018.
+
+<br>
+<br>
+```{r,echo=F,warning=F,message=F, asis=F}
+library(EIAdata)
+library(tidyverse)
+library(openxlsx)
+library(scales)
+```
+
+
+```{r,echo=F,warning=F,message=F, asis=F,eval=F}
+key<- 'f29c17c00f832664d51857278578863b'
+ID="STEO.COPRPUS.M"
+
+oil_prod<-getEIA(ID,key)
+
+oil_prod<-structure(oil_prod)
+```
+
+
+```{r,echo=F,warning=F,message=F, asis=F}
+
+###October
+oct17<- read.xlsx("oct17_base.xlsx",sheet=9)
+oct17<-oct17[6,]
+oct17<- oct17%>% gather("Datex","Value",3:74)
+oct17<- oct17%>% mutate(RowNum= seq.int(nrow(oct17)),Date=as.Date('2013-01-01'),Date_Fcast=as.Date('2017-10-01'))
+lubridate::month(oct17$Date)<- ifelse(oct17$RowNum==1,lubridate::month(oct17$Date),lubridate::month(oct17$Date)+oct17$RowNum-1)
+oct17$Value<- as.numeric(oct17$Value)
+oct17<- oct17%>% select(7,6,4,5)
+oct17<- oct17%>% mutate(Fcast_ID= ifelse(Date<Date_Fcast,"Actual","Forecast"))
+
+
+###November
+nov17<- read.xlsx("nov17_base.xlsx",sheet=9)
+nov17<-nov17[6,]
+nov17<- nov17%>% gather("Datex","Value",3:74)
+nov17<- nov17%>% mutate(RowNum= seq.int(nrow(nov17)),Date=as.Date('2013-01-01'),Date_Fcast=as.Date('2017-11-01'))
+lubridate::month(nov17$Date)<- ifelse(nov17$RowNum==1,lubridate::month(nov17$Date),lubridate::month(nov17$Date)+nov17$RowNum-1)
+nov17$Value<- as.numeric(nov17$Value)
+nov17<- nov17%>% select(7,6,4,5)
+nov17<- nov17%>% mutate(Fcast_ID= ifelse(Date<Date_Fcast,"Actual","Forecast"))
+
+###December
+dec17<- read.xlsx("dec17_base.xlsx",sheet=9)
+dec17<-dec17[6,]
+dec17<- dec17%>% gather("Datex","Value",3:74)
+dec17<- dec17%>% mutate(RowNum= seq.int(nrow(dec17)),Date=as.Date('2013-01-01'),Date_Fcast=as.Date('2017-12-01'))
+lubridate::month(dec17$Date)<- ifelse(dec17$RowNum==1,lubridate::month(dec17$Date),lubridate::month(dec17$Date)+dec17$RowNum-1)
+dec17$Value<- as.numeric(dec17$Value)
+dec17<- dec17%>% select(7,6,4,5)
+dec17<- dec17%>% mutate(Fcast_ID= ifelse(Date<Date_Fcast,"Actual","Forecast"))
+
+###January
+jan18<- read.xlsx("jan18_base.xlsx",sheet=9)
+jan18<-jan18[6,]
+jan18<- jan18%>% gather("Datex","Value",3:74)
+jan18<- jan18%>% mutate(RowNum= seq.int(nrow(jan18)),Date=as.Date('2014-01-01'),Date_Fcast=as.Date('2018-01-01'))
+lubridate::month(jan18$Date)<- ifelse(jan18$RowNum==1,lubridate::month(jan18$Date),lubridate::month(jan18$Date)+jan18$RowNum-1)
+jan18$Value<- as.numeric(jan18$Value)
+jan18<- jan18%>% select(7,6,4,5)
+jan18<- jan18%>% mutate(Fcast_ID= ifelse(Date<Date_Fcast,"Actual","Forecast"))
+
+###February
+feb18<- read.xlsx("feb18_base.xlsx",sheet=9)
+feb18<-feb18[6,]
+feb18<- feb18%>% gather("Datex","Value",3:74)
+feb18<- feb18%>% mutate(RowNum= seq.int(nrow(feb18)),Date=as.Date('2014-01-01'),Date_Fcast=as.Date('2018-02-01'))
+lubridate::month(feb18$Date)<- ifelse(feb18$RowNum==1,lubridate::month(feb18$Date),lubridate::month(feb18$Date)+feb18$RowNum-1)
+feb18$Value<- as.numeric(feb18$Value)
+feb18<- feb18%>% select(7,6,4,5)
+feb18<- feb18%>% mutate(Fcast_ID= ifelse(Date<Date_Fcast,"Actual","Forecast"))
+
+###March
+mar18<- read.xlsx("mar18_base.xlsx",sheet=9)
+mar18<-mar18[6,]
+mar18<- mar18%>% gather("Datex","Value",3:74)
+mar18<- mar18%>% mutate(RowNum= seq.int(nrow(mar18)),Date=as.Date('2014-01-01'),Date_Fcast=as.Date('2018-03-01'))
+lubridate::month(mar18$Date)<- ifelse(mar18$RowNum==1,lubridate::month(mar18$Date),lubridate::month(mar18$Date)+mar18$RowNum-1)
+mar18$Value<- as.numeric(mar18$Value)
+mar18<- mar18%>% select(7,6,4,5)
+mar18<- mar18%>% mutate(Fcast_ID= ifelse(Date<Date_Fcast,"Actual","Forecast"))
+
+###April
+apr18<- read.xlsx("apr18_base.xlsx",sheet=9)
+apr18<-apr18[6,]
+apr18<- apr18%>% gather("Datex","Value",3:74)
+apr18<- apr18%>% mutate(RowNum= seq.int(nrow(apr18)),Date=as.Date('2014-01-01'),Date_Fcast=as.Date('2018-04-01'))
+lubridate::month(apr18$Date)<- ifelse(apr18$RowNum==1,lubridate::month(apr18$Date),lubridate::month(apr18$Date)+apr18$RowNum-1)
+apr18$Value<- as.numeric(apr18$Value)
+apr18<- apr18%>% select(7,6,4,5)
+apr18<- apr18%>% mutate(Fcast_ID= ifelse(Date<Date_Fcast,"Actual","Forecast"))
+
+```
+
+
+```{r,echo=F,warning=F,message=F, asis=F}
+all_data<-Reduce(function(x, y) merge(x, y, all=TRUE), list(oct17,nov17,dec17,jan18,feb18,mar18,apr18))
+
+fcast_data<- all_data%>%filter(Fcast_ID=="Forecast")%>%ungroup()
+
+fcast_data<- fcast_data%>% group_by(Date_Fcast)%>% mutate(count= dense_rank(Date))%>% filter(Date_Fcast>"2017-12-31")
+```
+
+
+```{r,echo=F,warning=F,message=F, asis=F}
+ggplot()+geom_line(data=subset(apr18,Date>"2017-09-30" & Date<"2018-04-01"),aes(Date,Value),color="black",size=1.5)+
+  geom_line(data=subset(fcast_data,count<19),aes(Date,Value,group=Date_Fcast,color=factor(Date_Fcast)),linetype=2,size=1.2)+
+   geom_rect(aes(xmin=c(as.Date("2017-09-30")), 
+                xmax=c(as.Date("2018-03-01")),
+                ymin=c(-Inf), ymax=c(Inf)
+                ),alpha=0.2)+scale_fill_manual(values='grey')+
+ guides(color=guide_legend(title="EIA Forecasts"),fill=F)+
+  theme_minimal()+ggtitle("Monthly Change In EIA Oil Forecasts",subtitle="Dotted lines represent historical and current EIA forecasts")+
+  theme(legend.position = 'bottom')+ylab('Oil Production (MMBo/D)')+xlab("")+theme(axis.text.x = element_text(angle = 45, hjust = 1))+
+  annotate("text", x = as.Date("2017-12-15"), y = 11, label = "Black line represents\n actual oil production")+scale_color_manual(values=c("green4", "#6A3D9A", "#FF7F00", "purple","gold1", "skyblue2", "#FB9A99", "palegreen2","dodgerblue2", "#E31A1C" ))+scale_x_date(breaks = pretty_breaks(12))+theme(axis.text.x=element_text(size=12),axis.text.y=element_text(size=12))+scale_y_continuous(breaks= c(9,9.5,10,10.5,11,11.5))
+
+
+```
+<br>
+<br>

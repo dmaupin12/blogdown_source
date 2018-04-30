@@ -3,7 +3,17 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>/2018/04/30/eia-short-term-energy-outook-forecasts/</loc>
+    <lastmod>2018-04-30T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/2018/04/30/monthly-permits/</loc>
+    <lastmod>2018-04-30T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/2018/04/30/weekly-rigs/</loc>
     <lastmod>2018-04-30T00:00:00+00:00</lastmod>
   </url>
   
@@ -14,11 +24,6 @@
   
   <url>
     <loc>/2018/04/23/flowback-methods-in-the-permian/</loc>
-    <lastmod>2018-04-23T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/2018/04/23/weekly-rigs/</loc>
     <lastmod>2018-04-23T00:00:00+00:00</lastmod>
   </url>
   
@@ -168,7 +173,7 @@
   
   <url>
     <loc>/tags/baker-hughes-weekly-update/</loc>
-    <lastmod>2018-04-23T00:00:00+00:00</lastmod>
+    <lastmod>2018-04-30T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -235,6 +240,18 @@
   <url>
     <loc>/categories/ducs/</loc>
     <lastmod>2018-04-17T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/eia/</loc>
+    <lastmod>2018-04-30T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/categories/eia/</loc>
+    <lastmod>2018-04-30T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -318,7 +335,7 @@
   
   <url>
     <loc>/categories/oil-forecasts/</loc>
-    <lastmod>2018-02-01T00:00:00+00:00</lastmod>
+    <lastmod>2018-04-30T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -330,7 +347,7 @@
   
   <url>
     <loc>/tags/oil-production-oil-forecasts/</loc>
-    <lastmod>2018-02-01T00:00:00+00:00</lastmod>
+    <lastmod>2018-04-30T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   

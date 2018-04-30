@@ -12,12 +12,31 @@
     
     
     <item>
+      <title>EIA Short Term Energy Outook Forecasts</title>
+      <link>/2018/04/30/eia-short-term-energy-outook-forecasts/</link>
+      <pubDate>Mon, 30 Apr 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/2018/04/30/eia-short-term-energy-outook-forecasts/</guid>
+      <description>MethodologyObtain historical data from EIA starting in the fourth quarter of 2017.Highlight forecasts to show monthly change.HighlightsNoted increased production revisions to EIA forecasts from January to April.Previous forecasts have been below actual output.Latest forecast estimates oil production will reach ~11.5 MMBo/D by April 2019.Production ramp expected to begin around the start of the fourth quarter 2018.</description>
+    </item>
+    
+    <item>
       <title>Monthly Permits</title>
       <link>/2018/04/30/monthly-permits/</link>
       <pubDate>Mon, 30 Apr 2018 00:00:00 +0000</pubDate>
       
       <guid>/2018/04/30/monthly-permits/</guid>
       <description>Overview of Permitting ActivityLive link to DrillingInfo which is updated dailyCurrently only shows horizontal permitsWells contains following permitting attributes: Company, Well Name, Well Type, Approval Date, Formation and Permit Depth2nd map attempts to identify permitted well pads using clusteringNote: Well counts do not include previously drilled or permitted wells at this timeTop 20 operators are colored in map and chartApril Permitting Activity{&#34;</description>
+    </item>
+    
+    <item>
+      <title>Weekly Rigs</title>
+      <link>/2018/04/30/weekly-rigs/</link>
+      <pubDate>Mon, 30 Apr 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/2018/04/30/weekly-rigs/</guid>
+      <description>Weekly rig report sourced from Baker HughesMap identifies week over week change in rig activity by county in New Mexico and Texas.The graph shows the top 10 counties by overall rig count beginning in 2016.Quote of the weekIt takes 20 years to build a reputation and five minutes to ruin it. If you think about that, you’ll do things differently.
+Long ago, Ben Graham taught me that ‘Price is what you pay; value is what you get.</description>
     </item>
     
     <item>
@@ -37,17 +56,6 @@ Baker HughesSee global oil demand rising at a steady pace driven by improved G
       
       <guid>/2018/04/23/flowback-methods-in-the-permian/</guid>
       <description>MethodologyAnalyze completion filings obtained from NMOCD and data from IHS to gain a better understanding of flowback strategies by our peers.Completion data is from 2017-Current.HighlightsMany companies in the Northern Delaware are flowing up 41/2 - 51/2 casing.On the Texas side of the NMTX border, RSP is also utilizing 41/2 casing during flowback.</description>
-    </item>
-    
-    <item>
-      <title>Weekly Rigs</title>
-      <link>/2018/04/23/weekly-rigs/</link>
-      <pubDate>Mon, 23 Apr 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/2018/04/23/weekly-rigs/</guid>
-      <description>Weekly rig report sourced from Baker HughesMap identifies week over week change in rig activity by county in New Mexico and Texas.The graph shows the top 10 counties by overall rig count beginning in 2016.Quote of the weekSuccess is not final; failure is not fatal: It is the courage to continue that counts.Winston Churchill
-
-</description>
     </item>
     
     <item>
