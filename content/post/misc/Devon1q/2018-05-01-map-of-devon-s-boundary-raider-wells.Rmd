@@ -1,0 +1,60 @@
+---
+title: Map of Devon's Boundary Raider Wells
+author: David Maupin
+date: '2018-05-01'
+slug: map-of-devon-s-boundary-raider-wells
+categories:
+  - Peer Analysis
+tags:
+  - Competior Analysis
+---
+
+
+####**Boundary Raider Summary**
+
+* Two **Second Bone Spring** Boundary Raider wells achieved highest flow rates in Delaware Basin History.
+    + Boundary Raider 212H had an **IP24** of **12,868 Boe/d** (82% oil).
+    + Boundary Raider 213H had an **IP24** of **11,149 Boe/d ** (76% oil).
+* Devon plans to drill 25 more wells in the this area over the next 18 months.
+<br>
+<br>
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(fig.align = 'center',echo=F,warning=F,message=F,asis=F)
+```
+
+```{r}
+library(tidyverse)
+library(openxlsx)
+library(rgdal)
+library(leaflet.extras)
+```
+```{r}
+dvn_wells<- read.xlsx('dvn.xlsx',sheet=1)
+dvn_map<- readOGR(".","dvn",verbos=F)
+cxo_map<- readOGR(".","cxo_leases_2.21.18",verbose=F)
+
+dvn_wells$`24H.Oil`<- round(dvn_wells$`24H.Oil`,0)
+dvn_wells$`24H.BOE`<- round(dvn_wells$`24H.BOE`,0)
+
+```
+
+
+```{r}
+leaflet(dvn_map,width="100%",height = 550) %>%
+  # Base groups
+  addTiles(group = "Esri.WorldTopoMap")%>%
+  addProviderTiles(providers$Esri.WorldTopoMap)%>%
+  addPolygons(fillOpacity = .5,fillColor = 'red',stroke=F,group = "Devon Acreage")%>%
+  addPolygons(data=cxo_map,fillOpacity = .5,fillColor = 'yellow',stroke=F,group = "Concho Acreage")%>%
+  addCircleMarkers(data=dvn_wells,~Longitude,~Latitude,radius=~`24H.Oil`/1500, stroke = F,color="blue",fillOpacity=.75, group = "Devon Wells",   popup=paste("Company:", dvn_wells$Company, "<br>",
+              "Well Name:", dvn_wells$Well.Name," ",dvn_wells$well_number," ",dvn_wells$drill_type,"<br>",
+              "Formation:", dvn_wells$Formation,"<br>",
+              "24H Oil:", dvn_wells$`24H.Oil`,"<br>",
+              "24H BOE:", dvn_wells$`24H.BOE`
+              ))%>% setView(lng=-103.7151, lat=32.33922, zoom=10)%>%
+  addLayersControl(
+    overlayGroups = c("Devon Acreage","Concho Acreage"),
+    options = layersControlOptions(collapsed = FALSE),position='topright')
+```
+
