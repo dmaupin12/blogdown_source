@@ -180,6 +180,7 @@ knitr::opts_chunk$set(fig.align = 'center',echo=F,warning=F,message=F,asis=F)
 * **The two projects each cover a half section,** which can be seen from the map below. 
 * The Charts illustrate lateral diagrams for both projects.
     + *Note: Charts shows laterals obtained from IHS surveys.*
+    + *Note: Mobile devices will not show 3D images.*
 
 ```{r,echo=F, message=F,warning=F,verbose=F}
 library(tidyverse)
