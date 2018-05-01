@@ -21,6 +21,8 @@ description: "First quarter results and conference call highlights."
 knitr::opts_chunk$set(fig.align = 'center',echo=F,warning=F,message=F,asis=F)
 ```
 
+* *Turn mobile devices horizontal for figures to display properly.*
+
 ###**Service Companies**
 <br>
 
