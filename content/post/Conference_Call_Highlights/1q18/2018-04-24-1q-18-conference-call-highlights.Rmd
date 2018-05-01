@@ -91,7 +91,7 @@ knitr::opts_chunk$set(fig.align = 'center',echo=F,warning=F,message=F,asis=F)
 ###**Upstream Companies**
 <br>
 
-####<span style= "color:red":>**Chevron**</span>
+####**Chevron**
 
 * Permian unconventional production averaged **252 Mboe/d,** up **23%** from the fourth quarter.
 * Currently running **17 rigs.**
@@ -104,35 +104,34 @@ knitr::opts_chunk$set(fig.align = 'center',echo=F,warning=F,message=F,asis=F)
 <img style="margin:0px auto;display:block" src="/img/1q18/cvx_macro.png"/>
 <br>
 
-####**Encana**
+####<span style= "color:red":>**Encana**</span>
 
 * Permian growth rate in 2018 expected to be **~30% (3Q-4Q weighted)** focused primarily on acreage in Midland and Martin Counties with associated CAPEX of **$750-$800 million.**
     + D&C average cost per well is **~$5.6 million** for a 7,500' lateral.
 * Plan on drilling **100-115** net wells running **4.5 rigs.**
 <img style="float: right;" src="/img/1q18/eca_martin.png">
-
+* Five year plan targeting **$3 billion** in cumulative free cash flow with a **~25% CAGR.**
+    + Expect to grow within cash flow in 2018.
+    + ~50% of company's capital directed towards the Permian in 2018.
 * Martin County **10-well cube** averaged **1,000 Bo/d** over **90 days.**
     + More than **60%** of wells will be on pads with **more than 8 wells.**
     + Productivity has improved by **70%** in 2 years.
 * In Midland County, **8-well cube** had an average **IP30** of **1,150 Bo/d.**
 * Testing **Jo Mill** in Martin and the **Middle Spraberry** and **Wolfcamp C** in Midland.
 * During the first quarter, **horizontal LOE** averaged **$2.50** per boe.
-* Five year plan targeting **$3 billion** in cumulative free cash flow with a **~25% CAGR.**
-    + Expect to grow within cash flow in 2018.
-    + ~50% of company's capital directed towards the Permian in 2018.
 * Offsetting service cost inflation with sourcing and efficiency improvements.
     + Self-sourcing sand, water and OCTG (casing tubing etc.).
-* Utilized **40% local sand during** the first quarter and transitioning to **100%** by EOY.
+    + Utilized **40% local sand during** the first quarter and transitioning to **100%** by EOY.
 * Midland differential exposure in 2018 and 2019 limited.
     + Fully protected in 2018 and >90% in 2019.
 * **Expect differentials to widen to as much as $15/Bbl and will not dissipate until the end of 2019**
     + *"Differentials will continue to widen and the basin will most likely need a combination of trucking and rail to get all the barrels to the market"*    
 * Contrary to QEP's recent change in flowback strategy which shifted away from ESPs, Encana wants to remove frac fluid as quickly as possible utilizing ESPs, then transitioning to gas lift and finally rod pump.
-* Repurchased 10 million shares for **~$111 million.** $400 million repurchase plan initiated in the first quarter. 
+* Repurchased 10 million shares for **$111 million** of the previously announced $400 million stock repurchase program. 
 <br>
 <br>
 
-####<span style= "color:red":>**ExxonMobil**</span>
+####**ExxonMobil**
 
 * Unconventional production up **18%** YoY.
 * Currently running **27 rigs** in the Permian.
@@ -144,13 +143,12 @@ knitr::opts_chunk$set(fig.align = 'center',echo=F,warning=F,message=F,asis=F)
 <br>
 <br>
 
-####**Noble Energy**
+####<span style= "color:red":>**Noble Energy**</span>
 
 * First quarter volumes averaged **45 Mboe/d,** up **18%** from the fourth quarter.
     + PoP'd 13 wells with an average lateral length of 8,430'.
     + Operated **6 rigs** and **3 frac crews.** 
-
-* Completed 3^rd^ central gathering facility and expect to add 2 additional CGFs online by YE'18.
+* Completed 3^rd^ central gathering facility and expect to add 2 additional CGFs by YE'18.
     + All CGFs are connected and flowing through Advantage pipeline.
 * Securing firm transport for oil takeaway on **EPIC crude pipeline** expected to be completed in **2H'19.**
 <img style="float: right;" src="/img/1q18/nbl_calamity.png">
@@ -158,9 +156,10 @@ knitr::opts_chunk$set(fig.align = 'center',echo=F,warning=F,message=F,asis=F)
 * Transition to multi-pad projects has reduced completion time by **26%.**
 * **Wolfcamp A** results across their position ranged from **1,000-2,400 Boe/d** from 9 wells PoP'd during the quarter.
 * **Calamity Jane pad** exhibiting shallower decline than company initially anticipated. When pressed about projecting results across their acreage, management stated, *"wells were drilled in top tier rock, so you should expect outperformance based on statistics of the entire acreage position."*
-* Completed a single **Third Bone Spring** on its Trigger Pad located in the Northwest area of their acreage and a **Wolfcamp C** on the West side. Well is performing in line with expectations.
+* Completed a single **Third Bone Spring** on its Trigger Pad located in the Northwest area of their acreage and a **Wolfcamp C** on the West side. 
+    + Wolfcamp C is performing in line with expectations.
 * Targeting more than 30% use of recycled water by year end.
-* Repurchased ~$67.5 million shares and increased the dividend 10% during the quarter.
+* Repurchased ~$67.5 million worth of stock and increased the dividend **10%** during the quarter.
 <br>
 <br>
 
