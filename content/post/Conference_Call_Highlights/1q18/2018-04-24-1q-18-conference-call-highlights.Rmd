@@ -93,16 +93,17 @@ knitr::opts_chunk$set(fig.align = 'center',echo=F,warning=F,message=F,asis=F)
 ###**Upstream Companies**
 <br>
 
-####**Anadarko Petroleum**
+####<span style= "color:red":>**Anadarko Petroleum**</span>
 
 * Delaware Basin production averaged **85 Mboe/d** (61% oil), up **10%** from the previous quarter.
 * Running **7 rigs** and **5 frac crews** for the remainder of 2018.
 * Secured future oil takeaway capacity ahead of planned development totaling **~200 Mbo/d.**
-    + Commitments will cover half of 2018 projected oil production and 100% of 2019 and 2020 oil production.
+    + Commitments will cover half of 2018 projected oil production and **100%** of 2019 and 2020 oil production.
     + Subsequent to quarter end, the company sold its first Delaware Basin international crude oil cargo.
 * In North Loving area, **12 XL laterals were drilled** targeting four different targets within the **Wolfcamp A** and a single **3^rd^ Bone Spring.**
 * First **regional oil treated facility (ROTF)** will be operational during the second quarter.
-    + Additional ROTF will be added in North Loving County and the first cryogenic train at the Mentone gas plant in the third quarter.
+    + Additional ROTF will be added in North Loving County and the first cryogenic facility at the Mentone gas plant in the third quarter.
+* Haven't had any issues using sand sourced from in basin.
 * Expect to complete previously announced **$3 billion** share repurchase program by the end of the second quarter.
 <br>
 <br>
@@ -120,10 +121,9 @@ knitr::opts_chunk$set(fig.align = 'center',echo=F,warning=F,message=F,asis=F)
 <img style="margin:0px auto;display:block" src="/img/1q18/cvx_macro.png"/>
 <br>
 
-####**Devon Energy**
+####<span style= "color:red":>**Devon Energy**</span>
 
 * Delaware Basin production averaged **73 Mboe/d,** up **22%** sequentially.
-* Repurchased **$204 million** worth of shares from $1 billion program and raised the quarterly dividend by **33%.**
 * Frac efficiencies reached up to **15 stages/day.**
 * Boomslang development reached first production from 11 wells targeting 3 intervals (Leonard and Bone Spring).
     + Average **IP30** was **~1,400 Boe/d** from 7 of 11 wells
@@ -183,10 +183,12 @@ leaflet(dvn_map,width="100%",height = 550) %>%
 * **G&A expected to be 15% lower in second quarter** due to workforce and non-personnel related costs reductions.
     + Announced in April plans to lay off **9%** of its workforce or 300 employees.
     + G&A savings per year will be **$150-$200 million** per year.
+* Repurchased **$204 million** worth of shares from $1 billion program and raised the quarterly dividend by **33%.**
+
 <br>
 <br>
 
-####<span style= "color:red":>**Encana**</span>
+####**Encana**
 
 * Permian growth rate in 2018 expected to be **~30% (3Q-4Q weighted)** focused primarily on acreage in Midland and Martin Counties with associated CAPEX of **$750-$800 million.**
     + D&C average cost per well is **~$5.6 million** for a 7,500' lateral.
@@ -225,7 +227,7 @@ leaflet(dvn_map,width="100%",height = 550) %>%
 <br>
 <br>
 
-####<span style= "color:red":>**Noble Energy**</span>
+####**Noble Energy**
 
 * First quarter volumes averaged **45 Mboe/d,** up **18%** from the fourth quarter.
     + PoP'd 13 wells with an average lateral length of 8,430'.
