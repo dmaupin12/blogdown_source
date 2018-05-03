@@ -1,7 +1,7 @@
 ---
 title: 1Q'18 Conference Call Highlights
 author: David Maupin
-date: '2018-05-02'
+date: '2018-05-03'
 categories:
   - Conference Call Highlights
   - IR
@@ -268,7 +268,7 @@ leaflet(dvn_map,width="100%",height = 550) %>%
 <br>
 <br>
 
-####<span style= "color:red":>**Halcon Resources**</span>
+####<span style= "color:red":>**Halcón Resources**</span>
 <img style="float: right;" src="/img/1q18/hk_land.png">
 
 * Delaware Basin production averaged **13.5 Boe/d** during the first quarter.
@@ -365,7 +365,7 @@ leaflet(dvn_map,width="100%",height = 550) %>%
 <img style="float: right;" src="/img/1q18/pdce_block4.png">
 
 * Activity has been focused on **Block 4** in **Eastern Reeves** and Central Area in Northwest Reeves.
-    +In Block 4, Buzzard and Grizzly pads continue to show strong early performance with each well **outpacing their 2 MMboe type curve.** Wells were landed in the **Wolfcamp A** and **Wolfcamp B.**
+    + In Block 4, Buzzard and Grizzly pads continue to show strong early performance with each well **outpacing their 2 MMboe type curve.** Wells were landed in the **Wolfcamp A** and **Wolfcamp B.**
     + Finished drilling first **Wolfcamp C** test located in the Southwest portion of Block 4.
 * Executed firm sales agreement with large international energy company that will cover **5^1/2^ years** and provide flow assurance out of Midland for **~85%** of 2018 and 2019 estimated volumes.
     + 2018 and 2019 total oil volumes should realize between **88%-92%** of NYMEX.
