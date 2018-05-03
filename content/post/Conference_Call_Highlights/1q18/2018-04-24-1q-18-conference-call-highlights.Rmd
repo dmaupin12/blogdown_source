@@ -268,6 +268,17 @@ leaflet(dvn_map,width="100%",height = 550) %>%
 <br>
 <br>
 
+####<span style= "color:red":>**Halcon Resources**</span>
+<img style="float: right;" src="/img/1q18/hk_land.png">
+
+* Delaware Basin production averaged **13.5 Boe/d** during the first quarter.
+* Currently running **3 rigs** and adding a 4^th^ in May with a **full time frac crew** and plans to add a spot crew in 2H of year.
+    + Activity will focus on West Quito and Monument Draw drilling 2-mile laterals.  
+    + Minimal activity in Hackberry Draw in 2H of year. 
+* Updated guidance to include the additional rig. Full year 2018 production should average between **15-20 Mboe/d** with associated CAPEX of **$425-$475 million,** an increase of 50% from previous guidance.
+<br>
+<br>
+
 ####<span style= "color:red":>**Laredo Petroleum**</span>
 
 * Production averaged **63 Mboe/d**, up **~9%** from the previous quarter.
@@ -288,6 +299,18 @@ leaflet(dvn_map,width="100%",height = 550) %>%
 * **70%** of 2018 volumes are protected from Midland pricing via Midland-Houston and Midland-Cushing basis swaps. 
 * Repurchased **6,727,901** shares of common stock in the first quarter at a weighted-average price of **$8.69/share** for a total of **$58.5 million.**
     + Repurchase program allows up to $200 million in stock purchases.
+<br>
+<br>
+
+####<span style= "color:red":>**Marathon Oil**</span>
+<img style="float: right;" src="/img/1q18/mro_land.png">
+
+* Delaware production averaged **16 Mboe/d,** up **45%** from the fourth quarter.
+    + PoP'd 9 operated wells during the quarter.
+* **Malaga area** drilling average feet per day improved more than 20% from the fourth quarter to average **~1,100 ft/day.**
+* Increased gross location count by ~165 (65% WI) through trades and small bolt-on acquisitions.
+* More than 50% of 2018 oil production hedged through basis swaps.
+* Announced acquisition of **250,000 net acres** spread across **multiple new exploration plays** last year, including a highly contiguous position in the emerging **Louisiana Austin Chalk** at an average price of **~$900/acre.**
 <br>
 <br>
 
@@ -334,6 +357,21 @@ leaflet(dvn_map,width="100%",height = 550) %>%
 * Repurchased ~$67.5 million worth of stock and increased the dividend **10%** during the quarter.
 <br>
 <br>
+
+####<span style= "color:red":>**PDC Energy**</span>
+
+* Delaware Basin production averaged **21 Mboe/d** (47% oil), an increase from the previous quarter of **~29%.**
+* Currently running **3 rigs** and **1 frac crew.**
+<img style="float: right;" src="/img/1q18/pdce_block4.png">
+
+* Activity has been focused on **Block 4** in **Eastern Reeves** and Central Area in Northwest Reeves.
+    +In Block 4, Buzzard and Grizzly pads continue to show strong early performance with each well **outpacing their 2 MMboe type curve.** Wells were landed in the **Wolfcamp A** and **Wolfcamp B.**
+    + Finished drilling first **Wolfcamp C** test located in the Southwest portion of Block 4.
+* Executed firm sales agreement with large international energy company that will cover **5^1/2^ years** and provide flow assurance out of Midland for **~85%** of 2018 and 2019 estimated volumes.
+    + 2018 and 2019 total oil volumes should realize between **88%-92%** of NYMEX.
+<br>
+<br>
+
 
 ####<span style= "color:red":>**Pioneer Natural Resources**</span>
 
@@ -471,4 +509,30 @@ widgetframe::frameWidget(ACT_plot,width="100%")
 * Around **one-third** of wells are being frac'd with local proppant and plan on using 100% locally sourced sand as soon as possible.
 * Repurchased and retired **5,621,540 shares** at a weighted average price of $9.37, for $52.8 million.
     + After reporting, the stock is currently trading at **$11.75,** down **~5%** from yesterday's close.
+<br>
+<br>
+
+####<span style= "color:red":>**RSP Permian**</span>
+
+* First quarter production averaged **62.8 Mboe/d,** which was **flat** versus the previous quarter.
+    + Experienced a significant amount of downtime related to offset activity.
+    + Exited April with production exceeding **70 Mboe/d.**
+* In the Delaware Basin, completed furthest South Delaware completion which targeted the **Wolfcamp X/Y.**
+    + **Boyd 28 11 1H** Wolfcamp X/Y had an **IP30** of **1,526 Boe/d** (71% oil), 324 Boe/d per 1,000'.
++ In the Midland Basin, completed first horizontal targeting the **Jo Mill** formation.
+    + **Spanish Trail 4825** had a **15 day** average rate of **1,048 Boe/d** (71% oil).
+    + Extending the **Wolfcamp A** West, the **Parks Bell 3926H** had an average **IP30** rate of **1,440 Boe/d** (86% oil). 
+    + First **Lower Spraberry** in **Glasscock County** was placed online. **Woody 3-46 6H** achieved an average **IP30** rate of **1,786 Boe/d** (86% oil).  
+<br>
+<br>
+
+####<span style= "color:red":>**WPX Energy**</span>
+
+* Delaware Basin production averaged **63 Mboe/d,** up **8%** from the fourth quarter.
+    + 25 wells were turned to sales, which included 15 **Wolfcamp A,** 7 **Wolfcamp X/Y** and a single **Wolfcamp B, Wolfcamp D and Third Bone Spring.**
+* Currently running **7 rigs** and **3 frac crews.**
+* Plan on using **~50%** of recycled water by year end.
+* First **200 MMcf/d** Cryo train will be completed mid-year 2018.
+* **Less than 5%** of crude exposed to Midland spot pricing in 2018 and **less than 10%** in 2019. Brent, Gulf Coast and WTI exposure consist of FT and FS commitments on BridgeTex, Cactus and Basin pipelines.
+<br>
 <br>
