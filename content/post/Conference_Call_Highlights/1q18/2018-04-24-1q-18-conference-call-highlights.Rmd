@@ -108,6 +108,47 @@ knitr::opts_chunk$set(fig.align = 'center',echo=F,warning=F,message=F,asis=F)
 <br>
 <br>
 
+####<span style= "color:red":>**Apache Corporation**</span>
+
+* Permian production averaged **183 Mbo/d,** up **3%** sequentially.
+    + Alpine High production averaged **26 Mboe/d,** up **33%** from the fourth quarter.
+* In the Midland Basin, completed first **Wolfcamp C** in **Upton County (Azalea area).** 
+    + **Schrock 2326** Wolfcamp C had an **IP30** of **~1,428 Boe/d** (70% oil).
+    + Well was completed in tandem with a **Wolfcamp A** and **Wolfcamp B.**
+    + **Early results could lead to several hundred Wolfcamp C locations.**
+* Company implemented a new completion design with more optimal stage and cluster spacing, which has contributed to improved early-time well performance.
+* **Alpine High** well costs have **dropped by 20%** from the 2017 average.
+* 4 well Chinook pad is the company's first multiwell test in the wet gas window had an average **IP30** of **1,366 Boe/d.**
+    + Contains 1,350 BTUs wet gas and oil.
+* In Northcentral Reeves County 9 wells were PoP'd in the Dixieland area.
+
+Lease|Formation|Lateral| IP30 Avg.| % Oil
+-----|---------|-------|----------|------
+Burnside Pad (2 Wells)| Upper & Middle Wolfcamp|4,438|2,130 Boe/d|42%
+Bull Run Pad (7 Wells)| Upper & Middle Wolfcamp|4,360|1,684 Boe/d|45%
+<br>
+<br>
+
+####<span style= "color:red":>**Callon Petroleum**</span>
+<img style="float: right;" src="/img/1q18/cpe_land.png">
+
+* First quarter production averaged **26.6 Mboe/d,** which is **flat** versus the previous quarter.
+* Production expected to ramp fairly evenly with estimated growth of **~10% per quarter** through remainder of year.
+* **Ward County** 2 well pad (Rendezvous A1 #01LA and A2 #09UA) targeting **Lower** and **Upper Wolfcamp A** averaged **~1,700 Boe/d** in the first 20 days.
+* Shifting activity to Monarch (NE Midland) and Wildhorse (Howard)
+    + Company first **6 well pad** in **Monarch** has commenced drilling with 5 of 6 wells drilled.
+    + **Wolfcamp A** down-spacing test (10 wells/section) in **Wildhorse** exceeding previously drilled 8 spacing test.
+
+<img style="margin:0px auto;display:block" src="/img/1q18/cpe_wca.png"/>
+
+<br>
+
+* Initial results from in basin sand showing positive results.
+* **~40 Mbo/d** gathering commitments (multi-year term agreements) from Plains, Enterprise and Reliance.
+* **~60%** of 2018 oil production is protected by Mid-Cush basis hedges.
+<br>
+<br>
+
 ####**Chevron**
 
 * Permian unconventional production averaged **252 Mboe/d,** up **23%** from the fourth quarter.
@@ -227,6 +268,53 @@ leaflet(dvn_map,width="100%",height = 550) %>%
 <br>
 <br>
 
+####<span style= "color:red":>**Laredo Petroleum**</span>
+
+* Production averaged **63 Mboe/d**, up **~9%** from the previous quarter.
+    + Increased guidance by 12% for full-year 2018.
+* Currently running **3 rigs** and is in the process of adding a 4^th^.
+* Results from 32 wells per section density test have been very encouraging.
+    + *"Aggressively moving forward with 32 well development in the Upper and Middle Wolfcamp."*
+    + **Sugg-A 157/158** 5 well package, completed in the second and third quarters of 2017, is **performing above type curve** after approximately nine months.
+    + Company expects 20-25 of it remaining completions in 2018 to be developed on 32 Upper/Middle Wolfcamp wells per section.
+* Revised completion design leading to increased efficiencies in cycle time.
+    + Lengthening stages, reducing fluid concentrations and utilizing PerfExtra from Gas Technology Institute.
+    + **Initial performance from wells with reduced fluid concentrations has been below expectations.**
+    + Company will continue to use longer stage lengths and PerfExtra as they have been positive for capital efficiency.
+* First three **XL laterals (15,000')** completed in the third quarter of 2017 have continued to improve and are now in line with the type curve, adjusted for lateral length.
+* Announced update on previously reported marketing suit between Laredo and Shell.
+    + Shell has terminated the contract and informed Laredo that it will no longer purchase oil from the company.
+    + Estimate impact to Laredo's price realization is the reduction of 2018 forecasted oil price realizations from 95% of WTI to 91% of WTI.
+* **70%** of 2018 volumes are protected from Midland pricing via Midland-Houston and Midland-Cushing basis swaps. 
+* Repurchased **6,727,901** shares of common stock in the first quarter at a weighted-average price of **$8.69/share** for a total of **$58.5 million.**
+    + Repurchase program allows up to $200 million in stock purchases.
+<br>
+<br>
+
+####<span style= "color:red":>**Matador Resources**</span>
+<img style="float: right;" src="/img/1q18/mtdr_land.png">
+
+* Delaware Basin production averaged **~37.2 Mboe/d** (63% oil), up **7%** sequentially. 
+    + Guiding 2Q production to average **~47 Mboe/d** running **6 rigs.**
+* Acquired **3,500 net acres** YTD for **~$30 million.**
+    + Company now holds **~115,000 net acres** in the basin.
+* PoP'd 29 gross (16.1 net) wells during the quarter.
+    + **Leo Thorsness #211H** was completed in the **Lower Wolfcamp A** had an **IP24** rate of **2,906 Boe/d.**
+        + Company's best 24 hour rate in the Delaware Basin.
+    + **Garret 3 well pad (State Line Area)**  tested the **Wolfcamp A-XY, Lower Wolfcamp A and Wolfcamp B-Blair.**
+        + **Wolfcamp B Blair** had an IP24 rate of **2,240 Boe/d** (45% oil).
+    + On the company's Jackson Trust acreage in **Northeast Loving,** completed a **Lower Wolfcamp A.**     
+        + **Totum #212H** had an **IP24** rate of **1,755 Boe/d** (75% oil).
+        + **Test "confirms Lower Wolfcamp A potential."**
+        
+<img style="margin:0px auto;display:block" src="/img/1q18/mtdr_wells.png"/>
+
+<br>
+
+* Midland-Cushing Basis differential hedging update: **~3.5 million barrels** hedged for remainder of 2018 at a weighted average price of **$1.02/Bbl.**
+<br>
+<br>
+
 ####**Noble Energy**
 
 * First quarter volumes averaged **45 Mboe/d,** up **18%** from the fourth quarter.
@@ -244,6 +332,29 @@ leaflet(dvn_map,width="100%",height = 550) %>%
     + Wolfcamp C is performing in line with expectations.
 * Targeting more than 30% use of recycled water by year end.
 * Repurchased ~$67.5 million worth of stock and increased the dividend **10%** during the quarter.
+<br>
+<br>
+
+####<span style= "color:red":>**Pioneer Natural Resources**</span>
+
+* Midland horizontal production averaged **~220 Mboe/d (66% oil),** up **~5%** from the previous quarter.
+    + Oil production averaged 145 Mbo/d, up **~3%** sequentially.
+    + Placed 63 wells on line during teh quarter.
+* Currently running **20 rigs** and expect to PoP **250-275** wells during 2018.
+    + 2018 Permian production growth trending to high end of guidance range at **19%-24%.**
+* **Version 3.0+ completions continue to significantly outperform Version 3.0.**
+    + Utilizing between **2,500-5,000 lbs/ft** depending on area.
+
+<img style="margin:0px auto;display:block" src="/img/1q18/pxd_cum.png"/>
+
+<br>  
+
+* Adding 3 additional **Wolfcamp D** tests with 3.0 fracs in 2018.
+    + First Wolfcamp D well has produced **260 Mboe** (72% oil) over **130 days.**
+* Currently delivering **~160 Mbo/d** of Permian Basin net oil production to the Gulf Coast under firm transportation contracts; represents **~95% of Pioneer’s current Permian production.**
+    + Brent pricing added $16 million of incremental cash flow in the first quarter.
+    + Exported **87 Mbo/d** during the quarter. Exports should grow in 2H of year as company increases capacity from ~110 Mbo/d to **~150 Mbo/d.**
+        + Targeting more than 90% of long-term production under firm pipeline transportation to the Gulf Coast.
 <br>
 <br>
 
