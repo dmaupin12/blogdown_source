@@ -1,7 +1,7 @@
 ---
 title: Weekly Rigs
 author: David Maupin
-date: '2018-04-30'
+date: '2018-05-07'
 tags:
   - Baker Hughes Weekly Update
 slug: weekly-rigs
@@ -111,7 +111,7 @@ chart<- tx_nm%>% filter(state_name %in% c("New Mexico","Texas"))
 chart<- na.omit(chart)
 chart<- chart%>% ungroup()%>%filter(PublishDate>'2015-12-31') 
 chart<- chart %>%arrange(PublishDate)%>% mutate(DateRank=dense_rank(PublishDate))
-RankChart<- chart%>% group_by(county)%>% mutate(TotalRig= sum(rigcnt))
+RankChart<- chart%>%filter(Basin=="Permian")%>% group_by(county)%>% mutate(TotalRig= sum(rigcnt))
 RankChart<-unique(RankChart[,c(1,12)])
 RankChart$Rigrank= rank(-RankChart$TotalRig)
 chart<- left_join(chart,RankChart)
@@ -233,7 +233,7 @@ plot1<-ggplot(Basin, aes(PublishDate,BasinTotal, group=Basin))+geom_line(color='
 plot<-ggplot(chart[,c(3,9,2)], aes(PublishDate,rigcnt, group=county))+geom_line(color='grey', size=1, alpha=.5)+
   geom_line(data=Chart20, aes(PublishDate,rigcnt, group=county, color=county, label=NULL),size=1)+theme_minimal()+
   ggrepel::geom_text_repel(data=subset(Chart20,PublishDate==max(PublishDate)),aes(PublishDate,rigcnt, group=county,label=county),min.segment.length = unit(.00001, "lines"))+theme(legend.position="none")+
-  ggtitle('NM and TX Change in Rig Count By County', subtitle = 'Permian Counties Highlighted')+
+  ggtitle('NM and TX Change in Rig Count By County', subtitle = 'Top 10 Permian Counties Highlighted')+
   labs(x="Publish Date",y="Rig Count")
 
   plot
