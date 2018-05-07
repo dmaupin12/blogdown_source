@@ -1,7 +1,7 @@
 ---
 title: 1Q'18 Conference Call Highlights
 author: David Maupin
-date: '2018-05-03'
+date: '2018-05-07'
 categories:
   - Conference Call Highlights
   - IR
@@ -93,7 +93,7 @@ knitr::opts_chunk$set(fig.align = 'center',echo=F,warning=F,message=F,asis=F)
 ###**Upstream Companies**
 <br>
 
-####<span style= "color:red":>**Anadarko Petroleum**</span>
+####**Anadarko Petroleum**
 
 * Delaware Basin production averaged **85 Mboe/d** (61% oil), up **10%** from the previous quarter.
 * Running **7 rigs** and **5 frac crews** for the remainder of 2018.
@@ -108,7 +108,7 @@ knitr::opts_chunk$set(fig.align = 'center',echo=F,warning=F,message=F,asis=F)
 <br>
 <br>
 
-####<span style= "color:red":>**Apache Corporation**</span>
+####**Apache Corporation**
 
 * Permian production averaged **183 Mbo/d,** up **3%** sequentially.
     + Alpine High production averaged **26 Mboe/d,** up **33%** from the fourth quarter.
@@ -129,7 +129,7 @@ Bull Run Pad (7 Wells)| Upper & Middle Wolfcamp|4,360|1,684 Boe/d|45%
 <br>
 <br>
 
-####<span style= "color:red":>**Callon Petroleum**</span>
+####**Callon Petroleum**
 <img style="float: right;" src="/img/1q18/cpe_land.png">
 
 * First quarter production averaged **26.6 Mboe/d,** which is **flat** versus the previous quarter.
@@ -162,7 +162,7 @@ Bull Run Pad (7 Wells)| Upper & Middle Wolfcamp|4,360|1,684 Boe/d|45%
 <img style="margin:0px auto;display:block" src="/img/1q18/cvx_macro.png"/>
 <br>
 
-####<span style= "color:red":>**Devon Energy**</span>
+####**Devon Energy**
 
 * Delaware Basin production averaged **73 Mboe/d,** up **22%** sequentially.
 * Frac efficiencies reached up to **15 stages/day.**
@@ -256,6 +256,17 @@ leaflet(dvn_map,width="100%",height = 550) %>%
 <br>
 <br>
 
+####<span style= "color:red":>**EOG Resources**</span>
+
+* Plan on completing **230 net wells** in the Permian during 2018.
+    + Currently running **21 rigs.**
+* **7 well** down spacing test targeting the **Wolfcamp** at its **State Magellan lease** had an average **IP30** of **2,200 Boe/d** (66% oil) from an average lateral length of **4700'.**  
+* Company highlighted a **First Bone Spring** test, the **Beowulf 33 State Com 301H** had an **IP30** of **1,735 Boe/d** (73% oil) from a **6,900'** lateral.
+* In the **Leonard,** the **Gem 36 State Com 5H and 6H** had an average **IP30** of **2,555 Boe/d** (63% oil) from a **4,200'** lateral.
+* Earned **150% ATROR** on first quarter investments.
+<br>
+<br>
+
 ####**ExxonMobil**
 
 * Unconventional production up **18%** YoY.
@@ -268,7 +279,7 @@ leaflet(dvn_map,width="100%",height = 550) %>%
 <br>
 <br>
 
-####<span style= "color:red":>**HalcÃ³n Resources**</span>
+####**Halcón Resources**
 <img style="float: right;" src="/img/1q18/hk_land.png">
 
 * Delaware Basin production averaged **13.5 Boe/d** during the first quarter.
@@ -279,7 +290,7 @@ leaflet(dvn_map,width="100%",height = 550) %>%
 <br>
 <br>
 
-####<span style= "color:red":>**Laredo Petroleum**</span>
+####**Laredo Petroleum**
 
 * Production averaged **63 Mboe/d**, up **~9%** from the previous quarter.
     + Increased guidance by 12% for full-year 2018.
@@ -302,7 +313,7 @@ leaflet(dvn_map,width="100%",height = 550) %>%
 <br>
 <br>
 
-####<span style= "color:red":>**Marathon Oil**</span>
+####**Marathon Oil**
 <img style="float: right;" src="/img/1q18/mro_land.png">
 
 * Delaware production averaged **16 Mboe/d,** up **45%** from the fourth quarter.
@@ -314,7 +325,7 @@ leaflet(dvn_map,width="100%",height = 550) %>%
 <br>
 <br>
 
-####<span style= "color:red":>**Matador Resources**</span>
+####**Matador Resources**
 <img style="float: right;" src="/img/1q18/mtdr_land.png">
 
 * Delaware Basin production averaged **~37.2 Mboe/d** (63% oil), up **7%** sequentially. 
@@ -358,7 +369,25 @@ leaflet(dvn_map,width="100%",height = 550) %>%
 <br>
 <br>
 
-####<span style= "color:red":>**PDC Energy**</span>
+####<span style= "color:red":>**Parsley Energy**</span>
+
+* Production averaged ***93.4 Mboe/d** (63% oil), up 16% sequentially.
+    + PoP'd 41 gross wells during the quarter with an average lateral length of ~9,100'.
+    + Activity was split evenly between the Delaware and Midland Basins, going forward the Midland Basin should receive the bulk of development activity.
+* Completed 2 well **Wolfcamp B** pad in **Glasscock County.**
+    + **Catfish Hunter 12-1** 2-mile pad achieved an average **IP30** rate of **2,022 Boe/d.**
+* In the Delaware Basin, the **Trees State 31-34** 3 well pad in Pecos County targeted the **Upper/Lower Wolfcamp A** and the **Wolfcamp B**
+    + Results from 2 of the wells achieved Delaware Basin company record IP30 rates of **2,115 Boe/d** (85% oil) and **1,940 Boe/d** (86% oil) from 10,000' laterals.
+<img style="margin:0px auto;display:block" src="/img/1q18/pd_db.png"/>
+
+<br>
+
+* Received multiple questions about potentially spinning off or dropping down Parsley's mineral interests, similar to Diamondback. 
+    + Management stated they needed to grow production by a few thousand barrels before they could provide an answer, which should happen in the next couple of quarters.
+<br>
+<br>
+
+####**PDC Energy**
 
 * Delaware Basin production averaged **21 Mboe/d** (47% oil), an increase from the previous quarter of **~29%.**
 * Currently running **3 rigs** and **1 frac crew.**
@@ -373,7 +402,7 @@ leaflet(dvn_map,width="100%",height = 550) %>%
 <br>
 
 
-####<span style= "color:red":>**Pioneer Natural Resources**</span>
+####**Pioneer Natural Resources**
 
 * Midland horizontal production averaged **~220 Mboe/d (66% oil),** up **~5%** from the previous quarter.
     + Oil production averaged 145 Mbo/d, up **~3%** sequentially.
@@ -512,7 +541,7 @@ widgetframe::frameWidget(ACT_plot,width="100%")
 <br>
 <br>
 
-####<span style= "color:red":>**RSP Permian**</span>
+####**RSP Permian**
 
 * First quarter production averaged **62.8 Mboe/d,** which was **flat** versus the previous quarter.
     + Experienced a significant amount of downtime related to offset activity.
@@ -526,7 +555,7 @@ widgetframe::frameWidget(ACT_plot,width="100%")
 <br>
 <br>
 
-####<span style= "color:red":>**WPX Energy**</span>
+####**WPX Energy**
 
 * Delaware Basin production averaged **63 Mboe/d,** up **8%** from the fourth quarter.
     + 25 wells were turned to sales, which included 15 **Wolfcamp A,** 7 **Wolfcamp X/Y** and a single **Wolfcamp B, Wolfcamp D and Third Bone Spring.**
