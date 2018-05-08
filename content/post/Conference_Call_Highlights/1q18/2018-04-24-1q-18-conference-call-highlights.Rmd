@@ -289,10 +289,10 @@ leaflet(egn,width="100%",height = 550) %>%
   # Base groups
   addTiles(group = "Esri.WorldTopoMap")%>%
   addProviderTiles(providers$Esri.WorldTopoMap)%>%
-  addPolygons(fillOpacity = .5,fillColor = 'red',stroke=F,group = "Energen Acreage")%>%
+  addPolygons(fillOpacity = .5,fillColor = 'grey',stroke=F,group = "Energen Acreage")%>%
   addPolygons(data=cxo_map,fillOpacity = .5,fillColor = 'yellow',stroke=F,group = "Concho Acreage")%>%
   addPolylines(data=lines,weight=1,color='black')%>%
-  addCircleMarkers(data=wells,~Surface.Hole.Longitude..WGS84.,~Surface.Hole.Latitude..WGS84.,radius=5, stroke = F,color=c("blue",'green'),fillOpacity=.75, group = "Energen Cline Wells",   popup=paste("Company:", wells$Operator.Alias, "<br>",
+  addCircleMarkers(data=wells,~Surface.Hole.Longitude..WGS84.,~Surface.Hole.Latitude..WGS84.,radius=5, stroke = F,color=c("red",'blue'),fillOpacity=.75, group = "Energen Cline Wells",   popup=paste("Company:", wells$Operator.Alias, "<br>",
               "Well Name:", wells$Lease.Name," ",wells$Well.Number," ",wells$Drill.Type,"<br>"
               ))%>%
     addLayersControl(
@@ -440,7 +440,7 @@ leaflet(egn,width="100%",height = 550) %>%
     + IRRs are estimated to be more than **65%** at $55 WTI.
 * Highlighted upside to base case inventory which currently stands at **~601 gross locations.**
 
-<img style="margin:0px auto;display:block" src="/img/1q18/egn_ranger.png"/>  
+<img style="margin:0px auto;display:block" src="/img/1q18/oas_inventory.png"/>  
 <br>
 
 * Continue to see **limited cost inflation** or **service tightness** in the Delaware.
@@ -628,7 +628,7 @@ widgetframe::frameWidget(ACT_plot,width="100%")
 * Schematic of first 9 well pad completed at Ranger in Eastern Reeves County below.
     + First two pads averaged **3.2 and 4.5 stages per day,** respectively.
 
-<img style="margin:0px auto;display:block" src="/img/1q18/egn_ranger.png"/>  
+<img style="margin:0px auto;display:block" src="/img/1q18/ren_ranger.png"/>  
 
 * **Wolfcamp B and C** early time data on could add more than **160 locations** to inventory.
     + 2 wells had **IP24** rates in excess of **800 Bo/d** with associated NGL production of **1,100 Bl/d**.
