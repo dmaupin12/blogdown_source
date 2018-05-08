@@ -637,12 +637,12 @@ widgetframe::frameWidget(ACT_plot,width="100%")
 
 Well|Formation|IP30 Boe|IP60 Boe
 ----|---------|--------|--------
-S.Elephant B307SL| 2,099| 1,968
-N.Elephant B301SL| Completing
-S.Elephant C207SL| 1,930| 1,695
-Uinta C 101H| 2,657| 2,381
-Th.Canyon C107SL| -| -
-Ranger C205SL| Flowing Back
+S.Elephant B307SL|Lower Wolfcamp B| 2,099| 1,968
+N.Elephant B301SL|Lower Wolfcamp B| Completing
+S.Elephant C207SL|Wolfcamp C| 1,930| 1,695
+Uinta C 101H|Wolfcamp C| 2,657| 2,381
+Th.Canyon C107SL|Wolfcamp C| -| -
+Ranger C205SL|Wolfcamp C| Flowing Back
 <br>
 <br>
 
