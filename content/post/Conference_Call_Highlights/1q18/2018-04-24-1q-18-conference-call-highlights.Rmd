@@ -149,6 +149,18 @@ Bull Run Pad (7 Wells)| Upper & Middle Wolfcamp|4,360|1,684 Boe/d|45%
 <br>
 <br>
 
+####<span style= "color:red":>**Carrizo Oil and Gas**</span>
+
+* Production averaged **~15.2 Mboe/d,** flat compared to the fourth quarter. 
+* Plan on running **3-4 rigs** in the Permian in 2018 and growing production by more than 100%.
+    + Moving 2 frac crews from Eagle Ford to the Delaware in the second quarter.
+* Completed construction of **250 Mbbl/d water gathering facility** in the Phantom core area (Reeves/Ward border).
+    + Should reach total carrying capacity by mid-year 2019. 
+* PoP'd company best **Wolfcamp B** in the Delaware during the quarter. The **Griffin State 10H** achieved an **IP30** rate of **2,150 Boe/d** (53% oil) on a restricted choke.
+* Executed FT agreement on more than 90% of current gas production.
+<br>
+<br>
+
 ####**Chevron**
 
 * Permian unconventional production averaged **252 Mboe/d,** up **23%** from the fourth quarter.
@@ -253,6 +265,54 @@ leaflet(dvn_map,width="100%",height = 550) %>%
     + *"Differentials will continue to widen and the basin will most likely need a combination of trucking and rail to get all the barrels to the market"*    
 * Contrary to QEP's recent change in flowback strategy which shifted away from ESPs, Encana wants to remove frac fluid as quickly as possible utilizing ESPs, then transitioning to gas lift and finally rod pump.
 * Repurchased 10 million shares for **$111 million** of the previously announced $400 million stock repurchase program. 
+<br>
+<br>
+
+####<span style= "color:red":>**Energen**</span>
+
+* Production averaged **92.9 Mboe/d** (60% oil), up **22%** sequentially.
+    + **25 wells** were PoP'd which included 8 **Gen 3 Wolfcamp** wells in the Delaware Basin and 2 **Gen 3 Cline** tests in the central and north Midland Basin.
+* Currently running **10 rigs** and **4 frac crews** and adding additional frac crew in the coming months.
+    + Increased guidance by additional rig and frac crew.
+* **67%** of wells with 1Q first production completed as pattern wells (multiple formations) in the Midland Basin.
+* Completed 2 new Cline wells in **Martin** and **Glasscock Counties.** Both wells are tracking above their respective type curves.
+    + **Tiger Unit 407H** in Martin County is tracking in line with the **1.2 MMboe** type curve adjusted to a 10,000' lateral.
+    + **Foxtrot 405H** in Glasscock County is tracking above the **1.5 MMboe** type curve adjusted to a 10,000' lateral after more than **120 days on production.**
+
+#####**Midland Basin Cline Wells**
+```{r}
+wells<- read.csv('egnPermitsTable.csv',sep=",")
+lines<- readOGR(".","egn_shpPermitsShapefile_Line",verbose = F)
+egn<- readOGR(".","egn",verbose = F)
+
+leaflet(egn,width="100%",height = 550) %>%
+  # Base groups
+  addTiles(group = "Esri.WorldTopoMap")%>%
+  addProviderTiles(providers$Esri.WorldTopoMap)%>%
+  addPolygons(fillOpacity = .5,fillColor = 'red',stroke=F,group = "Energen Acreage")%>%
+  addPolygons(data=cxo_map,fillOpacity = .5,fillColor = 'yellow',stroke=F,group = "Concho Acreage")%>%
+  addPolylines(data=lines,weight=1,color='black')%>%
+  addCircleMarkers(data=wells,~Surface.Hole.Longitude..WGS84.,~Surface.Hole.Latitude..WGS84.,radius=5, stroke = F,color=c("blue",'green'),fillOpacity=.75, group = "Energen Cline Wells",   popup=paste("Company:", wells$Operator.Alias, "<br>",
+              "Well Name:", wells$Lease.Name," ",wells$Well.Number," ",wells$Drill.Type,"<br>"
+              ))%>%
+    addLayersControl(
+    overlayGroups = c("Energen Acreage","Concho Acreage"),
+    options = layersControlOptions(collapsed = FALSE),position='topright')%>%
+  setView(lat=32.06, lng=-102.1,zoom=8)
+
+
+
+```
+<br>
+
+<img style="margin:0px auto;display:block" src="/img/1q18/egn_cline.png"/>
+<br>
+
+* **Delaware Basin Gen 3 Frac Wolfcamp A/B** wells completed in 2017-2018 are tracking above the **2.2 MMBoe** 2-mile model.
+    + 41 wells have been PoP'd with the new completion design.
+
+<img style="margin:0px auto;display:block" src="/img/1q18/egn_db.png"/>
+
 <br>
 <br>
 
@@ -366,6 +426,24 @@ leaflet(dvn_map,width="100%",height = 550) %>%
     + Wolfcamp C is performing in line with expectations.
 * Targeting more than 30% use of recycled water by year end.
 * Repurchased ~$67.5 million worth of stock and increased the dividend **10%** during the quarter.
+<br>
+<br>
+
+####<span style= "color:red":>**Oasis Petroleum**</span>
+<img style="float: right;" src="/img/1q18/oas_land.png">
+
+* Delaware production averaged **3.5 Mboe/d.**
+    + Production should ramp to ~5 Mboe/d by the end of the year and 10 Mboe/d exiting 2019.
+* Expect to drill 16-20 wells and complete 6-8 wells running 2 rigs (additional rig in May) in 2018.
+* Should have results from first well PoP'd on acreage (Bone Spring) next quarter. Well has been online for 30 days and is still cleaning up.
+* Recent wells are **outperforming 1.2 MMboe type curve** using ~1,6000 lbs/ft of proppant, below offset operator average of ~2,000 lbs/ft of proppant.
+    + IRRs are estimated to be more than **65%** at $55 WTI.
+* Highlighted upside to base case inventory which currently stands at **~601 gross locations.**
+
+<img style="margin:0px auto;display:block" src="/img/1q18/egn_ranger.png"/>  
+<br>
+
+* Continue to see **limited cost inflation** or **service tightness** in the Delaware.
 <br>
 <br>
 
@@ -538,6 +616,31 @@ widgetframe::frameWidget(ACT_plot,width="100%")
 * Around **one-third** of wells are being frac'd with local proppant and plan on using 100% locally sourced sand as soon as possible.
 * Repurchased and retired **5,621,540 shares** at a weighted average price of $9.37, for $52.8 million.
     + After reporting, the stock is currently trading at **$11.75,** down **~5%** from yesterday's close.
+<br>
+<br>
+
+####<span style= "color:red":>**Resolute Energy**</span>
+
+* Production average **23.5 Mboe/d** (46% oil), **down 7%** from the fourth quarter.
+    + Oil production component was below longer term run-rate based on **heavier mix of production from Mustang and Bronco** combined with **higher Wolfcamp C production.**
+* 2018 development will focus on completing groups of up to 9 wells utilizing 3 rigs which should alleviate frac hits and improve infill well performance.
+    + Targeting **Upper and Lower Wolfcamp A** and **Upper Wolfcamp B.**
+* Schematic of first 9 well pad completed at Ranger in Eastern Reeves County below.
+    + First two pads averaged **3.2 and 4.5 stages per day,** respectively.
+
+<img style="margin:0px auto;display:block" src="/img/1q18/egn_ranger.png"/>  
+
+* **Wolfcamp B and C** early time data on could add more than **160 locations** to inventory.
+    + 2 wells had **IP24** rates in excess of **800 Bo/d** with associated NGL production of **1,100 Bl/d**.
+
+Well|Formation|IP30 Boe|IP60 Boe
+----|---------|--------|--------
+S.Elephant B307SL| 2,099| 1,968
+N.Elephant B301SL| Completing
+S.Elephant C207SL| 1,930| 1,695
+Uinta C 101H| 2,657| 2,381
+Th.Canyon C107SL| -| -
+Ranger C205SL| Flowing Back
 <br>
 <br>
 
