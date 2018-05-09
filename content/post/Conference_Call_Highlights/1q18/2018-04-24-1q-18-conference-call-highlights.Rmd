@@ -210,6 +210,7 @@ Bull Run Pad (7 Wells)| Upper & Middle Wolfcamp|4,360|1,684 Boe/d|45%
     + Project **tested 16 wells per section** with vertical spacing of **340'** and horizontal spacing of **680'.**
 
 <img style="float: right;" src="/img/1q18/xec_avalon.png">
+
 * PoP'd 2 **Avalon** wells in their Red Tank Area (North of Red Hills)
     + **Coriander AOC 1-12 State 1H** had an **IP30** rate of **3,333 Boe/d** (67% oil).
     + **Thyme APY Fed 9H** had an **IP30** rate of **2,059 Boe/d** (69% oil).
@@ -484,12 +485,11 @@ leaflet(egn,width="100%",height = 550) %>%
 
 * Permian Resource production averaged **177 Mboe/d,** up **11%** from the previous quarter.
     + Expect to end the year producing between 220-246 Mboe/d.
-* Plan on running 11 rigs in 2018 spread across the Turkey Track (.5 rigs), Greater Sand Dunes (~5.5 rigs), Greater Barilla Draw (4 rigs) and Glasscock County (1 rig).
-* Map below identifies their core areas of activity in 2018, which could present Concho with opportunities to trade in both the Delaware and Midland Basins.
+* Plan on running **11 rigs** in 2018 spread across the Turkey Track (.5 rigs), Greater Sand Dunes (~5.5 rigs), Greater Barilla Draw (4 rigs) and Glasscock County (1 rig).
+* Map below identifies their core areas of activity in 2018, which could present Concho with opportunities to trade with Oxy in both the Delaware and Midland Basins.
     + **"Last year we did about 17,000 net acres in trades, and in the first quarter we've done 11,000. So there's still a desire to core up, be able to drill longer laterals, leverage your larger positions."**
 
 <img style="margin:0px auto;display:block" src="/img/1q18/oxy_land.png"/>
-
 <br>
 
 * In the **Greater Sand Dunes area (NDB),** highlighted 2 **Wolfcamp X/Y** completions with **IP24 rates over 6,000 Boe/d.**
@@ -499,7 +499,31 @@ leaflet(egn,width="100%",height = 550) %>%
     + Hoban: **Granada 73H** had an **IP30** rate of **1,973 Boe/d** (73% oil) from a 4,681' lateral.
     + Wolfcamp C: **A Herring 94-93-6N 33H** had an **IP30** rate of **1,758 Boe/d** (81% oil) from a 10,100' lateral.
         + Well was completed in tandem with a 3^rd^ Bone Spring.
-* **Map of well results**
+#####**Wolfcamp X/Y, Hoban and Wolfcamp C Completions**
+```{r}
+wells<- read.csv('oxyPermitsTable.csv',sep=",")
+lines<- readOGR(".","oxyPermitsShapefile_Line",verbose = F)
+oxy<- readOGR(".","oxy",verbose = F)
+
+leaflet(oxy,width="100%",height = 550) %>%
+  # Base groups
+  addTiles(group = "Esri.WorldTopoMap")%>%
+  addProviderTiles(providers$Esri.WorldTopoMap)%>%
+  addPolygons(fillOpacity = .5,fillColor = 'grey',stroke=F,group = "Oxy Acreage")%>%
+  addPolygons(data=cxo_map,fillOpacity = .5,fillColor = 'yellow',stroke=F,group = "Concho Acreage")%>%
+  addPolylines(data=lines,weight=1,color='black')%>%
+  addCircleMarkers(data=wells,~Surface.Hole.Longitude..WGS84.,~Surface.Hole.Latitude..WGS84.,radius=5, stroke = F,color=c("blue",'blue','red','green'),fillOpacity=.75, group = "Energen Cline Wells",   popup=paste("Company:", wells$Operator.Alias, "<br>",
+              "Well Name:", wells$Lease.Name," ",wells$Well.Number," ",wells$Drill.Type,"<br>",
+              "Formation:", wells$Formation.1
+              ))%>%
+    addLayersControl(
+    overlayGroups = c("Oxy Acreage","Concho Acreage"),
+    options = layersControlOptions(collapsed = FALSE),position='topright')%>%
+  setView(lat=32.06, lng=-103.1,zoom=8)
+
+
+
+```
 
 <br>
 
