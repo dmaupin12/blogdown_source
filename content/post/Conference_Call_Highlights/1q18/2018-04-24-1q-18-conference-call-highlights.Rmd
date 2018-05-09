@@ -163,11 +163,13 @@ Bull Run Pad (7 Wells)| Upper & Middle Wolfcamp|4,360|1,684 Boe/d|45%
 
 ####<span style= "color:red":>**Centennial Resources**</span>
 
-* Production averaged *54 Mboe/d** (58% oil), up **22%** from the fourth quarter.
+* Production averaged **54 Mboe/d** (58% oil), up **22%** from the fourth quarter.
     + PoP'd 16 wells which produced on average ~1,200 Mbo/d over the initial 30-day production period. Individual wells are outperforming company expectations.
 * Currently running **6 rigs** in the Southern Delaware.
     + Operations shifting to multi-well pad projects.
 * Targeting up to **$70 million** in organic **acreage acquisitions throughout the year.**
+    + No appetite for major M&A acquisitions.
+    
 <img style="float: right;" src="/img/1q18/cdev_ndb.png">
 
 * Announced strong **Wolfcamp A** result in Lea County.
@@ -177,7 +179,7 @@ Bull Run Pad (7 Wells)| Upper & Middle Wolfcamp|4,360|1,684 Boe/d|45%
 * Locked in HH swaps at ~$2.78 for 2019 and added basis swaps at ~$1.67 during the quarter, which effectively locks in prices at **~$1.47/mcf** on ~30,000 (MMbtu/d) of its gas production.
     + Much of the commentary in the preamble was related to concerns over natural gas logistics. *"Apache's Alpine High production ramp in 2019 and 2020 will cause additional strain on infrastructure and FT out of the basin until new pipeline projects are completed."*
     + **Southern Delaware Basin operators might have to flare their wet gas at the wellhead or curtail production in the near future.**
-* Hedged the Mid-Cush basis for 10,000 barrels per day, which represents approximately **27% of our 2018 midpoint** estimated oil production at an average differential of the $1.77 per barrel.
+* Hedged the Mid-Cush basis for 10,000 barrels per day, which represents approximately **27% of 2018 midpoint estimated oil production** at an average differential of the **$1.77 per barrel.**
 * Outlined company vision through 2021, *"I visualize CDEV continuing its industry leading high oil growth rate phase through 2020 where we will likely reach a max debt to cap level of slightly less than 20%. **We'll begin to generate free cash flow in 2020, but not expect us to moderate our production growth and likely institute a dividend that same year.** I visualize a transition from a very high oil growth rate company to the growth rate comfortably higher than the peer average commencing in 2021, leveling off with a high-teens debt-to-cap and free cash flow use each year for dividends and buybacks."*
 <br>
 <br>
@@ -499,6 +501,7 @@ leaflet(egn,width="100%",height = 550) %>%
     + Hoban: **Granada 73H** had an **IP30** rate of **1,973 Boe/d** (73% oil) from a 4,681' lateral.
     + Wolfcamp C: **A Herring 94-93-6N 33H** had an **IP30** rate of **1,758 Boe/d** (81% oil) from a 10,100' lateral.
         + Well was completed in tandem with a 3^rd^ Bone Spring.
+        
 #####**Wolfcamp X/Y, Hoban and Wolfcamp C Completions**
 ```{r}
 wells<- read.csv('oxyPermitsTable.csv',sep=",")
@@ -512,7 +515,7 @@ leaflet(oxy,width="100%",height = 550) %>%
   addPolygons(fillOpacity = .5,fillColor = 'grey',stroke=F,group = "Oxy Acreage")%>%
   addPolygons(data=cxo_map,fillOpacity = .5,fillColor = 'yellow',stroke=F,group = "Concho Acreage")%>%
   addPolylines(data=lines,weight=1,color='black')%>%
-  addCircleMarkers(data=wells,~Surface.Hole.Longitude..WGS84.,~Surface.Hole.Latitude..WGS84.,radius=5, stroke = F,color=c("blue",'blue','red','green'),fillOpacity=.75, group = "Energen Cline Wells",   popup=paste("Company:", wells$Operator.Alias, "<br>",
+  addCircleMarkers(data=wells,~Surface.Hole.Longitude..WGS84.,~Surface.Hole.Latitude..WGS84.,radius=6, stroke = F,color=c("blue",'blue','red','green'),fillOpacity=.75, group = "Energen Cline Wells",   popup=paste("Company:", wells$Operator.Alias, "<br>",
               "Well Name:", wells$Lease.Name," ",wells$Well.Number," ",wells$Drill.Type,"<br>",
               "Formation:", wells$Formation.1
               ))%>%
