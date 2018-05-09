@@ -149,7 +149,7 @@ Bull Run Pad (7 Wells)| Upper & Middle Wolfcamp|4,360|1,684 Boe/d|45%
 <br>
 <br>
 
-####<span style= "color:red":>**Carrizo Oil and Gas**</span>
+####**Carrizo Oil and Gas**
 
 * Production averaged **~15.2 Mboe/d,** flat compared to the fourth quarter. 
 * Plan on running **3-4 rigs** in the Permian in 2018 and growing production by more than 100%.
@@ -158,6 +158,27 @@ Bull Run Pad (7 Wells)| Upper & Middle Wolfcamp|4,360|1,684 Boe/d|45%
     + Should reach total carrying capacity by mid-year 2019. 
 * PoP'd company best **Wolfcamp B** in the Delaware during the quarter. The **Griffin State 10H** achieved an **IP30** rate of **2,150 Boe/d** (53% oil) on a restricted choke.
 * Executed FT agreement on more than 90% of current gas production.
+<br>
+<br>
+
+####<span style= "color:red":>**Centennial Resources**</span>
+
+* Production averaged *54 Mboe/d** (58% oil), up **22%** from the fourth quarter.
+    + PoP'd 16 wells which produced on average ~1,200 Mbo/d over the initial 30-day production period. Individual wells are outperforming company expectations.
+* Currently running **6 rigs** in the Southern Delaware.
+    + Operations shifting to multi-well pad projects.
+* Targeting up to **$70 million** in organic **acreage acquisitions throughout the year.**
+<img style="float: right;" src="/img/1q18/cdev_ndb.png">
+
+* Announced strong **Wolfcamp A** result in Lea County.
+    + **Juliet Fed Com 1H (4,000' lateral)** hand an **IP30** rate of **1,127 Bo/d** and has produced **~50 Mbo/d** adjusted for a 4,500' lateral in less than **60 days.**
+* In Reeves County, the **Weaver State C T34H** completed in the **Third Bone Spring Sand** has produced **~80 Mbo** adjusted for a 9,500' lateral in **~60 days**
+    + The Third Bone Spring Sand extends over a significant portion of their Reeves County acreage and has the potential to add a substantial amount of inventory to portfolio. Company will drill additional wells during the year.
+* Locked in HH swaps at ~$2.78 for 2019 and added basis swaps at ~$1.67 during the quarter, which effectively locks in prices at **~$1.47/mcf** on ~30,000 (MMbtu/d) of its gas production.
+    + Much of the commentary in the preamble was related to concerns over natural gas logistics. *"Apache's Alpine High production ramp in 2019 and 2020 will cause additional strain on infrastructure and FT out of the basin until new pipeline projects are completed."*
+    + **Southern Delaware Basin operators might have to flare their wet gas at the wellhead or curtail production in the near future.**
+* Hedged the Mid-Cush basis for 10,000 barrels per day, which represents approximately **27% of our 2018 midpoint** estimated oil production at an average differential of the $1.77 per barrel.
+* Outlined company vision through 2021, *"I visualize CDEV continuing its industry leading high oil growth rate phase through 2020 where we will likely reach a max debt to cap level of slightly less than 20%. **We'll begin to generate free cash flow in 2020, but not expect us to moderate our production growth and likely institute a dividend that same year.** I visualize a transition from a very high oil growth rate company to the growth rate comfortably higher than the peer average commencing in 2021, leveling off with a high-teens debt-to-cap and free cash flow use each year for dividends and buybacks."*
 <br>
 <br>
 
@@ -172,6 +193,31 @@ Bull Run Pad (7 Wells)| Upper & Middle Wolfcamp|4,360|1,684 Boe/d|45%
     + LNG Supply and demand curve shows **mid-term market oversupply and a gap developing next decade.**
 
 <img style="margin:0px auto;display:block" src="/img/1q18/cvx_macro.png"/>
+<br>
+<br>
+
+####<span style= "color:red":>**Cimarex Energy**</span>
+
+* Plan on operating **10 rigs** and **3 frac crews** in the Permian during 2018.
+* **In the Upper Wolfcamp, disclosed 2-mile lateral infill wells have IP180s that are 90% of parent wells.**
+    + Cimarex did not adjust production for updated completion styles; meaning parent wells, which were completed with older frac methods, are outperforming infill wells with the latest completion design (Gen 4). 
+        + *Read though: Degradation is likely higher than 10%.* 
+* Lower Wolfcamp infill wells on **Tim Tam development** are **outperforming parent wells.**
+<img style="margin:0px auto;display:block" src="/img/1q18/xec_timtam.png"/>
+<br>
+
+* **Reduced the Pagoda State 4 well pad performance**  from 20% (last presentation) to **16%** above the parent well.
+    + Project **tested 16 wells per section** with vertical spacing of **340'** and horizontal spacing of **680'.**
+
+<img style="float: right;" src="/img/1q18/xec_avalon.png">
+* PoP'd 2 **Avalon** wells in their Red Tank Area (North of Red Hills)
+    + **Coriander AOC 1-12 State 1H** had an **IP30** rate of **3,333 Boe/d** (67% oil).
+    + **Thyme APY Fed 9H** had an **IP30** rate of **2,059 Boe/d** (69% oil).
+* Wells were drilled on separate sections testing different completion designs and landing zones.
+    + *The significance of those two wells is we were testing different stimulation design as well as a particular landing zone that we chose. The outcome of those two wells have given us good confidence in terms of what type of fracture design we now want to deploy on the Triste Draw pilot, which you know we'll be stimulating here very soon.* 
+* Company has **24,000 net prospective acres** in the **Avalon.**
+* Sales agreements are in place for more than 98% of forecasted gas production through October 2019.
+<br>
 <br>
 
 ####**Devon Energy**
@@ -237,7 +283,30 @@ leaflet(dvn_map,width="100%",height = 550) %>%
     + Announced in April plans to lay off **9%** of its workforce or 300 employees.
     + G&A savings per year will be **$150-$200 million** per year.
 * Repurchased **$204 million** worth of shares from $1 billion program and raised the quarterly dividend by **33%.**
+<br>
+<br>
 
+####<span style= "color:red":>**Diamondback Energy**</span>
+
+* First quarter production averaged **103 Mboe/d** (74% oil), up **10%** sequentially.
+    + PoP'd 35 wells consisting of 20 Wolfcamp A, 9 Lower Spraberry, 4 Wolfcamp B and a single Middle Spraberry and Third Bone Spring Shale.
+* Currently running **11 rigs**(6 Midland/5 Delaware) and **5 frac crews** (3 Midland/2 Delaware).
+* Recently signed a **50,000 Bo/d** agreement to be a firm shipper on the **Gray Oak pipeline,** which is expected to be completed in 2019.
+  
+#####**Midland Basin Update**
+
+* Recently completed a **4 well pad** on the **Bombardier C Unit** in Martin County targeting the **Lower Spraberry** and **Wolfcamp A** with an average lateral length of over 2 miles.
+    + 2 **Wolfcamp A** wells had an average **IP30** rate of **~1,387 Boe/d** (89% oil).
+    + 2 **Lower Spraberry** wells had an average **IP30** rate of **~1,273 Boe/d** (88% oil).
+* In Glasscock County, the company drilled a 7 well pad targeting the **Wolfcamp A** and **Wolfcamp B** with an average latera length of ~2 miles.
+    + 2 **Wolfcamp A** wells achieved an average **IP30** rate of 1,168 Boe/d (86% oil) and the first **Wolfcamp B** produced 1,428 Boe/d (85% oil). The remaining wells are still cleaning up.
+
+#####**Delaware Basin Update**
+
+* Completed first **Third Bone Spring Shale** in Reeves County.
+    + **Rogers 6 Unit 3TB** was completed with a 9,401' lateral and had an **IP30** rate of **1,147 Boe/d** (80% oil). 
+* 2018 activity will focus on XL laterals in the **Wolfcamp A** in Reeves, Ward and Pecos and additional testing in the **2^nd^ Bone Spring in Pecos County** and the **3^rd^ Bone Spring Reeves and Ward.**
+* Seeing significant uplift following ESP conversions versus gas lift.
 <br>
 <br>
 
@@ -268,7 +337,7 @@ leaflet(dvn_map,width="100%",height = 550) %>%
 <br>
 <br>
 
-####<span style= "color:red":>**Energen**</span>
+####**Energen**
 
 * Production averaged **92.9 Mboe/d** (60% oil), up **22%** sequentially.
     + **25 wells** were PoP'd which included 8 **Gen 3 Wolfcamp** wells in the Delaware Basin and 2 **Gen 3 Cline** tests in the central and north Midland Basin.
@@ -318,7 +387,7 @@ leaflet(egn,width="100%",height = 550) %>%
 <br>
 <br>
 
-####<span style= "color:red":>**EOG Resources**</span>
+####**EOG Resources**
 
 * Plan on completing **230 net wells** in the Permian during 2018.
     + Currently running **21 rigs.**
@@ -411,6 +480,35 @@ leaflet(egn,width="100%",height = 550) %>%
 <br>
 <br>
 
+####<span style= "color:red":>**Occidental Petroleum**</span>
+
+* Permian Resource production averaged **177 Mboe/d,** up **11%** from the previous quarter.
+    + Expect to end the year producing between 220-246 Mboe/d.
+* Plan on running 11 rigs in 2018 spread across the Turkey Track (.5 rigs), Greater Sand Dunes (~5.5 rigs), Greater Barilla Draw (4 rigs) and Glasscock County (1 rig).
+* Map below identifies their core areas of activity in 2018, which could present Concho with opportunities to trade in both the Delaware and Midland Basins.
+    + **"Last year we did about 17,000 net acres in trades, and in the first quarter we've done 11,000. So there's still a desire to core up, be able to drill longer laterals, leverage your larger positions."**
+
+<img style="margin:0px auto;display:block" src="/img/1q18/oxy_land.png"/>
+
+<br>
+
+* In the **Greater Sand Dunes area (NDB),** highlighted 2 **Wolfcamp X/Y** completions with **IP24 rates over 6,000 Boe/d.**
+    + **Cedar Canyon 27 28 Fed 44H** had an **IP30** rate of **5,398 Boe/d** (76% oil) from a 9,800' lateral. 
+    + **Cedar Canyon 27 28 Fed 43H** had an **IP30** rate of **4,351 Boe/d** (77% oil) from a 9,648' lateral.
+* In the **Greater Barilla Draw area (SDB),** completed delineation tests in the **Hoban,** which lies between the 3^rd^ Bone Spring and Wolfcamp A, and in the **Wolfcamp C.**
+    + Hoban: **Granada 73H** had an **IP30** rate of **1,973 Boe/d** (73% oil) from a 4,681' lateral.
+    + Wolfcamp C: **A Herring 94-93-6N 33H** had an **IP30** rate of **1,758 Boe/d** (81% oil) from a 10,100' lateral.
+        + Well was completed in tandem with a 3^rd^ Bone Spring.
+* **Map of well results**
+
+<br>
+
+* Detailed their 2^nd^ Bone Spring frac sequence, which is similar to **QEP's "Pressure wall and Buffer."**
+    + Note that company shows the **Wolfcamp X/Y** flow regime **independent of the 2^nd^ Bone Spring.**
+<img style="margin:0px auto;display:block" src="/img/1q18/oxy_pad.png"/>
+<br>
+<br>
+
 ####**Noble Energy**
 
 * First quarter volumes averaged **45 Mboe/d,** up **18%** from the fourth quarter.
@@ -431,7 +529,7 @@ leaflet(egn,width="100%",height = 550) %>%
 <br>
 <br>
 
-####<span style= "color:red":>**Oasis Petroleum**</span>
+####**Oasis Petroleum**
 <img style="float: right;" src="/img/1q18/oas_land.png">
 
 * Delaware production averaged **3.5 Mboe/d.**
@@ -449,7 +547,7 @@ leaflet(egn,width="100%",height = 550) %>%
 <br>
 <br>
 
-####<span style= "color:red":>**Parsley Energy**</span>
+####**Parsley Energy**
 
 * Production averaged **93.4 Mboe/d** (63% oil), up 16% sequentially.
     + PoP'd 41 gross wells during the quarter with an average lateral length of ~9,100'.
@@ -621,7 +719,7 @@ widgetframe::frameWidget(ACT_plot,width="100%")
 <br>
 <br>
 
-####<span style= "color:red":>**Resolute Energy**</span>
+####**Resolute Energy**
 
 * Production average **23.5 Mboe/d** (46% oil), **down 7%** from the fourth quarter.
     + Oil production component was below longer term run-rate based on **heavier mix of production from Mustang and Bronco** combined with **higher Wolfcamp C production.**
