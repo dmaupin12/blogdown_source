@@ -165,13 +165,13 @@
   </url>
   
   <url>
-    <loc>/tags/annual-report/</loc>
+    <loc>/categories/annual-report/</loc>
     <lastmod>2018-04-18T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/categories/annual-report/</loc>
+    <loc>/tags/annual-report/</loc>
     <lastmod>2018-04-18T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
@@ -225,13 +225,13 @@
   </url>
   
   <url>
-    <loc>/tags/current-deals/</loc>
+    <loc>/categories/current-deals/</loc>
     <lastmod>2018-02-21T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/categories/current-deals/</loc>
+    <loc>/tags/current-deals/</loc>
     <lastmod>2018-02-21T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
@@ -249,13 +249,13 @@
   </url>
   
   <url>
-    <loc>/tags/eia/</loc>
+    <loc>/categories/eia/</loc>
     <lastmod>2018-04-30T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/categories/eia/</loc>
+    <loc>/tags/eia/</loc>
     <lastmod>2018-04-30T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
@@ -267,20 +267,14 @@
   </url>
   
   <url>
-    <loc>/tags/estimates/</loc>
-    <lastmod>2018-04-18T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>/categories/estimates/</loc>
     <lastmod>2018-04-18T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/tags/flowback/</loc>
-    <lastmod>2018-04-23T00:00:00+00:00</lastmod>
+    <loc>/tags/estimates/</loc>
+    <lastmod>2018-04-18T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -291,8 +285,8 @@
   </url>
   
   <url>
-    <loc>/tags/ir/</loc>
-    <lastmod>2018-02-01T00:00:00+00:00</lastmod>
+    <loc>/tags/flowback/</loc>
+    <lastmod>2018-04-23T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -303,8 +297,8 @@
   </url>
   
   <url>
-    <loc>/tags/leasing-activity/</loc>
-    <lastmod>2018-04-12T00:00:00+00:00</lastmod>
+    <loc>/tags/ir/</loc>
+    <lastmod>2018-02-01T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -315,8 +309,8 @@
   </url>
   
   <url>
-    <loc>/tags/maps/</loc>
-    <lastmod>2018-02-09T00:00:00+00:00</lastmod>
+    <loc>/tags/leasing-activity/</loc>
+    <lastmod>2018-04-12T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -327,13 +321,19 @@
   </url>
   
   <url>
-    <loc>/tags/mergers-and-acquisitions/</loc>
-    <lastmod>2018-02-21T00:00:00+00:00</lastmod>
+    <loc>/tags/maps/</loc>
+    <lastmod>2018-02-09T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>/categories/mergers-and-acquisitions/</loc>
+    <lastmod>2018-02-21T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/mergers-and-acquisitions/</loc>
     <lastmod>2018-02-21T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
@@ -363,25 +363,25 @@
   </url>
   
   <url>
-    <loc>/tags/pad-development/</loc>
-    <lastmod>2018-04-05T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>/categories/pad-development/</loc>
     <lastmod>2018-04-05T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/tags/pads/</loc>
-    <lastmod>2018-01-08T00:00:00+00:00</lastmod>
+    <loc>/tags/pad-development/</loc>
+    <lastmod>2018-04-05T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>/categories/pads/</loc>
+    <lastmod>2018-01-08T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/pads/</loc>
     <lastmod>2018-01-08T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
