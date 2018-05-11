@@ -424,6 +424,26 @@ leaflet(egn,width="100%",height = 550) %>%
 <br>
 <br>
 
+####<span style= "color:red":>**Jagged Peak Energy**</span>
+<img style="float: right;" src="/img/1q18/jagg_land.png">
+
+* Production averaged **28 Mboe/d,** up **15%** compared to the previous quarter.
+    + PoP'd 11 gross wells.
+* Guiding second quarter production to ~31.5 Mboe/d, or an increase of ~14% from the first quarter. 
+* In 2018, **80%** of activity will be focused on the **Lower Wolfcamp A** in Cochise and Whiskey River.
+    + Expect to spud 40 to 45 gross operated wells and place on production 42 to 46 gross operated wells.
+* Highlighted step change in drilling and completion efficiencies.
+    + Drilling footage improved from 671 feet per day to **760 feet per day** and stages completed per day increased from 2.3 to **2.6 stages per day**, a **13%** sequential improvement for both metrics.
+* Licensed **3D seismic** covering its **Cochise** project area. Initial results have successfully identified high quality shale targets and assisted in geosteering laterals. 
+  + Company is also participating in a 3D seismic survey over its **Whiskey River** project area.
+* Acquired **~2,500 net acres** for $7.5 million **($3000/acre).**
+* First quarter results in the **Wolfcamp A** are performing in line with **1.2 MMboe** company model adjusted to a 9,000' lateral using a 75% scaling factor.
+* Currently have **~60 MBo/d** of committed capacity on the **Oryx system** providing access to key regional market hubs in Crane and Midland. 
+    + Basis hedges in place for approximately 66% of projected 2018 oil production at a differential of less than $1 below Cushing prices.
+* Hedged **~71%** of projected 2018 oil production at ~$53 per barrel.    
+<br>
+<br>
+
 ####**Laredo Petroleum**
 
 * Production averaged **63 Mboe/d**, up **~9%** from the previous quarter.
