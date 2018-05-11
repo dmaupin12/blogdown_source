@@ -3,8 +3,8 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>/2018/05/07/1q-18-conference-call-highlights/</loc>
-    <lastmod>2018-05-07T00:00:00+00:00</lastmod>
+    <loc>/2018/05/11/1q-18-conference-call-highlights/</loc>
+    <lastmod>2018-05-11T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -148,7 +148,7 @@
   
   <url>
     <loc>/tags/1q18/</loc>
-    <lastmod>2018-05-07T00:00:00+00:00</lastmod>
+    <lastmod>2018-05-11T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -165,13 +165,13 @@
   </url>
   
   <url>
-    <loc>/categories/annual-report/</loc>
+    <loc>/tags/annual-report/</loc>
     <lastmod>2018-04-18T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/tags/annual-report/</loc>
+    <loc>/categories/annual-report/</loc>
     <lastmod>2018-04-18T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
@@ -208,30 +208,30 @@
   
   <url>
     <loc>/</loc>
-    <lastmod>2018-05-07T00:00:00+00:00</lastmod>
+    <lastmod>2018-05-11T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>/categories/conference-call-highlights/</loc>
-    <lastmod>2018-05-07T00:00:00+00:00</lastmod>
+    <lastmod>2018-05-11T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>/tags/conference-calls/</loc>
-    <lastmod>2018-05-07T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/categories/current-deals/</loc>
-    <lastmod>2018-02-21T00:00:00+00:00</lastmod>
+    <lastmod>2018-05-11T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>/tags/current-deals/</loc>
+    <lastmod>2018-02-21T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/categories/current-deals/</loc>
     <lastmod>2018-02-21T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
@@ -249,13 +249,13 @@
   </url>
   
   <url>
-    <loc>/categories/eia/</loc>
+    <loc>/tags/eia/</loc>
     <lastmod>2018-04-30T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/tags/eia/</loc>
+    <loc>/categories/eia/</loc>
     <lastmod>2018-04-30T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
@@ -267,20 +267,14 @@
   </url>
   
   <url>
-    <loc>/categories/estimates/</loc>
-    <lastmod>2018-04-18T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>/tags/estimates/</loc>
     <lastmod>2018-04-18T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/categories/flowback/</loc>
-    <lastmod>2018-04-23T00:00:00+00:00</lastmod>
+    <loc>/categories/estimates/</loc>
+    <lastmod>2018-04-18T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -291,8 +285,8 @@
   </url>
   
   <url>
-    <loc>/categories/ir/</loc>
-    <lastmod>2018-05-07T00:00:00+00:00</lastmod>
+    <loc>/categories/flowback/</loc>
+    <lastmod>2018-04-23T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -303,8 +297,8 @@
   </url>
   
   <url>
-    <loc>/categories/leasing-activity/</loc>
-    <lastmod>2018-04-12T00:00:00+00:00</lastmod>
+    <loc>/categories/ir/</loc>
+    <lastmod>2018-05-11T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -315,8 +309,8 @@
   </url>
   
   <url>
-    <loc>/categories/maps/</loc>
-    <lastmod>2018-02-09T00:00:00+00:00</lastmod>
+    <loc>/categories/leasing-activity/</loc>
+    <lastmod>2018-04-12T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -327,13 +321,19 @@
   </url>
   
   <url>
-    <loc>/categories/mergers-and-acquisitions/</loc>
-    <lastmod>2018-02-21T00:00:00+00:00</lastmod>
+    <loc>/categories/maps/</loc>
+    <lastmod>2018-02-09T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>/tags/mergers-and-acquisitions/</loc>
+    <lastmod>2018-02-21T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/categories/mergers-and-acquisitions/</loc>
     <lastmod>2018-02-21T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
@@ -363,25 +363,25 @@
   </url>
   
   <url>
-    <loc>/categories/pad-development/</loc>
-    <lastmod>2018-04-05T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>/tags/pad-development/</loc>
     <lastmod>2018-04-05T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/categories/pads/</loc>
-    <lastmod>2018-01-08T00:00:00+00:00</lastmod>
+    <loc>/categories/pad-development/</loc>
+    <lastmod>2018-04-05T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>/tags/pads/</loc>
+    <lastmod>2018-01-08T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/categories/pads/</loc>
     <lastmod>2018-01-08T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
@@ -406,7 +406,7 @@
   
   <url>
     <loc>/post/</loc>
-    <lastmod>2018-05-07T00:00:00+00:00</lastmod>
+    <lastmod>2018-05-11T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -424,7 +424,7 @@
   
   <url>
     <loc>/tags/</loc>
-    <lastmod>2018-05-07T00:00:00+00:00</lastmod>
+    <lastmod>2018-05-11T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
