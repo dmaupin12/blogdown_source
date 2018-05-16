@@ -15,6 +15,7 @@ description: Permitting activity highlighting top 20 operators and cluster mappi
 ####**Version Update**
 
 * Added capability to filter to company permits and acreage.
+* Export table now includes surface longitude and suface latitude.
 <br>
 
 ####**Overview of Permitting Activity**
@@ -221,7 +222,7 @@ leaflet(width="100%",height = 550) %>%
   addTiles(group = "Esri.WorldTopoMap")%>%
   addProviderTiles(providers$Esri.WorldTopoMap)%>%
   addPolygons(data=cxo_leases,fillColor='yellow',fillOpacity = .4,stroke=NA)%>%
-  addPolygons(data=competitors_sd,fillColor='grey',fillOpacity = .3,stroke=NA)%>%
+  addPolygons(data=competitors_sd,fillColor='grey',fillOpacity = .3,stroke=NA,group="Competitor Acreage")%>%
   addCircleMarkers(data=tx_nm_permits_sd,~surface_longitude,radius=10, ~surface_latitude, stroke = F,color=~pal(Top20),fillOpacity=.8, group = "Permitting Activity", 
   popup=paste("Company:", tx_nm_permits$operator_alias, "<br>",
               "Well Name:", tx_nm_permits$lease_name," ",tx_nm_permits$well_number," ",tx_nm_permits$drill_type,"<br>",
@@ -232,7 +233,7 @@ leaflet(width="100%",height = 550) %>%
   setView(lng=-102.79, lat=31.89, zoom=7)%>%
   # Overlay groups
   addLayersControl(
-    overlayGroups = c("Permitting Activity","Concho Leases"),
+    overlayGroups = c("Permitting Activity","Competitor Acreage"),
     options = layersControlOptions(collapsed = FALSE),position='topleft')%>%
   addLegend('topright',pal=pal,values=tx_nm_permits$Top20,title="Company",opacity=1)%>%
   addFullscreenControl( )%>%suspendScroll()%>% addScaleBar(position="topleft")
@@ -249,7 +250,6 @@ leaflet(width="100%",height = 550) %>%
   addTiles(group = "Esri.WorldTopoMap")%>%
   addProviderTiles(providers$Esri.WorldTopoMap)%>%
   addPolygons(data=cxo_leases,fillColor='yellow',fillOpacity = .4,stroke=NA)%>%
-  addPolygons(data=competitors_sd,fillColor='grey',fillOpacity = .3,stroke=NA)%>%
   addCircleMarkers(data=tx_nm_permits_sd,clusterOptions= markerClusterOptions(freezeAtZoom=13, spiderfyDistanceMultiplier=3),~surface_longitude,radius=10, ~surface_latitude, stroke = F,color=~pal(Top20),fillOpacity=.6, group = "Permitting Activity", 
   popup=paste("Company:", tx_nm_permits$operator_alias, "<br>",
               "Well Name:", tx_nm_permits$lease_name," ",tx_nm_permits$well_number," ",tx_nm_permits$drill_type,"<br>",
@@ -260,7 +260,7 @@ leaflet(width="100%",height = 550) %>%
   setView(lng=-102.79, lat=31.89, zoom=7)%>%
   # Overlay groups
   addLayersControl(
-    overlayGroups = c("Permitting Activity","Concho Leases"),
+    overlayGroups = c("Permitting Activity"),
     options = layersControlOptions(collapsed = FALSE),position='topleft')%>%
   addLegend('topright',pal=pal,values=tx_nm_permits$Top20,title="Company",opacity=1)%>%
   addFullscreenControl( )%>%suspendScroll()%>% addScaleBar(position="topleft")
@@ -280,7 +280,7 @@ ggplot(Top20f, aes(x=Top20,fill=Top20))+geom_bar()+scale_fill_manual(values=col)
 <br>
 *Open csv by right clicking and selecting show in folder. Rename file with **EXAMPLE.csv** which can then be saved as an excel document.*
 ```{r,echo=F}
-table<-DT::datatable(tx_nm_permits[,c(1:4,23,9,6)],class = 'cell-border stripe',filter='top',extensions='Buttons',
+table<-DT::datatable(tx_nm_permits[,c(1:4,23,9,6,17,18)],class = 'cell-border stripe',filter='top',extensions='Buttons',
                      options = list(dom = 'Bfrtip',
                                     buttons= c('csv','pdf'),
     columnDefs = list(list(className = 'dt-center', targets = 5)),
