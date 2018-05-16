@@ -6,18 +6,29 @@
     <description>Recent content in Posts on Concho Resources</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 15 May 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 31 May 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Monthly Permits</title>
-      <link>/2018/05/15/monthly-permits/</link>
-      <pubDate>Tue, 15 May 2018 00:00:00 +0000</pubDate>
+      <link>/2018/05/31/monthly-permits/</link>
+      <pubDate>Thu, 31 May 2018 00:00:00 +0000</pubDate>
       
-      <guid>/2018/05/15/monthly-permits/</guid>
+      <guid>/2018/05/31/monthly-permits/</guid>
       <description>Overview of Permitting ActivityCurrently only shows horizontal permits.Wells contains following permitting attributes: Company, Well Name, Well Type, Approval Date, Formation and Permit Depth.2nd map attempts to identify permitted well pads using clustering.Note: Well counts do not include previously drilled or permitted wells.Top 20 operators are colored in map and chart.</description>
+    </item>
+    
+    <item>
+      <title>Weekly Rigs</title>
+      <link>/2018/05/14/weekly-rigs/</link>
+      <pubDate>Mon, 14 May 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/2018/05/14/weekly-rigs/</guid>
+      <description>Weekly rig report sourced from Baker HughesMap identifies week over week change in rig activity by county in New Mexico and Texas.The graph shows the top 10 counties by overall rig count beginning in 2016.Quote of the weekWhatever you are, be a good one.Abraham Lincoln
+
+</description>
     </item>
     
     <item>
@@ -27,16 +38,6 @@
       
       <guid>/2018/05/11/1q-18-conference-call-highlights/</guid>
       <description>Service CompaniesBaker HughesHalliburtonSuperior Energy ServicesUS SilicaUpstream CompaniesAnadarko PetroleumApache CorporationCallon PetroleumCarrizo Oil and GasCentennial ResourcesChevronCimarex EnergyDevon EnergyDiamondback EnergyEncanaEnergenEOG ResourcesExxonMobilHalcon ResourcesJagged Peak EnergyLaredo PetroleumMarathon OilMatador ResourcesOccidental PetroleumNoble EnergyOasis PetroleumParsley EnergyPDC EnergyPioneer Natural ResourcesQEP ResourcesResolute EnergyRSP PermianWPX EnergyTurn mobile devices horizontal for figures to display properly.</description>
-    </item>
-    
-    <item>
-      <title>Weekly Rigs</title>
-      <link>/2018/05/07/weekly-rigs/</link>
-      <pubDate>Mon, 07 May 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/2018/05/07/weekly-rigs/</guid>
-      <description>Weekly rig report sourced from Baker HughesMap identifies week over week change in rig activity by county in New Mexico and Texas.The graph shows the top 10 counties by overall rig count beginning in 2016.Quote of the weekIt takes 20 years to build a reputation and five minutes to ruin it. If you think about that, you’ll do things differently.
-Long ago, Ben Graham taught me that ‘Price is what you pay; value is what you get.</description>
     </item>
     
     <item>

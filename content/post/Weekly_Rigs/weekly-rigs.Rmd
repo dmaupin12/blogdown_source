@@ -1,7 +1,7 @@
 ---
 title: Weekly Rigs
 author: David Maupin
-date: '2018-05-07'
+date: '2018-05-14'
 tags:
   - Baker Hughes Weekly Update
 slug: weekly-rigs
@@ -14,10 +14,8 @@ slug: weekly-rigs
 
 ####**Quote of the week**
 
-* *It takes 20 years to build a reputation and five minutes to ruin it. If you think about that, you'll do things differently.*
-
-* *Long ago, Ben Graham taught me that 'Price is what you pay; value is what you get.' Whether we're talking about socks or stocks, I like buying quality merchandise when it is marked down.*
-    + *Warren Buffet*
+* *Whatever you are, be a good one.*
+    + *Abraham Lincoln*
 
 <br>
 <br>
