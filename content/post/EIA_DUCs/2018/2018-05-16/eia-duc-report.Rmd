@@ -16,7 +16,7 @@ slug: eia-duc-report
 
 ####**Permian Monthly Highlights**
 * Permian Basin ended April with **~3,086 wells waiting on completion.**   
-* For the past eight moths, the **DUC to Completion Ratio** has remained steady at **~6.5:1.**
+* For the past eight months, the **DUC to Completion Ratio** has remained steady at **~6.5:1.**
 
 ```{r, echo=F, warning=F, message=F}
 library(tidyverse)
