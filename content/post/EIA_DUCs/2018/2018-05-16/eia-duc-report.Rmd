@@ -1,7 +1,7 @@
 ---
 title: EIA DUC Report
 author: David Maupin
-date: '2018-04-17'
+date: '2018-05-16'
 categories:
   - Drilled and Completed
   - DUCs
@@ -15,8 +15,8 @@ slug: eia-duc-report
 * Report tracks monthly changes in DUC inventory beginning in 2014.
 
 ####**Permian Monthly Highlights**
-* Permian Basin ended February with **~3,044 wells waiting on completion.** This marks the first time inventory has reached over 3,000 wells.  
-
+* Permian Basin ended April with **~3,086 wells waiting on completion.**   
+* For the past eight moths, the **DUC to Completion Ratio** has remained steady at **~6.5:1.**
 
 ```{r, echo=F, warning=F, message=F}
 library(tidyverse)
@@ -173,8 +173,8 @@ P1=ggplot(subset(AllBasins, Date<="2016-01-02"), aes(Date, DUC, group=Basin, col
   size=2, color="blue", fill= "blue")+ geom_path(aes(cumulative = TRUE, group = Basin))+theme(legend.position = "none")+
   geom_line(data=subset(AllBasins, Basin %in% c("Bakken","Haynesville","Marcellus","Utica","Niobrara","Anadarko") & Date >="2016-01-02"), aes(Date,DUC,frame=Date),
   size=2, color="blue", fill= "blue")+ scale_x_date(breaks= pretty_breaks(), limits = as.Date(c(
-  '2014-01-01','2018-04-01')))+ theme(strip.text.x = element_text(size = 12))+scale_y_continuous(labels=comma)+
-  scale_x_date(breaks= pretty_breaks(), limits = as.Date(c('2014-01-01','2018-04-01')))+ 
+  '2014-01-01','2018-05-01')))+ theme(strip.text.x = element_text(size = 12))+scale_y_continuous(labels=comma)+
+  scale_x_date(breaks= pretty_breaks(), limits = as.Date(c('2014-01-01','2018-05-01')))+ 
   theme(strip.text.x = element_text(size = 12))+scale_y_continuous(labels=comma, breaks= pretty_breaks())+
   labs(y="Number of DUCS", title="DUC Inventory By Basin",subtitle="EIA includes any well in DUC inventory after 20 days since reported spud date.",
   caption="Sourced from EIA")+theme(plot.title=element_text(size=14, face="bold", vjust=-3),
@@ -191,7 +191,7 @@ P2=ggplot(subset(AllBasins, Date<="2016-01-02"), aes(Date, DUC_CompRatio, group=
   size=2, color="blue", fill= "blue")+ geom_path(aes(cumulative = TRUE, group = Basin))+theme(legend.position = "none")+
   geom_line(data=subset(AllBasins, Basin %in% c("Bakken","Haynesville","Marcellus","Utica","Niobrara","Anadarko") & Date >="2016-01-02"), aes(Date,DUC_CompRatio,frame=Date),
   size=2, color="blue", fill= "blue")+ scale_x_date(breaks= pretty_breaks(), limits = as.Date(c(
-  '2014-01-01','2018-04-01')))+ 
+  '2014-01-01','2018-05-01')))+ 
   geom_line(data=subset(AllBasins, Date>"2014-06-02"), aes(Date,SixMonthAvg),color='black',linetype=7, size=.5, show.legend = T)+
   theme(strip.text.x = element_text(size = 12))+scale_y_continuous(labels=comma, breaks= pretty_breaks())+
   labs(y="DUC Completion Ratio", title="DUC To Completion Ratio",subtitle="At the end of 2014, DUC/Completion Ratio was around 2:1 for oil regions and 4:1 for gas regions.",
@@ -203,7 +203,7 @@ P2=ggplot(subset(AllBasins, Date<="2016-01-02"), aes(Date, DUC_CompRatio, group=
 #All Regions Drilled and Completed 
 P3=ggplot()+geom_area(data=AllBasins, aes(Date,Drilled,fill="Drilled" ), stat='identity', alpha=.75,show.legend =T)+theme_minimal()+
   geom_line(data=AllBasins, aes(Date,Completed, color="Completed" ), size=2)+facet_wrap(~Basin, scales="free")+
-  scale_x_date(breaks= pretty_breaks(), limits = as.Date(c('2014-01-01','2018-04-01')))+ theme(strip.text.x = element_text(size = 12))+scale_y_continuous(labels=comma, breaks= pretty_breaks())+
+  scale_x_date(breaks= pretty_breaks(), limits = as.Date(c('2014-01-01','2018-05-01')))+ theme(strip.text.x = element_text(size = 12))+scale_y_continuous(labels=comma, breaks= pretty_breaks())+
   labs(y="Well Count", title="Drilled and Completed Wells",subtitle=" ",
   caption="Sourced from EIA")+
   theme(plot.title=element_text(size=14, face="bold", vjust=-3),
