@@ -11,18 +11,24 @@ description: Permitting activity highlighting top 20 operators and cluster mappi
   to identify pads.
 ---
 
-####**Overview of Permitting Activity**
 
+####**Version Update**
+
+* Added capability to filter to company permits and acreage.
+<br>
+
+####**Overview of Permitting Activity**
 
 * Currently only shows horizontal permits.
 * Wells contains following permitting attributes: Company, Well Name, Well Type, Approval Date, Formation and Permit Depth.
-* 2^nd^ map attempts to identify **permitted well pads** using clustering.
+* 2^nd^ map identifies **permitted well pads** using clustering.
     + *Note: Well counts do not include previously drilled or permitted wells.*
 * **Top 20** operators are colored in map and chart.
 
 
+
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(fig.align = 'center')
+knitr::opts_chunk$set(fig.align = 'center',echo=F,warning=F,message=F,asis=F)
 ```
 
 ```{r,echo=F,warning=F,message=F}
@@ -36,6 +42,8 @@ library(leaflet)
 library(leaflet.extras)
 library(rgdal)
 library(widgetframe)
+library(crosstalk)
+library(sf)
 ```
 
 
@@ -171,88 +179,92 @@ tx_nm_permits$min_date<- min_date
 
 #filter permits by min_date
 prev_5_days_perm<- tx_nm_permits%>% group_by(api_10)%>% filter(approved_date>=min_date)
+```
 
-map1<-leaflet(cxo_leases,width="100%",height = 550,options=leafletOptions(zoomControl=F)) %>%
-  # Base groups
-  addTiles(group = "Esri.WorldTopoMap")%>%
-  addProviderTiles(providers$Esri.WorldTopoMap)%>%
-  addPolygons(data = cxo_leases, fillOpacity = .5,fillColor = 'yellow',stroke=F,group = "Concho Leases")%>%
-  addCircleMarkers(data=tx_nm_permits,~surface_longitude,radius=10, ~surface_latitude, stroke = F,color=~pal(Top20),fillOpacity=.6, group = "Permitting Activity", 
-  popup=paste("Company:", tx_nm_permits$operator_alias, "<br>",
-              "Well Name:", tx_nm_permits$lease_name," ",tx_nm_permits$well_number," ",tx_nm_permits$drill_type,"<br>",
-              "Well Type:", tx_nm_permits$well_type,"<br>",
-              "Approved Date:",tx_nm_permits$approved_date,"<br>",
-              "Formation", tx_nm_permits$formation,"<br>",
-              "Permit Depth", tx_nm_permits$permitted_depth,"<br>"))%>%
-  addCircleMarkers(data=prev_5_days_perm,~surface_longitude,radius=10, ~surface_latitude, stroke = F,color=~pal(Top20),fillOpacity=.6, group = "Last 5 Days Permits", 
-  popup=paste("Company:", prev_5_days_perm$operator_alias, "<br>",
-              "Well Name:", prev_5_days_perm$lease_name," ",prev_5_days_perm$well_number," ",prev_5_days_perm$drill_type,"<br>",
-              "Well Type:", prev_5_days_perm$well_type,"<br>",
-              "Approved Date:",prev_5_days_perm$approved_date,"<br>",
-              "Formation", prev_5_days_perm$formation,"<br>",
-              "Permit Depth", prev_5_days_perm$permitted_depth,"<br>"))
+```{r}
+competitors<-readOGR(".","competitors", verbose=F)
 
-map2<-leaflet(cxo_leases,width='100%',height = 550,options=leafletOptions(zoomControl=F)) %>%
-  # Base groups
-  addTiles(group = "Esri.WorldTopoMap")%>%
-  addProviderTiles(providers$Esri.WorldTopoMap)%>%
-  addPolygons(data = cxo_leases, fillOpacity = .5,fillColor = 'yellow',stroke=F,group = "Concho Leases")%>%
-  addCircleMarkers(data=tx_nm_permits,~surface_longitude,radius=5, ~surface_latitude, stroke = F,color=~pal(Top20),fillOpacity=.6, group = "Permitting Activity", 
-  popup=paste("Company:", tx_nm_permits$operator_alias, "<br>",
-              "Well Name:", tx_nm_permits$lease_name," ",tx_nm_permits$well_number," ",tx_nm_permits$drill_type,"<br>",
-              "Well Type:", tx_nm_permits$well_type,"<br>",
-              "Approved Date:",tx_nm_permits$approved_date,"<br>",
-              "Formation", tx_nm_permits$formation,"<br>",
-              "Permit Depth", tx_nm_permits$permitted_depth,"<br>"))%>%
-  addCircleMarkers(data=tx_nm_permits,clusterOptions= markerClusterOptions(freezeAtZoom=13, spiderfyDistanceMultiplier=3),~surface_longitude,radius=10, ~surface_latitude, stroke = F,color=~pal(Top20),fillOpacity=.6, group = "Permitting Activity", 
-  popup=paste("Company:", tx_nm_permits$operator_alias, "<br>",
-              "Well Name:", tx_nm_permits$lease_name," ",tx_nm_permits$well_number," ",tx_nm_permits$drill_type,"<br>",
-              "Well Type:", tx_nm_permits$well_type,"<br>",
-              "Approved Date:",tx_nm_permits$approved_date,"<br>",
-              "Formation", tx_nm_permits$formation,"<br>",
-              "Permit Depth", tx_nm_permits$permitted_depth,"<br>"))
+competitors<-st_as_sf(competitors)
+
+competitors<- left_join(competitors,alias, by=c("Company"="operator_alias"))
+
+company_filter<- as.data.frame(unique(unique(tx_nm_permits$Alias)))
+colnames(company_filter)[1]<-"Alias"
+
+competitors<- left_join(company_filter,competitors)%>% filter(!is.na(Link))
+
+competitors<-st_as_sf(competitors)
+
+competitors<- as(competitors,"Spatial")
+
+competitors$Reset_Filter='RESET'
 
 ```
 
-```{r,echo=F, warning=F, message=F} 
-map1<-map1 %>% setView(map1,lng=-102.79, lat=31.89, zoom=7)%>%
-  # Overlay groups
-  addLayersControl(
-    overlayGroups = c("Last 5 Days Permits","Permitting Activity","Concho Leases"),
-    options = layersControlOptions(collapsed = FALSE),position='topleft')%>%
-  addLegend('topright',pal=pal,values=tx_nm_permits$Top20,title="Company",opacity=1)
+```{r}
+competitors_sd<- SharedData$new(competitors)
+tx_nm_permits_sd<- SharedData$new(tx_nm_permits)
+ 
+#Added this to allow sharedDate to work ()
 
-map1<-map1%>% hideGroup("Permitting Activity")%>%
-  addFullscreenControl( )%>%suspendScroll()%>% addScaleBar(position="topleft")
+competitors_sd_df <- SharedData$new(competitors@data, group = competitors_sd$groupName())
 
+```
 
-map2<-map2 %>% setView(map2,lng=-102.79, lat=31.89, zoom=7)%>%
+<h4 style="text-align: center;" markdown="1">**May Permitting Activity**</h4>
+```{r}
+filter_select('Alias','Company Permits',tx_nm_permits_sd,~Alias)
+filter_select('Alias','Company Acreage',competitors_sd_df,~Alias)
+
+leaflet(width="100%",height = 550) %>%
+  # Base groups
+  addTiles(group = "Esri.WorldTopoMap")%>%
+  addProviderTiles(providers$Esri.WorldTopoMap)%>%
+  addPolygons(data=cxo_leases,fillColor='yellow',fillOpacity = .4,stroke=NA)%>%
+  addPolygons(data=competitors_sd,fillColor='grey',fillOpacity = .3,stroke=NA)%>%
+  addCircleMarkers(data=tx_nm_permits_sd,~surface_longitude,radius=10, ~surface_latitude, stroke = F,color=~pal(Top20),fillOpacity=.8, group = "Permitting Activity", 
+  popup=paste("Company:", tx_nm_permits$operator_alias, "<br>",
+              "Well Name:", tx_nm_permits$lease_name," ",tx_nm_permits$well_number," ",tx_nm_permits$drill_type,"<br>",
+              "Well Type:", tx_nm_permits$well_type,"<br>",
+              "Approved Date:",tx_nm_permits$approved_date,"<br>",
+              "Formation", tx_nm_permits$formation,"<br>",
+              "Permit Depth", tx_nm_permits$permitted_depth,"<br>"))%>%
+  setView(lng=-102.79, lat=31.89, zoom=7)%>%
   # Overlay groups
   addLayersControl(
     overlayGroups = c("Permitting Activity","Concho Leases"),
     options = layersControlOptions(collapsed = FALSE),position='topleft')%>%
-  addLegend('topright',pal=pal,values=tx_nm_permits$Top20,title="Company",opacity=1)
-
-map2<-map2%>%addFullscreenControl( pseudoFullscreen = T)%>%suspendScroll()%>% addScaleBar(position="topleft")
-```
-
-
-
-<h4 style="text-align: center;" markdown="1">**May Permitting Activity**</h4>
-```{r, echo=F}
-map1
+  addLegend('topright',pal=pal,values=tx_nm_permits$Top20,title="Company",opacity=1)%>%
+  addFullscreenControl( )%>%suspendScroll()%>% addScaleBar(position="topleft")
 ```
 <br>
 <br>
-
 
 * Numbered circles identify wells within 1 mile of each other.
 
 <h4 style="text-align: center;" markdown="1">**Identifying Well Pads Using Cluster Mapping**</h4>
-```{r, echo=F}
-map2  
-```
-*Zoom in to view clusters*
+```{r}
+leaflet(width="100%",height = 550) %>%
+  # Base groups
+  addTiles(group = "Esri.WorldTopoMap")%>%
+  addProviderTiles(providers$Esri.WorldTopoMap)%>%
+  addPolygons(data=cxo_leases,fillColor='yellow',fillOpacity = .4,stroke=NA)%>%
+  addPolygons(data=competitors_sd,fillColor='grey',fillOpacity = .3,stroke=NA)%>%
+  addCircleMarkers(data=tx_nm_permits_sd,clusterOptions= markerClusterOptions(freezeAtZoom=13, spiderfyDistanceMultiplier=3),~surface_longitude,radius=10, ~surface_latitude, stroke = F,color=~pal(Top20),fillOpacity=.6, group = "Permitting Activity", 
+  popup=paste("Company:", tx_nm_permits$operator_alias, "<br>",
+              "Well Name:", tx_nm_permits$lease_name," ",tx_nm_permits$well_number," ",tx_nm_permits$drill_type,"<br>",
+              "Well Type:", tx_nm_permits$well_type,"<br>",
+              "Approved Date:",tx_nm_permits$approved_date,"<br>",
+              "Formation", tx_nm_permits$formation,"<br>",
+              "Permit Depth", tx_nm_permits$permitted_depth,"<br>"))%>%
+  setView(lng=-102.79, lat=31.89, zoom=7)%>%
+  # Overlay groups
+  addLayersControl(
+    overlayGroups = c("Permitting Activity","Concho Leases"),
+    options = layersControlOptions(collapsed = FALSE),position='topleft')%>%
+  addLegend('topright',pal=pal,values=tx_nm_permits$Top20,title="Company",opacity=1)%>%
+  addFullscreenControl( )%>%suspendScroll()%>% addScaleBar(position="topleft")
+```  
 <br>
 
 ```{r,warning=F, echo=F,fig.width=8.5, fig.height= 6}
