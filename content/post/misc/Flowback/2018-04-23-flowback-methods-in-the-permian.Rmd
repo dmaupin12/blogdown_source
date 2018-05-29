@@ -80,17 +80,22 @@ delaware<- delaware%>% group_by(Alias)%>% mutate(WellCnt= max(dense_rank(UWI)))%
 
 
 ```{r}
-ggplot(data= subset(delaware,!is.na(Size)),aes(Alias,fill=as.character(Size)))+geom_bar()+theme_minimal()+ scale_fill_brewer(palette='Set2',labels=c("2 3/8","2 7/8","3 1/2","4 1/2","5","5 1/2"),name= "Casing/Tubing Size")+ theme(legend.position = 'bottom')+ggtitle("Flowback Methods in the Northern Delaware (NM)",subtitle = 'Majority of EOG, Mewbourne, Matador and Oxy wells flow up casing.')+ylab("Well Count")+labs(caption="Data sourced from NMOCD Well Filings (C-104 & C-105) and IHS")+xlab("")+
-  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+p1<-ggplot(data= subset(delaware,!is.na(Size)),aes(Alias,fill=as.character(Size)))+geom_bar()+theme_minimal()+ scale_fill_brewer(palette='Set2',labels=c("2 3/8","2 7/8","3 1/2","4 1/2","5","5 1/2"),name= "Casing/Tubing Size")+ theme(legend.position = 'bottom')+ggtitle("Northern Delaware Flowback Methods",subtitle = 'Majority of EOG, Mewbourne, Matador\n and Oxy wells flow up casing.')+ylab("Well Count")+labs(caption="Data sourced from NMOCD Well Filings (C-104 & C-105) and IHS")+xlab("")+
+  theme(axis.text.x = element_text(angle = 45, hjust = 1),legend.position=c(.78,.9))+guides(fill=guide_legend(ncol=2,title.position = "top",title.hjust = .5))
+p1
+ggsave("casing.png",plot=p1,width=4,height=6)
 ```
 
 
 ```{r}
-ggplot(data=subset(delaware, !is.na(Size)& !is.na(Choke_Size)), aes(Choke_Size,Total.Volume,size=as.character(Size),color=Alias))+geom_point(alpha=.65)+ theme_minimal()+theme(axis.text.x = element_text(angle = 90, hjust = 1))+scale_color_brewer(palette='Set3',name= "")+scale_size_discrete(breaks=c(2.375,2.875,3.5,4.5,5,5.5),labels=c("2 3/8","2 7/8","3 1/2","4 1/2","5","5 1/2"),name="Casing\nTubing Size")+guides(size=guide_legend(ncol=3))+ 
+p2<-ggplot(data=subset(delaware, !is.na(Size)& !is.na(Choke_Size)), aes(Choke_Size,Total.Volume,size=as.character(Size),color=Alias))+geom_point(alpha=.65)+ theme_minimal()+theme(axis.text.x = element_text(angle = 90, hjust = 1))+scale_color_brewer(palette='Set3',name= "")+scale_size_discrete(breaks=c(2.375,2.875,3.5,4.5,5,5.5),labels=c("2 3/8","2 7/8","3 1/2","4 1/2","5","5 1/2"),name="Casing\nTubing Size")+guides(size=guide_legend(ncol=2))+ 
   geom_point(data=subset(delaware, Alias=="MEW" & !is.na(Size)), aes(Choke_Size,Total.Volume,size=as.character(Size)),color='black',pch=21)+
   geom_smooth(method=lm,na.rm=T,aes(group=1),se=F,color='red',show.legend = F)+
-  guides(colour = guide_legend(override.aes = list(size=5)))+ggtitle("Choke Size Versus Total Initial Volume",subtitle= "EOG and OXY flowback methods appear more aggressive \nin contrast to Mewbourne which maintains intial volumes below 5,000 Bbls/d.")+labs(caption="Data sourced from NMOCD Well Filings (C-104 & C-105) and IHS.")+theme(legend.position = 'bottom')+scale_y_continuous(labels=comma)+
-  theme(legend.title.align = 0.5)+ylab("Total Volume (Bbls)")+xlab("Choke Size")
+  guides(colour = guide_legend(override.aes = list(size=5)),color=guide_legend(keywidth = 10))+ggtitle("Choke Size Versus Total Initial Volume",subtitle= "EOG and OXY flowback methods appear more aggressive \nin contrast to Mewbourne which maintains intial volumes below 5,000 Bbls/d.")+labs(caption="Data sourced from NMOCD Well Filings (C-104 & C-105) and IHS.")+theme(legend.position = 'bottom')+scale_y_continuous(labels=comma)+
+  theme(legend.title.align = 0.5,legend.margin=margin(-.3,unit="cm"))+ylab("Total Volume (Bbls)")+xlab("Choke Size")
+p2
+
+ggsave("casing2.png",plot=p2,width=6,height=6)
 ```
 
 
