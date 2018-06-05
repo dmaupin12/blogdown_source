@@ -47,11 +47,11 @@ library(leaflet)
 library(htmltools)
 library(rgdal)
 
-.libPaths()
+#.libPaths()
 #devtools::install_github("dmurdoch/leaflet@crosstalk4",force=T)
 
-.libPaths()
-.libPaths("C:/Program Files/R/R-3.4.2/library")
+#.libPaths()
+#.libPaths("C:/Program Files/R/R-3.4.2/library")
 ```
 
 ```{r,echo=F,warning=F,message=F,verbose=F}
