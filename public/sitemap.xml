@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>/2018/06/05/outside-the-yellow-a-review-of-leasing-activity-over-the-last-12-months/</loc>
+    <lastmod>2018-06-05T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/2018/05/31/monthly-permits/</loc>
     <lastmod>2018-05-31T00:00:00+00:00</lastmod>
   </url>
@@ -10,11 +15,6 @@
   <url>
     <loc>/2018/05/16/eia-duc-report/</loc>
     <lastmod>2018-05-16T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/2018/05/14/weekly-rigs/</loc>
-    <lastmod>2018-05-14T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -167,12 +167,6 @@
   </url>
   
   <url>
-    <loc>/tags/baker-hughes-weekly-update/</loc>
-    <lastmod>2018-05-14T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>/tags/bureau-of-labor-statistics/</loc>
     <lastmod>2018-04-17T00:00:00+00:00</lastmod>
     <priority>0</priority>
@@ -192,13 +186,13 @@
   
   <url>
     <loc>/tags/competior-analysis/</loc>
-    <lastmod>2018-04-23T00:00:00+00:00</lastmod>
+    <lastmod>2018-06-05T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>/</loc>
-    <lastmod>2018-05-31T00:00:00+00:00</lastmod>
+    <lastmod>2018-06-05T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -294,13 +288,13 @@
   
   <url>
     <loc>/tags/leasing-activity/</loc>
-    <lastmod>2018-04-12T00:00:00+00:00</lastmod>
+    <lastmod>2018-06-05T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>/categories/leasing-activity/</loc>
-    <lastmod>2018-04-12T00:00:00+00:00</lastmod>
+    <lastmod>2018-06-05T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -378,7 +372,7 @@
   
   <url>
     <loc>/categories/peer-analysis/</loc>
-    <lastmod>2018-04-23T00:00:00+00:00</lastmod>
+    <lastmod>2018-06-05T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -396,7 +390,7 @@
   
   <url>
     <loc>/post/</loc>
-    <lastmod>2018-05-31T00:00:00+00:00</lastmod>
+    <lastmod>2018-06-05T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   

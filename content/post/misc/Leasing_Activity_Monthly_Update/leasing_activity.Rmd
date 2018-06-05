@@ -1,0 +1,136 @@
+---
+title: 'Outside The Yellow: 2018 Leasing Activity Update'
+author: David
+date: '2018-06-05'
+categories:
+  - leasing activity
+  - Peer Analysis
+tags:
+  - Competior Analysis
+  - leasing activity
+slug: outside-the-yellow-a-review-of-leasing-activity-over-the-last-12-months
+---
+
+
+####**Data Sources and Methodology**
+
+* Compiled all lease level activity for the prior twelve months using DrillingInfo.
+* Analyzed leases documents, memos of leases, extensions and lease amendments in order to identify trends in company leasing activity.
+ 
+
+####**Highlights**
+
+* Use the map to filter by date, company and instrument type.    
+<br>
+<br>
+
+####**Twelve Month Activity Map**
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(fig.align = 'center',echo=F,warning=F,message=F,asis=F)
+```
+
+
+
+```{r,eval=F}
+Sys.setenv('MAPBOX_TOKEN' = 'pk.eyJ1IjoiZG1hdXBpbmNlaCIsImEiOiJjamZtbWhqdHMwdTQzMzNvZGdpc2x4bzlxIn0.eIDdIjeaDK-x7Q8uZgdJGg')
+```
+
+
+
+```{r}
+library(sf)
+library(tidyverse)
+library(plotly)
+library(rgdal)
+library(crosstalk)
+library(leaflet)
+library(htmltools)
+library(rgdal)
+
+.libPaths()
+#devtools::install_github("dmurdoch/leaflet@crosstalk4",force=T)
+
+.libPaths()
+.libPaths("C:/Program Files/R/R-3.4.2/library")
+```
+
+```{r,echo=F,warning=F,message=F,verbose=F}
+DI_Leases<- readOGR(".", "DI_Leases_Sec_Join",verbose=F)
+leases<- readOGR(".",'section_filter_di',verbose=F)
+cxo_leases<- readOGR(".",'cxo_leases_2.21.18',verbose=F)
+#counties <- readOGR(".","counties",verbose = F)
+```
+
+
+
+```{r}
+Color<-rep_len(c('#00ccff','#ff9999','#cc0066','#00264d','#ff0000','#003300',"#e60000",'#99ffff',"#cc9966",'#ff9966','#0d0d0d',"#cc33ff",'#ff5500',"#ccffee","#ff9900","#0000e6",'#660066','#33ffd6','#0099ff','#a6a6a6','#0000ff','#ff00ff','#ff0066','#ffd699','#ffffb3'," dark blue",'#66ff99','#a64dff',"maroon",'#000066',"#e65c00",'#339966',"#0099cc",
+"#800000","#00ffcc","#660066","#ffa31a","red","blue","purple","light green","dark blue","#ccffcc","#3333cc","#b35900","black","#bf4040","#666699","#ad33ff","#ffb3cc","green","purple","#ffb833"),length.out=363)
+
+
+leases<-st_as_sf(leases)
+DI_Leases<-st_as_sf(DI_Leases)
+
+
+
+Grantee_Al<- unique(DI_Leases$Grantee_Al)
+color_frame<- data.frame(Color,Grantee_Al)
+
+DI_Leases<-left_join(DI_Leases,color_frame)
+
+
+DI_Leases$Area__Acre<- round(as.numeric(DI_Leases$Area__Acre),0)
+DI_Leases$Area__Acre<- as.character(DI_Leases$Area__Acre)
+DI_Leases$Record_Dat<- zoo::as.Date(as.character(DI_Leases$Record_Dat))
+
+
+#pal <- colorFactor(palette = unique(as.character(tx_nm_permits$Color)),domain=tx_nm_permits$Top20,levels=tx_nm_permi#ts$Top20,ordered=T)
+
+
+DI_Leases$Reset_Filter='RESET'
+
+DI_Leases$YearQtr<- zoo::as.yearqtr(DI_Leases$Record_Dat)
+
+DI_Leases<-st_join(leases,DI_Leases)
+
+DI_Leases<- as(DI_Leases,"Spatial")
+#DI_Leases@data$YearQtr<- as.character(DI_Leases@data$YearQtr)
+```
+
+```{r}
+labs <- lapply(seq(nrow(DI_Leases@data)), function(i) {
+  paste0("Lessee: ", DI_Leases@data[i, "Grantee_Al"], '<p>',
+         "Instrument Type: ", DI_Leases@data[i, "Instrument"],'<p>',
+         "Acquisition Quarter: ", DI_Leases@data[i, "YearQtr"],'<p>',
+         "Gross Acres: ",DI_Leases@data[i, "Area__Acre"],'<p>',
+         "Transaction Date: ", DI_Leases@data[i,'Record_Dat']) 
+})
+
+```
+
+
+```{r}
+DI_Leases_sd<- SharedData$new(DI_Leases)
+ 
+#Added this to allow sharedDate to work ()
+
+DI_Leases_sd_df <- SharedData$new(DI_Leases@data, group = DI_Leases_sd$groupName())
+```
+
+
+```{r}
+bscols(widths=c(3,NA),list(filter_slider("Record_Dat","Record Date",DI_Leases_sd_df,~Record_Dat),
+        filter_select('Alias','Lessee',DI_Leases_sd_df,~Grantee_Al),
+        filter_select('YearQtr','Date By Quarter',DI_Leases_sd_df,~YearQtr),
+        filter_select('Instrument','Instrument Type',DI_Leases_sd_df,~Instrument)
+        ),
+      leaflet(DI_Leases_sd,width="100%",height = 550) %>%
+  # Base groups
+  addTiles(group = "Esri.WorldTopoMap")%>%
+  addProviderTiles(providers$Esri.WorldTopoMap)%>%
+  addPolygons(data=cxo_leases,fillColor='yellow',fillOpacity = .4,stroke=NA)%>%
+  addPolygons(data=DI_Leases_sd,fillColor = ~Color,fillOpacity = .75,stroke=NA,label=lapply(labs,HTML))%>% setView(lng=-102.79, lat=31.89,zoom=7)
+)
+```
+<br>
+<br>

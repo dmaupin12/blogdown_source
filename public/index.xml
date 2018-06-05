@@ -6,10 +6,20 @@
     <description>Recent content on Concho Resources</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 31 May 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 05 Jun 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Outside The Yellow: 2018 Leasing Activity Update</title>
+      <link>/2018/06/05/outside-the-yellow-a-review-of-leasing-activity-over-the-last-12-months/</link>
+      <pubDate>Tue, 05 Jun 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/2018/06/05/outside-the-yellow-a-review-of-leasing-activity-over-the-last-12-months/</guid>
+      <description>Data Sources and MethodologyCompiled all lease level activity for the prior twelve months using DrillingInfo.Analyzed leases documents, memos of leases, extensions and lease amendments in order to identify trends in company leasing activity.HighlightsUse the map to filter by date, company and instrument type.
+Twelve Month Activity Map## [1] &amp;quot;C:/Program Files/R/R-3.</description>
+    </item>
     
     <item>
       <title>Monthly Permits</title>
@@ -27,17 +37,6 @@
       
       <guid>/2018/05/16/eia-duc-report/</guid>
       <description>Overview of EIA DUC Inventory ReportA drilled but uncompleted well (DUC) is a new well after the end of the drilling process, but its first completion process has not been concluded.EIA uses 20 days to estimate days to TD. This likely overestimates DUC inventory in basins where PAD drilling is predominant.Report tracks monthly changes in DUC inventory beginning in 2014.Permian Monthly HighlightsPermian Basin ended April with ~3,086 wells waiting on completion.</description>
-    </item>
-    
-    <item>
-      <title>Weekly Rigs</title>
-      <link>/2018/05/14/weekly-rigs/</link>
-      <pubDate>Mon, 14 May 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/2018/05/14/weekly-rigs/</guid>
-      <description>Weekly rig report sourced from Baker HughesMap identifies week over week change in rig activity by county in New Mexico and Texas.The graph shows the top 10 counties by overall rig count beginning in 2016.Quote of the weekWhatever you are, be a good one.Abraham Lincoln
-
-</description>
     </item>
     
     <item>
